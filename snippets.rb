@@ -178,6 +178,36 @@ JSON.parse(body)
 510 = :not_extended
 
 
+# cleanup
+vacuumdb -a -f -F
+rm ~/Library/Application\ Support/Postgres93/var/pg_log/*
+
+# stop postgres to clean the pg_xlog directory
+pg_resetxlog ~/Library/Application\ Support/Postgres93/var/
+rm ~/Library/Logs/Pow/access.log
+
+sudo vim /usr/local/etc/mongod.conf
+smallfiles=true
+
+launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.mongodb.plist
+rm /usr/local/var/mongodb/journal/*
+launchctl load ~/Library/LaunchAgents/homebrew.mxcl.mongodb.plist
+
+
+# build gem
+git clone https://github.com/jugyo/tunnels
+cd tunnels
+gem build tunnels.gemspec
+gem install tunnels-1.2.0.gem
+
+openssl req -nodes -new -x509 -keyout server.key -out server.crt -subj "/C=US/ST=Denial/L=Springfield/O=Dis/CN=*.dev"
+sudo tunnels
+
+# Mac OS X instructions
+# Click padlock icon -> Certificate Information -> Drag certificate image to desktop, this will export the certificate
+# Double click certificate and add it to the Keychain. Click [Always Trust]. You have to double click the certificate again, expand Trust section, change When using this certificate: [Always Trust].
+
+
 # Heroku
 heroku logs -t -n2500
 heroku pg:psql
@@ -185,7 +215,7 @@ heroku pg:info
 heroku pg:credentials COPPER
 
 # Heroku pull database
-heroku pgbackups:capture
+heroku pgbackups:capture --expire
 heroku pgbackups
 heroku pgbackups:url
 curl -o db-`date +%F`.dump `heroku pgbackups:url`
