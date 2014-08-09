@@ -44,6 +44,11 @@ vim ~/Library/KeyBindings/DefaultKeyBinding.dict
 "$\UF729" = "moveToBeginningOfLineAndModifySelection:"; /* Shift + Home */
 "$\UF72B" = "moveToEndOfLineAndModifySelection:";       /* Shift + End  */
 }
+# NSUserKeyEquivalents
+# @    Command (Apple)  CMD
+# ~    Option           OPT
+# $    Shift            SHIFT
+# ^    Control          CTRL
 
 
 # Finder.app
@@ -87,11 +92,6 @@ sudo plutil -convert binary1 InfoPlist.strings
 defaults write com.apple.finder NSUserKeyEquivalents -dict-add 'Move to Trash' '\U007F'
 defaults read com.apple.finder NSUserKeyEquivalents
 # WARNING: DELETE KEY WILL NOW DELETE FILE WHEN ATTEMPTING TO RENAME THEM!! USE BACKSPACE!
-# NSUserKeyEquivalents
-# @    Command (Apple)  CMD
-# ~    Option           OPT
-# $    Shift            SHIFT
-# ^    Control          CTRL
 
 # Calendar.app: ignore alerts from specific calendars
 # Right-click calendar → Get Info → [x] Ignore alerts
