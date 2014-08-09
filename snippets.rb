@@ -1,32 +1,32 @@
-# 'STRING'.downcase
-# File.open('file.log','a+') { |f| f.write "#{var.inspect}\n" }
-# u = User.first(order:"RANDOM()")
-# User.find(27).touch # clear IdentityCache
-# User.first.created_at.in_time_zone(ActiveSupport::TimeZone["America/Los_Angeles"])
-# ActiveRecord::Base::sanitize
-# ActionController::Base.helpers.strip_tags
-# ActiveRecord::Base.logger = Logger.new(STDOUT) # see SQL in console
-# $redis.keys.select { |k| $redis.del k } # clear redis the poor man's way
+'STRING'.downcase
+File.open('file.log','a+') { |f| f.write "#{var.inspect}\n" }
+u = User.first(order:"RANDOM()")
+User.find(27).touch # clear IdentityCache
+User.first.created_at.in_time_zone(ActiveSupport::TimeZone["America/Los_Angeles"])
+ActiveRecord::Base::sanitize
+ActionController::Base.helpers.strip_tags
+ActiveRecord::Base.logger = Logger.new(STDOUT) # see SQL in console
+$redis.keys.select { |k| $redis.del k } # clear redis the poor man's way
 
-# rake db:create db:setup db:migrate
-# rails g migration AddAutoSubscribeToUsers
-# rake db:migrate:down VERSION=20131121021805
-# rake db:rollback STEP=3
-# rake db:schema:dump db:structure:dump
-# rake assets:precompile
-# redis-cli FLUSHALL
+rake db:create db:setup db:migrate
+rails g migration AddAutoSubscribeToUsers
+rake db:migrate:down VERSION=20131121021805
+rake db:rollback STEP=3
+rake db:schema:dump db:structure:dump
+rake assets:precompile
+redis-cli FLUSHALL
 
-# Get location of method at runtime
+# get location of method at runtime
 u = User.find_by_uid(1005)
 u.method(:statements).source_location
 
 # longer POW timeout
 # vim ~/.powconfig
-# export POW_TIMEOUT=3600
+export POW_TIMEOUT=3600
 
-# sidekiq inline:
+# sidekiq inline
 # vim config/environments/development.rb
-# require 'sidekiq/testing/inline'
+require 'sidekiq/testing/inline'
 
 # cancel specific jobs in sidekiq retry queue
 Sidekiq::RetrySet.new.each { |job| job.delete if job.klass == 'AwesomeButFailingJob' }
