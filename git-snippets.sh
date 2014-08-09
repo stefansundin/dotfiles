@@ -205,12 +205,6 @@ git gc --aggressive
 du -hs .
 git count-objects -vH
 
-# vim .profile
-function cd {
-  builtin cd "$@"
-  echo -n -e "\033]0;$(git config --get remote.origin.url | sed -e 's/.*[\/|:]//' -e 's/\.git$//')\007";
-}
-
 
 # Hooks
 

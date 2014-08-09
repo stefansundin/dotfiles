@@ -1,3 +1,5 @@
+# function getElementByXpath(path) { return document.evaluate(path, document, null, 9, null).singleNodeValue; }
+
 # \u4e20\u4e21\u4e22\u4e23 = 丠両丢丣
 unescapeUnicode = (str) ->
   str.replace /\\u([\da-f]{4})/gi, (str, p1) ->
