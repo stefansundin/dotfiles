@@ -2,6 +2,7 @@ brew install duti gnu-tar git wget
 ln -s "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" /usr/local/bin/subl
 ln -s /Applications/TrueCrypt.app/Contents/MacOS/TrueCrypt /usr/local/bin/truecrypt
 ln -s /Applications/Gimp.app/Contents/MacOS/gimp-2.8 /usr/local/bin/gimp
+ln -s /Applications/VLC.app/Contents/MacOS/VLC /usr/local/bin/vlc
 sudo xattr -d -r com.apple.quarantine /Applications/
 grep -nr paginator .
 find . -name "*.css" | xargs -l10 grep ".ir"
