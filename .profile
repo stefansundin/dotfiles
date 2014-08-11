@@ -31,6 +31,10 @@ function cd {
   echo -n -e "\033]0;$(git config --get remote.origin.url | sed -e 's/.*[\/|:]//' -e 's/\.git$//')\007";
 }
 
+function git_branch {
+  git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ \[\1\]/'
+}
+
 function proml {
   local        BLUE="\[\033[0;34m\]"
   local         RED="\[\033[0;31m\]"
@@ -40,8 +44,7 @@ function proml {
   local       WHITE="\[\033[1;37m\]"
   local  LIGHT_GRAY="\[\033[0;37m\]"
   local     DEFAULT="\[\033[0m\]"
-  local      BRANCH=`git branch --no-color 2>/dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ \[\1\]/'`
-  PS1="$LIGHT_GREEN\h:\u:$RED\W$BLUE\$($BRANCH) $DEFAULT\$ "
+  PS1="$LIGHT_GREEN\h:\u:$RED\W$BLUE\$(git_branch) $DEFAULT\$ "
 }
 proml
 
