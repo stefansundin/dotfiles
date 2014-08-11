@@ -40,7 +40,7 @@ function proml {
   local       WHITE="\[\033[1;37m\]"
   local  LIGHT_GRAY="\[\033[0;37m\]"
   local     DEFAULT="\[\033[0m\]"
-  local      BRANCH=`git branch --no-color | sed -e '/^[^*]/d' -e 's/* \(.*\)/ \[\1\]/' 2>/dev/null`
+  local      BRANCH=`git branch --no-color 2>/dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ \[\1\]/'`
   PS1="$LIGHT_GREEN\h:\u:$RED\W$BLUE\$($BRANCH) $DEFAULT\$ "
 }
 proml
@@ -67,6 +67,6 @@ function use_bundler {
   fi
 }
 
-for cmd in "rake spec rspec cucumber cap watchr rails rackup guard etl compass jasmine-headless-webkit thor sidekiq parallel_rspec zeus spring knife"; do
+for cmd in rake spec rspec cucumber cap watchr rails rackup guard etl compass jasmine-headless-webkit thor sidekiq parallel_rspec zeus spring knife; do
   alias $cmd="use_bundler $cmd"
 done
