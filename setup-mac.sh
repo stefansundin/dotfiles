@@ -9,6 +9,9 @@ find . -name "*.css" | xargs -l10 grep ".ir"
 
 # press ⌘⇧. (Cmd+Shift+.) to show dotfiles in Open/Save dialogs
 
+# flush DNS
+dscacheutil -flushcache && sudo killall -HUP mDNSResponder
+
 # path of PID
 ps xuwww -p <PID>
 
