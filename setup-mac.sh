@@ -155,7 +155,7 @@ cupsctl WebInterface=yes
 # make Alt+Backspace properly stop at delimiters
 # iTerm preferences → Profiles → Keys → Left option (⌥) key acts as: (x) +Esc
 
-# use read to get keyboard input sequences. Press C-v to bypass terminal parsing (verbatim mode).
+# use `read` to get keyboard input sequences. Press C-v to bypass terminal parsing (verbatim mode).
 # https://code.google.com/p/iterm2/wiki/Keybindings#Escape_sequence_exploration
 
 
