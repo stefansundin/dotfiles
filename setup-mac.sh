@@ -161,9 +161,11 @@ cupsctl WebInterface=yes
 
 # additional apps
 # MagicPrefs to make mouse better
-# MacUtil: https://russellsayshi.com/MacUtil/home
 # USB Overdrive
-#  Wheel up/down → Speed: [5 lines]
+#  Wheel up/down
+#  → Direction: [down/up]
+#  → Speed: [5 lines]
+# MacUtil: https://russellsayshi.com/MacUtil/home
 # iStat Menus
 # CheatSheet
 # Android:
