@@ -7,3 +7,7 @@ Control Mod1 t :ExecCommand gnome-terminal
 None 121 :ExecCommand amixer -D pulse set Master 1+ toggle
 None 122 :ExecCommand amixer set Master 2-
 None 123 :ExecCommand amixer set Master 2+
+
+# Super+right-click for root menu, or right-click toolbar
+Mod4 Mouse3 :RootMenu
+OnToolbar Mouse3 :RootMenu
