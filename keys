@@ -1,0 +1,9 @@
+# Custom Fluxbox keybindings
+
+# Ctrl+Alt+t terminal
+Control Mod1 t :ExecCommand gnome-terminal
+
+# Volume keys Dell Latitude 505
+None 121 :ExecCommand amixer -D pulse set Master 1+ toggle
+None 122 :ExecCommand amixer set Master 2-
+None 123 :ExecCommand amixer set Master 2+
