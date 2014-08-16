@@ -1,0 +1,7 @@
+[begin] (fluxbox)
+[exec] (Terminal) {gnome-terminal}
+[exec] (Firefox) {/usr/bin/firefox}
+[exec] (Google Chrome) {/opt/google/chrome/google-chrome}
+[exec] (File browser) {nautilus --no-desktop}
+[include] (/etc/X11/fluxbox/fluxbox-menu)
+[end]
