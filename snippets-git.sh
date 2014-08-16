@@ -34,13 +34,14 @@ git config --global alias.st status
 
 git remote add upstream git@github.com:DrWhax/truecrypt-archive.git
 git pull upstream master
+git pull --rebase origin master
 git config --global --unset core.editor
 git config --local user.email stefan@
 git lo --before='2014-01-01'
 git lo --shortstat --reverse
 git log --pretty=oneline
 git log --pretty=fuller
-git pull --rebase
+git add -p stage_file_partially.rb
 git ci --amend --author "Stefan Sundin <stefansundin@users.noreply.github.com>"
 git ci --date '2013-12-26 14:30:12'
 
