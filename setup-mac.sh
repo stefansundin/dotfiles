@@ -160,8 +160,11 @@ cupsctl WebInterface=yes
 
 
 # additional apps
-# MagicPrefs to make mouse better
+# MagicPrefs to customize Apple mice
 # USB Overdrive
+#  Button 4/5:
+#  → Press Key: Command+[ / Command+]
+#  → Note: Using 'Keyboard Shortcut' and Back/Forward does not work when text fields are selected!
 #  Wheel up/down
 #  → Direction: [down/up]
 #  → Speed: [5 lines]
