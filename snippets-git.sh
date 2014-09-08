@@ -27,10 +27,12 @@ git config --global alias.l "log --pretty=format:'%C(yellow)%h%Creset %ci %<|(50
 # git config --global alias.l 'log --oneline'
 git config --global alias.li '!git log $1^..$1 ${*:2} #'
 git config --global alias.lo "log --pretty=format:'%C(yellow)%h%Creset %ci %<|(50)%Cred%cr%Creset %<|(70)%cn%d%n%s%n'"
-git config --global alias.lom '!git fetch && git log --pretty=format:"%C(yellow)%h%Creset %ci %<|(50)%Cred%cr%Creset %<|(70)%cn%d%n%s%n" --merges HEAD..origin/`git rev-parse --abbrev-ref HEAD`'
+git config --global alias.lom '!git remote update origin; echo; git log ..@{u} --merges --pretty=format:"%C(yellow)%h%Creset %ci %<|(50)%Cred%cr%Creset %<|(70)%cn%d%n%s%n"'
 git config --global alias.recent '!git for-each-ref --sort=-committerdate refs/heads/ | head -${*-10} #'
 git config --global alias.rollback '!git reset --hard HEAD^ && git clean -fd'
 git config --global alias.st status
+git config --global alias.incoming '!git remote update origin; git log ..@{u}'
+git config --global alias.outgoing 'log @{u}..'
 
 git remote add upstream git@github.com:DrWhax/truecrypt-archive.git
 git pull upstream master
@@ -236,12 +238,12 @@ fi
 # Git errors
 
 # failed to lock
-# $ git push --set-upstream origin gorilla/cache-bug
-# remote: error: failed to lock refs/heads/gorilla/cache-bug
-# To git@github.com:Fullscreen/Tools.git
-#  ! [remote rejected] gorilla/cache-bug -> gorilla/cache-bug (failed to lock)
-# error: failed to push some refs to 'git@github.com:Fullscreen/Tools.git'
-# Reason: there is a 'gorilla' branch, and thus you cannot have 'gorilla/...' branches.
+# $ git push --set-upstream origin feature/cache-bug
+# remote: error: failed to lock refs/heads/feature/cache-bug
+# To git@github.com:stefansundin/altdrag.git
+#  ! [remote rejected] feature/cache-bug -> feature/cache-bug (failed to lock)
+# error: failed to push some refs to 'git@github.com:stefansundin/altdrag.git'
+# Reason: there is a 'feature' branch, and thus you cannot have 'feature/...' branches.
 
 # fix 'error: branch 'origin/HEAD' does not point at a commit'
 # git remote set-head origin master
