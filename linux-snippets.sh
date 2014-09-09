@@ -31,7 +31,7 @@ strace -ff -ewrite -s200 lighttpd
 -s determines how much to get.
 # example
 ps aux | grep python
-root       912  1.5  2.3  55896  8828 ?        Sl   May21 696:36 python /home/xpel/card.py
+root       912  1.5  2.3  55896  8828 ?        Sl   May21 696:36 python /home/stefan/card.py
 sudo strace -ff -ewrite -s200 -p 912
 # for some reason this does not seem to work...
 
