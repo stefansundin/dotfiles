@@ -1,0 +1,63 @@
+# Install rtorrent and rutorrent:
+# sudo apt-get install screen subversion build-essential automake libtool libcppunit-dev libcurl3-dev libsigc++-2.0-dev unzip unrar-free curl libncurses-dev
+# apt-get install apache2 php5 php5-cli php5-curl
+# screen -fa -d -m rtorrent
+# start rtorrent:
+# screen
+# rtorrent
+# detach screen with Ctrl-a + d
+
+# keyboard bindings:
+# Ctrl-q             Quit application
+# Ctrl-s             Start download. Runs hash first unless already done.
+# Ctrl-d             Stop an active download or remove a stopped download
+# Ctrl-k             Stop and close the files of an active download.
+# Ctrl-r             Initiate hash check of torrent. Without starting to download/upload.
+# Left               Returns to the previous screen
+# Right              Goes to the next screen
+# Backspace/Return   Adds the specified *.torrent
+# a|s|d              Increase global upload throttle about 1|5|50 KB/s
+# A|S|D              Increase global download throttle about 1|5|50 KB/s
+# z|x|c              Decrease global upload throttle about 1|5|50 KB/s
+# Z|X|C              Decrease global download throttle about 1|5|50 KB/s
+
+min_peers = 40
+max_peers = 52
+
+min_peers_seed = 10
+max_peers_seed = 52
+
+max_uploads = 8
+
+#download_rate = 200
+#upload_rate = 28
+
+# download directory
+directory = /home/stefan/torrents/
+
+# session directory
+session = /home/stefan/torrents/rtorrent-session/
+
+# double check on start and after successful download
+check_hash = yes
+
+# ports
+port_range = 49164-49164
+
+# try to use encryption
+encryption = allow_incoming,try_outgoing,enable_retry
+
+# enable DHT
+dht = auto
+dht_port = 6881
+peer_exchange = yes
+
+# stop seeding after 100% ratio, at least 10M, at most 300% ratio
+#schedule = ratio,60,60,"stop_on_ratio=100,10M,300"
+ratio.enable=
+ratio.min.set=100
+ratio.max.set=300
+ratio.upload.set=20M
+
+# stop downloading if diskspace gets too low (600M)
+schedule = low_diskspace,5,60,close_low_diskspace=600M
