@@ -86,6 +86,10 @@ After install:
    dism /online /Get-ProvisionedAppxPackages
    ```
 
+1. Remove most ads from Skype:
+
+   > Control Panel → Internet Options → Security tab → Restricted sites → `Sites` → Add `https://apps.skype.com` → `Close` → Restart Skype
+
 1. Show all audio devices (e.g. Stereo Mix):
 
    ```
@@ -111,7 +115,13 @@ After install:
    > The selected user can have an empty password.
 
 1. Guest network login:
+
    > Guest account must be enabled to have no login when accessing network share.
+
+1. GPG in Windows:
+
+   > 1. Download [Gpg4Win Vanilla](http://gpg4win.org/download.html).
+   > 1. Add `C:\Program Files (x86)\GNU\GnuPG\pub` to `PATH`.
 
 Python argument problem:
 > ```
