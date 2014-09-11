@@ -7,6 +7,7 @@ ActiveRecord::Base::sanitize
 ActionController::Base.helpers.strip_tags
 ActiveRecord::Base.logger = Logger.new(STDOUT) # see SQL in console
 $redis.keys.select { |k| $redis.del k } # clear redis the poor man's way
+before_filter :auth, unless: -> { Rails.env.development? }
 
 rake db:create db:setup db:migrate
 rails g migration AddAutoSubscribeToUsers
