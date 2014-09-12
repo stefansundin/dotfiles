@@ -17,6 +17,13 @@ rake db:schema:dump db:structure:dump
 rake assets:precompile
 redis-cli FLUSHALL
 
+# Gems
+group :development do
+  # debug errors on exception
+  gem "better_errors"
+  gem "binding_of_caller"
+end
+
 # get location of method at runtime
 u = User.find_by_uid(1005)
 u.method(:statements).source_location
