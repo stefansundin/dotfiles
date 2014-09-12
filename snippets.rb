@@ -23,6 +23,7 @@ group :development do
   gem "better_errors"
   gem "binding_of_caller"
 end
+# To use better_errors instead of pry, just use `raise "oops"` instead of `binding.remote_pry`.
 
 # get location of method at runtime
 u = User.find_by_uid(1005)
