@@ -18,18 +18,19 @@ YouTube channel playlist:
 Adblock filters:
 > ```
 > twitter.com###empty-timeline-recommendations
-> sweclockers.com###infobar
-> sweclockers.com##.banner
-> k2s.cc##.fancybox-overlay
-> bankofamerica.com##.cardlytics-transaction-offer
-> bankofamerica.com##.ao-offers-module
 > bankofamerica.com##.TargetedAd
+> bankofamerica.com##.ao-offers-module
+> bankofamerica.com##.cardlytics-transaction-offer
 > bankofamerica.com##.olb-special-offers-new-accounts-bdf-module
 > fullscreen.tpondemand.com##.tau-board-grid-resize-controls
+> k2s.cc##.fancybox-overlay
+> sweclockers.com###infobar
+> sweclockers.com##.banner
 > twitch.tv##.i-am-new
-> www.paypal.com##.MktMPI
-> www.youtube.com##.guide-item-update-notification
-> www.youtube.com##.yt-uix-button-icon-bell
+> paypal.com##.MktMPI
+> youtube.com##.guide-item-update-notification
+> youtube.com##.sb-notif-on
+> google.com##a[href*="notifications/all"]
 > ```
 
 Firefox multiple profiles:
