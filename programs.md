@@ -29,6 +29,7 @@ Adblock filters:
 > twitch.tv##.i-am-new
 > www.paypal.com##.MktMPI
 > www.youtube.com##.guide-item-update-notification
+> www.youtube.com##.yt-uix-button-icon-bell
 > ```
 
 Firefox multiple profiles:
