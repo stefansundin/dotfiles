@@ -146,6 +146,13 @@ Bitlocker without TPM:
 >
 > Use `manage-bde` to add a TPM later. Password must be deleted though.
 
+Re-add TPM after it stops working due to e.g. BIOS update:
+> ```
+> manage-bde -protectors -get C:
+> manage-bde -protectors -delete C: -id {ID for TPM entry}
+> manage-bde -protectors -add C: -tpm
+> ```
+
 App Paths:
 > Does not work in cmd.exe.
 > ```
