@@ -139,6 +139,13 @@ Record-what-you-hear with Audacity:
 >
 > Disable `Software Playthrough` in Audacity Preferences → Recording. Make sure to set the levels good so the waveform doesn't clip. Don't accidentally adjust the system volume during recording!!
 
+App Paths:
+> Does not work in cmd.exe.
+> ```
+> cmd /C reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\SuperF4.exe" /ve /t REG_SZ /d "C:\Program Files\SuperF4\SuperF4.exe" /f & pause
+> ```
+
+
 Bitlocker without TPM:
 > Win+R → `gpedit.msc` → Computer Configuration → Administrative Templates → Windows Components → BitLocker Drive Encryption → Operating System Drives
 >
@@ -146,15 +153,17 @@ Bitlocker without TPM:
 >
 > Use `manage-bde` to add a TPM later. Password must be deleted though.
 
+Re-generate recovery key:
+> ```
+> manage-bde -protectors -disable C:
+> manage-bde -protectors -delete C: -type RecoveryPassword
+> manage-bde -protectors -add C: -RecoveryPassword
+> manage-bde -protectors -enable C:
+> ```
+
 Re-add TPM after it stops working due to e.g. BIOS update:
 > ```
 > manage-bde -protectors -get C:
-> manage-bde -protectors -delete C: -id {ID for TPM entry}
-> manage-bde -protectors -add C: -tpm
-> ```
-
-App Paths:
-> Does not work in cmd.exe.
-> ```
-> cmd /C reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\SuperF4.exe" /ve /t REG_SZ /d "C:\Program Files\SuperF4\SuperF4.exe" /f & pause
+> manage-bde -protectors -delete C: -t TPMAndPIN
+> manage-bde -protectors -add C: -TPMAndPIN
 > ```
