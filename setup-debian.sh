@@ -8,4 +8,4 @@ sudo apt-get install debhelper pkg-config libgtk2.0-dev libwxgtk2.8-dev libfuse-
 debuild
 
 # don't run clean and don't sign, useful for faster building:
-debuild -nc -uc
+debuild -nc -i -us -uc -b
