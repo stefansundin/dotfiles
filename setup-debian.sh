@@ -9,3 +9,9 @@ debuild
 
 # don't run clean and don't sign, useful for faster building:
 debuild -nc -i -us -uc -b
+
+# use debchange to add entry to changelog
+# to upload to ppa, only build source:
+debuild -S
+cd ..
+dput ppa:stefansundin/truecrypt truecrypt_7.1a-4_source.changes
