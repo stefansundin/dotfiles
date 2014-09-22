@@ -1,3 +1,8 @@
+NPM (comes with [Node.js](http://nodejs.org/download/)):
+> ```
+> npm install -g keybase-installer
+> ```
+
 pngcrush:
 > ```
 > pngcrush -rem gAMA -rem cHRM -rem iCCP -rem sRGB -brute
