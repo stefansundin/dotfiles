@@ -6,6 +6,7 @@ NPM (comes with [Node.js](http://nodejs.org/download/)):
 Clipboard:
 > ```
 > gpg -aser dstokes | pbcopy
+> echo "pipe to gpg" | gpg -aser dstokes | pbcopy
 > keybase encrypt -s dstokes | pbcopy
 > pbpaste | gpg -d
 > pbpaste | keybase decrypt
