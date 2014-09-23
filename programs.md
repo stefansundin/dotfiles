@@ -3,6 +3,15 @@ NPM (comes with [Node.js](http://nodejs.org/download/)):
 > npm install -g keybase-installer
 > ```
 
+Clipboard:
+> ```
+> gpg -aser dstokes | pbcopy
+> keybase encrypt -s dstokes | pbcopy
+> pbpaste | gpg -d
+> pbpaste | keybase decrypt
+> pbpaste | gpg -d && gpg -aser dstokes | pbcopy
+> ```
+
 pngcrush:
 > ```
 > pngcrush -rem gAMA -rem cHRM -rem iCCP -rem sRGB -brute
