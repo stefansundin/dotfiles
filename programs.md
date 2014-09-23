@@ -3,6 +3,12 @@ NPM (comes with [Node.js](http://nodejs.org/download/)):
 > npm install -g keybase-installer
 > ```
 
+gpg default private key:
+> ```
+> vim ~/.gnupg/gpg.conf
+> default-key 27642822
+> ```
+
 Clipboard:
 > ```
 > gpg -aser dstokes | pbcopy
