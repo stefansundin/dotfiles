@@ -11,6 +11,15 @@ gpg default private key:
 > ```
 
 Clipboard:
+> - Mac: `pbcopy` / `pbpaste`
+> - Windows: `clip` / [`clop`](https://gist.github.com/stefansundin/9d95826a712096b24ae2/raw/clop.exe) [[1](https://gist.github.com/stefansundin/9d95826a712096b24ae2)]
+>  - Windows EOF: `^Z ENTER`
+>  - Cygwin: `/dev/clipboard`
+> - Linux: `xclip -selection c` / `xclip -selection c -o`
+>  - `alias pbcopy="xclip -selection c"`
+>  - `alias pbpaste="xclip -selection c -o"`
+>
+> Examples:
 > ```
 > gpg -aser dstokes | pbcopy
 > echo "pipe to gpg" | gpg -aser dstokes | pbcopy
@@ -18,6 +27,11 @@ Clipboard:
 > pbpaste | gpg -d
 > pbpaste | keybase decrypt
 > pbpaste | gpg -d && gpg -aser dstokes | pbcopy
+> ```
+
+Windows (clip and [clop](https://gist.github.com/stefansundin/9d95826a712096b24ae2/raw/clop.exe)):
+> ```
+> 
 > ```
 
 pngcrush:
