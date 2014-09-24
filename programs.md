@@ -26,6 +26,13 @@ pngcrush:
 > pngcrush -rem gAMA -rem cHRM -rem iCCP -rem sRGB -brute -d crushed *.png
 > ```
 
+PuTTY:
+> Color terminal string:
+>> Connection → Data → Terminal-type string: `xterm-color`
+>
+> SOCKS:
+>> Connection → SSH → Tunnels → Source port: `4000` → `(x) Dynamic` → `Add`
+
 Chrome SOCKS:
 > ```
 > google-chrome --proxy-server="socks5://localhost:4045"
