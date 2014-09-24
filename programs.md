@@ -7,6 +7,7 @@ gpg default private key:
 > ```
 > vim ~/.gnupg/gpg.conf
 > default-key 27642822
+> encrypt-to 27642822
 > ```
 
 Clipboard:
