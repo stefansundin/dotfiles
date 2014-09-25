@@ -22,3 +22,7 @@ humanizeNumber = (n) ->
     n2 = n.replace /(\d)(\d{3})($|,|\.)/g, '$1,$2$3'
     if n == n2 then break else n = n2
   n
+
+# insertAfter
+insertAfter = (insert, after) ->
+  after.parentNode.insertBefore(insert, after.nextSibling)
