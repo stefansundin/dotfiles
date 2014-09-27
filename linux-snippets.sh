@@ -6,6 +6,9 @@ cat /var/log/nginx/error.log | grep -v FastCGI | less
 zcat /var/log/nginx/error.log.2.gz | grep -v FastCGI | less
 zless /var/log/nginx/error.log.2.gz
 
+# trigger logrotate
+sudo logrotate --force /etc/logrotate.d/nginx
+
 # find string inside directory
 grep -nr Link* .
 
