@@ -218,6 +218,8 @@ git count-objects -vH
 vim app.git/hooks/post-receive
 cd /home/recover/app && env -i git pull
 chmod +x app.git/hooks/post-receive
+Force pull:
+cd /home/recover/app && env -i git fetch origin && env -i git reset --hard origin/master
 
 # check behind/forward in post-checkout hook
 #!/bin/sh
