@@ -66,6 +66,12 @@ After install:
 
    > Control Panel → Default Programs → Set Program Access and Computer Defaults → Expand `Custom` → Navigate to `Choose a default media player`. Select `Use my current media player` and untick `Enable access to this program` (on the right).
 
+1. Disable Win+Enter shortcut to bring up Narrator:
+
+   ```
+   cmd /C reg add "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\Narrator.exe" /v Debugger /t REG_SZ /d "%1" /f & pause
+   ```
+
 1. Disable _This program might not have installed correctly_ prompts:
 
    > Disable the service `Program Compatibility Assistant Service` and prevent it from starting automatically.
