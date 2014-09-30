@@ -82,9 +82,7 @@ defaults read -g NSWindowResizeTime
 brew cask install qlstephen qlmarkdown qlprettypatch qlimagesize qlcolorcode quicknfo betterzipql suspicious-package quicklook-json quicklook-csv
 qlmanage -r
 https://github.com/whomwah/qlstephen
-# enable text selection in QuickLook
-defaults write com.apple.finder QLEnableTextSelection -bool true
-killall Finder
+# Note: Don't enable text selection in QuickLook as that will cause blank images to be shown in quicklook when going back and forth between images!
 # sort Folders on top
 cd /System/Library/CoreServices/Finder.app/Contents/Resources/English.lproj/
 sudo plutil -convert xml1 InfoPlist.strings
