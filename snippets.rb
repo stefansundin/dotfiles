@@ -93,6 +93,10 @@ test:
 # kill all connections to database
 psql -c "SELECT pg_terminate_backend(pid) FROM pg_stat_activity WHERE datname='app_development';"
 
+# find out database size
+psql -t -c 'SELECT pg_size_pretty(pg_database_size(current_database()))' app_development
+ 357 MB
+
 # raw queries
 res = ActiveRecord::Base.connection.execute("SELECT * FROM VOTES WHERE votable_type = 'Post' AND created_at > NOW()-'1 day'::INTERVAL")
 res.count
