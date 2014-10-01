@@ -1,4 +1,5 @@
 'STRING'.downcase
+[1, 2, nil, 4].compact
 File.open('file.log','a+') { |f| f.write "#{var.inspect}\n" }
 u = User.first(order:"RANDOM()")
 User.find(27).touch # clear IdentityCache
