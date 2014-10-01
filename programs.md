@@ -3,9 +3,10 @@ NPM (comes with [Node.js](http://nodejs.org/download/)):
 > npm install -g keybase-installer
 > ```
 
-gpg default private key:
+gpg.conf:
 > ```
 > vim ~/.gnupg/gpg.conf
+> armor
 > default-key 27642822
 > encrypt-to 27642822
 > ```
