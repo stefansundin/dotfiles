@@ -5,6 +5,7 @@ u = User.first(order:"RANDOM()")
 User.find(27).touch # clear IdentityCache
 User.first.created_at.in_time_zone(ActiveSupport::TimeZone["America/Los_Angeles"])
 ActiveRecord::Base::sanitize
+ActiveRecord::Base.transaction { users.map(&:save) }
 ActionController::Base.helpers.strip_tags
 ActiveRecord::Base.logger = Logger.new(STDOUT) # see SQL in console
 $redis.keys.select { |k| $redis.del k } # clear redis the poor man's way
