@@ -72,6 +72,14 @@ After install:
    cmd /C reg add "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\Narrator.exe" /v Debugger /t REG_SZ /d "%1" /f & pause
    ```
 
+1. Disable Win+- shortcut to bring up Magnifier:
+
+   ```
+   takeown /f C:\Windows\System32\Magnify.exe
+   cacls C:\Windows\System32\Magnify.exe /G stefan:F
+   rename C:\Windows\System32\Magnify.exe Magnify_disabled.exe
+   ```
+
 1. Disable _This program might not have installed correctly_ prompts:
 
    > Disable the service `Program Compatibility Assistant Service` and prevent it from starting automatically.
