@@ -113,7 +113,7 @@ After install:
 1. TrueCrypt auto-mount:
 
    ```
-   "C:\Program Files\TrueCrypt\TrueCrypt.exe" /a favorites /q
+   "C:\Program Files\TrueCrypt\TrueCrypt.exe" /a favorites /q background
    ```
 
 1. Resolve .local (Bonjour) addresses:
