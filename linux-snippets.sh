@@ -111,6 +111,14 @@ gpg --import stefansundin_pub.gpg
 gpg --allow-secret-key-import --import stefansundin_sec.gpg
 gpg --edit-key "Stefan Sundin" trust quit
 
+# print secret key with paperkey
+gpg --no-armor --export-secret-key 27642822 | paperkey -o secret.txt
+gpg --no-armor --export-secret-key 27642822 | paperkey --output-type raw | base64 | qrencode -lM -o secret.png
+# import paperkey'd private key (requires public key)
+gpg --recv-key 27642822
+paperkey --pubring ~/.gnupg/pubring.gpg < secret.txt
+cat qr.txt | base64 -D | paperkey --pubring ~/.gnupg/pubring.gpg
+
 # decrypt message
 gpg -d
 # paste message, end with Ctrl+D (may be needed twice, be careful: one time too much will close the terminal).
