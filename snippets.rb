@@ -205,6 +205,8 @@ JSON.parse(body)
 
 
 # cleanup
+psql --list
+dropdb _test
 vacuumdb -a -f -F
 rm ~/Library/Application\ Support/Postgres93/var/pg_log/*
 
