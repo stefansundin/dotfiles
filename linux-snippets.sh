@@ -177,7 +177,6 @@ Host example
   User stefan
   DynamicForward 4045
 
-
 vim open-socks.sh && chmod +x open-socks.sh
 #!/bin/bash
 if ps aux | grep -q '[s]sh -f -N -C -D 4045 stefan@example.com'; then
@@ -185,6 +184,11 @@ if ps aux | grep -q '[s]sh -f -N -C -D 4045 stefan@example.com'; then
   exit 1
 fi
 ssh -f -N -C -D 4045 stefan@example.com
+
+# see failed SSH logins
+cat /var/log/auth.log | grep 'sshd.*Invalid'
+# successful logins
+cat /var/log/auth.log | grep 'sshd.*opened'
 
 
 # disable .bash_history and .lesshst
