@@ -215,11 +215,16 @@ git count-objects -vH
 # server hooks: pre-receive, post-receive, update, post-update
 
 # server post-receive hook
-vim app.git/hooks/post-receive
+vim app.git/hooks/post-receive && chmod +x app.git/hooks/post-receive
+#!/bin/bash
+while read oldrev newrev refname
+do
+  branch=$(git rev-parse --symbolic --abbrev-ref $refname)
+  if [ "$branch" == "master" ]; then
+    (cd /home/stefan/app && env -i git fetch origin && env -i git reset --hard origin/master)
+  fi
+done
 cd /home/recover/app && env -i git pull
-chmod +x app.git/hooks/post-receive
-Force pull:
-cd /home/recover/app && env -i git fetch origin && env -i git reset --hard origin/master
 
 # check behind/forward in post-checkout hook
 #!/bin/sh
