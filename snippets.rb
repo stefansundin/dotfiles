@@ -250,6 +250,6 @@ curl -o db-`date +%F`.dump `heroku pgbackups:url`
 powder down
 pg_restore --verbose --clean --no-acl --no-owner -d app_development db-`date +%F`.dump
 
-# Heroku + Logentries
-# Syslog drain. Plain TCP/UDP - logs are sent via syslog.
-heroku drains:add syslog://api.logentries.com:XXXXX
+# Heroku + Logentries (Syslog drain)
+# Manual Configuration. (x) Plain TCP, UDP.
+heroku drains:add syslog://data.logentries.com:XXXXX
