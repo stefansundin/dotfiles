@@ -3,6 +3,7 @@ ln -s "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" /usr/loca
 ln -s /Applications/TrueCrypt.app/Contents/MacOS/TrueCrypt /usr/local/bin/truecrypt
 ln -s /Applications/Gimp.app/Contents/MacOS/gimp-2.8 /usr/local/bin/gimp
 ln -s /Applications/VLC.app/Contents/MacOS/VLC /usr/local/bin/vlc
+
 sudo xattr -d -r com.apple.quarantine /Applications/
 grep -nr paginator .
 find . -name "*.css" | xargs -l10 grep ".ir"
@@ -72,6 +73,8 @@ defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
 sudo defaults delete com.apple.LaunchServices LSQuarantine
 defaults write com.apple.LaunchServices LSQuarantine -bool false
 sudo xattr -d -r com.apple.quarantine /Applications
+# disable Adobe Creative Cloud from starting on startup
+launchctl unload -w /Library/LaunchAgents/com.adobe.AdobeCreativeCloud.plist
 # sort by Kind by default
 #  show view options (⌘J) → Sort By: Kind. [Use as Defaults]
 #  remove .DS_Store files to remove custom directory settings
