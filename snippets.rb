@@ -248,7 +248,8 @@ heroku pgbackups
 heroku pgbackups:url
 curl -o db-`date +%F`.dump `heroku pgbackups:url`
 powder down
-pg_restore --verbose --clean --no-acl --no-owner -d app_development db-`date +%F`.dump
+createdb _development
+pg_restore --verbose --clean --no-acl --no-owner -d _development db-`date +%F`.dump
 
 # Heroku + Logentries (Syslog drain)
 # Manual Configuration. (x) Plain TCP, UDP.
