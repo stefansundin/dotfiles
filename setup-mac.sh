@@ -44,11 +44,13 @@ defaults write -g ApplePressAndHoldEnabled -bool false
 mkdir ~/Library/KeyBindings/
 vim ~/Library/KeyBindings/DefaultKeyBinding.dict
 {
-"\UF729"  = "moveToBeginningOfLine:";   /* Home */
-"\UF72B"  = "moveToEndOfLine:";         /* End  */
+"\UF729"  = "moveToBeginningOfLine:";                   /* Home */
+"\UF72B"  = "moveToEndOfLine:";                         /* End  */
 "$\UF729" = "moveToBeginningOfLineAndModifySelection:"; /* Shift + Home */
 "$\UF72B" = "moveToEndOfLineAndModifySelection:";       /* Shift + End  */
 }
+
+
 # NSUserKeyEquivalents
 # @    Command (Apple)  CMD
 # ~    Option           OPT
