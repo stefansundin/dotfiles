@@ -31,7 +31,7 @@ sudo chmod -R +a "brew allow list,search,add_file,add_subdirectory,delete_child,
 # if 'brew doctor' complains that locale files aren't writable
 sudo chown -R stefansundin /usr/local /Library/Caches/Homebrew
 sudo chmod -R g+w /usr/local /Library/Caches/Homebrew
-cp /usr/local/Cellar/mongodb/2.6.0_1/homebrew.mxcl.mongodb.plist ~/Library/LaunchAgents/homebrew.mxcl.mongodb.plist
+cp /usr/local/Library/LinkedKegs/redis/homebrew.mxcl.redis.plist ~/Library/LaunchAgents/homebrew.mxcl.redis.plist
 
 # install brew cask (precompiled binaries)
 brew tap phinze/cask
