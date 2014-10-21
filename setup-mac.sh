@@ -107,6 +107,11 @@ defaults read -g NSWindowResizeTime
 # Calendar.app: ignore alerts from specific calendars
 # Right-click calendar → Get Info → [x] Ignore alerts
 
+# Terminal.app Home/End keys
+# preferences (⌘,) → Profiles → Keyboard
+# [+] → Key: [↖ Home] → Modifier: [None] → Action: [Send Text:] <Ctrl-a>
+# [+] → Key: [↘ End]  → Modifier: [None] → Action: [Send Text:] <Ctrl-e>
+
 # disable iTunes automatically copying files to iTunes directory
 # iTunes → Preferences → Advanced → [ ] Copy files to iTunes Music folder when adding to library
 
