@@ -30,11 +30,6 @@ Clipboard:
 > pbpaste | gpg -d && gpg -aser dstokes | pbcopy
 > ```
 
-Windows (clip and [clop](https://gist.github.com/stefansundin/9d95826a712096b24ae2/raw/clop.exe)):
-> ```
-> 
-> ```
-
 pngcrush:
 > ```
 > pngcrush -rem gAMA -rem cHRM -rem iCCP -rem sRGB -brute
