@@ -58,13 +58,16 @@ vim ~/Library/KeyBindings/DefaultKeyBinding.dict
 # ^    Control          CTRL
 
 
+# set hostname
+sudo scutil --set HostName sundin
+# disable Adobe Creative Cloud from starting on startup
+launchctl unload -w /Library/LaunchAgents/com.adobe.AdobeCreativeCloud.plist
 # Finder.app
-# backspace to go up
-defaults write com.apple.finder NSUserKeyEquivalents -dict-add "Back" "\U232B"
-killall Finder
 # preferences (⌘,)
 #  General → New Finder windows show: stefansundin
 #  Advanced → [x] Show all filename extensions
+# show the ~/Library directory
+chflags nohidden ~/Library
 # show dotfiles
 defaults write com.apple.finder AppleShowAllFiles -bool true
 # don't warn when renaming file extensions
@@ -75,14 +78,12 @@ defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
 sudo defaults delete com.apple.LaunchServices LSQuarantine
 defaults write com.apple.LaunchServices LSQuarantine -bool false
 sudo xattr -d -r com.apple.quarantine /Applications
-# disable Adobe Creative Cloud from starting on startup
-launchctl unload -w /Library/LaunchAgents/com.adobe.AdobeCreativeCloud.plist
 # sort by Kind by default
 #  show view options (⌘J) → Sort By: Kind. [Use as Defaults]
 #  remove .DS_Store files to remove custom directory settings
-# disable fullscreen swoosh
-defaults write -g NSWindowResizeTime -float 0.01
-defaults read -g NSWindowResizeTime
+# backspace to go up
+defaults write com.apple.finder NSUserKeyEquivalents -dict-add "Back" "\U232B"
+killall Finder
 # QuickLook plugins
 brew cask install qlstephen qlmarkdown qlprettypatch qlimagesize qlcolorcode quicknfo betterzipql suspicious-package quicklook-json quicklook-csv
 qlmanage -r
@@ -99,6 +100,10 @@ sudo plutil -convert binary1 InfoPlist.strings
 defaults write com.apple.finder NSUserKeyEquivalents -dict-add 'Move to Trash' '\U007F'
 defaults read com.apple.finder NSUserKeyEquivalents
 # WARNING: DELETE KEY WILL NOW DELETE FILE WHEN ATTEMPTING TO RENAME THEM!! USE BACKSPACE!
+
+# disable fullscreen swoosh
+defaults write -g NSWindowResizeTime -float 0.01
+defaults read -g NSWindowResizeTime
 
 # Calendar.app: ignore alerts from specific calendars
 # Right-click calendar → Get Info → [x] Ignore alerts
