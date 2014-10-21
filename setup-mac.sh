@@ -81,9 +81,6 @@ sudo xattr -d -r com.apple.quarantine /Applications
 # sort by Kind by default
 #  show view options (⌘J) → Sort By: Kind. [Use as Defaults]
 #  remove .DS_Store files to remove custom directory settings
-# backspace to go up
-defaults write com.apple.finder NSUserKeyEquivalents -dict-add "Back" "\U232B"
-killall Finder
 # QuickLook plugins
 brew cask install qlstephen qlmarkdown qlprettypatch qlimagesize qlcolorcode quicknfo betterzipql suspicious-package quicklook-json quicklook-csv
 qlmanage -r
@@ -96,9 +93,11 @@ sudo vim InfoPlist.strings
  <key>Folder</key>
  <string> Folder</string>
 sudo plutil -convert binary1 InfoPlist.strings
-# make delete key to move files to trash
+# backspace to go up, delete key to move files to trash
+defaults write com.apple.finder NSUserKeyEquivalents -dict-add 'Back' '\U232B'
 defaults write com.apple.finder NSUserKeyEquivalents -dict-add 'Move to Trash' '\U007F'
 defaults read com.apple.finder NSUserKeyEquivalents
+killall Finder
 # WARNING: DELETE KEY WILL NOW DELETE FILE WHEN ATTEMPTING TO RENAME THEM!! USE BACKSPACE!
 
 # disable fullscreen swoosh
