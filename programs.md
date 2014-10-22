@@ -152,7 +152,7 @@ Pipe decode FLAC and encode MP3:
 
 Rip Adobe HDS streams (`.f4m`):
 > ```
-> wget https://github.com/K-S-V/Scripts/blob/master/AdobeHDS.php
+> wget https://raw.githubusercontent.com/K-S-V/Scripts/master/AdobeHDS.php
 > php AdobeHDS.php --delete --manifest "http://ynethd-f.akamaihd.net/z/0214/170214_ulpan_dag_and_infected_768Kbps_360p.mp4/manifest.f4m?g=JBQPFZYYQDVJ&hdcore=3.0.3"
 > ```
 
