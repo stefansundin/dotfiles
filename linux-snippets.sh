@@ -1,5 +1,7 @@
-# bash script print each command
-#!/bin/bash -ex
+find . -not -readable
+find . -not -user root
+find . -type f | wc -l
+find . -type f -size +10000k -exec ls -lh {} \; | awk '{ print $9 ": " $5 }'
 
 # grep log without phrase
 cat /var/log/nginx/error.log | grep -v FastCGI | less
@@ -30,6 +32,9 @@ ifconfig | grep inet -C2
 scp flickr.png user@example.com:www/
 scp flickr.png server:www/
 scp flickr.png server:
+
+# bash script print each command
+#!/bin/bash -ex
 
 # debug daemons
 strace -ff -ewrite -s200 lighttpd
