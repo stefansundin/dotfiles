@@ -57,6 +57,7 @@ YouTube channel playlist:
 Adblock filters:
 > ```
 > twitter.com###empty-timeline-recommendations
+> twitter.com##.WhoToFollow
 > bankofamerica.com##.TargetedAd
 > bankofamerica.com##.ao-offers-module
 > bankofamerica.com##.cardlytics-transaction-offer
