@@ -36,6 +36,16 @@ u.method(:statements).source_location
 # vim ~/.powconfig
 export POW_TIMEOUT=3600
 
+# rails 4 console automatic database connection
+module App
+  class Application < Rails::Application
+    # Automatically establish database connection in the rails console
+    console do
+      ActiveRecord::Base.connection
+    end
+  end
+end
+
 # sidekiq inline
 # vim config/environments/development.rb
 require 'sidekiq/testing/inline'
