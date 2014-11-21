@@ -73,6 +73,14 @@ IRB.conf[:PROMPT][:CUSTOM] = {
 }
 IRB.conf[:PROMPT_MODE] = :CUSTOM
 
+# check what readline is in use
+# this is good:
+Readline::VERSION
+=> "6.3"
+# this is bad:
+Readline::VERSION
+=> "EditLine wrapper"
+
 
 # continue the program but ignore binding.pry
 disable-pry
