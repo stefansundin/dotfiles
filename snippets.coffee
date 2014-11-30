@@ -4,6 +4,15 @@
 pad = (n) ->
     ("0"+n).slice(-2)
 
+# &amp;&#8364; = &€
+decodeEntities = (str) ->
+  e = document.createElement('div')
+  e.innerHTML = str
+  if e.childNodes.length > 0
+    e.childNodes[0].nodeValue
+  else
+    ''
+
 # \u4e20\u4e21\u4e22\u4e23 = 丠両丢丣
 unescapeUnicode = (str) ->
   str.replace /\\u([\da-f]{4})/gi, (str, p1) ->
