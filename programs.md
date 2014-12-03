@@ -70,6 +70,8 @@ Adblock filters:
 > paypal.com##.MktMPI
 > youtube.com##.guide-item-update-notification
 > youtube.com##.sb-notif-on
+> youtube.com##.annotation.iv-promo
+> youtube.com##.annotation.iv-branding
 > google.com##a[href*="notifications/all"]
 > ```
 
