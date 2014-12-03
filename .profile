@@ -10,10 +10,12 @@ export TERM=xterm-color
 export PGHOST=localhost
 export PGDATA="/Users/stefansundin/Library/Application Support/Postgres93/var"
 
-
+alias gpg="gpg2"
 alias ls="ls -G"
-alias reload_profile=". ~/.profile"
 alias pc="pngcrush -rem gAMA -rem cHRM -rem iCCP -rem sRGB -brute"
+alias reload_profile=". ~/.profile"
+
+source /usr/local/etc/bash_completion
 
 function c {
   echo $* | pbcopy
@@ -22,9 +24,6 @@ function c {
 
 
 # Git
-
-source /usr/local/etc/bash_completion.d/git-prompt.sh
-source /usr/local/etc/bash_completion.d/git-completion.bash
 
 function cd {
   builtin cd "$@"
@@ -52,8 +51,8 @@ proml
 # Ruby
 
 eval "$(rbenv init -)"
-export RAILS_ENV=development
-export RACK_ENV=development
+# export RAILS_ENV=development
+# export RACK_ENV=development
 
 alias rsetup="RAILS_ENV=test bundle && RAILS_ENV=test bundle exec rake db:migrate"
 alias rtest="RAILS_ENV=test bundle exec rspec"
