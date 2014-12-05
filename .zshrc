@@ -45,6 +45,9 @@ bindkey "^[[1;10C" forward-word
 bindkey "^[[1;9D" beginning-of-line
 bindkey "^[[1;9C" end-of-line
 
+# Cmd+Backspace delete what's left to the cursor, not whole line
+bindkey '^U' backward-kill-line
+
 
 # Git
 
