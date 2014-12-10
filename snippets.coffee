@@ -35,3 +35,16 @@ humanizeNumber = (n) ->
 # insertAfter
 insertAfter = (insert, after) ->
   after.parentNode.insertBefore(insert, after.nextSibling)
+
+# remove all children
+el.removeChild(el.firstChild) while el.hasChildNodes()
+
+# fmt_filesize(1369088) = "1.3 MB"
+fmt_filesize = (bytes) ->
+  units = ['', 'k', 'M', 'G', 'T', 'P', 'E', 'Z', 'Y']
+  i = 0
+  while bytes > 1024 and i < units.length
+    bytes = bytes / 1024
+    i++
+  size = if i > 0 then bytes.toFixed(1) else bytes
+  "#{size} #{units[i]}B"
