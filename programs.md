@@ -72,6 +72,7 @@ Adblock filters:
 > youtube.com##.sb-notif-on
 > youtube.com##.annotation.iv-promo
 > youtube.com##.annotation.iv-branding
+> youtube.com##.iv-drawer-teaser
 > google.com##a[href*="notifications/all"]
 > ```
 
