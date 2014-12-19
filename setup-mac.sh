@@ -61,6 +61,8 @@ vim ~/Library/KeyBindings/DefaultKeyBinding.dict
 # ^    Control          CTRL
 
 
+# install Xcode command line tools
+xcode-select --install
 # accept Xcode EULA
 sudo xcodebuild -license
 # set hostname
