@@ -61,7 +61,7 @@ vim ~/Library/KeyBindings/DefaultKeyBinding.dict
 # ^    Control          CTRL
 
 
-# accept EULA
+# accept Xcode EULA
 sudo xcodebuild -license
 # set hostname
 sudo scutil --set HostName sundin
