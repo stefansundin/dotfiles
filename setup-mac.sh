@@ -61,6 +61,8 @@ vim ~/Library/KeyBindings/DefaultKeyBinding.dict
 # ^    Control          CTRL
 
 
+# accept EULA
+sudo xcodebuild -license
 # set hostname
 sudo scutil --set HostName sundin
 # disable Adobe Creative Cloud from starting on startup
