@@ -61,7 +61,7 @@ grep -nr --exclude-dir .git --exclude-dir log --exclude-dir tmp csv_link . | les
 git stash show -p stash@{0}
 
 # create new orphan branch (no history)
-git co --orphan license
+git co --orphan gh-pages
 git rm -rf *
 
 # revert commit
