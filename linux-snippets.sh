@@ -32,6 +32,7 @@ ifconfig | grep inet -C2
 scp flickr.png user@example.com:www/
 scp flickr.png server:www/
 scp flickr.png server:
+scp user@example.com:flickr.png .
 
 # bash script print each command
 #!/bin/bash -ex
