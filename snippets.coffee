@@ -48,3 +48,10 @@ fmt_filesize = (bytes) ->
     i++
   size = if i > 0 then bytes.toFixed(1) else bytes
   "#{size} #{units[i]}`"
+
+# is child a child of parent?
+isChildOf = (child, parent) ->
+  while child != null
+    return true if child == parent
+    child = child.parentNode
+  return false
