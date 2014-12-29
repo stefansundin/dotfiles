@@ -1,5 +1,6 @@
 # ppas
 sudo apt-get install software-properties-common
+sudo add-apt-repository ppa:git-core/ppa
 sudo add-apt-repository ppa:stefansundin/truecrypt
 sudo add-apt-repository ppa:nginx/stable
 sudo add-apt-repository ppa:ondrej/php5-5.6
