@@ -49,6 +49,9 @@ sudo strace -ff -ewrite -s200 -p 912
 # dd status
 sudo killall -s USR1 dd
 
+# reload inetd.conf
+sudo killall -HUP inetd
+
 # find files newer than date
 touch -t 201306011010 dummy
 # YYYYMMDDHHII
