@@ -34,6 +34,7 @@ git config --global alias.st status
 git config --global alias.incoming '!git remote update origin; git log ..@{u}'
 git config --global alias.outgoing 'log @{u}..'
 
+git rev-list HEAD --count
 git remote add upstream git@github.com:DrWhax/truecrypt-archive.git
 git pull upstream master
 git pull --rebase origin master
@@ -164,6 +165,9 @@ git checkout -b windowfinder
 git filter-branch --prune-empty --subdirectory-filter windowfinder windowfinder
 git push --set-upstream origin windowfinder
 
+# remove a directory from all history
+git filter-branch -f --prune-empty --tree-filter 'rm -rf windowfinder' HEAD
+
 # delete branch
 git co develop
 git br -d feature/fix
@@ -171,6 +175,11 @@ git push origin :feature/fix
 
 # delete all local branches except master
 for b in `git branch | cut -b3-`; do [ "$b" == "master" ] && continue; git branch -D "$b"; done
+
+# fetch all branches
+for remote in `git branch -r`; do git branch --track $remote; done
+git fetch --all
+git pull --all
 
 
 # tags
