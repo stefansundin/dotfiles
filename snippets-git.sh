@@ -70,6 +70,14 @@ git revert <hashish>
 # revert merge commit
 git revert -m 1 <hashish>
 
+# change tag date
+git co v0.1
+git tag -d v0.1
+git push origin :refs/tags/v0.1
+export GIT_COMMITTER_DATE=2008-06-05 10:10:10
+git tag -a v0.1 -m "Tagging v0.1"
+git push origin v0.1
+
 # gists
 https://gist.github.com/stefansundin/9059706#install-pre-commit.sh
 https://gist.github.com/stefansundin/d465f1e331fc5c632088#install-pre-push.sh
