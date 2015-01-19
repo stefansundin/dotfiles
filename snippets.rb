@@ -67,6 +67,12 @@ Sidekiq::Queue.all.map(&:clear)
 Sidekiq::ScheduledSet.new.clear
 Sidekiq::RetrySet.new.clear
 
+# profile
+require 'profiler'
+Profiler__.start_profile
+Profiler__.stop_profile
+Profiler__.print_profile(File.open("profile-#{Time.now.to_i}.log",'wb'))
+
 # vim ~/.pryrc
 # fix for NoMethodError: undefined method `reload!' for main:Object
 include Rails::ConsoleMethods if defined? Rails
