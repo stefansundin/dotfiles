@@ -24,9 +24,11 @@ redis-cli FLUSHALL
 git clone https://github.com/sstephenson/rbenv.git ~/.rbenv
 git clone https://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
 git clone https://github.com/rkh/rbenv-update.git ~/.rbenv/plugins/rbenv-update
-# add to .bash_profile
+# add to ~/.bash_profile
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
+# add to ~/.gemrc
+gem: --no-document
 
 # Gems
 group :development do
