@@ -75,6 +75,7 @@ Adblock filters:
 > youtube.com##.annotation.iv-drawer-manager
 > youtube.com##.iv-drawer-teaser
 > google.com##a[href*="notifications/all"]
+> inoreader.com###sb_rp_upgrade
 > ```
 
 Firefox multiple profiles:
