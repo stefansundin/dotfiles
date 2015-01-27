@@ -1,0 +1,4 @@
+\echo `date +"%Y-%m-%d %H:%M:%S"`
+-- \set PROMPT1 '%n@%m:%>/%/%x%# '
+\pset null '(null)'
+\timing
