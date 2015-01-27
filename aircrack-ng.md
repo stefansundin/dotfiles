@@ -39,4 +39,7 @@ Terminal 3 (crack key):
 > Decrypted correctly: 100%
 > ```
 
-In Mac, prefix network key with `0x` to use hex.
+How to enter password:
+
+- Mac: prefix network key with `0x` to use hex: `0x25ec244441`.
+- Android: no prefix is needed: `25ec244441`.
