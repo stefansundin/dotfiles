@@ -96,6 +96,13 @@ stty ixoff -ixon
 stty stop undef
 stty start undef
 
+# kill pry-remote connections
+lsof -i tcp:9876 | awk 'NR!=1 {print $2}' | xargs kill
+# kill redis connections
+lsof -i tcp:6379 | awk 'NR!=1 {print $2}' | xargs kill
+# kill postgres connections
+lsof -i tcp:5432 | awk 'NR!=1 {print $2}' | xargs kill
+
 
 # gpg
 gpg --gen-key
