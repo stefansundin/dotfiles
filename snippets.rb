@@ -180,6 +180,20 @@ def display(*args)
 end
 
 
+# time code
+def time
+  start = Time.now
+  yield
+  eta = Time.now - start
+  mm, ss = eta.divmod(60)
+  hh, mm = mm.divmod(60)
+  dd, hh = hh.divmod(24)
+  puts "[%s] Took %d days %2d hours %2d minutes %2d seconds." % [Time.now.strftime('%T'), dd, hh, mm, ss]
+  eta
+end
+time { User.each { |u| u.update_attribute :locale, 'en' } }
+
+
 # strip unknown characters
 body = HTTParty.get("http://gdata.youtube.com/feeds/api/videos/VtI5HM7GVGY")
 JSON.parse(body)
