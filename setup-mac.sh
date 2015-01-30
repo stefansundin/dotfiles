@@ -92,7 +92,7 @@ sudo xattr -d -r com.apple.quarantine /Applications
 brew cask install qlstephen qlmarkdown qlprettypatch qlimagesize qlcolorcode quicknfo betterzipql suspicious-package quicklook-json quicklook-csv
 qlmanage -r
 https://github.com/whomwah/qlstephen
-# Note: Don't enable text selection in QuickLook as that will cause blank images to be shown in quicklook when going back and forth between images!
+## Note: Don't enable text selection in QuickLook as that will cause blank images to be shown in quicklook when going back and forth between images!
 # sort Folders on top
 cd /System/Library/CoreServices/Finder.app/Contents/Resources/English.lproj/
 sudo plutil -convert xml1 InfoPlist.strings
@@ -100,12 +100,14 @@ sudo vim InfoPlist.strings
  <key>Folder</key>
  <string> Folder</string>
 sudo plutil -convert binary1 InfoPlist.strings
-# backspace to go up, delete key to move files to trash
+## backspace to go up, delete key to move files to trash
 defaults write com.apple.finder NSUserKeyEquivalents -dict-add 'Back' '\U232B'
 defaults write com.apple.finder NSUserKeyEquivalents -dict-add 'Move to Trash' '\U007F'
 defaults read com.apple.finder NSUserKeyEquivalents
 killall Finder
-# WARNING: DELETE KEY WILL NOW DELETE FILE WHEN ATTEMPTING TO RENAME THEM!! USE BACKSPACE!
+## WARNING: DELETE KEY WILL NOW DELETE FILE WHEN ATTEMPTING TO RENAME THEM!! USE BACKSPACE!
+# 'Open with Sublime Text' in right click menu
+http://charles.lescampeurs.org/2012/06/18/right-click-open-with-sublime-text-2
 
 # disable fullscreen swoosh
 defaults write -g NSWindowResizeTime -float 0.01
