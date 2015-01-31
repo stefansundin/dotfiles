@@ -1,4 +1,4 @@
-brew install duti gnu-tar git wget readline rbenv ruby-build
+brew install duti gnu-tar git wget readline rbenv ruby-build rbenv-gem-rehash rbenv-binstubs
 brew link readline
 rbenv install 2.1.2
 rbenv global 2.1.2
