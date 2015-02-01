@@ -226,6 +226,14 @@ du -hs .
 git count-objects -vH
 
 
+# repo
+curl https://storage.googleapis.com/git-repo-downloads/repo > ~/bin/repo
+mkdir chromiumos
+cd chromiumos
+repo init -u https://chromium.googlesource.com/chromiumos/manifest.git --repo-url https://chromium.googlesource.com/external/repo.git -g minilayout
+repo sync
+
+
 # Hooks
 
 # client hooks: pre-commit, prepare-commit-msg, commit-msg, post-commit, applypatch-msg, pre-applypatch, post-applypatch, pre-rebase, post-checkout, post-merge, pre-push, pre-auto-gc, post-rewrite
