@@ -40,6 +40,13 @@ cp /usr/local/Library/LinkedKegs/redis/homebrew.mxcl.redis.plist ~/Library/Launc
 brew tap phinze/cask
 brew install brew-cask
 
+# change shells
+# add to /etc/shells:
+/usr/local/bin/bash
+/usr/local/bin/zsh
+# then use:
+chsh -s /usr/local/bin/zsh
+
 # keyboard key-repeat
 defaults write -g ApplePressAndHoldEnabled -bool false
 
