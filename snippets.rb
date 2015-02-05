@@ -11,6 +11,12 @@ ActiveRecord::Base.logger = Logger.new(STDOUT) # see SQL in console
 $redis.keys.select { |k| $redis.del k } # clear redis the poor man's way
 before_filter :auth, unless: -> { Rails.env.development? }
 
+case type
+when "W-9", "W-8BEN" then 10
+when "W-2" then 30
+else "Unknown"
+end
+
 git mv {20140918225402,`TZ=0 date +%Y%m%d%H%M%S`}_move_migration_to_last.rb
 rake db:create db:setup db:migrate
 rails g migration AddAutoSubscribeToUsers
