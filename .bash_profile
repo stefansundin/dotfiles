@@ -10,6 +10,9 @@ export TERM=xterm-color
 export PGHOST=localhost
 export PGDATA="/Users/stefansundin/Library/Application Support/Postgres93/var"
 
+# wget https://raw.githubusercontent.com/bagder/ca-bundle/master/ca-bundle.crt
+export SSL_CERT_FILE="$HOME/ca-bundle.crt"
+
 alias gpg="gpg2"
 alias ls="ls -G"
 alias pc="pngcrush -rem gAMA -rem cHRM -rem iCCP -rem sRGB -brute"
