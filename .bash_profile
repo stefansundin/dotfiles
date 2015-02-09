@@ -2,13 +2,13 @@
 
 
 # https://gist.github.com/stefansundin/cebce4a26a32ede58a16#file-profile
-export PATH="$HOME/bin:/Applications/Firefox.app/Contents/MacOS:/Applications/Postgres.app/Contents/Versions/9.3/bin:/usr/local/bin:$HOME/.rbenv/versions/2.1.2/bin:$PATH"
+export PATH="$HOME/bin:/Applications/Firefox.app/Contents/MacOS:/Applications/Postgres.app/Contents/Versions/9.4/bin:/usr/local/bin:$HOME/.rbenv/versions/2.1.2/bin:$PATH"
 export IGNOREEOF=5
 export LESSHISTFILE=-
 export EDITOR='subl -w'
 export TERM=xterm-color
 export PGHOST=localhost
-export PGDATA="/Users/stefansundin/Library/Application Support/Postgres93/var"
+export PGDATA="/Users/stefansundin/Library/Application Support/Postgres/var-9.4"
 
 # wget https://raw.githubusercontent.com/bagder/ca-bundle/master/ca-bundle.crt
 export SSL_CERT_FILE="$HOME/ca-bundle.crt"
