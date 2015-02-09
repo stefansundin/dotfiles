@@ -168,6 +168,23 @@ cupsctl WebInterface=yes
 # (/System)/Library/Launch{Agents,Daemons}
 # /Library/StartupItems
 
+# upgrade Postgres.app
+# first stop the postgres server and kill all connections
+powder stop
+# then rename the old Postgres.app, copy over the new one, and copy the old binaries which are needed for the upgrade
+cd /Applications
+mv Postgres.app Postgres-9.3.app
+# move over new Postgres.app
+cp -r Postgres-9.3.app/Contents/Versions/9.3 Postgres.app/Contents/Versions/
+# now update your PATH to use 9.4 and restart terminal
+cd "$HOME/Library/Application Support/Postgres"
+mkdir var-9.4
+# if var-9.4 already exists, rename it (you may delete it later)
+initdb var-9.4 -E utf8
+pg_upgrade -d var-9.3 -D var-9.4 -b /Applications/Postgres.app/Contents/Versions/9.3/bin/ -B /Applications/Postgres.app/Contents/Versions/9.4/bin/ -v
+# delete old files after verifying new database works
+rm -rf var-9.3
+
 
 # iTerm 2 key bindings
 # add Profile shortcuts since they have highest priority
