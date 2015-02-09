@@ -1,15 +1,17 @@
 # Put custom stuff on top
 
 
-# https://gist.github.com/stefansundin/cebce4a26a32ede58a16#file-zshrc
-
-export PATH="$HOME/bin:/Applications/Firefox.app/Contents/MacOS:/Applications/Postgres.app/Contents/Versions/9.3/bin:/usr/local/bin:$HOME/.rbenv/versions/2.1.2/bin:$PATH"
+# https://github.com/stefansundin/dotfiles/blob/master/.zshrc
+export PATH="$HOME/bin:/Applications/Firefox.app/Contents/MacOS:/Applications/Postgres.app/Contents/Versions/9.4/bin:/usr/local/bin:$HOME/.rbenv/versions/2.1.2/bin:$PATH"
 setopt IGNOREEOF
 export LESSHISTFILE=-
 export EDITOR='subl -w'
 export TERM=xterm-color
 export PGHOST=localhost
-export PGDATA="/Users/stefansundin/Library/Application Support/Postgres93/var"
+export PGDATA="$HOME/Library/Application Support/Postgres/var-9.4"
+
+# wget https://raw.githubusercontent.com/bagder/ca-bundle/master/ca-bundle.crt
+export SSL_CERT_FILE="$HOME/ca-bundle.crt"
 
 alias gpg="gpg2"
 alias ls="ls -G"
