@@ -59,7 +59,7 @@ module App
   class Application < Rails::Application
     # Automatically establish database connection in the rails console
     console do
-      ActiveRecord::Base.connection
+      ActiveRecord::Base.connection rescue nil
     end
   end
 end
