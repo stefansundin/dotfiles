@@ -152,6 +152,12 @@ psql -t -c 'SELECT pg_size_pretty(pg_database_size(current_database()))' app_dev
  357 MB
 
 # raw queries
+def sql(*args)
+  ActiveRecord::Base.connection.execute(*args).to_a
+end
+sql "SHOW SERVER_VERSION"
+=> [{"server_version"=>"9.1.11"}]
+
 res = ActiveRecord::Base.connection.execute("SELECT * FROM VOTES WHERE votable_type = 'Post' AND created_at > NOW()-'1 day'::INTERVAL")
 res.count
 res[1]
