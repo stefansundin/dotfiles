@@ -79,6 +79,7 @@ Adblock filters:
 > inoreader.com##.ad_title
 > inoreader.com##.inner_ad
 > inoreader.com##.block_article_ad
+> stackoverflow.com##.everyonelovesstackoverflow
 > ```
 
 Firefox multiple profiles:
