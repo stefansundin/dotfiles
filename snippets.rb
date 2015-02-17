@@ -77,6 +77,10 @@ Sidekiq::Queue.all.map(&:clear)
 Sidekiq::ScheduledSet.new.clear
 Sidekiq::RetrySet.new.clear
 
+# clear resque queues
+Resque.queues.each { |q| Resque.remove_queue(q) }
+Resque.workers.map(&:id).each { |id| Resque.remove_worker(id) }
+
 # profile
 require 'profiler'
 Profiler__.start_profile
