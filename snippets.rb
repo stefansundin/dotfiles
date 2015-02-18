@@ -51,7 +51,7 @@ u = User.find_by_uid(1005)
 u.method(:statements).source_location
 
 # longer POW timeout
-# vim ~/.powconfig
+# ~/.powconfig
 export POW_TIMEOUT=3600
 
 # rails 4 console automatic database connection
@@ -65,7 +65,7 @@ module App
 end
 
 # sidekiq inline
-# vim config/environments/development.rb
+# config/environments/development.rb
 require 'sidekiq/testing/inline'
 
 # cancel specific jobs in sidekiq retry queue
@@ -77,6 +77,13 @@ Sidekiq::Queue.all.map(&:clear)
 Sidekiq::ScheduledSet.new.clear
 Sidekiq::RetrySet.new.clear
 
+# resque stdout logging
+# config/initializers/resque.rb
+if Rails.env.development?
+  Resque.logger = Logger.new(STDOUT)
+  ActiveRecord::Base.logger = Logger.new(STDOUT)
+end
+
 # clear resque queues
 Resque.queues.each { |q| Resque.remove_queue(q) }
 Resque.workers.map(&:id).each { |id| Resque.remove_worker(id) }
@@ -87,11 +94,11 @@ Profiler__.start_profile
 Profiler__.stop_profile
 Profiler__.print_profile(File.open("profile-#{Time.now.to_i}.log",'wb'))
 
-# vim ~/.pryrc
+# ~/.pryrc
 # fix for NoMethodError: undefined method `reload!' for main:Object
 include Rails::ConsoleMethods if defined? Rails
 
-# vim ~/.irbrc
+# ~/.irbrc
 IRB.conf[:PROMPT][:CUSTOM] = {
   PROMPT_I: "\e[31m>>\e[0m ",
   PROMPT_N: "\e[1;33m>>\e[0m ",
@@ -280,7 +287,7 @@ rm ~/Library/Application\ Support/Postgres93/var/pg_log/*
 pg_resetxlog ~/Library/Application\ Support/Postgres93/var/
 rm ~/Library/Logs/Pow/access.log
 
-sudo vim /usr/local/etc/mongod.conf
+# /usr/local/etc/mongod.conf
 smallfiles=true
 
 launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.mongodb.plist
