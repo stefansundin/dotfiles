@@ -1,7 +1,10 @@
-brew install duti gnu-tar git wget readline rbenv ruby-build rbenv-gem-rehash rbenv-binstubs
+brew install duti gnu-tar git wget readline ssh-copy-id
 brew link readline
-rbenv install 2.1.2
-rbenv global 2.1.2
+
+brew install rbenv ruby-build rbenv-gem-rehash rbenv-binstubs
+rbenv install 2.2.0
+rbenv global 2.2.0
+
 ln -s "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" /usr/local/bin/subl
 ln -s /Applications/TrueCrypt.app/Contents/MacOS/TrueCrypt /usr/local/bin/truecrypt
 ln -s /Applications/Gimp.app/Contents/MacOS/gimp-2.8 /usr/local/bin/gimp
