@@ -1,11 +1,13 @@
 'STRING'.downcase
 [1, 2, nil, 4].compact
+[true,false].sample
 File.open('file.log','a+') { |f| f.write "#{var.inspect}\n" }
 u = User.first(order:"RANDOM()")
 User.find(27).touch # clear IdentityCache
 User.first.created_at.in_time_zone(ActiveSupport::TimeZone["America/Los_Angeles"])
 ActiveRecord::Base::sanitize
 ActiveRecord::Base.transaction { users.map(&:save) }
+ActiveRecord::Base.connection_pool.size
 ActionController::Base.helpers.strip_tags
 ActiveRecord::Base.logger = Logger.new(STDOUT) # see SQL in console
 $redis.keys.select { |k| $redis.del k } # clear redis the poor man's way
@@ -20,6 +22,7 @@ end
 git mv {20140918225402,`TZ=0 date +%Y%m%d%H%M%S`}_move_migration_to_last.rb
 rake db:create db:setup db:migrate
 rails g migration AddAutoSubscribeToUsers
+rake db:migrate:status
 rake db:migrate:down VERSION=20131121021805
 rake db:rollback STEP=3
 rake db:schema:dump db:structure:dump
@@ -179,6 +182,16 @@ ActiveRecord::ConnectionAdapters::Column::TRUE_VALUES
 ActiveRecord::ConnectionAdapters::Column::FALSE_VALUES
 => #<Set: {false, 0, "0", "f", "F", "false", "FALSE", "off", "OFF"}>
 
+# symbolize keys
+def symbolize_keys_deep(h)
+  if h.kind_of? Hash
+    h.map { |k,v| [k.to_sym, symbolize_keys_deep(v)] }.to_h
+  elsif h.kind_of? Array
+    h.map { |v| symbolize_keys_deep(v) }
+  else
+    h
+  end
+end
 
 # HTTParty
 require 'httparty'
