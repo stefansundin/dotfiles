@@ -101,16 +101,6 @@ Profiler__.print_profile(File.open("profile-#{Time.now.to_i}.log",'wb'))
 # fix for NoMethodError: undefined method `reload!' for main:Object
 include Rails::ConsoleMethods if defined? Rails
 
-# ~/.irbrc
-IRB.conf[:PROMPT][:CUSTOM] = {
-  PROMPT_I: "\e[31m>>\e[0m ",
-  PROMPT_N: "\e[1;33m>>\e[0m ",
-  PROMPT_S: nil,
-  PROMPT_C: "\e[33m?>\e[0m ",
-  RETURN:   "\e[32m=>\e[0m %s\n"
-}
-IRB.conf[:PROMPT_MODE] = :CUSTOM
-
 # check what readline is in use
 # this is good:
 Readline::VERSION
