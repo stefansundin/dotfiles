@@ -94,6 +94,9 @@ git clone github:stefansundin/altdrag.git
 # create SSH key
 ssh-keygen
 cat .ssh/id_rsa.pub
+# print fingerprint from id_rsa.pub
+ssh-keygen -l -f .ssh/id_rsa.pub
+
 # Windows Git Bash
 # PuTTYGen → Generate → Conversions → Export OpenSSH Key → Save as %USERPROFILE%\.ssh\id_rsa
 # copy public key in text box into a new SSH key on GitHub
