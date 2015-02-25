@@ -89,7 +89,8 @@ end
 
 # clear resque queues
 Resque.queues.each { |q| Resque.remove_queue(q) }
-Resque.workers.map(&:id).each { |id| Resque.remove_worker(id) }
+Resque.workers.each(&:unregister_worker)
+#Resque.workers.map(&:id).each { |id| Resque.remove_worker(id) }
 
 # profile
 require 'profiler'
