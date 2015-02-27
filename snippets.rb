@@ -43,11 +43,18 @@ gem: --no-document
 
 # Gems
 group :development do
+  gem "bullet" # help find N+1 queries
   # debug errors on exception
   gem "better_errors"
   gem "binding_of_caller"
 end
 # To use better_errors instead of pry, just use `raise "oops"` instead of `binding.remote_pry`.
+
+# config/environments/development.rb
+  config.after_initialize do
+    Bullet.enable = true
+    Bullet.console = true
+  end
 
 # get location of method at runtime
 u = User.find_by_uid(1005)
