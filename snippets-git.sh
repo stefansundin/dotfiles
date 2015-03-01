@@ -286,6 +286,26 @@ else
 fi
 
 
+# print all custom user.email
+find . -type d -name .git -print0 | while IFS= read -r -d $'\0' gitdir; do
+  email=$(git -C "$gitdir" config --local user.email)
+  if [[ "$email" != "" ]]; then
+    printf "%-25s user.email is %s\n" "$gitdir" "$email"
+  fi
+done
+
+# set all git emails of subdirectories
+find . -type d -depth 2 -name .git -print0 | while IFS= read -r -d $'\0' path; do
+  git -C "$path" config user.email git@example.com
+done
+
+# unset all git emails of subdirectories
+find . -type d -depth 2 -name .git -print0 | while IFS= read -r -d $'\0' path; do
+  git -C "$path" config --unset --local user.email
+done
+
+
+
 # Git errors
 
 # failed to lock
