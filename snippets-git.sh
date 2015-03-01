@@ -242,6 +242,22 @@ repo sync
 # client hooks: pre-commit, prepare-commit-msg, commit-msg, post-commit, applypatch-msg, pre-applypatch, post-applypatch, pre-rebase, post-checkout, post-merge, pre-push, pre-auto-gc, post-rewrite
 # server hooks: pre-receive, post-receive, update, post-update
 
+# automate work/personal git emails on git clone
+# create global post-checkout hook for to be copied in initial cloning
+# cd /usr/local/share/git-core/templates/hooks
+# vim post-checkout
+# chmod +x post-checkout
+
+#!/bin/bash
+# note that this hook is NOT called on git init!
+if [[ "$1" == "0000000000000000000000000000000000000000" && "$3" == "1" ]]; then
+  # this is a git clone call
+  if [[ "$(pwd)" == *"/p/"* ]]; then
+    git config user.email git@example.com
+  fi
+  echo "user.email is $(git config user.email)"
+fi
+
 # server post-receive hook
 vim app.git/hooks/post-receive && chmod +x app.git/hooks/post-receive
 #!/bin/bash
