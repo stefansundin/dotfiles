@@ -5,10 +5,16 @@
 export PATH="$HOME/bin:/Applications/Firefox.app/Contents/MacOS:/Applications/Postgres.app/Contents/Versions/9.4/bin:/usr/local/bin:$HOME/.rbenv/versions/2.1.2/bin:$PATH"
 export IGNOREEOF=5
 export LESSHISTFILE=-
-export EDITOR='subl -w'
 export TERM=xterm-color
 export PGHOST=localhost
 export PGDATA="$HOME/Library/Application Support/Postgres/var-9.4"
+
+#export EDITOR='subl -w'
+export EDITOR=vim
+export VISUAL=vim
+# Ubuntu:
+# sudo update-alternatives --config editor
+# Select vim.basic (which is normal vim)
 
 # wget https://raw.githubusercontent.com/bagder/ca-bundle/master/ca-bundle.crt
 export SSL_CERT_FILE="$HOME/ca-bundle.crt"
