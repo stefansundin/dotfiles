@@ -14,6 +14,12 @@ After install:
 
 1. Disable HDD spindown in Power Options.
 1. Disable system sounds.
+1. Make Windows use UTC as the hardware timer (to make the clock compatible with dual-booting Linux):
+
+   ```
+   cmd /C reg add HKLM\SYSTEM\CurrentControlSet\Control\TimeZoneInformation /v RealTimeIsUniversal /t REG_DWORD /d 1 /f & pause
+   ```
+
 1. Disable Windows Update waking computer from sleep:
 
    ```
