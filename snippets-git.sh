@@ -48,6 +48,7 @@ git log --pretty=fuller
 git add -p stage_file_partially.rb
 git ci --amend --author "Stefan Sundin <stefansundin@users.noreply.github.com>"
 git ci --date '2013-12-26 14:30:12'
+git ls-files --stage
 
 # commit with ' inside ''
 git ci -m 'It'\''s annoying with quote problems.'
