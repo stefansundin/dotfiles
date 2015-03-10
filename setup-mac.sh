@@ -118,6 +118,7 @@ killall Finder
 ## WARNING: DELETE KEY WILL NOW DELETE FILE WHEN ATTEMPTING TO RENAME THEM!! USE BACKSPACE!
 # 'Open with Sublime Text' in right click menu
 http://charles.lescampeurs.org/2012/06/18/right-click-open-with-sublime-text-2
+# FinderPath: http://bahoom.com/finderpath/
 
 # disable fullscreen swoosh
 defaults write -g NSWindowResizeTime -float 0.01
