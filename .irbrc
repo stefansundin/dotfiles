@@ -8,3 +8,7 @@ IRB.conf[:PROMPT][:CUSTOM] = {
   RETURN:   "\e[32m=>\e[0m %s\n"
 }
 IRB.conf[:PROMPT_MODE] = :CUSTOM
+
+def sql(*args)
+  ActiveRecord::Base.connection.execute(*args).to_a
+end
