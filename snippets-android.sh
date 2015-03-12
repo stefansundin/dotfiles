@@ -1,3 +1,4 @@
+# see free disk space on device
 adb shell df
 # capture screenshot
 adb shell screencap -p | sed 's/\r$//' > screen.png
@@ -20,9 +21,15 @@ Ubuntu:
 Windows
 - PATH: C:\Users\user\AppData\Local\Android\android-studio\sdk\platform-tools
 
-Log text through adb:
+# log text through adb
 Log.d("stefan", "My string");
 adb logcat -s stefan
+
+# prepare release apk
+keytool -genkey -v -keystore appname-release.keystore -alias appname-release -keyalg RSA -keysize 2048 -validity 10000
+jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -storepass password -keystore appname-release.keystore appname-release-unaligned.apk appname-release
+jarsigner -verify myapp-release-unaligned.apk
+zipalign -v 4 myapp-release-unaligned.apk myapp-release.apk
 
 # rooting
 adb reboot bootloader
