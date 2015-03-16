@@ -6,6 +6,8 @@ adb shell screencap -p | sed 's/\r$//' > screen.png
 adb shell ls /sys/class/net
 # get package name from apk
 ~/android-studio/sdk/build-tools/android-4.2.2/aapt dump badging apk-compass-sample.apk | grep package
+# get current activity name
+adb shell dumpsys window windows | grep -E 'mCurrentFocus|mFocusedApp'
 
 .nomedia file prevents indexing media files in directory
 
