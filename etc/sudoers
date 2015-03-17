@@ -1,0 +1,7 @@
+# VISUAL=vim sudo visudo
+
+# Ubuntu:
+stefan ALL=(ALL) NOPASSWD:/usr/bin/truecrypt,/usr/sbin/synaptic,/usr/bin/vim,/usr/sbin/service
+
+# Mac:
+stefan ALL=(ALL) NOPASSWD:/usr/local/bin/truecrypt
