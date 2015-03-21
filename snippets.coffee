@@ -1,8 +1,11 @@
 # function getElementByXpath(path) { return document.evaluate(path, document, null, 9, null).singleNodeValue; }
 
+# "0:10, 2:10" => ["0:10","2:10"]
+["0:10, 2:10"].split(",").map (s) -> s.trim()
+
 # pad(2) = "02"
 pad = (n) ->
-    ("0"+n).slice(-2)
+  ("0"+n).slice(-2)
 
 # &amp;&#8364; = &€
 decodeEntities = (str) ->
