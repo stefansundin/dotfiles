@@ -1,3 +1,6 @@
+Chrome `--disable-web-security`:
+- `"C:\Program Files (x86)\Google\Chrome\Application\chrome.exe" --disable-web-security`
+
 NPM (comes with [Node.js](http://nodejs.org/download/)):
 > ```
 > npm install -g keybase-installer
