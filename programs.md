@@ -83,6 +83,7 @@ Adblock filters:
 > inoreader.com##.ad_title
 > inoreader.com##.inner_ad
 > inoreader.com##.block_article_ad
+> inoreader.com##.avs_iframe
 > stackoverflow.com##.everyonelovesstackoverflow
 > ```
 
