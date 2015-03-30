@@ -10,6 +10,7 @@ ActiveRecord::Base.transaction { users.map(&:save) }
 ActiveRecord::Base.connection_pool.size
 ActionController::Base.helpers.strip_tags
 ActiveRecord::Base.logger = Logger.new(STDOUT) # see SQL in console
+ActiveRecord::Migration.remove_column :posts, :view_count
 $redis.keys.select { |k| $redis.del k } # clear redis the poor man's way
 before_filter :auth, unless: -> { Rails.env.development? }
 
