@@ -50,7 +50,7 @@ fmt_filesize = (bytes) ->
     bytes = bytes / 1024
     i++
   size = if i > 0 then bytes.toFixed(1) else bytes
-  "#{size} #{units[i]}`"
+  "#{size} #{units[i]}"
 
 # is child a child of parent?
 isChildOf = (child, parent) ->
