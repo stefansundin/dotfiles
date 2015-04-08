@@ -1,3 +1,10 @@
+Userscripts:
+- https://github.com/gantt/downloadyoutube/blob/master/script/yt.user.js
+- https://github.com/stefansundin/youtube-copy-annotations/blob/gh-pages/youtube_auth_token.user.js
+- https://gist.github.com/stefansundin/65e3d6db697636d8e7f1#file-youtube-global-shortcuts-user-js
+- https://gist.github.com/stefansundin/f1e81a8f5281f6f4cac4#file-sourceforge-bigger-filename-column-user-js
+- https://gist.github.com/stefansundin/f9df6c5e0fd184c60709#file-launchpad-download-count-user-js
+
 Chrome `--disable-web-security`:
 - `"C:\Program Files (x86)\Google\Chrome\Application\chrome.exe" --disable-web-security`
 - `open -a 'Google Chrome' --args --disable-web-security`
