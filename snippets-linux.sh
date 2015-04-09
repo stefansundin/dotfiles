@@ -155,13 +155,14 @@ done
 
 # SSH keys
 ssh-keygen -C "stefan@example.com"
+# add new key
+ssh-add
 # copy key to remote SSH host
 ssh-copy-id -i .ssh/id_rsa.pub stefan@example.com
 ssh stefan@example.com
 # copy id_rsa.pub to e.g. GitHub
 sudo apt-get install xclip
 xclip -sel clip < .ssh/id_rsa.pub
-# if errors, just run "ssh-add"
 # add passphrase to unencrypted private key
 ssh-keygen -p -f .ssh/id_rsa
 # print key fingerprints
