@@ -1,8 +1,9 @@
-'STRING'.downcase
+"STRING".downcase
 [1, 2, nil, 4].compact
 [true,false].sample
-File.open('file.log','a+') { |f| f.write "#{var.inspect}\n" }
+File.open("file.log","a+") { |f| f.write "#{var.inspect}\n" }
 u = User.first(order:"RANDOM()")
+puts User.all.to_yaml
 User.find(27).touch # clear IdentityCache
 User.first.created_at.in_time_zone(ActiveSupport::TimeZone["America/Los_Angeles"])
 ActiveRecord::Base::sanitize
@@ -11,7 +12,7 @@ ActiveRecord::Base.connection_pool.size
 ActionController::Base.helpers.strip_tags
 ActiveRecord::Base.logger = Logger.new(STDOUT) # see SQL in console
 ActiveRecord::Migration.remove_column :posts, :view_count
-$redis.keys.select { |k| $redis.del k } # clear redis the poor man's way
+$redis.keys.select { |k| $redis.del k } # clear redis the poor mans way
 before_filter :auth, unless: -> { Rails.env.development? }
 
 case type
@@ -77,11 +78,11 @@ end
 
 # sidekiq inline
 # config/environments/development.rb
-require 'sidekiq/testing/inline'
+require "sidekiq/testing/inline"
 
 # cancel specific jobs in sidekiq retry queue
-Sidekiq::RetrySet.new.each { |job| job.delete if job.klass == 'AwesomeButFailingJob' }
-Sidekiq::ScheduledSet.new.select { |job| job.klass == 'AwesomeButFailingJob' }.count
+Sidekiq::RetrySet.new.each { |job| job.delete if job.klass == "AwesomeButFailingJob" }
+Sidekiq::ScheduledSet.new.select { |job| job.klass == "AwesomeButFailingJob" }.count
 
 # clear sidekiq queues
 Sidekiq::Queue.all.map(&:clear)
@@ -101,10 +102,10 @@ Resque.workers.each(&:unregister_worker)
 #Resque.workers.map(&:id).each { |id| Resque.remove_worker(id) }
 
 # profile
-require 'profiler'
+require "profiler"
 Profiler__.start_profile
 Profiler__.stop_profile
-Profiler__.print_profile(File.open("profile-#{Time.now.to_i}.log",'wb'))
+Profiler__.print_profile(File.open("profile-#{Time.now.to_i}.log","wb"))
 
 # ~/.pryrc
 # fix for NoMethodError: undefined method `reload!' for main:Object
@@ -161,7 +162,7 @@ test:
 psql -c "SELECT pg_terminate_backend(pid) FROM pg_stat_activity WHERE datname='app_development';"
 
 # find out database size
-psql -t -c 'SELECT pg_size_pretty(pg_database_size(current_database()))' app_development
+psql -t -c "SELECT pg_size_pretty(pg_database_size(current_database()))" app_development
  357 MB
 
 # raw queries
@@ -193,7 +194,7 @@ def symbolize_keys_deep(h)
 end
 
 # HTTParty
-require 'httparty'
+require "httparty"
 
 class HTTPartyDebug
   include HTTParty
@@ -204,7 +205,7 @@ class HTTPartyDebug
   end
 end
 
-HTTPartyDebug.post('https://www.googleapis.com/youtube/v3/subscriptions?part=snippet', headers: { 'Content-Type' => 'application/json', 'Authorization' => 'Bearer ya29.1' }, body: {snippet: {resourceId: {channelId: 'UCOxsR_7dUEp6p2inmL1ZHiA'}}}.to_json)
+HTTPartyDebug.post("https://www.googleapis.com/youtube/v3/subscriptions?part=snippet", headers: { "Content-Type" => "application/json", "Authorization" => "Bearer ya29.1" }, body: {snippet: {resourceId: {channelId: "UCOxsR_7dUEp6p2inmL1ZHiA"}}}.to_json)
 
 
 # forward arguments
@@ -223,17 +224,17 @@ def time
   mm, ss = eta.divmod(60)
   hh, mm = mm.divmod(60)
   dd, hh = hh.divmod(24)
-  puts "[%s] Took %d days %2d hours %2d minutes %2d seconds." % [Time.now.strftime('%T'), dd, hh, mm, ss]
+  puts "[%s] Took %d days %2d hours %2d minutes %2d seconds." % [Time.now.strftime("%T"), dd, hh, mm, ss]
   eta
 end
-time { User.each { |u| u.update_attribute :locale, 'en' } }
+time { User.each { |u| u.update_attribute :locale, "en" } }
 
 
 # strip unknown characters
 body = HTTParty.get("http://gdata.youtube.com/feeds/api/videos/VtI5HM7GVGY")
 JSON.parse(body)
 (pry) output error: #<Encoding::UndefinedConversionError: "\xC2" from ASCII-8BIT to UTF-8>
-body = body.force_encoding("ASCII-8BIT").encode('UTF-8', undef: :replace, replace: '')
+body = body.force_encoding("ASCII-8BIT").encode("UTF-8", undef: :replace, replace: "")
 JSON.parse(body)
 
 
