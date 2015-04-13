@@ -1,4 +1,5 @@
 brew install duti gnu-tar git wget readline ssh-copy-id
+brew install imagemagick --with-libtiff
 brew link readline
 
 brew install rbenv ruby-build rbenv-gem-rehash rbenv-binstubs
