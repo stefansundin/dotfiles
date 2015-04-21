@@ -57,6 +57,10 @@ touch -t 201306011010 dummy
 # YYYYMMDDHHII
 find -newer dummy -type f
 
+# process monitoring
+ps -C <program> -o %cpu,%mem,pid,cmd
+top -p <pid>
+
 # make unified patch between directories
 diff -urN truecrypt-7.1a-source truecrypt-7.1a-indicator > truecrypt-7.1a-indicator.patch
 # apply patch
