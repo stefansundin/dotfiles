@@ -20,7 +20,7 @@ export VISUAL=vim
 export SSL_CERT_FILE="$HOME/ca-bundle.crt"
 
 # debchange
-export DEBFULLNAME=Stefan Sundin
+export DEBFULLNAME="Stefan Sundin"
 export DEBEMAIL=stefan@example.com
 
 alias gpg="gpg2"
