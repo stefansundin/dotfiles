@@ -19,6 +19,10 @@ export VISUAL=vim
 # wget https://raw.githubusercontent.com/bagder/ca-bundle/master/ca-bundle.crt
 export SSL_CERT_FILE="$HOME/ca-bundle.crt"
 
+# debchange
+export DEBFULLNAME=Stefan Sundin
+export DEBEMAIL=stefan@example.com
+
 alias gpg="gpg2"
 alias ls="ls -G"
 alias pc="pngcrush -rem gAMA -rem cHRM -rem iCCP -rem sRGB -brute"
