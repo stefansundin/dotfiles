@@ -14,14 +14,6 @@ NPM (comes with [Node.js](http://nodejs.org/download/)):
 > npm install -g keybase-installer
 > ```
 
-gpg.conf:
-> ```
-> vim ~/.gnupg/gpg.conf
-> armor
-> default-key 27642822
-> encrypt-to 27642822
-> ```
-
 Clipboard:
 > - Mac: `pbcopy` / `pbpaste`
 > - Windows: `clip` / [`clop`](https://gist.github.com/stefansundin/9d95826a712096b24ae2/raw/clop.exe) [[1](https://gist.github.com/stefansundin/9d95826a712096b24ae2)]
