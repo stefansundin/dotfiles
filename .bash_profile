@@ -9,6 +9,10 @@ export TERM=xterm-color
 export PGHOST=localhost
 export PGDATA="$HOME/Library/Application Support/Postgres/var-9.4"
 
+# SSH auth using gpg key
+# echo "enable-ssh-support" >> ~/.gnupg/gpg-agent.conf
+export SSH_AUTH_SOCK=~/.gnupg/S.gpg-agent.ssh
+
 #export EDITOR='subl -w'
 export EDITOR=vim
 export VISUAL=vim
