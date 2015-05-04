@@ -1,3 +1,4 @@
-- http://25thandclement.com/~william/YubiKey_NEO.html
+- https://yubico.com/pt
+- https://developers.yubico.com/yubikey-neo-manager/Releases/
 - https://developers.yubico.com/PGP/Importing_keys.html
-- https://developers.yubico.com/ykneo-openpgp/
+- http://25thandclement.com/~william/YubiKey_NEO.html
