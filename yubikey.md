@@ -1,4 +1,5 @@
 - https://yubico.com/pt
 - https://developers.yubico.com/yubikey-neo-manager/Releases/
+- https://developers.yubico.com/yubioath-desktop/Releases/
 - https://developers.yubico.com/PGP/Importing_keys.html
 - http://25thandclement.com/~william/YubiKey_NEO.html
