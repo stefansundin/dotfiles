@@ -42,14 +42,14 @@ insertAfter = (insert, after) ->
 # remove all children
 el.removeChild(el.firstChild) while el.hasChildNodes()
 
-# fmt_filesize(1369088) = "1.3 MB"
-fmt_filesize = (bytes) ->
-  units = ['bytes', 'kB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
+# fmt_filesize(1369088) = "1.3 MiB"
+fmt_filesize = (bytes, digits=2) ->
+  units = ['B', 'kiB', 'MiB', 'GiB', 'TiB', 'PiB', 'EiB', 'ZiB', 'YiB'];
   i = 0
   while bytes > 1024 and i < units.length
     bytes = bytes / 1024
     i++
-  size = if i > 0 then bytes.toFixed(1) else bytes
+  size = if i > 0 then bytes.toFixed(digits) else bytes
   "#{size} #{units[i]}"
 
 # is child a child of parent?
