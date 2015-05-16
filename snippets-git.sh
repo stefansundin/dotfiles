@@ -80,6 +80,15 @@ export GIT_COMMITTER_DATE=2008-06-05 10:10:10
 git tag -a v0.1 -m "Tagging v0.1"
 git push origin v0.1
 
+# change tag name and keep date (patch1 => v1)
+git log --tags --simplify-by-decoration --pretty="format:%ai %d"
+export GIT_COMMITTER_DATE='2015-05-15 17:54:47 -0700'
+git show patch1 # copy tag message
+git tag -a v1 patch1^{}
+git tag -d patch1
+git push origin :refs/tags/patch1
+git push origin v1
+
 # gists
 https://gist.github.com/stefansundin/9059706#install-pre-commit.sh
 https://gist.github.com/stefansundin/d465f1e331fc5c632088#install-pre-push.sh
