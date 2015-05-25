@@ -7,7 +7,6 @@ sudo add-apt-repository ppa:ondrej/php5-5.6
 # sudo add-apt-repository ppa:langemeijer/php5-ssh2
 sudo apt-add-repository --remove ppa:langemeijer/php5-ssh2
 
-
 # debianization
 sudo apt-get install devscripts
 tar xzf truecrypt_7.1a.orig.tar.gz

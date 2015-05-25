@@ -2,6 +2,9 @@
 sudo apt-get install scrot
 sleep 5 && scrot screenshot.png
 
+# sudo forget password
+sudo -K
+
 # see available versions of package
 apt-cache policy nginx
 
