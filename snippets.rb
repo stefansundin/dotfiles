@@ -347,3 +347,8 @@ pg_restore --verbose --clean --no-acl --no-owner -d _development db-`date +%F`.d
 # Heroku + Logentries (Syslog drain)
 # Manual Configuration. (x) Plain TCP, UDP.
 heroku drains:add syslog://data.logentries.com:XXXXX
+
+
+# Parse AWS ip-ranges
+r = HTTParty.get "https://ip-ranges.amazonaws.com/ip-ranges.json"
+puts r.parsed_response["prefixes"].select { |p| p["region"].start_with?("us") and p["service"] == "AMAZON" }.map { |p| p["ip_prefix"] }.join("\n")
