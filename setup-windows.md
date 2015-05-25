@@ -26,6 +26,12 @@ After install:
    cmd /C reg add HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU /v AUPowerManagement /t REG_DWORD /d 0 /f & reg add HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU /v NoAutoRebootWithLoggedOnUsers /t REG_DWORD /d 1 /f & pause
    ```
 
+1. Prevent Windows Update from hijacking sleep button:
+
+   ```
+   cmd /C reg add HKCU\Software\Policies\Microsoft\Windows\WindowsUpdate\AU /v NoAUAsDefaultShutdownOption /t REG_DWORD /d 1 /f & pause
+   ```
+
 1. Disable Windows 8 update notification:
 
    ```
@@ -142,6 +148,43 @@ After install:
 
    > 1. Download [Gpg4Win Vanilla](http://gpg4win.org/download.html).
    > 1. Add `C:\Program Files (x86)\GNU\GnuPG\pub` to `PATH`.
+
+1. cmd.exe startup commands:
+
+   ```
+   reg add "HKCU\Software\Microsoft\Command Processor" /v Autorun /t REG_SZ /d "C:\Users\stefan\bin\cmd_autorun.bat" /f & pause
+   ```
+
+1. Open bat file with low priority in context menu:
+
+   ```
+   reg add HKCR\batfile\shell\openlow /ve /t REG_SZ /d "Open (Low priority)" /f & reg add HKCR\batfile\shell\openlow\command /ve /t REG_SZ /d "cmd /C start \"Low priority cmd\" /low \"%1\" %*" /f & pause
+   ```
+
+1. Open files without extension with Notepad:
+
+   ```
+   reg add HKCR\.\shell\open\command /ve /t REG_SZ /d "notepad.exe %1" /f & pause
+   ```
+
+1. Open pngcrush to .png context menu:
+
+   ```
+   reg add HKCR\pngfile\shell\1pngcrush /ve /t REG_SZ /d "pngcrush" /f & reg add HKCR\pngfile\shell\1pngcrush\command /ve /t REG_SZ /d "C:\Users\stefan\bin\pngcrush.exe -brute -rem gAMA -rem cHRM -rem iCCP -rem sRGB \"%1\" \"%1-crushed.png\"" /f & reg add HKCR\pngfile\shell\1pngcrushdir /ve /t REG_SZ /d "pngcrush to dir" /f & reg add HKCR\pngfile\shell\1pngcrushdir\command /ve /t REG_SZ /d "C:\Users\stefan\bin\pngcrush.exe -brute -rem gAMA -rem cHRM -rem iCCP -rem sRGB -d crush \"%1\"" /f & pause
+   ```
+
+1. Add "Open with Sublime Text" to directory context menu:
+
+   ```
+   reg add HKCR\Directory\shell\1subl /ve /t REG_SZ /d "Open with Sublime Text" /f & reg add HKCR\Directory\shell\1subl\command /ve /t REG_SZ /d "subl \"%1\"" /f & pause
+   ```
+
+1. Add "Open with cmd" to directory context menu:
+
+   ```
+   reg add HKCR\Directory\shell\1cmd /ve /t REG_SZ /d "Open with cmd" /f & reg add HKCR\Directory\shell\1cmd\command /ve /t REG_SZ /d "cmd.exe /s /k pushd \"%V\"" /f & pause
+   ```
+
 
 Python argument problem:
 > ```
