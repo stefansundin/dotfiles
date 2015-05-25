@@ -1,0 +1,66 @@
+{
+  "font_size": 12, //pixel: 15
+  "auto_match_enabled": false,
+  "scroll_past_end": true,
+  "word_wrap": true,
+  "ensure_newline_at_eof_on_save": false,
+  "trim_automatic_white_space": false,
+  "trim_trailing_white_space_on_save": true,
+
+  "highlight_line": false,
+  "detect_indentation": false, //??
+  "tab_size": 2,
+  "translate_tabs_to_spaces": true,
+  "useTabStops": false,
+
+  "show_tab_close_buttons": false,
+  "highlight_modified_tabs": true,
+  "show_full_path": true,
+  "always_show_minimap_viewport": true,
+  "default_line_ending": "unix",
+  "folder_exclude_patterns":
+  [
+    ".svn",
+    ".git",
+    ".repo",
+    ".Private",
+    "tmp",
+    "vendor",
+    ".sass-cache",
+    "node_modules",
+    "public/assets",
+    "assets/fonts",
+    "log"
+  ],
+  "file_exclude_patterns":
+  [
+    "*.exe",
+    "desktop.ini",
+    ".DS_Store",
+    "*.svg",
+    "*.rtf",
+    "*.min.js",
+    "*.min.css",
+    "ss-*.scss",
+    "ss-*.css",
+    "ss-*.js",
+    "jquery.*.js",
+    "*.gdoc",
+    "english.ldf",
+    "swedish.ldf",
+    "*.aux",
+    "*.blg",
+    "*.bbl",
+    "*.out",
+    "*.toc",
+    "*.vrb",
+    "*.nav",
+    "*.snm",
+    "*.synctex.gz",
+    "*.synctex.gz(busy)"
+  ],
+  "ignored_packages":
+  [
+    "Vintage"
+  ]
+}

@@ -1,0 +1,5 @@
+[
+    {"command": "split_selection_into_lines"},
+    {"command": "move_to", "args": {"to": "hardbol"}},
+    {"command": "right_delete"},
+]

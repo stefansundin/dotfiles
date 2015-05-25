@@ -1,0 +1,47 @@
+[  
+  { "keys": ["super+ctrl+up"], "command": "swap_line_up" },
+  { "keys": ["super+ctrl+down"], "command": "swap_line_down" },
+
+  { "keys": ["super+alt+up"], "command": "swap_line_up" },
+  { "keys": ["super+alt+down"], "command": "swap_line_down" },
+
+  { "keys": ["keypad_enter"], "command": "find_next" },
+  { "keys": ["shift+keypad_enter"], "command": "find_prev" },
+
+  { "keys": ["alt+z"], "command": "run_macro_file", "args": {"file": "Packages/User/TrimZ.sublime-macro"} },
+  { "keys": ["super+alt+z"], "command": "run_macro_file", "args": {"file": "Packages/User/SplitLines.sublime-macro"} },
+  // { "keys": ["ctrl+z"], "command": "run_macro_file", "args": {"file": "Packages/User/test.sublime-macro"} },
+
+  { "keys": ["super+alt+r"], "command": "file_reload_reload_view"},
+
+  { "keys": ["super+minus"], "command": "toggle_comment", "args": { "block": false } },
+  { "keys": ["super+shift+minus"], "command": "toggle_comment", "args": { "block": true } },
+  { "keys": ["super+alt+minus"], "command": "toggle_comment", "args": { "block": true } },
+
+  { "keys": ["super+0"], "command": "decrease_font_size" },
+  // { "keys": ["super+equals"], "command": "increase_font_size" },
+  { "keys": ["super+shift+equals"], "command": "decrease_font_size" },
+
+  // fold with m
+  { "keys": ["m"], "command": "fold",
+  // { "keys": ["m"], "command": "fold_by_level", "args": {"level": 2},
+    "context": [
+      { "key": "selector", "operator": "equal", "operand": "text.find-in-files" }
+    ]
+  }, //unfold with n
+  { "keys": ["n"], "command": "unfold_all",
+    "context":[
+      { "key": "selector", "operator": "equal", "operand": "text.find-in-files" }
+    ]
+  }, // prev result with j
+  { "keys": ["j"], "command": "find_next",
+    "context": [
+      { "key": "selector", "operator": "equal", "operand": "text.find-in-files" }
+    ]
+  }, // next result with k
+  { "keys": ["k"], "command": "find_prev",
+    "context": [
+      { "key": "selector", "operator": "equal", "operand": "text.find-in-files" }
+    ]
+  }
+]
