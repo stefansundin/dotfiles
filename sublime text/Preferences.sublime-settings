@@ -37,6 +37,7 @@
     "*.exe",
     "desktop.ini",
     ".DS_Store",
+    "Thumbs.db",
     "*.svg",
     "*.rtf",
     "*.min.js",
