@@ -176,13 +176,13 @@ After install:
 1. Add "Open with Sublime Text" to directory context menu:
 
    ```
-   reg add HKCR\Directory\shell\1subl /ve /t REG_SZ /d "Open with Sublime Text" /f & reg add HKCR\Directory\shell\1subl\command /ve /t REG_SZ /d "subl \"%1\"" /f & pause
+   reg add HKCR\Directory\shell\1subl /ve /t REG_SZ /d "Open with Sublime Text" /f & reg add HKCR\Directory\shell\1subl\command /ve /t REG_SZ /d "subl \"%V\"" /f & reg add HKCR\Directory\Background\shell\1subl /ve /t REG_SZ /d "Open with Sublime Text" /f & reg add HKCR\Directory\Background\shell\1subl\command /ve /t REG_SZ /d "subl \"%V\"" /f & pause
    ```
 
 1. Add "Open with cmd" to directory context menu:
 
    ```
-   reg add HKCR\Directory\shell\1cmd /ve /t REG_SZ /d "Open with cmd" /f & reg add HKCR\Directory\shell\1cmd\command /ve /t REG_SZ /d "cmd.exe /s /k pushd \"%V\"" /f & pause
+   reg add HKCR\Directory\shell\1cmd /ve /t REG_SZ /d "Open with cmd" /f & reg add HKCR\Directory\shell\1cmd\command /ve /t REG_SZ /d "cmd.exe /s /k pushd \"%V\"" /f & reg add HKCR\Directory\Background\shell\1cmd /ve /t REG_SZ /d "Open with cmd" /f & reg add HKCR\Directory\Background\shell\1cmd\command /ve /t REG_SZ /d "cmd.exe /s /k pushd \"%V\"" /f & pause
    ```
 
 
