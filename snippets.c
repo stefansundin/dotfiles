@@ -6,3 +6,4 @@
 FILE *f = fopen("file", "rb");
 fseek(f, 0, SEEK_END);
 int filesize = ftell(f);
+fseek(fp, 0, SEEK_SET);
