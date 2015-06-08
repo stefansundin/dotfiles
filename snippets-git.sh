@@ -251,7 +251,14 @@ repo sync
 # Hooks
 
 # client hooks: pre-commit, prepare-commit-msg, commit-msg, post-commit, applypatch-msg, pre-applypatch, post-applypatch, pre-rebase, post-checkout, post-merge, pre-push, pre-auto-gc, post-rewrite
-# server hooks: pre-receive, post-receive, update, post-update
+# server hooks: pre-receive, post-receive, update, post-update push-to-checkout
+
+# push-to-deploy
+mkdir new_app
+cd new_app
+git init
+git config receive.denyCurrentBranch updateInstead
+
 
 # automate work/personal git emails on git clone
 # create global post-checkout hook for to be copied in initial cloning
@@ -279,7 +286,7 @@ do
     (cd /home/stefan/app && env -i git fetch origin && env -i git reset --hard origin/master)
   fi
 done
-cd /home/recover/app && env -i git pull
+cd /home/stefan/app && env -i git pull
 
 # check behind/forward in post-checkout hook
 #!/bin/sh
