@@ -71,6 +71,10 @@ patch -p1 -R < truecrypt-7.1a-indicator.patch
 # use wget to download all linked 7z files
 wget -r -l1 -H -t1 -nd -N -np -erobots=off -A 7z https://code.google.com/p/altdrag/downloads/list?can=1
 
+# use wget to mirror website that needs login
+wget --delete-after --keep-session-cookies --save-cookies cookies.txt --post-data 'user[email]=stefan@example.com&user[password]=test' http://legacy-app.dev/users/sign_in
+wget -erobots=off --load-cookies cookies.txt -mk http://legacy-app.dev/
+
 # to remove the x flag on every file recursive but not touching the directories
 find -type f -exec chmod -x {} \;
 # useful when trading files with an NTFS partition (so GNOME won't bug you every time you try to open a file)
