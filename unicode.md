@@ -17,6 +17,22 @@ https://en.wikipedia.org/wiki/List_of_XML_and_HTML_character_entity_references
 
 Decimal character references are typed like &#NNNN;
 
+## Strip unicode whitespace
+
+```
+\xfeff ZERO WIDTH NO-BREAK SPACE
+\u200b ZERO WIDTH SPACE
+\u200f RIGHT-TO-LEFT MARK
+\u200e LEFT-TO-RIGHT MARK
+\u00a0 NO-BREAK SPACE
+```
+
+```ruby
+# remove ZERO WIDTH SPACE, RIGHT-TO-LEFT MARK, LEFT-TO-RIGHT MARK, NO-BREAK SPACE
+email = email.gsub(/\u200b|\u200f|\u200e|\u00a0/, "")
+```
+
+
 ## Misc
 ```
 ∞ 8734   √ 8730   ⊠ 8864   ⊡ 8865   ⊙ 8857   ☢ 9762   ☣ 9763   ☑ 9745
