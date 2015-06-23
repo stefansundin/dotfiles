@@ -43,6 +43,7 @@ cp /usr/local/Library/LinkedKegs/redis/homebrew.mxcl.redis.plist ~/Library/Launc
 # install brew cask (precompiled binaries)
 brew tap phinze/cask
 brew install brew-cask
+brew cask install gmvault
 
 # change shells
 # add to /etc/shells:
