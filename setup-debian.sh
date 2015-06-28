@@ -7,6 +7,11 @@ sudo add-apt-repository ppa:ondrej/php5-5.6
 # sudo add-apt-repository ppa:langemeijer/php5-ssh2
 sudo apt-add-repository --remove ppa:langemeijer/php5-ssh2
 
+# put package on hold (prevent automatic upgrade)
+sudo apt-mark hold cassandra dsc21
+# undo hold
+sudo apt-mark unhold cassandra dsc21
+
 # debianization
 sudo apt-get install devscripts
 tar xzf truecrypt_7.1a.orig.tar.gz
