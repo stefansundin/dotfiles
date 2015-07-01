@@ -185,6 +185,12 @@ After install:
    reg add HKCR\Directory\shell\1cmd /ve /t REG_SZ /d "Open with cmd" /f & reg add HKCR\Directory\shell\1cmd\command /ve /t REG_SZ /d "cmd.exe /s /k pushd \"%V\"" /f & reg add HKCR\Directory\Background\shell\1cmd /ve /t REG_SZ /d "Open with cmd" /f & reg add HKCR\Directory\Background\shell\1cmd\command /ve /t REG_SZ /d "cmd.exe /s /k pushd \"%V\"" /f & pause
    ```
 
+1. Set `PATH`:
+
+   ```
+   C:\Users\stefan\bin;C:\Users\stefan\AppData\Local\Android\sdk\platform-tools;C:\Users\stefan\AppData\Roaming\npm;C:\Users\stefan\AppData\Local\atom\bin;C:\Python34\Scripts;C:\redis;C:\Program Files\TrueCrypt;C:\Program Files\ffmpeg\bin;C:\Program Files\ImageMagick-6.8.9-Q16;C:\Program Files (x86)\GNU\GnuPG\pub;C:\Program Files (x86)\nginx;C:\Program Files (x86)\nginx\php;C:\Program Files\Sublime Text 3;C:\Program Files (x86)\NSIS\Unicode;C:\Program Files (x86)\FLAC
+   ```
+
 
 Python argument problem:
 > ```
