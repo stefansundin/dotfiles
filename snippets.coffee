@@ -1,3 +1,7 @@
+# Chrome dev tools monitor events, focus element first
+monitorEvents($0)
+unmonitorEvents($0)
+
 # function getElementByXpath(path) { return document.evaluate(path, document, null, 9, null).singleNodeValue; }
 
 # "0:10, 2:10" => ["0:10","2:10"]
