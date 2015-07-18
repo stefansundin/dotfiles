@@ -14,6 +14,13 @@ Atom:
 > apm install minimap highlight-selected highlight-nbsp minimap-highlight-selected atom-beautify
 > ```
 
+Docker:
+> ```
+> docker kill $(docker ps -aq)
+> docker rm $(docker ps -aq)
+> docker rmi $(docker images | grep -v 'ubuntu\|redis' | awk {'print $3'})
+> ```
+
 NPM (comes with [Node.js](http://nodejs.org/download/)):
 > ```
 > npm install -g keybase-installer
