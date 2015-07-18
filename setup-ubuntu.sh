@@ -3,6 +3,9 @@
 sudo apt-get install vim ssh synaptic vlc git filezilla rar gimp gparted uptimed pngcrush exfat-fuse exfat-utils
 sudo apt-get install indicator-cpufreq ghex flac lm-sensors rtmpdump deluge xchat mplayer ubuntu-restricted-extras
 
+# rbenv dependencies
+sudo apt-get install libreadline-dev libxml2-dev libxslt1-dev libpq-dev libsqlite3-dev libssl-dev
+
 # server
 sudo add-apt-repository ppa:nginx/stable
 sudo add-apt-repository ondrej/php5
