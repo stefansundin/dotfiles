@@ -158,6 +158,10 @@ staging:
 test:
   <<: *prod
 
+# print database config
+ActiveRecord::Base.connection_config
+Rails.application.config.database_configuration
+
 # kill all connections to database
 psql -c "SELECT pg_terminate_backend(pid) FROM pg_stat_activity WHERE datname='app_development';"
 
