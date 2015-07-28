@@ -97,6 +97,7 @@ Adblock filters:
 > inoreader.com##.block_article_ad
 > inoreader.com##.avs_iframe
 > inoreader.com##.sinner_container
+> inoreader.com###consent_bbb
 > stackoverflow.com##.everyonelovesstackoverflow
 > ```
 
