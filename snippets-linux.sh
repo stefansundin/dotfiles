@@ -61,6 +61,10 @@ find -newer dummy -type f
 ps -C <program> -o %cpu,%mem,pid,cmd
 top -p <pid>
 
+# redis auth
+grep requirepass /etc/redis/redis.conf
+redis-cli -a password
+
 # make unified patch between directories
 diff -urN truecrypt-7.1a-source truecrypt-7.1a-indicator > truecrypt-7.1a-indicator.patch
 # apply patch
