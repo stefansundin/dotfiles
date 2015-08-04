@@ -83,12 +83,8 @@ Adblock filters:
 > sweclockers.com##.banner
 > twitch.tv##.i-am-new
 > paypal.com##.MktMPI
-> youtube.com##.guide-item-update-notification
-> youtube.com##.sb-notif-on
-> youtube.com##.annotation.iv-promo
-> youtube.com##.annotation.iv-branding
-> youtube.com##.annotation.iv-drawer-manager
-> youtube.com##.iv-drawer-teaser
+> youtube.com##.ytp-cards-button
+> youtube.com##.ytp-cards-teaser
 > google.com##a[href*="notifications/all"]
 > inoreader.com###sb_rp_upgrade
 > inoreader.com##.ad_footer_remove
@@ -99,6 +95,16 @@ Adblock filters:
 > inoreader.com##.sinner_container
 > inoreader.com###consent_bbb
 > stackoverflow.com##.everyonelovesstackoverflow
+> ```
+
+Old filters:
+> ```
+> youtube.com##.guide-item-update-notification
+> youtube.com##.sb-notif-on
+> youtube.com##.annotation.iv-promo
+> youtube.com##.annotation.iv-branding
+> youtube.com##.annotation.iv-drawer-manager
+> youtube.com##.iv-drawer-teaser
 > ```
 
 Firefox multiple profiles:
