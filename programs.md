@@ -11,7 +11,7 @@ Chrome `--disable-web-security`:
 
 Atom:
 > ```
-> apm install minimap highlight-selected highlight-nbsp minimap-highlight-selected atom-beautify
+> apm install atom-beautify color-picker highlight-nbsp highlight-selected language-nsis minimap minimap-git-diff minimap-highlight-selected minimap-selection
 > ```
 
 Docker:
