@@ -86,6 +86,6 @@ function use_bundler {
   fi
 }
 
-for cmd in rake spec rspec cucumber cap watchr rails rackup guard etl compass jasmine-headless-webkit thor sidekiq parallel_rspec zeus spring knife; do
+for cmd in rake rspec cucumber cap unicorn rackup guard compass thor sidekiq jekyll airbrake honeybadger; do
   alias $cmd="use_bundler $cmd"
 done
