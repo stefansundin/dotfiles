@@ -94,6 +94,7 @@ https://gist.github.com/stefansundin/9059706#install-pre-commit.sh
 https://gist.github.com/stefansundin/d465f1e331fc5c632088#install-pre-push.sh
 https://gist.github.com/stefansundin/4dbd0c4cfb75ff44ff14#git-status-rec
 https://gist.github.com/stefansundin/82051ad2c8565999b914#git-bundle-hook
+https://gist.github.com/stefansundin/f386d3d2a0e1aa6e5c5a#git-nuke
 
 # vim ~/.ssh/config
 # Host github
