@@ -13,6 +13,8 @@ Atom:
 > ```
 > apm install atom-beautify color-picker highlight-nbsp highlight-selected language-nsis minimap minimap-git-diff minimap-highlight-selected minimap-selection
 > ```
+> Settings:
+> - autocomplete-plus: Set _Keymap For Confirming A Suggestion_ to _tab_.
 
 Docker:
 > ```
