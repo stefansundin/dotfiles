@@ -32,7 +32,10 @@ unescapeLiterals = (str) ->
   str.replace(/\\n/g,'\n').replace(/\\"/g,'"').replace(new RegExp('\\\\/','g'),'/')
 
 # 2056776401.50 = 2,056,776,401.50
-humanizeNumber = (n) ->
+addCommas = (n) ->
+  n.toString().replace /(\d)(?=(\d{3})+($|,|\.))/g, '$1,'
+
+addCommas = (n) ->
   n = n.toString()
   while true
     n2 = n.replace /(\d)(\d{3})($|,|\.)/g, '$1,$2$3'
