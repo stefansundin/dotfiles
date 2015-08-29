@@ -87,6 +87,7 @@ Adblock filters:
 > paypal.com##.MktMPI
 > youtube.com##.ytp-cards-button
 > youtube.com##.ytp-cards-teaser
+> youtube.com##.annotation.iv-promo
 > google.com##a[href*="notifications/all"]
 > inoreader.com###sb_rp_upgrade
 > inoreader.com##.ad_footer_remove
@@ -103,7 +104,6 @@ Old filters:
 > ```
 > youtube.com##.guide-item-update-notification
 > youtube.com##.sb-notif-on
-> youtube.com##.annotation.iv-promo
 > youtube.com##.annotation.iv-branding
 > youtube.com##.annotation.iv-drawer-manager
 > youtube.com##.iv-drawer-teaser
