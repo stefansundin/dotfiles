@@ -38,6 +38,14 @@ After install:
    cmd /C reg add HKLM\SYSTEM\Setup\UpgradeNotification /v UpgradeAvailable /t REG_DWORD /d 0 /f & pause
    ```
 
+1. Make Windows 10 ask before installing updates:
+
+   ```
+   cmd /C reg add HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU /v AUOptions /t REG_DWORD /d 2 /f & pause
+   ```
+
+   Also available through `gpedit.msc` → Computer Configuration → Administrative Templates → Windows Components → Windows Update → Configure Automatic Updates.
+
 1. Disable beep:
 
    ```
@@ -45,6 +53,7 @@ After install:
    net stop beep
    sc config beep start= disabled
    ```
+
 1. Disable Windows 8 lock screen (go directly to password):
 
    > Win+R → `gpedit.msc` → Computer Configuration → Administrative Templates → Control Panel → Personalization → Do not display the lock screen → `(x) Enabled`
