@@ -46,6 +46,10 @@ After install:
 
    Also available through `gpedit.msc` → Computer Configuration → Administrative Templates → Windows Components → Windows Update → Configure Automatic Updates.
 
+1. Disable Windows Defender in Windows 10:
+
+   > Win+R → `gpedit.msc` → Computer Configuration → Administrative Templates → Windows Components → Windows Defender → Turn off Windows Defender → `(x) Enabled`
+
 1. Disable beep:
 
    ```
@@ -124,6 +128,20 @@ After install:
 1. Remove most ads from Skype:
 
    > Control Panel → Internet Options → Security tab → Restricted sites → `Sites` → Add `https://apps.skype.com` → `Close` → Restart Skype
+
+1. Remove ads from Spotify:
+
+   > Add to C:\Windows\System32\drivers\etc\hosts:
+   > ```
+   > 0.0.0.0 a.scorecardresearch.com
+   > 0.0.0.0 b.scorecardresearch.com
+   > 0.0.0.0 adxpose.tmrg.akadns.net
+   > 0.0.0.0 pubads.g.doubleclick.net
+   > 0.0.0.0 securepubads.g.doubleclick.net
+   > 0.0.0.0 partnerad.l.doubleclick.net
+   > 0.0.0.0 ad.doubleclick.net
+   > 0.0.0.0 dart.l.doubleclick.net
+   > ```
 
 1. Show all audio devices (e.g. Stereo Mix):
 
