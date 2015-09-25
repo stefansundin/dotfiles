@@ -33,6 +33,7 @@ alias pc="pngcrush -rem gAMA -rem cHRM -rem iCCP -rem sRGB -brute"
 alias reload_profile=". ~/.profile"
 
 source /usr/local/etc/bash_completion
+complete -C /usr/local/bin/aws_completer aws
 
 function c {
   echo $* | pbcopy
