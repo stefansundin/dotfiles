@@ -52,6 +52,11 @@ sudo killall -s USR1 dd
 # reload inetd.conf
 sudo killall -HUP inetd
 
+# force ntp update
+sudo service ntp stop
+sudo ntpd -gq
+sudo service ntp start
+
 # find files newer than date
 touch -t 201306011010 dummy
 # YYYYMMDDHHII
