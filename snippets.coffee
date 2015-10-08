@@ -49,6 +49,13 @@ insertAfter = (insert, after) ->
 # remove all children
 el.removeChild(el.firstChild) while el.hasChildNodes()
 
+# HTMLCollection to array
+# elements = to_a(document.getElementsByTagName("em")).filter (el) -> el.className == ""
+to_a = (coll) ->
+  arr = []
+  arr.push(el) for el in coll
+  arr
+
 # fmt_filesize(1369088) = "1.3 MiB"
 fmt_filesize = (bytes, digits=2) ->
   units = ['B', 'kiB', 'MiB', 'GiB', 'TiB', 'PiB', 'EiB', 'ZiB', 'YiB'];
