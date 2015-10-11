@@ -37,6 +37,13 @@ scp user@example.com:flickr.png .
 # bash script print each command
 #!/bin/bash -ex
 
+# add user wordpress to group www-data
+useradd -G www-data wordpress
+# list groups a user is in
+groups wordpress
+# list users in a group
+getent group www-data
+
 # debug daemons
 strace -ff -ewrite -s200 lighttpd
 -s determines how much to get.
