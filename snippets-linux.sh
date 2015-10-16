@@ -72,6 +72,8 @@ find -newer dummy -type f
 # process monitoring
 ps -C <program> -o %cpu,%mem,pid,cmd
 top -p <pid>
+# list processes based on memory usage
+ps -e -orss=,args= | sort -b -k1,1n | pr -TW$COLUMNS
 
 # redis auth
 grep requirepass /etc/redis/redis.conf
