@@ -76,9 +76,11 @@ git revert -m 1 <hashish>
 git co v0.1
 git tag -d v0.1
 git push origin :refs/tags/v0.1
-export GIT_COMMITTER_DATE=2008-06-05 10:10:10
-git tag -a v0.1 -m "Tagging v0.1"
+GIT_COMMITTER_DATE='2008-06-05 10:10:10' git tag -a v0.1 -m "Tagging v0.1"
 git push origin v0.1
+
+# update tag references
+git for-each-ref --format="GIT_COMMITTER_DATE='%(taggerdate:iso8601)' git tag -f -a -m '%(subject)' %(refname:short) %(objectname:short)^{}" refs/tags
 
 # change tag name and keep date (patch1 => v1)
 git log --tags --simplify-by-decoration --pretty="format:%ai %d"
