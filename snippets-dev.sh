@@ -6,3 +6,8 @@ echo -n "sha384-"; curl -s https://code.jquery.com/jquery-2.1.4.min.js | openssl
 # Generate SSL key and CSR
 openssl genrsa -out domain.com.key 2048
 openssl req -new -sha256 -key domain.com.key -out domain.com.csr
+# After the CSR is approved, save the cert to domain.com.crt
+wget https://www.startssl.com/certs/sub.class1.server.ca.pem
+cat domain.com.crt sub.class1.server.ca.pem > domain.com-unified.crt
+# Print cert information
+openssl x509 -in domain.com.crt -noout -text
