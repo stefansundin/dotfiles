@@ -1,3 +1,8 @@
+# print distro version
+lsb_release -a
+cat /etc/issue
+
+# search
 find . -not -readable
 find . -not -user root
 find . -type f | wc -l
