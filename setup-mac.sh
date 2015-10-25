@@ -158,7 +158,7 @@ defaults read -g NSWindowResizeTime
 
 # mute startup chime (does not work every time)
 sudo nvram SystemAudioVolume=%80
-vim /etc/rc.common
+sudo vim /etc/rc.common
  # mute startup chime
  nvram SystemAudioVolume=%80
 # re-enable
