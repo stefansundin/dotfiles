@@ -5,9 +5,96 @@ Userscripts:
 - https://gist.github.com/stefansundin/f1e81a8f5281f6f4cac4#file-sourceforge-bigger-filename-column-user-js
 - https://gist.github.com/stefansundin/f9df6c5e0fd184c60709#file-launchpad-download-count-user-js
 
+Wireshark + Chrome/Firefox SSL:
+> Open terminal and run:
+> ```
+> export SSLKEYLOGFILE=$HOME/sslkeylogfile
+> # Start Firefox/Chrome from that terminal
+> ```
+> Start Wireshark, then put the same path in Preferences → Protocols → SSL → (Pre)-Master-Secret log filename.
+> In Firefox, disable spdy and gzip in about:config because they are not supported in Wireshark (`network.http.spdy.enabled=false` and `network.http.accept-encoding=""`)
+
 Chrome `--disable-web-security`:
 - `"C:\Program Files (x86)\Google\Chrome\Application\chrome.exe" --disable-web-security`
 - `open -a 'Google Chrome' --args --disable-web-security`
+
+Chrome SOCKS:
+> ```
+> google-chrome --proxy-server="socks5://localhost:4045"
+> ```
+
+Firefox multiple profiles:
+> ```
+> firefox -P default -no-remote
+> firefox -P infected -no-remote
+> sudo vim /usr/share/applications/firefox.desktop
+> ```
+> ```
+> Exec=firefox -P default -no-remote %u
+> Actions=NewWindow;NewPrivateWindow;Infected
+>
+> [Desktop Action Infected]
+> Name=Open infected session
+> Exec=firefox -P infected -no-remote
+> ```
+
+Firefox Adblock remove Ctrl+Shift+V shortcut:
+> 1. `about:config` → `extensions.adblockplus.sidebar_key`
+> 1. Remove ~~`Accel Shift V,`~~
+> 1. Restart Firefox
+
+Firefox allow mixed content by default:
+> `security.mixed_content.block_active_content = false`
+
+Firefox corrupted text (old AMD cards only?):
+> `gfx.content.azure.enabled = false`
+
+Firefox black background (maybe hardware acceleration):
+> Options → Advanced → General → `[ ] Use hardware acceleration when available`
+
+Adblock filters:
+> ```
+> twitter.com###empty-timeline-recommendations
+> twitter.com##.WhoToFollow
+> bankofamerica.com##.TargetedAd
+> bankofamerica.com##.ao-offers-module
+> bankofamerica.com##.cardlytics-transaction-offer
+> bankofamerica.com##.olb-special-offers-new-accounts-bdf-module
+> fullscreen.tpondemand.com##.tau-board-grid-resize-controls
+> k2s.cc##.fancybox-overlay
+> sweclockers.com###infobar
+> sweclockers.com##.banner
+> twitch.tv##.i-am-new
+> paypal.com##.MktMPI
+> youtube.com##.ytp-cards-button
+> youtube.com##.ytp-cards-teaser
+> youtube.com##.annotation.iv-promo
+> youtube.com##.annotation.iv-branding
+> google.com##a[href*="notifications/all"]
+> inoreader.com###sb_rp_upgrade
+> inoreader.com##.ad_footer_remove
+> inoreader.com##.ad_title
+> inoreader.com##.inner_ad
+> inoreader.com##.block_article_ad
+> inoreader.com##.avs_iframe
+> inoreader.com##.sinner_container
+> inoreader.com###consent_bbb
+> stackoverflow.com##.everyonelovesstackoverflow
+> ```
+
+Old filters:
+> ```
+> youtube.com##.guide-item-update-notification
+> youtube.com##.sb-notif-on
+> youtube.com##.annotation.iv-drawer-manager
+> youtube.com##.iv-drawer-teaser
+> ```
+
+YouTube channel playlist:
+> Add `&feature=mfu_in_order&list=UL`, e.g.
+> ```
+> https://www.youtube.com/watch?v=_xLnsbUviuk&feature=mfu_in_order&list=UL
+> ```
 
 Atom:
 > ```
@@ -59,84 +146,6 @@ PuTTY:
 >
 > SOCKS:
 >> Connection → SSH → Tunnels → Source port: `4000` → `(x) Dynamic` → `Add`
-
-Chrome SOCKS:
-> ```
-> google-chrome --proxy-server="socks5://localhost:4045"
-> ```
-
-YouTube channel playlist:
-> Add `&feature=mfu_in_order&list=UL`, e.g.
-> ```
-> https://www.youtube.com/watch?v=_xLnsbUviuk&feature=mfu_in_order&list=UL
-> ```
-
-Adblock filters:
-> ```
-> twitter.com###empty-timeline-recommendations
-> twitter.com##.WhoToFollow
-> bankofamerica.com##.TargetedAd
-> bankofamerica.com##.ao-offers-module
-> bankofamerica.com##.cardlytics-transaction-offer
-> bankofamerica.com##.olb-special-offers-new-accounts-bdf-module
-> fullscreen.tpondemand.com##.tau-board-grid-resize-controls
-> k2s.cc##.fancybox-overlay
-> sweclockers.com###infobar
-> sweclockers.com##.banner
-> twitch.tv##.i-am-new
-> paypal.com##.MktMPI
-> youtube.com##.ytp-cards-button
-> youtube.com##.ytp-cards-teaser
-> youtube.com##.annotation.iv-promo
-> youtube.com##.annotation.iv-branding
-> google.com##a[href*="notifications/all"]
-> inoreader.com###sb_rp_upgrade
-> inoreader.com##.ad_footer_remove
-> inoreader.com##.ad_title
-> inoreader.com##.inner_ad
-> inoreader.com##.block_article_ad
-> inoreader.com##.avs_iframe
-> inoreader.com##.sinner_container
-> inoreader.com###consent_bbb
-> stackoverflow.com##.everyonelovesstackoverflow
-> ```
-
-Old filters:
-> ```
-> youtube.com##.guide-item-update-notification
-> youtube.com##.sb-notif-on
-> youtube.com##.annotation.iv-drawer-manager
-> youtube.com##.iv-drawer-teaser
-> ```
-
-Firefox multiple profiles:
-> ```
-> firefox -P default -no-remote
-> firefox -P infected -no-remote
-> sudo vim /usr/share/applications/firefox.desktop
-> ```
-> ```
-> Exec=firefox -P default -no-remote %u
-> Actions=NewWindow;NewPrivateWindow;Infected
->
-> [Desktop Action Infected]
-> Name=Open infected session
-> Exec=firefox -P infected -no-remote
-> ```
-
-Firefox Adblock remove Ctrl+Shift+V shortcut:
-> 1. `about:config` → `extensions.adblockplus.sidebar_key`
-> 1. Remove ~~`Accel Shift V,`~~
-> 1. Restart Firefox
-
-Firefox allow mixed content by default:
-> `security.mixed_content.block_active_content = false`
-
-Firefox corrupted text (old AMD cards only?):
-> `gfx.content.azure.enabled = false`
-
-Firefox black background (maybe hardware acceleration):
-> Options → Advanced → General → `[ ] Use hardware acceleration when available`
 
 uTorrent ads:
 > ```
