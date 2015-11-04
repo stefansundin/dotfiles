@@ -6,6 +6,7 @@ u = User.first(order:"RANDOM()")
 puts User.all.to_yaml
 User.find(27).touch # clear IdentityCache
 User.first.created_at.in_time_zone(ActiveSupport::TimeZone["America/Los_Angeles"])
+y Event.all.pluck(:created_at).map{|t| t.strftime("%F") }.group_by{|e| e}.map{|k, v| [k, v.length]}.to_h
 ActiveRecord::Base::sanitize
 ActiveRecord::Base.transaction { users.map(&:save) }
 ActiveRecord::Base.connection_pool.size
