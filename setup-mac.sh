@@ -97,6 +97,8 @@ defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
 sudo defaults delete com.apple.LaunchServices LSQuarantine
 defaults write com.apple.LaunchServices LSQuarantine -bool false
 sudo xattr -d -r com.apple.quarantine /Applications
+# prevent Gatekeeper from re-enabling itself after 30 days ("Allow applications downloaded from" in "Security & Privacy")
+sudo defaults write /Library/Preferences/com.apple.security GKAutoRearm -bool NO
 # sort by Kind by default
 #  show view options (⌘J) → Sort By: Kind. [Use as Defaults]
 #  remove .DS_Store files to remove custom directory settings
