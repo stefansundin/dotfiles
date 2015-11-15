@@ -80,6 +80,7 @@ Adblock filters:
 > inoreader.com##.sinner_container
 > inoreader.com###consent_bbb
 > stackoverflow.com##.everyonelovesstackoverflow
+> thelocal.se###taboola-organic-mid-article-thumbnails
 > ```
 
 Old filters:
