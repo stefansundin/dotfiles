@@ -45,6 +45,17 @@ adb push cm-11-20140804-SNAPSHOT-M9-maguro.zip /sdcard/0/
 adb push gapps-kk-20140606-signed.zip /sdcard/0/
 # install zip: /sdcard/0/cm-11-20140804-SNAPSHOT-M9-maguro.zip
 
+# ADT-1 enable casting from all apps (http://blakemesdag.com/blog/2014/12/08/enable-third-party-casting-on-the-adt-1/)
+adb reboot bootloader
+fastboot boot twrp-2.8.7.0-molly.img
+adb shell mkdir /main_system
+adb shell mount -o rw /dev/block/platform/sdhci-tegra.3/by-name/system /main_system
+adb pull /main_system/build.prop
+# change ro.build.type=eng in build.prop
+adb push build.prop /main_system/build.prop
+adb shell chmod 0644 /main_system/build.prop
+adb reboot
+
 Distance units:
 px: Pixels - corresponds to actual pixels on the screen.
 in: Inches - based on the physical size of the screen.
