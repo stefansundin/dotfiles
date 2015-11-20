@@ -1,3 +1,5 @@
+nc -vz stefansundin.com 443
+
 # print distro version
 lsb_release -a
 cat /etc/issue
