@@ -99,7 +99,7 @@ YouTube channel playlist:
 
 Atom:
 > ```
-> apm install atom-beautify color-picker highlight-nbsp highlight-selected language-nsis minimap minimap-git-diff minimap-highlight-selected minimap-selection
+> apm install atom-beautify atom-jinja2 auto-reveal-in-sidebar autocomplete-paths blame color-picker file-icons highlight-nbsp highlight-selected language-docker language-nginx language-nsis language-rust markdown-pdf minimap minimap-git-diff minimap-highlight-selected minimap-selection remote-edit regex-railroad-diagram show-origin todo-show trailing-spaces
 > ```
 > Settings:
 > - autocomplete-plus: Set _Keymap For Confirming A Suggestion_ to _tab_.
