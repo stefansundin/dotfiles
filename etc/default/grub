@@ -1,0 +1,4 @@
+GRUB_CMDLINE_LINUX="vga=792 consoleblank=0"
+GRUB_GFXMODE="1024x768"
+
+# don't forget "sudo update-grub"
