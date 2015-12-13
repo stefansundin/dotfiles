@@ -81,6 +81,8 @@ sudo xcodebuild -license
 sudo scutil --set HostName sundin
 # disable Adobe Creative Cloud from starting on startup
 launchctl unload -w /Library/LaunchAgents/com.adobe.AdobeCreativeCloud.plist
+# put note on login/lock screen
+sudo defaults write /Library/Preferences/com.apple.loginwindow LoginwindowText "If lost, please call XXX-XXX-XXXX."
 # Finder.app
 # preferences (⌘,)
 #  General → New Finder windows show: stefansundin
