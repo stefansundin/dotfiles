@@ -46,7 +46,7 @@ scp user@example.com:flickr.png .
 
 # mount VirtualBox shared folder (create vboxshare on host and configure in settings)
 mkdir share
-sudo mount -t vboxsf vboxshare share
+sudo mount -t vboxsf -o uid=$UID vboxshare share
 
 # add user wordpress to group www-data
 useradd -G www-data wordpress
