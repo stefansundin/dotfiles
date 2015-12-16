@@ -44,6 +44,10 @@ scp user@example.com:flickr.png .
 # bash script print each command
 #!/bin/bash -ex
 
+# mount VirtualBox shared folder (create vboxshare on host and configure in settings)
+mkdir share
+sudo mount -t vboxsf vboxshare share
+
 # add user wordpress to group www-data
 useradd -G www-data wordpress
 # list groups a user is in
