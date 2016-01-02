@@ -103,6 +103,12 @@ Atom:
 > ```
 > Settings:
 > - autocomplete-plus: Set _Keymap For Confirming A Suggestion_ to _tab_.
+> 
+> Fix for "TypeError: Unable to watch path" in Ubuntu ([#2082](https://github.com/atom/atom/issues/2082)):
+> ```
+> sudo sysctl fs.inotify.max_user_watches=32768
+> echo 32768 | sudo tee -a /proc/sys/fs/inotify/max_user_watches
+> ```
 
 Docker:
 > ```
