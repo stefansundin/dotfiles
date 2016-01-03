@@ -33,6 +33,7 @@ rake assets:precompile
 redis-cli FLUSHALL
 
 # rbenv
+# See https://github.com/garnieretienne/rvm-download for precompiled binaries
 git clone https://github.com/sstephenson/rbenv.git ~/.rbenv
 git clone https://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
 git clone https://github.com/sstephenson/rbenv-gem-rehash.git ~/.rbenv/plugins/rbenv-gem-rehash
