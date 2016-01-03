@@ -40,6 +40,10 @@ function c {
   echo "Copied '$*' to clipboard!"
 }
 
+# pbcopy and pbpaste for Linux
+alias pbcopy='xsel --clipboard --input'
+alias pbpaste='xsel --clipboard --output'
+
 
 # Git
 
