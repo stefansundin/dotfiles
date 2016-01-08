@@ -254,12 +254,6 @@ export LESSHISTFILE=-
 rm .bash_history .lesshst
 
 
-# prevent console from blanking
-sudo vim /etc/kbd/config
-BLANK_TIME=0
-POWERDOWN_TIME=0
-
-
 # change hostname
 sudo vim /etc/hostname
 pi
