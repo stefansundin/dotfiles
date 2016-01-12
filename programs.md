@@ -102,6 +102,7 @@ Atom:
 > apm install atom-beautify atom-jinja2 auto-reveal-in-sidebar autocomplete-paths blame color-picker file-icons highlight-nbsp highlight-selected language-docker language-nginx language-nsis language-rust markdown-pdf minimap minimap-git-diff minimap-highlight-selected minimap-selection remote-edit regex-railroad-diagram show-origin todo-show trailing-spaces
 > ```
 > Settings:
+> - Ignored Names: `log, .git, .DS_Store, node_modules, *.1, coverage, .sass-cache, _site, public/assets, tmp/cache, venv, *.pyc`
 > - autocomplete-plus: Set _Keymap For Confirming A Suggestion_ to _tab_.
 > 
 > Fix for "TypeError: Unable to watch path" in Ubuntu ([#2082](https://github.com/atom/atom/issues/2082)):
