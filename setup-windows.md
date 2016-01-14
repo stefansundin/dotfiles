@@ -241,6 +241,10 @@ App Paths:
 > cmd /C reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\SuperF4.exe" /ve /t REG_SZ /d "C:\Program Files\SuperF4\SuperF4.exe" /f & pause
 > ```
 
+If computer turns itself off at the password screen:
+> ```
+> bcdedit /set {bootmgr} bootshutdowndisabled 1
+> ```
 
 Bitlocker without TPM:
 > Win+R → `gpedit.msc` → Computer Configuration → Administrative Templates → Windows Components → BitLocker Drive Encryption → Operating System Drives
