@@ -52,6 +52,9 @@ Firefox corrupted text (old AMD cards only?):
 Firefox black background (maybe hardware acceleration):
 > Options → Advanced → General → `[ ] Use hardware acceleration when available`
 
+Tor Browser open magnet links:
+> `network.protocol-handler.external-default = true`
+
 Adblock filters:
 > ```
 > twitter.com###empty-timeline-recommendations
