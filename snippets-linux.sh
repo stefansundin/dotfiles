@@ -49,8 +49,10 @@ scp user@example.com:flickr.png .
 mkdir share
 sudo mount -t vboxsf -o uid=$UID vboxshare share
 
+# create user wordpress
+useradd wordpress
 # add user wordpress to group www-data
-useradd -G www-data wordpress
+usermod -a -G www-data wordpress
 # list groups a user is in
 groups wordpress
 # list users in a group
