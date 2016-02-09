@@ -14,6 +14,9 @@ Cmd+P / Ctrl+P
 - GitHubinator
 - FileDiffs
 - Better CoffeeScript
+- LineEndings
+- Line Endings Unify
+- Markdown Preview
 
 
 ### LaTeX
