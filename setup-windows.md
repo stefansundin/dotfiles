@@ -76,7 +76,11 @@ After install:
 
 1. Disallow mouse from waking the computer:
 
-   > Device Manager → Mice and other pointing devices → Razer DeathAdder → Power Management → `[ ] Allow this device to wake the computer` → `OK`
+   > Win+R → `devmgmt.msc` → Mice and other pointing devices → Razer DeathAdder → Power Management → `[ ] Allow this device to wake the computer` → `OK`
+
+1. Disallow network adapter from waking the computer:
+
+   > Win+R → `devmgmt.msc` → Network adapters → Realtek PCIe GBE Family Controller → Power Management → `[x] Only allow a magic packet to wake the computer` → `OK`
 
 1. Taskbar buttons, never combine and hide labels:
 
