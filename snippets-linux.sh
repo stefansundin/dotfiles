@@ -1,6 +1,7 @@
 nc -vz stefansundin.com 443
 sudo tcpdump -i eth0 port not 22
 ps aux --sort -rss
+sudo du -h --max-depth=1
 
 # print distro version
 lsb_release -a
