@@ -34,9 +34,8 @@ redis-cli FLUSHALL
 
 # rbenv
 # See https://github.com/garnieretienne/rvm-download for precompiled binaries
-git clone https://github.com/sstephenson/rbenv.git ~/.rbenv
-git clone https://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
-git clone https://github.com/sstephenson/rbenv-gem-rehash.git ~/.rbenv/plugins/rbenv-gem-rehash
+git clone https://github.com/rbenv/rbenv.git ~/.rbenv
+git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
 git clone https://github.com/rkh/rbenv-update.git ~/.rbenv/plugins/rbenv-update
 git clone https://github.com/ianheggie/rbenv-binstubs.git ~/.rbenv/plugins/rbenv-binstubs
 # add to ~/.bash_profile
