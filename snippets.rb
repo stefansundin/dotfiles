@@ -139,25 +139,17 @@ AwesomeApp::Application::REMOTE_PRY_ENABLED = Time.now()+10.seconds
 
 
 # database.yml
-development: &default
-  adapter: postgresql
-  encoding: unicode
-  # database: _development
-  # database: _production
-  host: localhost
-  pool: 5
-  username:
-  password:
-
-production: &prod
-  <<: *default
-  # database: _test
-
-staging:
-  <<: *prod
+development:
+  # url: postgresql:///APP_development?pool=30
 
 test:
-  <<: *prod
+  # url: postgresql:///APP_test?pool=30
+
+<% if ENV["DATABASE_URL"] %>
+production:
+  url: <%= ENV["DATABASE_URL"] %>?pool=30
+<% end %>
+
 
 # print database config
 ActiveRecord::Base.connection_config
