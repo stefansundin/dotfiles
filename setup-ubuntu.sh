@@ -49,6 +49,11 @@ sudo add-apt-repository ppa:webupd8team/tor-browser
 sudo apt-get update
 sudo apt-get install tor-browser
 
+# Node (from https://github.com/nodejs/node-v0.x-archive/wiki/Installing-Node.js-via-package-manager#debian-and-ubuntu-based-linux-distributions)
+curl -s https://deb.nodesource.com/gpgkey/nodesource.gpg.key | apt-key add -
+echo 'deb https://deb.nodesource.com/node_5.x wily main' > /etc/apt/sources.list.d/nodesource.list
+echo 'deb-src https://deb.nodesource.com/node_5.x wily main' >> /etc/apt/sources.list.d/nodesource.list
+
 # Amazon Prime Video
 sudo add-apt-repository ppa:mjblenner/ppa-hal
 sudo apt-get update
