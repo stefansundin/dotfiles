@@ -1,4 +1,4 @@
 Thumbs.db
-.DS_Store
+*.DS_Store
 *.swp
 *.ucf-dist
