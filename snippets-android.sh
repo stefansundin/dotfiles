@@ -1,5 +1,5 @@
 # Good Xposed Framework modules:
-# Hide Carrier Label, Always Expandable Notifications, YouTube AdAway, YouTube Background Playback.
+# Hide Carrier Label, Always Expandable Notifications, YouTube AdAway, YouTube Background Playback, RootCloak.
 
 # see free disk space on device
 adb shell df
