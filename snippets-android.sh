@@ -59,6 +59,16 @@ adb push build.prop /main_system/build.prop
 adb shell chmod 0644 /main_system/build.prop
 adb reboot
 
+# Install SuperSU on ADT-1
+adb reboot bootloader
+fastboot boot twrp-3.0.2-0-molly.img
+adb push UPDATE-SuperSU-v2.65-20151226141550.zip /sdcard/
+# now flash in TWRP using USB mouse
+
+# Install AdAway on ADT-1 (requires root)
+adb install org.adaway_54.apk
+adb shell monkey -p org.adaway -c android.intent.category.LAUNCHER 1
+
 Distance units:
 px: Pixels - corresponds to actual pixels on the screen.
 in: Inches - based on the physical size of the screen.
