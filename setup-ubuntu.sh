@@ -11,6 +11,9 @@ sudo add-apt-repository ppa:nginx/stable
 sudo add-apt-repository ondrej/php5
 sudo add-apt-repository langemeijer/php5-ssh2
 
+# increase max number of inotify watchers
+echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
+
 # disable system error popups
 sudo vim /etc/default/apport
 enabled=0
