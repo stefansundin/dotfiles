@@ -31,6 +31,7 @@ alias gpg="gpg2"
 alias ls="ls -G"
 alias pc="pngcrush -rem gAMA -rem cHRM -rem iCCP -rem sRGB -brute"
 alias reload_profile=". ~/.profile"
+alias npm-exec='PATH=$(npm bin):$PATH'
 
 source /usr/local/etc/bash_completion
 complete -C /usr/local/bin/aws_completer aws
