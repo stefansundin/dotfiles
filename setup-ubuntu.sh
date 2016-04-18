@@ -1,3 +1,4 @@
+# Terminal emulators: gnome-terminal, terminator, yakuake, guake, tilda, mrxvt
 # http://askubuntu.com/questions/30334/what-application-indicators-are-available/
 
 sudo apt-get install vim ssh synaptic vlc git filezilla rar gimp gparted uptimed pngcrush exfat-fuse exfat-utils
