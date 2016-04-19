@@ -23,6 +23,13 @@ Chrome SOCKS:
 > google-chrome --proxy-server="socks5://localhost:4045"
 > ```
 
+Chrome free up disk space after downloading from Mega:
+
+1. Go to chrome://settings/cookies
+2. Search for "mega".
+3. Click on the mega.nz line, then choose _File System_.
+4. Click _Remove_.
+
 Firefox multiple profiles:
 > ```
 > firefox -P default -no-remote
