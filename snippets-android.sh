@@ -14,6 +14,16 @@ adb shell dumpsys window windows | grep -E 'mCurrentFocus|mFocusedApp'
 
 .nomedia file prevents indexing media files in directory
 
+# Disable camera shutter sound. Enable root first.
+adb shell
+su
+mount -o remount,rw /system
+cd /system/media/audio/ui/
+mv camera_click.ogg camera_click.ogg.backup
+mv camera_focus.ogg camera_focus.ogg.backup
+mount -o remount,ro /system
+# You can now disable root.
+
 Speed up animations:
 Enable developer mode, go to Developer options:
 - Window animation scale: [Animation off]
