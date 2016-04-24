@@ -67,8 +67,8 @@ sudo apt-get install hal
 # official nvidia drivers
 sudo apt-get purge nvidia*
 sudo apt-get autoremove
-sudo service lightdm stop
-# Ubuntu 14.10 + NVIDIA-Linux-x86_64-346.59.run
+sudo systemctl stop lightdm.service
+# Ubuntu 16.04 + NVIDIA-Linux-x86_64-364.19.run
 # after the installer creates /etc/modprobe.d/nvidia-installer-disable-nouveau.conf
 # run this:
 sudo update-initramfs -u
