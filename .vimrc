@@ -1,7 +1,7 @@
 " sudo cp .vimrc /root/
 " Set vim as default editor:
-" sudo update-alternatives --config editor
-" Select vim.basic (which is normal vim)
+" sudo update-alternatives --set editor /usr/bin/vim.basic
+" Or: "sudo update-alternatives --config editor" and select vim.basic (which is normal vim)
 " vim .bashrc
 " sudo vim /root/.bashrc
 " export EDITOR=vim
