@@ -51,6 +51,9 @@ scp user@example.com:flickr.png .
 mkdir share
 sudo mount -t vboxsf -o uid=$UID vboxshare share
 
+# read hdd Load_Cycle_Count (LCC)
+sudo smartctl -A /dev/sdb
+
 # create user wordpress
 useradd wordpress
 # add user wordpress to group www-data
