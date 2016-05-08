@@ -58,7 +58,7 @@ to_a = (coll) ->
 
 # fmt_filesize(1369088) = "1.3 MiB"
 fmt_filesize = (bytes, digits=2) ->
-  units = ['B', 'kiB', 'MiB', 'GiB', 'TiB', 'PiB', 'EiB', 'ZiB', 'YiB'];
+  units = ['B', 'kiB', 'MiB', 'GiB', 'TiB', 'PiB', 'EiB', 'ZiB', 'YiB']
   i = 0
   while bytes > 1024 and i < units.length
     bytes = bytes / 1024
