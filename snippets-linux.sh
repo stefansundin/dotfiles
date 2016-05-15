@@ -105,6 +105,9 @@ patch -p1 < truecrypt-7.1a-indicator.patch
 # revert patch
 patch -p1 -R < truecrypt-7.1a-indicator.patch
 
+# use wget to mirror across domains
+wget -r -m --restrict-file-names=windows --domains mastermind.atavist.com,atavist-assets.s3.amazonaws.com,atavist-static.s3.amazonaws.com,dh1rvgpokacch.cloudfront.net https://mastermind.atavist.com/
+
 # use wget to download all linked 7z files
 wget -r -l1 -H -t1 -nd -N -np -erobots=off -A 7z https://code.google.com/p/altdrag/downloads/list?can=1
 
