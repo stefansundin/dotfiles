@@ -29,6 +29,9 @@ sudo service whoopsie stop
 gsettings set com.canonical.unity-greeter play-ready-sound "false"
 # old: sudo mv /usr/share/sounds/ubuntu/stereo/dialog-question.ogg{,-disabled}
 
+# move launcher to bottom
+gsettings set com.canonical.Unity.Launcher launcher-position Bottom
+
 # enable workspaces
 # Appearance → "Behavior" tab → Check "Enable workspaces".
 
