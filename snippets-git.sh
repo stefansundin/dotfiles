@@ -2,6 +2,7 @@ git config --global user.name "Stefan Sundin"
 git config --global user.email stefansundin@users.noreply.github.com
 git config --global core.autocrlf false
 git config --global push.default simple
+git config --global diff.compactionHeuristic true
 git config --global tag.sort version:refname
 git config --global core.excludesfile ~/.gitignore
 git config --global core.editor 'vim -c "set mouse="'
