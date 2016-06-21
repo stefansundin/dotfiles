@@ -233,6 +233,10 @@ Uninstall Bash on Linux:
 > lxrun /uninstall /full
 > ```
 
+Disable automatic "AptPackageIndexUpdate" job:
+> Open Task Scheduler → navigate to: Microsoft → Windows → Windows Subsystem for Linux.
+> Right click on AptPackageIndexUpdate and click Disable.
+
 Python argument problem:
 > ```
 > reg add HKCR\Applications\python.exe\shell\open\command /ve /t REG_SZ /d "\"C:\Python33\python.exe\" \"%1\" %*" /f
