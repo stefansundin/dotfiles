@@ -38,6 +38,16 @@ After install:
    cmd /C reg add HKLM\SYSTEM\Setup\UpgradeNotification /v UpgradeAvailable /t REG_DWORD /d 0 /f & pause
    ```
 
+1. Disable Windows 10 full screen "Updates are available" notification
+
+   ```
+   cd /d "%Windir%\System32"
+   takeown /F MusNotification.exe
+   icacls MusNotification.exe /deny Everyone:(X)
+   takeown /F MusNotificationUx.exe
+   icacls MusNotificationUx.exe /deny Everyone:(X)
+   ```
+
 1. Make Windows 10 ask before installing updates:
 
    ```
