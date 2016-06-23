@@ -44,6 +44,13 @@ scp flickr.png server:www/
 scp flickr.png server:
 scp user@example.com:flickr.png .
 
+# list iptables rules
+sudo iptables -L
+# block access to 169.254.169.254 except by root
+sudo iptables -A OUTPUT -d 169.254.169.254 -m owner \! --uid-owner root -j DROP
+# flush iptables
+sudo iptables -F
+
 # bash script print each command
 #!/bin/bash -ex
 
