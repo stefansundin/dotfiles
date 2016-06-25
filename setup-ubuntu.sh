@@ -1,7 +1,7 @@
 # Terminal emulators: gnome-terminal, terminator, yakuake, guake, tilda, mrxvt
 # http://askubuntu.com/questions/30334/what-application-indicators-are-available/
 
-sudo apt-get install vim ssh synaptic vlc git filezilla rar gimp gparted uptimed pngcrush exfat-fuse exfat-utils
+sudo apt-get install vim ssh curl synaptic vlc git filezilla rar gimp gparted uptimed pngcrush exfat-fuse exfat-utils
 sudo apt-get install indicator-cpufreq ghex flac lm-sensors rtmpdump deluge xchat mplayer ubuntu-restricted-extras
 
 # rbenv dependencies
@@ -57,9 +57,11 @@ sudo apt-get update
 sudo apt-get install tor-browser
 
 # Node (from https://github.com/nodejs/node-v0.x-archive/wiki/Installing-Node.js-via-package-manager#debian-and-ubuntu-based-linux-distributions)
-curl -s https://deb.nodesource.com/gpgkey/nodesource.gpg.key | apt-key add -
-echo 'deb https://deb.nodesource.com/node_5.x wily main' > /etc/apt/sources.list.d/nodesource.list
-echo 'deb-src https://deb.nodesource.com/node_5.x wily main' >> /etc/apt/sources.list.d/nodesource.list
+curl -s https://deb.nodesource.com/gpgkey/nodesource.gpg.key | sudo apt-key add -
+echo 'deb https://deb.nodesource.com/node_6.x xenial main' | sudo tee /etc/apt/sources.list.d/nodesource.list
+echo 'deb-src https://deb.nodesource.com/node_6.x xenial main' | sudo tee -a /etc/apt/sources.list.d/nodesource.list
+sudo apt-get update
+sudo apt-get install nodejs
 
 # Amazon Prime Video
 sudo add-apt-repository ppa:mjblenner/ppa-hal
