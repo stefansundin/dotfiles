@@ -263,6 +263,17 @@ cat /var/log/auth.log | grep 'sshd.*Invalid'
 cat /var/log/auth.log | grep 'sshd.*opened'
 
 
+# create secure boot MOK key and sign kernel modules:
+openssl req -new -x509 -newkey rsa:2048 -keyout MySecureBoot.priv -outform DER -out MySecureBoot.der -nodes -days 36500 -subj "/CN=MySecureBoot/"
+sudo mokutil --import MySecureBoot.der
+# the password it asks you for is simply the password you have to enter in your UEFI when accepting the new key. reboot and do that now. this is a one-time operation on the current machine.
+# sign all the modules you need:
+sudo /usr/src/linux-headers-$(uname -r)/scripts/sign-file sha256 ./MySecureBoot.priv ./MySecureBoot.der $(modinfo -n vboxdrv)
+sudo /usr/src/linux-headers-$(uname -r)/scripts/sign-file sha256 ./MySecureBoot.priv ./MySecureBoot.der $(modinfo -n vboxnetflt)
+sudo /usr/src/linux-headers-$(uname -r)/scripts/sign-file sha256 ./MySecureBoot.priv ./MySecureBoot.der $(modinfo -n vboxnetadp)
+sudo /usr/src/linux-headers-$(uname -r)/scripts/sign-file sha256 ./MySecureBoot.priv ./MySecureBoot.der $(modinfo -n vboxpci)
+
+
 # disable .bash_history and .lesshst
 vim .bashrc
 unset HISTFILE
