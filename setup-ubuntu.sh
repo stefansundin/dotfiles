@@ -62,11 +62,17 @@ sudo apt-get update
 sudo apt-get install dolphin-emu-master
 
 # Node (from https://github.com/nodejs/node-v0.x-archive/wiki/Installing-Node.js-via-package-manager#debian-and-ubuntu-based-linux-distributions)
-curl -s https://deb.nodesource.com/gpgkey/nodesource.gpg.key | sudo apt-key add -
+wget -O- https://deb.nodesource.com/gpgkey/nodesource.gpg.key | sudo apt-key add -
 echo 'deb https://deb.nodesource.com/node_6.x xenial main' | sudo tee /etc/apt/sources.list.d/nodesource.list
 echo 'deb-src https://deb.nodesource.com/node_6.x xenial main' | sudo tee -a /etc/apt/sources.list.d/nodesource.list
 sudo apt-get update
 sudo apt-get install nodejs
+
+# Heroku Toolbelt
+wget -O- https://toolbelt.heroku.com/apt/release.key | sudo apt-key add -
+echo 'deb http://toolbelt.heroku.com/ubuntu ./' | sudo tee /etc/apt/sources.list.d/heroku.list
+sudo apt-get update
+sudo apt-get install heroku-toolbelt
 
 # Amazon Prime Video
 sudo add-apt-repository ppa:mjblenner/ppa-hal
