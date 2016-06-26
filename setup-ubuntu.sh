@@ -56,6 +56,11 @@ sudo add-apt-repository ppa:webupd8team/tor-browser
 sudo apt-get update
 sudo apt-get install tor-browser
 
+# Dolphin-emu
+sudo add-apt-repository ppa:dolphin-emu/ppa
+sudo apt-get update
+sudo apt-get install dolphin-emu-master
+
 # Node (from https://github.com/nodejs/node-v0.x-archive/wiki/Installing-Node.js-via-package-manager#debian-and-ubuntu-based-linux-distributions)
 curl -s https://deb.nodesource.com/gpgkey/nodesource.gpg.key | sudo apt-key add -
 echo 'deb https://deb.nodesource.com/node_6.x xenial main' | sudo tee /etc/apt/sources.list.d/nodesource.list
