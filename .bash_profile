@@ -2,7 +2,7 @@
 
 
 # https://github.com/stefansundin/dotfiles/blob/master/.bash_profile
-export PATH="$PATH:$HOME/bin:/usr/local/bin:/Applications/Firefox.app/Contents/MacOS:/Applications/Postgres.app/Contents/Versions/9.4/bin:$HOME/.rbenv/bin:$HOME/.rbenv/versions/2.1.2/bin:$HOME/Library/Android/sdk/platform-tools:$HOME/Library/Android/sdk/tools/templates/gradle/wrapper:$HOME/Library/Android/sdk/tools/proguard/bin:$HOME/Library/Android/sdk/tools"
+export PATH="$PATH:$HOME/bin:/usr/local/bin:/Applications/Firefox.app/Contents/MacOS:/Applications/Postgres.app/Contents/Versions/9.4/bin:$HOME/.rbenv/bin:$HOME/.rbenv/shims:node_modules/.bin:$HOME/Library/Android/sdk/platform-tools:$HOME/Library/Android/sdk/tools/templates/gradle/wrapper:$HOME/Library/Android/sdk/tools/proguard/bin:$HOME/Library/Android/sdk/tools"
 export IGNOREEOF=5
 export LESSHISTFILE=-
 export TERM=xterm-color
@@ -31,7 +31,7 @@ alias gpg="gpg2"
 alias ls="ls -G"
 alias pc="pngcrush -rem gAMA -rem cHRM -rem iCCP -rem sRGB -brute"
 alias reload_profile=". ~/.profile"
-alias npm-exec='PATH=$(npm bin):$PATH'
+#alias npm-exec='PATH=$(npm bin):$PATH'
 
 source /usr/local/etc/bash_completion
 complete -C /usr/local/bin/aws_completer aws
