@@ -92,6 +92,7 @@ Adblock filters:
 > inoreader.com###consent_bbb
 > stackoverflow.com##.everyonelovesstackoverflow
 > thelocal.se###taboola-organic-mid-article-thumbnails
+> facebook.com###u_0_6
 > ```
 
 Old filters:
