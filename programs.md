@@ -229,12 +229,6 @@ Rip Apple HLS streams (`.m3u8`):
 > ffmpeg -i infected.mkv -c copy -bsf:a aac_adtstoasc infected2.mkv
 > ```
 
-Rip SVT Play:
-> Get stream url at http://pirateplay.se/app.html
-> ```
-> ffmpeg -i "http://svtplay5b-f.akamaihd.net/i/world/open/20151227/1366900-010A/PG-1366900-010A-VECKANSBROTTHO-01_,988,240,348,456,636,1680,2796,.mp4.csmil/index_6_av.m3u8?null=" -c copy -absf aac_adtstoasc "veckans-brott-sasong-11-avsnitt-10.mp4"
-> ```
-
 Spotify Proxy Login:
 > Unplug ethernet cable / disable internet connection to enable proxy login.
 
