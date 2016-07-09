@@ -66,6 +66,7 @@ Adblock filters:
 > ```
 > twitter.com###empty-timeline-recommendations
 > twitter.com##.WhoToFollow
+> twitter.com##.wtf-module
 > bankofamerica.com##.TargetedAd
 > bankofamerica.com##.ao-offers-module
 > bankofamerica.com##.cardlytics-transaction-offer
