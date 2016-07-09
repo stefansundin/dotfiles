@@ -60,9 +60,16 @@ After install:
 
    > Win+R → `gpedit.msc` → Computer Configuration → Administrative Templates → Windows Components → Windows Defender → Turn off Windows Defender → `(x) Enabled`
 
-1. Remove OneDrive from explorer sidebar in Windows 10:
+1. Uninstall OneNote in Windows 10. Open PowerShell prompt and run:
 
    ```
+   Get-AppxPackage *OneNote* | Remove-AppxPackage
+   ```
+
+1. Uninstall OneDrive and remove it from explorer sidebar in Windows 10:
+
+   ```
+   %SystemRoot%\SysWOW64\OneDriveSetup.exe /uninstall
    cmd /C reg add HKCR\CLSID\{018D5C66-4533-4307-9B53-224DE2ED1FE6} /v System.IsPinnedToNameSpaceTree /t REG_DWORD /d 0 /f & pause
    ```
 
