@@ -91,7 +91,7 @@ After install:
 
 1. Disable stupid automatic wake from sleep at 2:00:
 
-   > Action Center → Maintenance → Change maintenance settings → `[ ] Allow scheduled maintenance to wake my computer at the scheduled time` → `[OK]`
+   > Security and Maintenance → Maintenance → Change maintenance settings → `[ ] Allow scheduled maintenance to wake my computer at the scheduled time` → `[OK]`
 
    ```
    powercfg -waketimers
@@ -143,7 +143,7 @@ After install:
 
 1. Disable error reporting:
 
-   > Action Center → Change Action Center settings → Problem reporting settings → `(x) Never check for solutions`
+   > Control Panel → Troubleshooting → Change settings → `(x) Off` and `[ ] Allow troubleshooting to begin immediately when started`
 
 1. Uninstall Skype app:
 
