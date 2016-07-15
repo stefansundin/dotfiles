@@ -3,6 +3,11 @@ sudo tcpdump -i eth0 port not 22
 ps aux --sort -rss
 sudo du -h --max-depth=1
 
+# listen on port and print information about who connected
+netcat -v -l 9999
+# connect to the above server from another computer
+nc -vz 52.144.75.35 9999
+
 # print distro version
 lsb_release -a
 cat /etc/issue
