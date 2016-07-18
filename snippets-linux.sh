@@ -277,6 +277,7 @@ sudo /usr/src/linux-headers-$(uname -r)/scripts/sign-file sha256 ./MySecureBoot.
 sudo /usr/src/linux-headers-$(uname -r)/scripts/sign-file sha256 ./MySecureBoot.priv ./MySecureBoot.der $(modinfo -n vboxnetflt)
 sudo /usr/src/linux-headers-$(uname -r)/scripts/sign-file sha256 ./MySecureBoot.priv ./MySecureBoot.der $(modinfo -n vboxnetadp)
 sudo /usr/src/linux-headers-$(uname -r)/scripts/sign-file sha256 ./MySecureBoot.priv ./MySecureBoot.der $(modinfo -n vboxpci)
+sudo modprobe vboxdrv vboxnetflt vboxnetadp vboxpci
 
 
 # disable .bash_history and .lesshst
