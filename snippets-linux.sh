@@ -35,6 +35,9 @@ find / -iname '*truecrypt*'
 # find files writable by user
 sudo -u man find / -writable 2>/dev/null
 
+# handy directories
+/var/spool/cron/crontabs
+
 # streams
 # use less on stderr
 ~/verify-sigs.sh 2>&1 | less
