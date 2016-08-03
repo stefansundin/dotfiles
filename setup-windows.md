@@ -56,6 +56,14 @@ After install:
 
    Also available through `gpedit.msc` → Computer Configuration → Administrative Templates → Windows Components → Windows Update → Configure Automatic Updates.
 
+1. Stop Windows 10 from installing shitty drivers (e.g. Razer Synapse) via Windows Update:
+
+   ```
+   cmd /C reg add HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate /v ExcludeWUDriversInQualityUpdate /t REG_DWORD /d 1 /f & pause
+   ```
+
+   Also available through `gpedit.msc` → Computer Configuration → Administrative Templates → Windows Components → Windows Update → Do not include drivers with Windows Updates.
+
 1. Disable Windows Defender in Windows 10:
 
    > Win+R → `gpedit.msc` → Computer Configuration → Administrative Templates → Windows Components → Windows Defender → Turn off Windows Defender → `(x) Enabled`
