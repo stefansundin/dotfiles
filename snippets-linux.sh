@@ -69,6 +69,9 @@ sudo mount -t vboxsf -o uid=$UID vboxshare share
 # read hdd Load_Cycle_Count (LCC)
 sudo smartctl -A /dev/sdb
 
+# format partition as FAT32 with 64k cluster size (128*512)
+sudo mkdosfs /dev/sdXX -s 128 -F 32 -n label
+
 # create user wordpress
 useradd wordpress
 # add user wordpress to group www-data
