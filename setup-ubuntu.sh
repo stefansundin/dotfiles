@@ -139,7 +139,7 @@ sudo vim /etc/rc.local
 # install native TeXLive
 # use installer from website. Takes ~1h30m.
 # add to /etc/profile:
-PATH=/usr/local/texlive/2012/bin/x86_64-linux:$PATH
+PATH=/usr/local/texlive/2016/bin/x86_64-linux:$PATH
 
 # setup wireshark for normal users
 sudo apt-get install wireshark
