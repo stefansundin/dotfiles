@@ -5,9 +5,13 @@
 export PATH="$PATH:$HOME/bin:/usr/local/bin:/Applications/Firefox.app/Contents/MacOS:/Applications/Postgres.app/Contents/Versions/9.4/bin:$HOME/.rbenv/bin:$HOME/.rbenv/shims:node_modules/.bin:$HOME/Library/Android/sdk/platform-tools:$HOME/Library/Android/sdk/tools/templates/gradle/wrapper:$HOME/Library/Android/sdk/tools/proguard/bin:$HOME/Library/Android/sdk/tools"
 export IGNOREEOF=5
 export LESSHISTFILE=-
-export TERM=xterm-color
+export TERM=xterm-256color
 export PGHOST=localhost
 export PGDATA="$HOME/Library/Application Support/Postgres/var-9.4"
+
+# Go
+export GOPATH=$HOME/go
+export PATH="$GOPATH/bin:$PATH"
 
 # SSH auth using gpg key
 # echo "enable-ssh-support" >> ~/.gnupg/gpg-agent.conf
@@ -27,6 +31,8 @@ export SSL_CERT_FILE="$HOME/ca-bundle.crt"
 export DEBFULLNAME="Stefan Sundin"
 export DEBEMAIL=stefan@example.com
 
+# xterm-256color removes the color over ssh on some machines
+alias ssh='TERM=xterm-color ssh'
 alias gpg="gpg2"
 alias ls="ls -G"
 alias pc="pngcrush -rem gAMA -rem cHRM -rem iCCP -rem sRGB -brute"
