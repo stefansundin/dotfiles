@@ -34,3 +34,6 @@ export BACKGROUND_LIGHT_CYAN="\033[106m"
 export BACKGROUND_WHITE="\033[107m"
 
 echo -e "${BOLD_RED}Hello ${BOLD_GREEN}World${RESET}!"
+
+# serve static website, NOW!
+python -m SimpleHTTPServer
