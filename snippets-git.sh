@@ -124,6 +124,9 @@ git config --global diff.tool vimdiff
 git config --global alias.dt difftool
 git dt AltDrag.ini
 
+# side-by-side diffs with cdiff https://github.com/ymattw/cdiff
+cdiff -s
+
 # vimattributes; does not really work well for UTF-16 ini files, but might work for other things
 # vim .vimattributes
 # *.ini set diff
