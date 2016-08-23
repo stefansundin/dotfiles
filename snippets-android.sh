@@ -26,9 +26,9 @@ mount -o remount,ro /system
 
 Speed up animations:
 Enable developer mode, go to Developer options:
-- Window animation scale: [Animation off]
-- Transition animation scale: [Animation off]
-- Animator duration scale: [Animation off]
+- Window animation scale: 0.1x
+- Transition animation scale: 0.1x
+- Animator duration scale: 1.0x
 
 Android Studio
 Ubuntu:
