@@ -3,7 +3,7 @@ apm install activate-power-mode atom-beautify auto-reveal-in-sidebar autocomplet
  blame color-picker cursor-blink-interval file-icons fonts git-time-machine highlight-nbsp highlight-selected \
  markdown-pdf merge-conflicts minimap minimap-find-and-replace minimap-git-diff minimap-highlight-selected \
  minimap-selection pretty-json regex-railroad-diagram remote-edit show-origin todo-show trailing-spaces \
- travis-ci-status url-encode
+ travis-ci-status url-encode api-docs
 ```
 
 Mac package auto updater:
