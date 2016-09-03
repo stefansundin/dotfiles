@@ -253,6 +253,24 @@ After install:
    C:\Users\stefan\bin;C:\Users\stefan\AppData\Local\Android\sdk\platform-tools;C:\Users\stefan\AppData\Roaming\npm;C:\Users\stefan\AppData\Local\atom\bin;C:\Python34\Scripts;C:\redis;C:\Program Files\TrueCrypt;C:\Program Files\ffmpeg\bin;C:\Program Files\ImageMagick-6.8.9-Q16;C:\Program Files (x86)\GNU\GnuPG\pub;C:\Program Files (x86)\nginx;C:\Program Files (x86)\nginx\php;C:\Program Files\Sublime Text 3;C:\Program Files (x86)\NSIS\Unicode;C:\Program Files (x86)\FLAC
    ```
 
+Setup Bash on Linux:
+> ```
+> # upgrade to 16.04
+> sudo -S apt-mark hold sudo
+> sudo -S apt-mark hold procps
+> sudo -S apt-mark hold strace
+> sudo apt-get update
+> sudo apt-get dist-upgrade 
+> sudo do-release-upgrade -f DistUpgradeViewNonInteractive -d
+> # ctrl+c when it asks you about rcS
+> sudo -S dpkg --configure -a
+>
+> # ruby
+> sudo gem install bundler
+> chmod +t -R ~/.bundle/cache
+> ```
+
+
 Uninstall Bash on Linux:
 > ```
 > lxrun /uninstall /full
