@@ -46,6 +46,11 @@ gsettings set com.canonical.Unity.Lenses disabled-scopes \
 # disable Firefox Web Apps ("Would you like to install X?")
 # go to General tab in Preferences, uncheck "Prompt integration options from any website".
 
+# Git
+sudo add-apt-repository ppa:git-core/ppa
+sudo apt-get update
+sudo apt-get install git
+
 # Yubikey
 sudo add-apt-repository ppa:yubico/stable
 sudo apt-get update
