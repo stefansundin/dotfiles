@@ -54,6 +54,15 @@ alias pbpaste='xsel --clipboard --output'
 
 # Git
 
+function git {
+  if [[ "$1" == "clone" ]]; then
+    shift 1
+    /usr/local/bin/git cl "$@"
+  else
+    /usr/local/bin/git "$@"
+  fi
+}
+
 function cd {
   builtin cd "$@"
   echo -n -e "\033]0;$(git config --get remote.origin.url | sed -e 's/.*[\/|:]//' -e 's/\.git$//')\007";
