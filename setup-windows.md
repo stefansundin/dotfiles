@@ -268,6 +268,10 @@ Setup Bash on Linux:
 > # ruby
 > sudo gem install bundler
 > chmod +t -R ~/.bundle/cache
+>
+> # redis
+> sudo apt-get install redis-server
+> sudo service redis-server start
 > ```
 
 
