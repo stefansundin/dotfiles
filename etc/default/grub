@@ -1,3 +1,7 @@
+# Skip graphical logo:
+GRUB_CMDLINE_LINUX_DEFAULT="text"
+
+# Set graphics options
 GRUB_CMDLINE_LINUX="vga=792 consoleblank=0"
 GRUB_GFXMODE="1024x768"
 
