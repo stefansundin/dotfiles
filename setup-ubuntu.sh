@@ -106,6 +106,10 @@ cd Downloads
 chmod +x AdbeRdr9.5.5-1_i486linux_enu.bin
 sudo ./AdbeRdr9.5.5-1_i486linux_enu.bin
 
+# uninstall kernel headers
+sudo apt-get remove linux-headers-generic
+sudo apt-mark manual linux-image-generic
+
 # update to mainline kernel
 https://wiki.ubuntu.com/Kernel/MainlineBuilds
 http://kernel.ubuntu.com/~kernel-ppa/mainline/v3.9.6-saucy/
