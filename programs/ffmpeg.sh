@@ -61,3 +61,37 @@ ffmpeg \
     " -map "[v]" -map "[a]" \
     -shortest \
     -c:v libx264 mosaic.mkv
+
+# the same as above, but using hstack and vstack
+ffmpeg \
+    -i "a1.mkv" -i "a2.mkv" -i "a3.mkv" -i "a4.mkv" \
+    -i "b1.mkv" -i "b2.mkv" -i "b3.mkv" -i "b4.mkv" \
+    -i "c1.mkv" -i "c2.mkv" -i "c3.mkv" -i "c4.mkv" \
+    -filter_complex "
+        [0:v][1:v][2:v][3:v] hstack=inputs=4 [a];
+        [4:v][5:v][6:v][7:v] hstack=inputs=4 [b];
+        [8:v][9:v][10:v][11:v] hstack=inputs=4 [c];
+        [a][b][c] vstack=inputs=3 [video];
+        [5:a] anull [audio]
+    " -map "[video]" -map "[audio]" \
+    -c:v libx264 mosaic.mkv
+
+# from a single input file, cut out nine 4 minutes segments and assemble in a mosaic
+ffmpeg \
+    -i input.avi -filter_complex "
+        [0:v] trim=420:duration=240,   setpts=PTS-STARTPTS, fifo [a1];
+        [0:v] trim=840:duration=240,   setpts=PTS-STARTPTS, fifo [a2];
+        [0:v] trim=1290:duration=240,  setpts=PTS-STARTPTS, fifo [a3];
+        [0:v] trim=1800:duration=240,  setpts=PTS-STARTPTS, fifo [b1];
+        [0:v] trim=2890:duration=240,  setpts=PTS-STARTPTS, fifo [b2];
+        [0:a] atrim=2890:duration=240, asetpts=PTS-STARTPTS, afifo [audio];
+        [0:v] trim=3000:duration=240,  setpts=PTS-STARTPTS, fifo [b3];
+        [0:v] trim=4510:duration=240,  setpts=PTS-STARTPTS, fifo [c1];
+        [0:v] trim=4740:duration=240,  setpts=PTS-STARTPTS, fifo [c2];
+        [0:v] trim=5065:duration=240,  setpts=PTS-STARTPTS, fifo [c3];
+        [a1][a2][a3] hstack=inputs=3 [a];
+        [b1][b2][b3] hstack=inputs=3 [b];
+        [c1][c2][c3] hstack=inputs=3 [c];
+        [a][b][c] vstack=inputs=3 [video]
+        " -map "[video]" -map "[audio]" \
+    -c:v libx264 mosaic.mkv
