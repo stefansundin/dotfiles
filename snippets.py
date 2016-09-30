@@ -2,6 +2,8 @@
 import sys
 sys.path.insert(0, "./modules")
 
+print(json.dumps(response, indent=2))
+
 def uniq(arr, func):
     result = []
     identifiers = []
