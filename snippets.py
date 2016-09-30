@@ -2,6 +2,7 @@
 import sys
 sys.path.insert(0, "./modules")
 
+print(os.environ["HOME"])
 print(json.dumps(response, indent=2))
 
 def uniq(arr, func):
