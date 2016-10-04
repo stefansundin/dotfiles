@@ -17,8 +17,8 @@ $redis.keys.select { |k| $redis.del k } # clear redis the poor mans way
 before_filter :auth, unless: -> { Rails.env.development? }
 
 case type
-when "W-9", "W-8BEN" then 10
-when "W-2" then 30
+when "json", "yml" then 10
+when "text" then 30
 else "Unknown"
 end
 
