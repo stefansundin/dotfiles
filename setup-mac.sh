@@ -73,6 +73,8 @@ vim ~/Library/KeyBindings/DefaultKeyBinding.dict
 # ^    Control          CTRL
 
 
+# enable "Anywhere" option for Gatekeeper ("Allow apps downloaded from" in "Security & Privacy" settings)
+sudo spctl --master-disable
 # install Xcode command line tools
 xcode-select --install
 # accept Xcode EULA
