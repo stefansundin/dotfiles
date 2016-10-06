@@ -1,0 +1,3 @@
+# erase all lines in buffer
+gg    go to first line
+dG    erase all lines
