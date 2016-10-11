@@ -62,48 +62,6 @@ Firefox black background (maybe hardware acceleration):
 Tor Browser open magnet links:
 > `network.protocol-handler.external-default = true`
 
-Adblock filters:
-> ```
-> twitter.com###empty-timeline-recommendations
-> twitter.com##.WhoToFollow
-> twitter.com##.wtf-module
-> bankofamerica.com##.TargetedAd
-> bankofamerica.com##.ao-offers-module
-> bankofamerica.com##.cardlytics-transaction-offer
-> bankofamerica.com##.olb-special-offers-new-accounts-bdf-module
-> fullscreen.tpondemand.com##.tau-board-grid-resize-controls
-> k2s.cc##.fancybox-overlay
-> sweclockers.com###infobar
-> sweclockers.com##.banner
-> twitch.tv##.i-am-new
-> paypal.com##.MktMPI
-> youtube.com##.ytp-cards-button
-> youtube.com##.ytp-cards-teaser
-> youtube.com##.annotation.iv-promo
-> youtube.com##.annotation.iv-branding
-> youtube.com##.ytp-ce-element
-> google.com##a[href*="notifications/all"]
-> inoreader.com###sb_rp_upgrade
-> inoreader.com##.ad_footer_remove
-> inoreader.com##.ad_title
-> inoreader.com##.inner_ad
-> inoreader.com##.block_article_ad
-> inoreader.com##.avs_iframe
-> inoreader.com##.sinner_container
-> inoreader.com###consent_bbb
-> stackoverflow.com##.everyonelovesstackoverflow
-> thelocal.se###taboola-organic-mid-article-thumbnails
-> facebook.com###u_0_6
-> ```
-
-Old filters:
-> ```
-> youtube.com##.guide-item-update-notification
-> youtube.com##.sb-notif-on
-> youtube.com##.annotation.iv-drawer-manager
-> youtube.com##.iv-drawer-teaser
-> ```
-
 YouTube channel playlist:
 > Add `&feature=mfu_in_order&list=UL`, e.g.
 > ```
