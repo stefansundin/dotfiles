@@ -21,6 +21,12 @@ Go packages:
 apm install go-plus
 ```
 
+Python packages:
+```
+pip install flake8
+apm install linter-flake8
+```
+
 Settings:
 - Ignored Names: `.git, .hg, .svn, .DS_Store, ._*, Thumbs.db, *.1, *.pyc, log, node_modules, coverage, .sass-cache, _site, public/assets, tmp/cache, venv`
 - tree-view: [x] Hide Ignored Names
