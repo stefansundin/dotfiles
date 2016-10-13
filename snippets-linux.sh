@@ -8,6 +8,10 @@ netcat -v -l 9999
 # connect to the above server from another computer
 nc -vz 52.144.75.35 9999
 
+# see what files a process is opening
+ps aux | grep unicorn
+sudo strace -s 1024 -e stat -p 2876
+
 # print distro version
 lsb_release -a
 cat /etc/issue
