@@ -24,7 +24,7 @@ inoreader.com##.ad_title
 inoreader.com##.inner_ad
 inoreader.com##.block_article_ad
 inoreader.com##.avs_iframe
-inoreader.com##.sinner_container
+inoreader.com###sinner_container
 inoreader.com###consent_bbb
 stackoverflow.com##.everyonelovesstackoverflow
 thelocal.se###taboola-organic-mid-article-thumbnails
