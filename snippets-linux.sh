@@ -56,6 +56,11 @@ scp flickr.png server:www/
 scp flickr.png server:
 scp user@example.com:flickr.png .
 
+# check SSH versions
+ssh -V
+sshd -V
+telnet localhost 22
+
 # list iptables rules
 sudo iptables -L
 # block access to 169.254.169.254 except by root
