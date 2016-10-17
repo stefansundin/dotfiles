@@ -94,6 +94,13 @@ git tag -d patch1
 git push origin :refs/tags/patch1
 git push origin v1
 
+# create .tar.bz2 of repository files:
+git archive master | bzip2 > ../files.tar.bz2
+# include all submodules:
+wget -O ~/bin/git-archive-all https://raw.githubusercontent.com/meitar/git-archive-all.sh/master/git-archive-all.sh
+chmod +x ~/bin/git-archive-all
+git archive-all -- - | bzip2 > ../files.tar.bz2
+
 # gists
 https://gist.github.com/stefansundin/9059706#install-pre-commit.sh
 https://gist.github.com/stefansundin/d465f1e331fc5c632088#install-pre-push.sh
