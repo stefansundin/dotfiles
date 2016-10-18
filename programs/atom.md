@@ -1,8 +1,8 @@
 ```
-apm install activate-power-mode atom-beautify auto-reveal-in-sidebar autocomplete-paths \
+apm install atom-beautify auto-reveal-in-sidebar autocomplete-paths \
  blame color-picker cursor-blink-interval file-icons fonts git-time-machine highlight-nbsp highlight-selected \
  markdown-pdf merge-conflicts minimap minimap-find-and-replace minimap-git-diff minimap-highlight-selected \
- minimap-selection pretty-json regex-railroad-diagram remote-edit show-origin todo-show trailing-spaces \
+ minimap-selection pretty-json regex-railroad-diagram show-origin todo-show trailing-spaces \
  travis-ci-status url-encode api-docs sort-lines
 ```
 
@@ -28,7 +28,8 @@ apm install linter-flake8
 ```
 
 Settings:
-- Ignored Names: `.git, .hg, .svn, .DS_Store, ._*, Thumbs.db, *.1, *.pyc, log, node_modules, coverage, .sass-cache, _site, public/assets, tmp/cache, venv`
+- Core → Ignored Names: `.git, .hg, .svn, .DS_Store, ._*, Thumbs.db, *.1, *.pyc, log, node_modules, coverage, .sass-cache, _site, public/assets, tmp/cache, venv`
+- Editor → [x] Scroll Past End
 - tree-view: [x] Hide Ignored Names
 - bracket-matcher: Disable the package.
 - autocomplete-plus: Set _Keymap For Confirming A Suggestion_ to _tab_.
