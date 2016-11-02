@@ -145,8 +145,11 @@ sudo ap-hotspot configure
 sudo vim /etc/rc.local
 (sleep 10 && ap-hotspot start)&
 
-# install native TeXLive
-# use installer from website. Takes ~1h30m.
+# LaTeX: install native TeXLive with installer from website. Takes ~1h30m.
+wget http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz
+tar xzf install-tl-unx.tar.gz
+cd install-tl-*
+./install-tl
 # add to /etc/profile:
 PATH=/usr/local/texlive/2016/bin/x86_64-linux:$PATH
 
