@@ -27,6 +27,11 @@ pip install flake8
 apm install linter-flake8
 ```
 
+LaTeX packages:
+```
+apm install latex language-latex
+```
+
 Settings:
 - Core → Ignored Names: `.git, .hg, .svn, .DS_Store, ._*, Thumbs.db, *.1, *.pyc, log, node_modules, coverage, .sass-cache, _site, public/assets, tmp/cache, venv`
 - Editor → [x] Scroll Past End
