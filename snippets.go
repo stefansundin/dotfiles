@@ -1,3 +1,8 @@
+# go get and link
+go get -u github.com/stefansundin/aws-rotate-key
+ln -s $GOPATH/src/github.com/stefansundin/aws-rotate-key code/aws-rotate-key
+cd code/aws-rotate-key
+
 # vendor things with git submodules
 mkdir -p vendor/github.com/aws
 cd vendor/github.com/aws
