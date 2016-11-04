@@ -38,6 +38,7 @@ git config --global alias.st status
 git config --global alias.incoming '!git remote update origin; git log ..@{u}'
 git config --global alias.outgoing 'log @{u}..'
 
+git commit --allow-empty -m 'root commit'
 git rev-list HEAD --count
 git remote add upstream git@github.com:DrWhax/truecrypt-archive.git
 git pull upstream master
