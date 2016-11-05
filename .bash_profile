@@ -13,6 +13,13 @@ export PGDATA="$HOME/Library/Application Support/Postgres/var-9.4"
 export GOPATH=$HOME/go
 export PATH="$GOPATH/bin:$PATH"
 
+function go-get {
+  NAME=$(basename $1)
+  go get -u github.com/$1
+  ln -s $GOPATH/src/github.com/$1 $NAME
+  cd $NAME
+}
+
 # SSH auth using gpg key
 # echo "enable-ssh-support" >> ~/.gnupg/gpg-agent.conf
 export SSH_AUTH_SOCK=~/.gnupg/S.gpg-agent.ssh
@@ -40,7 +47,8 @@ alias reload_profile=". ~/.profile"
 #alias npm-exec='PATH=$(npm bin):$PATH'
 
 source /usr/local/etc/bash_completion
-complete -C /usr/local/bin/aws_completer aws
+#complete -C /usr/local/bin/aws_completer aws
+complete -C $HOME/Library/Python/2.7/bin/aws_completer aws
 
 function c {
   echo $* | pbcopy
@@ -57,9 +65,9 @@ alias pbpaste='xsel --clipboard --output'
 function git {
   if [[ "$1" == "clone" ]]; then
     shift 1
-    /usr/local/bin/git cl "$@"
+    command git cl "$@"
   else
-    /usr/local/bin/git "$@"
+    command git "$@"
   fi
 }
 
@@ -110,3 +118,8 @@ function use_bundler {
 for cmd in rake rspec cucumber cap unicorn puma thin rackup guard compass thor sidekiq jekyll airbrake honeybadger; do
   alias $cmd="use_bundler $cmd"
 done
+
+# Mac
+function flushdns {
+  dscacheutil -flushcache && sudo killall -HUP mDNSResponder
+}
