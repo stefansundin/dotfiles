@@ -4,9 +4,7 @@ ln -s $GOPATH/src/github.com/stefansundin/aws-rotate-key code/aws-rotate-key
 cd code/aws-rotate-key
 
 # vendor things with git submodules
-mkdir -p vendor/github.com/aws
-cd vendor/github.com/aws
-git submodule add https://github.com/aws/aws-sdk-go
+git submodule add https://github.com/aws/aws-sdk-go vendor/github.com/aws/aws-sdk-go
 
 # compile smaller binaries - https://golang.org/cmd/link/
 go build -ldflags="-s -w"
