@@ -1,5 +1,5 @@
 # brew bundle
-# brew link readline
+# brew link --force readline curl
 # pip install -U awscli awsebcli pgcli
 
 tap 'homebrew/bundle'
@@ -14,6 +14,7 @@ tap 'fullscreen/tap'
 # basic tools
 brew 'bash'
 brew 'bash-completion'
+brew 'curl'
 brew 'duti'
 brew 'git'
 brew 'gnu-tar'
