@@ -54,10 +54,11 @@ group :development do
 end
 # To use better_errors instead of pry, just use `raise "oops"` instead of `binding.remote_pry`.
 
-# Render ERB
+# Render ERB / yml
 require "erb"
 f = "config/database.yml"
 puts ERB.new(File.open(f).read).result
+puts ERB.new(File.open("config/newrelic.yml").read).result
 
 # config/environments/development.rb
   config.after_initialize do
