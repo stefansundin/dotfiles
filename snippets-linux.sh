@@ -147,6 +147,9 @@ find -type f -exec chmod -x {} \;
 # useful when trading files with an NTFS partition (so GNOME won't bug you every time you try to open a file)
 # chmod rwx 421: 4+2+1=7
 
+# remount filesystem as read-write
+sudo mount -o remount,rw /media/test
+
 # set default keyboard layout
 sudo dpkg-reconfigure keyboard-configuration
 
