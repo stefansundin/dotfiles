@@ -245,7 +245,22 @@ xclip -sel clip < .ssh/id_rsa.pub
 ssh-keygen -p -f .ssh/id_rsa
 # print key fingerprints
 ssh-add -l
-# 2048 8f:ab:2e:d9:6f:05:c9:cc:dd:98:27:43:95:a5:84:af  stefan@example.com (RSA)
+> 4096 SHA256:Ggh3YhpX3lSsAdfDW1/1e7gXNRmNZM9tCccXIWDCdN8 stefan@example.com (RSA)
+# print MD5 fingerprint
+ssh-add -l -E md5
+> 4096 MD5:83:af:3d:0b:bf:f6:43:99:2c:47:32:4f:66:a7:33:b6 stefan@example.com (RSA)
+# export card public key
+ssh-add -L
+# export public key from private key
+ssh-keygen -yf private-key.pem > public-key.txt
+# print fingerprint from public/private key file
+ssh-keygen -lf public-key.txt
+
+# unblock card PIN with PUK
+gpg --card-edit
+gpg/card> admin
+gpg/card> passwd
+Your selection? 2
 
 
 # create restricted ssh user for SOCKS with keylogin only
