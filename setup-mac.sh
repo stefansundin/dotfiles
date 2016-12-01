@@ -128,6 +128,9 @@ http://charles.lescampeurs.org/2012/06/18/right-click-open-with-sublime-text-2
 defaults write -g NSWindowResizeTime -float 0.01
 defaults read -g NSWindowResizeTime
 
+# disable two-finger back/forward navigation in Chrome only
+defaults write com.google.Chrome AppleEnableSwipeNavigateWithScrolls -bool false
+
 # Calendar.app: ignore alerts from specific calendars
 # Right-click calendar → Get Info → [x] Ignore alerts
 
