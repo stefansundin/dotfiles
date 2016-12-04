@@ -81,6 +81,12 @@ After install:
    cmd /C reg add HKCR\CLSID\{018D5C66-4533-4307-9B53-224DE2ED1FE6} /v System.IsPinnedToNameSpaceTree /t REG_DWORD /d 0 /f & pause
    ```
 
+1. Disable Xbox Game DVR (run as admin):
+
+   ```
+   cmd /C reg add HKCU\System\GameConfigStore /v GameDVR_Enabled /t REG_DWORD /d 0 /f & cmd /C reg add HKLM\SOFTWARE\Policies\Microsoft\Windows\GameDVR /v AllowGameDVR /t REG_DWORD /d 0 /f & pause
+   ```
+
 1. Disable beep:
 
    ```
