@@ -30,6 +30,9 @@ Enable developer mode, go to Developer options:
 - Transition animation scale: 0.1x
 - Animator duration scale: 1.0x
 
+Download only platform tools:
+https://dl.google.com/android/repository/platform-tools_r25.0.1-windows.zip
+
 Android Studio
 Ubuntu:
 - Tools -> Create Desktop Entry…
