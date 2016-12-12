@@ -12,6 +12,18 @@ sudo add-apt-repository ppa:nginx/stable
 sudo add-apt-repository ondrej/php5
 sudo add-apt-repository langemeijer/php5-ssh2
 
+# make vim the default editor (select vim.basic)
+sudo update-alternatives --config editor
+
+# disable clearing of boot log
+sudo systemctl edit getty@tty1
+# write the following:
+[Service]
+TTYVTDisallocate=no
+
+# disable clearing of tty on logout
+rm ~/.bash_logout
+
 # increase max number of inotify watchers
 echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
 
@@ -178,6 +190,11 @@ sudo update-grub
 vim startx.sh
 sudo service lightdm start
 chmod +x startx.sh
+
+# increase scrollback buffer
+sudo vim /etc/default/grub
+GRUB_CMDLINE_LINUX="fbcon=scrollback:1024k"
+sudo update-grub
 
 # touchpad
 # setup two-finger scroll in mouse settings, check "Content sticks to fingers".
