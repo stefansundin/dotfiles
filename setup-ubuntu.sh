@@ -14,6 +14,9 @@ sudo add-apt-repository langemeijer/php5-ssh2
 
 # make vim the default editor (select vim.basic)
 sudo update-alternatives --config editor
+# some tools use select-editor (saves to ~/.selected_editor)
+select-editor
+sudo -H select-editor
 
 # disable clearing of boot log
 sudo systemctl edit getty@tty1
