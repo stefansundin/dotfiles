@@ -30,6 +30,8 @@ stackoverflow.com##.everyonelovesstackoverflow
 thelocal.se###taboola-organic-mid-article-thumbnails
 facebook.com###u_0_6
 facebook.com##.generic_dialog_modal
+askubuntu.com###herobox
+
 
 
 Old:
