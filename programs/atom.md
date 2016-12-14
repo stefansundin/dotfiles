@@ -45,3 +45,8 @@ Fix for "TypeError: Unable to watch path" in Ubuntu ([#2082](https://github.com/
 sudo sysctl fs.inotify.max_user_watches=32768
 echo 32768 | sudo tee -a /proc/sys/fs/inotify/max_user_watches
 ```
+Xubuntu File Manager (Thunar) right click entry on directories:
+- Edit → Configure custom actions... → Add
+- Name: Open Atom Here
+- Command: atom %f
+- Appearance Conditions: [x] Directories
