@@ -30,6 +30,9 @@ Enable developer mode, go to Developer options:
 - Transition animation scale: 0.1x
 - Animator duration scale: 1.0x
 
+Remove annoying Google Cast notification:
+- Settings -> Google -> Google Cast -> [ ] Show remote control notifications
+
 Download only platform tools:
 https://dl.google.com/android/repository/platform-tools_r25.0.1-windows.zip
 
