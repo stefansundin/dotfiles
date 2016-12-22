@@ -254,7 +254,7 @@ ssh-add -L
 # export public key from private key
 ssh-keygen -yf private-key.pem > public-key.txt
 # print fingerprint from public/private key file
-ssh-keygen -lf public-key.txt
+ssh-keygen -lf public-key.txt -E md5
 
 # unblock card PIN with PUK
 gpg --card-edit
