@@ -26,11 +26,26 @@ inoreader.com##.block_article_ad
 inoreader.com##.avs_iframe
 inoreader.com###sinner_container
 inoreader.com###consent_bbb
-stackoverflow.com##.everyonelovesstackoverflow
 thelocal.se###taboola-organic-mid-article-thumbnails
 facebook.com###u_0_6
 facebook.com##.generic_dialog_modal
+stackoverflow.com##.everyonelovesstackoverflow
+stackoverflow.com##.community-bulletin
+stackoverflow.com###herobox
+stackoverflow.com###hireme
+stackexchange.com##.everyonelovesstackoverflow
+stackexchange.com##.community-bulletin
+stackexchange.com###herobox
+stackexchange.com###hireme
+askubuntu.com##.everyonelovesstackoverflow
+askubuntu.com##.community-bulletin
 askubuntu.com###herobox
+askubuntu.com###hireme
+superuser.com##.everyonelovesstackoverflow
+superuser.com##.community-bulletin
+superuser.com###herobox
+superuser.com###hireme
+
 
 
 
