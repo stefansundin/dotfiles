@@ -325,6 +325,10 @@ cd tunnels
 gem build tunnels.gemspec
 gem install tunnels-1.2.0.gem
 
+# create key for signing gems
+gem cert --build email@gmail.com --days 3650
+openssl x509 -in gem-public_cert.pem -noout -text
+
 openssl req -nodes -new -x509 -keyout server.key -out server.crt -subj "/C=US/ST=Denial/L=Springfield/O=Dis/CN=*.dev"
 sudo tunnels
 
