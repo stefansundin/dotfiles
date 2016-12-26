@@ -45,6 +45,11 @@ vim startx.sh
 sudo service lightdm start
 chmod +x startx.sh
 
+# make grub menu visible
+sudo vim /etc/default/grub
+# comment out GRUB_HIDDEN_TIMEOUT
+sudo update-grub
+
 # increase max number of inotify watchers
 echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
 
