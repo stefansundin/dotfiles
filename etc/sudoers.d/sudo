@@ -1,0 +1,1 @@
+%sudo ALL=(ALL) NOPASSWD:/usr/bin/vim,/usr/bin/apt-get,/usr/sbin/synaptic,/usr/sbin/service
