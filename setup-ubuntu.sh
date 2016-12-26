@@ -18,14 +18,32 @@ sudo update-alternatives --config editor
 select-editor
 sudo -H select-editor
 
+# disable clearing of tty on logout
+rm ~/.bash_logout
+
 # disable clearing of boot log
 sudo systemctl edit getty@tty1
 # write the following:
 [Service]
 TTYVTDisallocate=no
+# remove quiet and splash from boot options
+sudo vim /etc/default/grub
+GRUB_CMDLINE_LINUX_DEFAULT=""
+sudo update-grub
 
-# disable clearing of tty on logout
-rm ~/.bash_logout
+# increase scrollback buffer
+sudo vim /etc/default/grub
+GRUB_CMDLINE_LINUX="fbcon=scrollback:1024k"
+sudo update-grub
+
+# disable X at boot
+sudo vim /etc/default/grub
+GRUB_CMDLINE_LINUX_DEFAULT="text"
+GRUB_TERMINAL=console
+sudo update-grub
+vim startx.sh
+sudo service lightdm start
+chmod +x startx.sh
 
 # increase max number of inotify watchers
 echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
@@ -184,20 +202,6 @@ sudo vgchange -a y
 sudo apt-get install ppa-purge
 sudo ppa-purge ppa:webupd8team/sublime-text-2
 sudo apt-get autoremove
-
-# disable X at boot
-sudo vim /etc/default/grub
-GRUB_CMDLINE_LINUX_DEFAULT="text"
-GRUB_TERMINAL=console
-sudo update-grub
-vim startx.sh
-sudo service lightdm start
-chmod +x startx.sh
-
-# increase scrollback buffer
-sudo vim /etc/default/grub
-GRUB_CMDLINE_LINUX="fbcon=scrollback:1024k"
-sudo update-grub
 
 # touchpad
 # setup two-finger scroll in mouse settings, check "Content sticks to fingers".
