@@ -1,8 +1,13 @@
-# Skip graphical logo:
+# comment out GRUB_HIDDEN_TIMEOUT to make grub menu visible
+
+# skip graphical logo
 GRUB_CMDLINE_LINUX_DEFAULT="text"
 
-# Set graphics options
+# set graphics options
 GRUB_CMDLINE_LINUX="vga=792 consoleblank=0"
 GRUB_GFXMODE="1024x768"
+
+# increase scrollback buffer
+GRUB_CMDLINE_LINUX="fbcon=scrollback:1024k"
 
 # don't forget "sudo update-grub"
