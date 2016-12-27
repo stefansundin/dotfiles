@@ -7,11 +7,6 @@ sudo apt-get install indicator-cpufreq ghex flac lm-sensors rtmpdump deluge xcha
 # rbenv dependencies
 sudo apt-get install libreadline-dev libxml2-dev libxslt1-dev libpq-dev libsqlite3-dev libssl-dev
 
-# server
-sudo add-apt-repository ppa:nginx/stable
-sudo add-apt-repository ondrej/php5
-sudo add-apt-repository langemeijer/php5-ssh2
-
 # make vim the default editor (select vim.basic)
 sudo update-alternatives --config editor
 # some tools use select-editor (saves to ~/.selected_editor)
@@ -99,6 +94,11 @@ sudo add-apt-repository ppa:webupd8team/tor-browser
 sudo apt-get update
 sudo apt-get install tor-browser
 
+# unetbootin
+sudo add-apt-repository ppa:gezakovacs/ppa
+sudo apt-get update
+sudo apt-get install unetbootin
+
 # Dolphin-emu
 sudo add-apt-repository ppa:dolphin-emu/ppa
 sudo apt-get update
@@ -110,6 +110,9 @@ echo 'deb https://deb.nodesource.com/node_6.x xenial main' | sudo tee /etc/apt/s
 echo 'deb-src https://deb.nodesource.com/node_6.x xenial main' | sudo tee -a /etc/apt/sources.list.d/nodesource.list
 sudo apt-get update
 sudo apt-get install nodejs
+
+# nginx
+sudo add-apt-repository ppa:nginx/stable
 
 # Heroku Toolbelt
 wget -O- https://toolbelt.heroku.com/apt/release.key | sudo apt-key add -
