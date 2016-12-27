@@ -1,1 +1,1 @@
-%sudo ALL=(ALL) NOPASSWD:/usr/bin/vim,/usr/bin/apt-get,/usr/sbin/synaptic,/usr/sbin/service
+%sudo ALL=(ALL) NOPASSWD:SETENV:/usr/bin/vim,/usr/bin/apt-get,/usr/sbin/synaptic,/usr/sbin/service,/usr/sbin/visudo
