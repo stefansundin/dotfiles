@@ -11,6 +11,9 @@ git config --global core.editor 'vim -c "set mouse="'
 # git config --global core.editor "subl -w"
 # git config --global core.editor "sublime_text.exe -w"
 
+# windows
+git config --global core.fileMode false
+
 # git config --global alias.yolo '!git commit -am "DEAL WITH IT!" && git push -f origin master'
 git config --global alias.aliases '!git config --list | grep -v alias.aliases | grep alias. | sed -e "s/alias\.//" | cut -c 1-50 | column -s= -t | sort'
 git config --global alias.b 'checkout -b'
