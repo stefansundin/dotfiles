@@ -51,10 +51,15 @@ grep print context:
 ifconfig | grep inet -C2
 
 # scp
-scp flickr.png user@example.com:www/
-scp flickr.png server:www/
-scp flickr.png server:
-scp user@example.com:flickr.png .
+scp file.png user@example.com:www/
+scp file.png server:www/
+scp file.png server:
+scp user@example.com:file.png .
+
+# source KEY=VALUE file and export variables
+set -a
+source file.env
+set +a
 
 # check SSH versions
 ssh -V
