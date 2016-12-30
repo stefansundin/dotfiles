@@ -114,6 +114,14 @@ sudo apt-get install nodejs
 # nginx
 sudo add-apt-repository ppa:nginx/stable
 
+# Postgresql - https://wiki.postgresql.org/wiki/Apt
+wget -O- https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
+echo 'deb http://apt.postgresql.org/pub/repos/apt/ xenial-pgdg main' | sudo tee /etc/apt/sources.list.d/pgdg.list
+sudo apt-get update
+sudo apt-get install postgresql-9.6
+sudo -u postgres createuser ubuntu
+sudo -u postgres createdb ubuntu
+
 # Heroku Toolbelt
 wget -O- https://toolbelt.heroku.com/apt/release.key | sudo apt-key add -
 echo 'deb http://toolbelt.heroku.com/ubuntu ./' | sudo tee /etc/apt/sources.list.d/heroku.list
