@@ -121,6 +121,7 @@ sudo apt-get update
 sudo apt-get install postgresql-9.6
 sudo -u postgres createuser ubuntu
 sudo -u postgres createdb ubuntu
+sudo -u postgres psql -d template1 -c 'ALTER ROLE ubuntu WITH CREATEDB;'
 
 # Heroku Toolbelt
 wget -O- https://toolbelt.heroku.com/apt/release.key | sudo apt-key add -
