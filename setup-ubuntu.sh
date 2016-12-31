@@ -8,7 +8,7 @@ sudo apt-get install indicator-cpufreq ghex flac lm-sensors rtmpdump deluge xcha
 sudo apt-get install libreadline-dev libxml2-dev libxslt1-dev libpq-dev libsqlite3-dev libssl-dev
 
 # make vim the default editor (select vim.basic)
-sudo update-alternatives --config editor
+sudo update-alternatives --set editor /usr/bin/vim.basic
 # some tools use select-editor (saves to ~/.selected_editor)
 select-editor
 sudo -H select-editor
