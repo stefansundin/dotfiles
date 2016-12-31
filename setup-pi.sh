@@ -1,6 +1,11 @@
 # http://pinout.xyz/
 sudo raspi-config
 
+# disable wifi power management (for more stable wifi)
+sudo vim /etc/network/interfaces
+iface wlan0 inet manual
+    wireless-power off
+
 # 7 inch display GPIO: https://www.modmypi.com/image/data/tutorials/raspberry-pi-7-touch-screen-assembly-guide/16.jpg
 # Red    – 5V  - Pin 2
 # Black  – GND - Pin 6
