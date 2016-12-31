@@ -120,6 +120,9 @@ touch -t 201306011010 dummy
 # YYYYMMDDHHII
 find -newer dummy -type f
 
+# convert *.z64 to n64
+for f in *.z64; do zcat "$f" > "${f%.*}.n64"; done
+
 # process monitoring
 ps -C <program> -o %cpu,%mem,pid,cmd
 top -p <pid>
