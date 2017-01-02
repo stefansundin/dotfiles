@@ -243,8 +243,14 @@ sudo chmod +x /etc/pm/sleep.d/80-synaptics-three-finger
 sudo vim /etc/machine-info
 PRETTY_HOSTNAME=pixel
 
+# Xubuntu File Manager (Thunar) right click entries:
+- Edit → Configure custom actions... → Add
+- Name: Open with VLC
+- Command: vlc %F
+- Appearance Conditions: [x] Directories, [x] Audio Files, [x] Video Files
+
 # make Nautilus ask when double-clicking executables
-# Menu → Files → Preferences → Behavior → Check "Ask each time".
+Menu → Files → Preferences → Behavior → [x] Ask each time
 
 # nautilus backspace key to go up one directory
 vim .config/nautilus/accels
