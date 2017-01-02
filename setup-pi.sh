@@ -1,5 +1,6 @@
 # http://pinout.xyz/
 sudo raspi-config
+# enable ssh on boot with Interfacing options -> ssh -> Enable
 
 # disable wifi power management (for more stable wifi)
 sudo vim /etc/network/interfaces
