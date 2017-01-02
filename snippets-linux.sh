@@ -2,6 +2,7 @@ nc -vz stefansundin.com 443
 sudo tcpdump -i eth0 port not 22
 ps aux --sort -rss
 sudo du -h --max-depth=1
+rsync -avrt --size-only --noatime --progress --exclude Thumbs.db --exclude .DS_Store --exclude '._*' --exclude '*.part' /home/user/dir/ /mnt/disk1/dir/
 
 # listen on port and print information about who connected
 netcat -v -l 9999
