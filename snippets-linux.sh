@@ -57,6 +57,9 @@ scp file.png server:www/
 scp file.png server:
 scp user@example.com:file.png .
 
+# print /proc/<pid>/environ with nice newlines
+sudo cat /proc/7072/environ | xargs -n 1 -0
+
 # source KEY=VALUE file and export variables
 set -a
 source file.env
