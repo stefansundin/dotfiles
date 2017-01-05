@@ -7,6 +7,9 @@ sudo apt-get install indicator-cpufreq ghex flac lm-sensors rtmpdump deluge xcha
 # rbenv dependencies
 sudo apt-get install libreadline-dev libxml2-dev libxslt1-dev libpq-dev libsqlite3-dev libssl-dev
 
+# flux equivalent
+sudo apt-get install redshift-gtk
+
 # make vim the default editor (select vim.basic)
 sudo update-alternatives --set editor /usr/bin/vim.basic
 # some tools use select-editor (saves to ~/.selected_editor)
