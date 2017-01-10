@@ -64,3 +64,6 @@ brew 'fullscreen/tap/aws-rotate-key'
 brew 'docker'
 brew 'docker-machine'
 brew 'docker-compose'
+
+# casks
+cask 'webpquicklook'
