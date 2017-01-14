@@ -30,6 +30,8 @@ thelocal.se###taboola-organic-mid-article-thumbnails
 facebook.com###u_0_6
 facebook.com##.generic_dialog_modal
 open.spotify.com##.overlay
+soundcloud.com##.commentPopover
+soundcloud.com##.waveformCommentsNode
 
 stackoverflow.com##.everyonelovesstackoverflow
 stackoverflow.com##.community-bulletin
