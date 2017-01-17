@@ -26,12 +26,20 @@ inoreader.com##.block_article_ad
 inoreader.com##.avs_iframe
 inoreader.com###sinner_container
 inoreader.com###consent_bbb
-thelocal.se###taboola-organic-mid-article-thumbnails
 facebook.com###u_0_6
 facebook.com##.generic_dialog_modal
 open.spotify.com##.overlay
 soundcloud.com##.commentPopover
 soundcloud.com##.waveformCommentsNode
+
+thelocal.se###taboola-organic-mid-article-thumbnails
+nytimes.com###newsletter-promo
+nytimes.com###news-tips-article-promo
+nytimes.com###ribbon
+nytimes.com###sharetools-masthead
+nytimes.com##.comments-button
+nytimes.com##.supplemental
+nytimes.com##.story-meta-footer-sharetools
 
 stackoverflow.com##.everyonelovesstackoverflow
 stackoverflow.com##.community-bulletin
