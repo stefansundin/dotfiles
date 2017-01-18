@@ -80,6 +80,9 @@ sudo iptables -F
 # bash script print each command
 #!/bin/bash -ex
 
+# bash ping loop
+while true; do date; time curl -s -I http://example.com/ | grep real; echo; sleep 1; done
+
 # mount VirtualBox shared folder (create vboxshare on host and configure in settings)
 mkdir share
 sudo mount -t vboxsf -o uid=$UID vboxshare share
