@@ -2,6 +2,7 @@
   "font_size": 12, //pixel: 15
   "auto_match_enabled": false,
   "scroll_past_end": true,
+  "scroll_speed": 0,
   "word_wrap": true,
   "ensure_newline_at_eof_on_save": false,
   "trim_automatic_white_space": false,
