@@ -10,3 +10,6 @@ SELECT t.relname,l.locktype,page,virtualtransaction,pid,mode,granted FROM pg_loc
 -- kill a lock
 SELECT pg_cancel_backend(pid);
 
+-- remove mysql password
+--mysqladmin -u root -p CURRENT_PASSWORD password ""
+SET PASSWORD FOR root@localhost=PASSWORD('');
