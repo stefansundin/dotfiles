@@ -32,6 +32,8 @@ open.spotify.com##.overlay
 soundcloud.com##.commentPopover
 soundcloud.com##.waveformCommentsNode
 
+democracynow.org###story_social
+democracynow.org##.home_daily_digest
 thelocal.se###taboola-organic-mid-article-thumbnails
 nytimes.com###newsletter-promo
 nytimes.com###news-tips-article-promo
