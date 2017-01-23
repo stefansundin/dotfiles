@@ -31,6 +31,7 @@ facebook.com##.generic_dialog_modal
 open.spotify.com##.overlay
 soundcloud.com##.commentPopover
 soundcloud.com##.waveformCommentsNode
+sourceforge.net###newsletter-floating
 
 democracynow.org###story_social
 democracynow.org##.home_daily_digest
