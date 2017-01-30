@@ -34,6 +34,8 @@ soundcloud.com##.waveformCommentsNode
 sourceforge.net###newsletter-floating
 nginx.com##.orlando-lightbox
 nginx.com###olark-wrapper
+reddit.com##.organic-listing
+reddit.com##.sponsor-300-250
 
 democracynow.org###story_social
 democracynow.org##.home_daily_digest
