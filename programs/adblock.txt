@@ -1,3 +1,5 @@
+www.amazon.com###sc-new-upsell
+www.amazon.com##.prime-ad-banner-content
 console.aws.amazon.com###experiment-quickstarts
 console.aws.amazon.com###recommended-for-you
 twitter.com###empty-timeline-recommendations
