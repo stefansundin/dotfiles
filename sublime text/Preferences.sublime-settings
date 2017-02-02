@@ -1,24 +1,31 @@
 {
   "font_size": 12, //pixel: 15
   "auto_match_enabled": false,
+  "auto_close_tags": false,
   "scroll_past_end": true,
   "scroll_speed": 0,
+  "caret_style": "solid",
   "word_wrap": true,
   "ensure_newline_at_eof_on_save": false,
   "trim_automatic_white_space": false,
   "trim_trailing_white_space_on_save": true,
+  "default_line_ending": "unix",
 
   "highlight_line": false,
-  "detect_indentation": false, //??
+  "detect_indentation": false,
   "tab_size": 2,
   "translate_tabs_to_spaces": true,
   "useTabStops": false,
+  "show_definitions": false,
 
+  "find_selected_text": true,
   "show_tab_close_buttons": false,
   "highlight_modified_tabs": true,
   "show_full_path": true,
+  "show_line_endings": true,
+  "show_encoding": true,
   "always_show_minimap_viewport": true,
-  "default_line_ending": "unix",
+  "tree_animation_enabled": false,
   "folder_exclude_patterns":
   [
     ".svn",
@@ -31,7 +38,8 @@
     "node_modules",
     "public/assets",
     "assets/fonts",
-    "log"
+    "log",
+    "env"
   ],
   "file_exclude_patterns":
   [
@@ -39,6 +47,7 @@
     "desktop.ini",
     ".DS_Store",
     "Thumbs.db",
+    "*.pyc",
     "*.svg",
     "*.rtf",
     "*.min.js",
