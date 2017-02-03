@@ -1,10 +1,21 @@
 0.0.0.0/0, ::/0
 
+
+https://en.wikipedia.org/wiki/Public_recursive_name_server
+
 Google DNS servers:
 8.8.8.8
 8.8.4.4
 2001:4860:4860::8888
 2001:4860:4860::8844
+
+OpenDNS DNS servers:
+208.67.222.222
+208.67.220.220
+
+Dyn DNS servers:
+216.146.35.35
+216.146.36.36
 
 Time Warner Cable DNS servers:
 209.18.47.61
