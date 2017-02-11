@@ -50,6 +50,33 @@ source /usr/local/etc/bash_completion
 #complete -C /usr/local/bin/aws_completer aws
 complete -C $HOME/Library/Python/2.7/bin/aws_completer aws
 
+function aws {
+  if [[ "$*" == *"--help"* ]]; then
+    command aws ${*/--help/help}
+  elif [[ "$1" == "version" ]]; then
+    command aws --version
+  else
+    command aws $*
+  fi
+}
+
+function postgresql {
+  echo ${1//[\/@]/:} | awk -F: '{ printf "\"user=%s password=%s host=%s port=%d dbname=%s\"", $4, $5, $6, $7, $8 }'
+}
+
+function r {
+  url=$1
+  shift
+  redis-cli $(echo "$url" | sed -E -e 's/redis:\/\/([^:]*)?:/-a /' -e 's/\@/ -h /' -e 's/:/ -p /' -e 's/\///g') "$@"
+}
+
+function dig {
+  ARG=${*#http:\/\/}
+  ARG=${*#https:\/\/}
+  ARG=${ARG%%\/*}
+  command dig $ARG
+}
+
 function c {
   echo $* | pbcopy
   echo "Copied '$*' to clipboard!"
