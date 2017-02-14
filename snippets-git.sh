@@ -57,6 +57,9 @@ git ci --amend --author "Stefan Sundin <stefansundin@users.noreply.github.com>"
 git ci --date '2013-12-26 14:30:12'
 git ls-files --stage
 
+# apply the reverse of last commit to the working tree
+git diff HEAD..HEAD^ | git apply
+
 # commit with ' inside ''
 git ci -m 'It'\''s annoying with quote problems.'
 
