@@ -1,2 +1,28 @@
 #!/bin/bash
-TERM=xterm-color /usr/bin/ssh "$@"
+# Make sure TERM is set to xterm-color (you can use TERM=xterm-256color normally)
+export TERM=xterm-color
+
+/usr/local/bin/ssh $*
+ret=$?
+if [[ $ret == 255 && "$*" != *"@"* ]]; then
+  echo "Retrying with ubuntu user..."
+  args=()
+  added_user=false
+  for ((i=1; i<=$#; i++)); do
+    if [[ $added_user == true ]]; then
+      args+=("${!i}")
+    elif [[ ${!i} == "-o" ]]; then
+      args+=("${!i}")
+      ((i++))
+      args+=("${!i}")
+    elif [[ ${!i:0:1} == "-" ]]; then
+      args+=("${!i}")
+    else
+      added_user=true
+      args+=("ubuntu@${!i}")
+    fi
+  done
+  /usr/local/bin/ssh ${args[@]}
+  ret=$?
+fi
+exit $ret
