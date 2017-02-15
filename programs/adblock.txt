@@ -38,6 +38,8 @@ nginx.com##.orlando-lightbox
 nginx.com###olark-wrapper
 reddit.com##.organic-listing
 reddit.com##.sponsor-300-250
+wikia.com###WikiaRailWrapper
+wikia.com###WikiaFooter
 
 democracynow.org###story_social
 democracynow.org##.home_daily_digest
