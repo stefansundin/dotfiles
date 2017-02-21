@@ -2,9 +2,9 @@
 # Make sure TERM is set to xterm-color (you can use TERM=xterm-256color normally)
 export TERM=xterm-color
 
-/usr/local/bin/ssh $*
+/usr/local/bin/ssh "$@"
 ret=$?
-if [[ $ret == 255 && "$*" != *"@"* ]]; then
+if [[ $ret == 255 && "$@" != *"@"* ]]; then
   echo "Retrying with ubuntu user..."
   args=()
   added_user=false
