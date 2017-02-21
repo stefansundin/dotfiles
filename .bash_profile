@@ -51,12 +51,12 @@ source /usr/local/etc/bash_completion
 complete -C $HOME/Library/Python/2.7/bin/aws_completer aws
 
 function aws {
-  if [[ "$*" == *"--help"* ]]; then
-    command aws ${*/--help/help}
+  if [[ "$@" == *"--help"* ]]; then
+    command aws "${@/--help/help}"
   elif [[ "$1" == "version" ]]; then
     command aws --version
   else
-    command aws $*
+    command aws "$@"
   fi
 }
 
@@ -78,8 +78,8 @@ function dig {
 }
 
 function c {
-  echo $* | pbcopy
-  echo "Copied '$*' to clipboard!"
+  echo "$@" | pbcopy
+  echo "Copied '$@' to clipboard!"
 }
 
 # pbcopy and pbpaste for Linux
