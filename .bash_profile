@@ -53,8 +53,6 @@ complete -C $HOME/Library/Python/2.7/bin/aws_completer aws
 function aws {
   if [[ "$@" == *"--help"* ]]; then
     command aws "${@/--help/help}"
-  elif [[ "$1" == "version" ]]; then
-    command aws --version
   else
     command aws "$@"
   fi
