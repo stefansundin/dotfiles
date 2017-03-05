@@ -1,1 +1,7 @@
 /mnt/disk1 192.168.1.5(rw,async,no_subtree_check,all_squash,anonuid=1000,anongid=1000)
+
+# Mac clients requires insecure option:
+/mnt/disk1 192.168.1.5(rw,async,no_subtree_check,all_squash,anonuid=1000,anongid=1000,insecure)
+
+# Reload exports:
+# sudo exportfs -ra
