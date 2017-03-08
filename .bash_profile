@@ -8,6 +8,7 @@ export LESSHISTFILE=-
 export TERM=xterm-256color
 export PGHOST=localhost
 export PGDATA="$HOME/Library/Application Support/Postgres/var-9.4"
+#export PS0='Command started: \t\n'
 
 # Mac
 export HOMEBREW_NO_AUTO_UPDATE=1
@@ -26,6 +27,9 @@ function go-get {
 
 # SSH auth using gpg key
 # echo "enable-ssh-support" >> ~/.gnupg/gpg-agent.conf
+# to restart:
+# killall gpg-agent scdaemon shutdown-gpg-agent
+# eval $(gpg-agent --daemon)
 export SSH_AUTH_SOCK=~/.gnupg/S.gpg-agent.ssh
 
 #export EDITOR='subl -w'
