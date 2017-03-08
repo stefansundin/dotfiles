@@ -9,6 +9,10 @@ export TERM=xterm-256color
 export PGHOST=localhost
 export PGDATA="$HOME/Library/Application Support/Postgres/var-9.4"
 
+# Mac
+export HOMEBREW_NO_AUTO_UPDATE=1
+alias flushdns='dscacheutil -flushcache && sudo killall -HUP mDNSResponder'
+
 # Go
 export GOPATH=$HOME/go
 export PATH="$GOPATH/bin:$PATH"
@@ -73,6 +77,15 @@ function dig {
   ARG=${*#https:\/\/}
   ARG=${ARG%%\/*}
   command dig $ARG
+}
+
+function nc {
+  # nc -vz stage-test-app.abcdefghijkl.us-east-1.rds.amazonaws.com:5432
+  if [[ "$@" == *":"* ]]; then
+    command nc ${@/:/ }
+  else
+    command nc "$@"
+  fi
 }
 
 function c {
@@ -143,8 +156,3 @@ function use_bundler {
 for cmd in rake rspec cucumber cap unicorn puma thin rackup guard compass thor sidekiq jekyll airbrake honeybadger; do
   alias $cmd="use_bundler $cmd"
 done
-
-# Mac
-function flushdns {
-  dscacheutil -flushcache && sudo killall -HUP mDNSResponder
-}
