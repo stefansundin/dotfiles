@@ -66,6 +66,17 @@ function aws {
   fi
 }
 
+function travis-run {
+  curl -s -X POST \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -H "Travis-API-Version: 3" \
+    -H "Authorization: token $(travis token --pro)" \
+    -d "{\"request\":{\"branch\":\"${2:-master}\"}}" \
+    "https://api.travis-ci.com/repo/$(echo $1 | sed 's/\//%2F/')/requests"
+  open "https://travis-ci.com/$1/builds"
+}
+
 function postgresql {
   echo ${1//[\/@]/:} | awk -F: '{ printf "\"user=%s password=%s host=%s port=%d dbname=%s\"", $4, $5, $6, $7, $8 }'
 }
