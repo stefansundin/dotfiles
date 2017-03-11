@@ -38,6 +38,8 @@ nginx.com##.orlando-lightbox
 nginx.com###olark-wrapper
 reddit.com##.organic-listing
 reddit.com##.sponsor-300-250
+periscope.tv##.Messages
+periscope.tv##.VideoOverlay-HeartsAndNextBroadcast
 wikia.com###WikiaRailWrapper
 wikia.com###WikiaFooter
 
