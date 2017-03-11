@@ -1,4 +1,5 @@
 {
+  "dpi_scale": 1,
   "font_size": 12, //pixel: 15
   "auto_match_enabled": false,
   "auto_close_tags": false,
