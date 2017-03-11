@@ -37,7 +37,7 @@ Settings:
 - Editor → [x] Scroll Past End
 - tree-view: [x] Hide Ignored Names
 - bracket-matcher: Disable the package.
-- autocomplete-plus: Set _Keymap For Confirming A Suggestion_ to _tab_.
+- autocomplete-plus: Set _Keymap For Confirming A Suggestion_ to _tab always, enter when suggestion explicitly selected_.
 - line-ending-selector: Set _Default line ending_ to _LF_.
 
 Fix for "TypeError: Unable to watch path" in Ubuntu ([#2082](https://github.com/atom/atom/issues/2082)):
