@@ -16,6 +16,9 @@ sudo update-alternatives --set editor /usr/bin/vim.basic
 select-editor
 sudo -H select-editor
 
+# disable sleep/suspend/hibernate
+sudo systemctl mask sleep.target suspend.target hibernate.target hybrid-sleep.target
+
 # disable clearing of tty on logout
 rm ~/.bash_logout
 
