@@ -71,6 +71,12 @@ vim ~/Library/KeyBindings/DefaultKeyBinding.dict
 
 # enable "Anywhere" option for Gatekeeper ("Allow apps downloaded from" in "Security & Privacy" settings)
 sudo spctl --master-disable
+# prevent Gatekeeper from re-enabling itself after 30 days ("Allow apps downloaded from" in "Security & Privacy")
+sudo defaults write /Library/Preferences/com.apple.security GKAutoRearm -bool false
+# disable “VLC.app is an application downloaded from the Internet. Are you sure you want to open it?”
+sudo defaults delete com.apple.LaunchServices LSQuarantine
+defaults write com.apple.LaunchServices LSQuarantine -bool false
+sudo xattr -d -r com.apple.quarantine /Applications
 # install Xcode command line tools
 xcode-select --install
 # accept Xcode EULA
@@ -93,12 +99,6 @@ defaults write com.apple.finder AppleShowAllFiles -bool true
 defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
 # don't create .DS_Store on network drives
 defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
-# disable “VLC.app is an application downloaded from the Internet. Are you sure you want to open it?”
-sudo defaults delete com.apple.LaunchServices LSQuarantine
-defaults write com.apple.LaunchServices LSQuarantine -bool false
-sudo xattr -d -r com.apple.quarantine /Applications
-# prevent Gatekeeper from re-enabling itself after 30 days ("Allow apps downloaded from" in "Security & Privacy")
-sudo defaults write /Library/Preferences/com.apple.security GKAutoRearm -bool false
 # sort by Kind by default
 #  show view options (⌘J) → Sort By: Kind. [Use as Defaults]
 #  remove .DS_Store files to remove custom directory settings
