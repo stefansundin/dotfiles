@@ -29,7 +29,6 @@ brew 'gpg-agent'
 brew 'htop'
 brew 'imagemagick', args: ['with-libtiff', 'with-ghostscript']
 brew 'jq'
-brew 'keybase'
 brew 'p7zip'
 brew 'pngcrush'
 brew 'ssh-copy-id'
@@ -51,7 +50,7 @@ brew 'sqlite'
 brew 'homebrew/dupes/openssh'
 
 # node 4.6 (AWS Lambda is running 4.3)
-brew 'homebrew/versions/node4-lts'
+brew 'node@4'
 
 # IRC
 brew 'homebrew/gui/hexchat'
@@ -62,7 +61,6 @@ brew 'fullscreen/tap/aws-rotate-key'
 
 # docker
 brew 'docker'
-brew 'docker-machine'
 brew 'docker-compose'
 
 # casks

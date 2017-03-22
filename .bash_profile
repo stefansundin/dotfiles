@@ -31,6 +31,7 @@ function go-get {
 # killall gpg-agent scdaemon shutdown-gpg-agent
 # eval $(gpg-agent --daemon)
 export SSH_AUTH_SOCK=~/.gnupg/S.gpg-agent.ssh
+export GPG_TTY=$(tty)
 
 #export EDITOR='subl -w'
 export EDITOR=vim
@@ -118,7 +119,21 @@ alias pbpaste='xsel --clipboard --output'
 function git {
   if [[ "$1" == "clone" ]]; then
     shift 1
-    command git cl "$@"
+    command git cl "$@" || return
+
+    if [[ "$@" == *"stefansundin/"* ]]; then
+      echo "Setting up additional git config..."
+      for ((i=1; i<=$#; i++)); do
+        if [[ ${!i:0:1} != "-" ]]; then
+          if [ -d "${!i}" ]; then
+            DIR="${!i}"
+          else
+            DIR=$(echo "${!i}" | sed -e 's/.*[\/|:]//' -e 's/\.git$//')
+          fi
+        fi
+      done
+      git -C "$DIR" config commit.gpgSign true
+    fi
   else
     command git "$@"
   fi

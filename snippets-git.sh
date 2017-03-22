@@ -1,5 +1,7 @@
 git config --global user.name "Stefan Sundin"
 git config --global user.email stefansundin@users.noreply.github.com
+git config --global user.signingkey 27642822
+git config --global commit.gpgSign true
 git config --global core.autocrlf false
 git config --global push.default simple
 git config --global diff.compactionHeuristic true
@@ -33,7 +35,7 @@ git config --global alias.kal 'difftool -y -t Kaleidoscope'
 git config --global alias.l "log --pretty=format:'%C(yellow)%h%Creset %ci %<|(50)%Cred%cr%Creset %<|(70)%cn%d%n%s%n' master..HEAD"
 # git config --global alias.l 'log --oneline'
 git config --global alias.li '!git log $1^..$1 ${*:2} #'
-git config --global alias.lo "log --pretty=format:'%C(yellow)%h%Creset %ci %<|(50)%Cred%cr%Creset %<|(70)%cn%d%n%s%n'"
+git config --global alias.lo "log --pretty=format:'%C(yellow)%h%Creset %ci %<|(50)%Cred%cr %Cgreen%G? %Creset%<|(70)%cn%d%n%s%n'"
 git config --global alias.lom '!git remote update origin; echo; git log ..@{u} --merges --pretty=format:"%C(yellow)%h%Creset %ci %<|(50)%Cred%cr%Creset %<|(70)%cn%d%n%s%n"'
 git config --global alias.recent '!git for-each-ref --sort=-committerdate refs/heads/ | head -${*-10} #'
 git config --global alias.rollback '!git reset --hard HEAD^ && git clean -fd'

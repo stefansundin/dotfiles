@@ -207,6 +207,7 @@ rm -rf var-9.3
 # --------------- | ------
 # ⌥←              | Send ESC + b
 # ⌥→              | Send ESC + f
+# ⌥Del→           | Send ESC + d
 # ⌥←Delete        | Send Hex Code: 0x17
 # ⌘←Delete        | Send Hex Code: 0x15
 # Del→            | Send Hex Code: 0x04
