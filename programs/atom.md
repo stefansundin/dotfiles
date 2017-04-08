@@ -13,7 +13,12 @@ apm install auto-update-packages
 
 Syntax highlighting:
 ```
-apm install atom-jinja2 language-docker language-haskell language-lisp language-nginx language-nsis language-rust
+apm install atom-jinja2 language-docker language-haskell language-lisp language-nginx language-rust language-terraform
+```
+
+NSIS:
+```
+apm install language-nsis console-panel
 ```
 
 Go packages:

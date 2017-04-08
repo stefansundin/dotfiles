@@ -1,13 +1,14 @@
 git config --global user.name "Stefan Sundin"
 git config --global user.email stefansundin@users.noreply.github.com
-git config --global user.signingkey 27642822
+git config --global user.signingKey 27642822
 git config --global commit.gpgSign true
 git config --global core.autocrlf false
 git config --global push.default simple
+git config --global fetch.recurseSubmodules true
 git config --global diff.compactionHeuristic true
 git config --global log.showSignature true
 git config --global tag.sort version:refname
-git config --global core.excludesfile ~/.gitignore
+git config --global core.excludesFile ~/.gitignore
 git config --global core.editor 'vim -c "set mouse="'
 # git config --global core.editor vim
 # git config --global core.editor "subl -w"
@@ -44,6 +45,7 @@ git config --global alias.incoming '!git remote update origin; git log ..@{u}'
 git config --global alias.outgoing 'log @{u}..'
 
 git commit --allow-empty -m 'root commit'
+git submodule update --recursive --remote
 git rev-list HEAD --count
 git remote add upstream git@github.com:DrWhax/truecrypt-archive.git
 git pull upstream master
@@ -116,6 +118,7 @@ https://gist.github.com/stefansundin/d465f1e331fc5c632088#install-pre-push.sh
 https://gist.github.com/stefansundin/4dbd0c4cfb75ff44ff14#git-status-rec
 https://gist.github.com/stefansundin/82051ad2c8565999b914#git-bundle-hook
 https://gist.github.com/stefansundin/f386d3d2a0e1aa6e5c5a#git-nuke
+git config --global core.hooksPath $HOME/.githooks
 
 # vim ~/.ssh/config
 # Host github

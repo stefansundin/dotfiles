@@ -14,6 +14,11 @@ SELECT pg_cancel_backend(pid);
 -- mysql initialize
 mysqld --initialize
 
--- remove mysql password
+-- remove mysql password:
 --mysqladmin -u root -p CURRENT_PASSWORD password ""
 SET PASSWORD FOR root@localhost=PASSWORD('');
+-- if current password is unknown:
+-- stop mysql server
+-- mysqld_safe --skip-grant-tables
+-- mysql -u root mysql
+UPDATE user SET authentication_string=PASSWORD('') WHERE user='root';

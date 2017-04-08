@@ -1,0 +1,11 @@
+#!/bin/bash
+# Open the root of the git repo in Atom by running `git atom`.
+
+GITROOT=`git rev-parse --show-toplevel 2> /dev/null`
+
+if [ "$GITROOT" == "" ]; then
+  echo "You are not in a git repo."
+  exit 1
+fi
+
+atom "$GITROOT"

@@ -7,7 +7,7 @@ ln -s /Applications/TrueCrypt.app/Contents/MacOS/TrueCrypt /usr/local/bin/truecr
 ln -s /Applications/Gimp.app/Contents/MacOS/gimp-2.8 /usr/local/bin/gimp
 ln -s /Applications/VLC.app/Contents/MacOS/VLC /usr/local/bin/vlc
 
-sudo xattr -d -r com.apple.quarantine /Applications/
+sudo xattr -d -r com.apple.quarantine /Applications
 grep -nr paginator .
 find . -name "*.css" | xargs -l10 grep ".ir"
 
@@ -199,7 +199,6 @@ pg_upgrade -d var-9.3 -D var-9.4 -b /Applications/Postgres.app/Contents/Versions
 # delete old files after verifying new database works
 rm -rf var-9.3
 
-
 # iTerm 2 key bindings
 # add Profile shortcuts since they have highest priority
 
@@ -214,6 +213,11 @@ rm -rf var-9.3
 
 # make Alt+Backspace properly stop at delimiters
 # iTerm preferences → Profiles → Keys → Left option (⌥) key acts as: (x) +Esc
+
+# iTerm 2 Smart Selection
+# Regular expression: story #(\d+)
+# Action: Open URL...
+# Parameter: https://www.pivotaltracker.com/story/show/\1
 
 # use `read` to get keyboard input sequences. Press C-v to bypass terminal parsing (verbatim mode).
 # https://code.google.com/p/iterm2/wiki/Keybindings#Escape_sequence_exploration

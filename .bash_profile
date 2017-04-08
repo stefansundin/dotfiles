@@ -33,6 +33,9 @@ function go-get {
 export SSH_AUTH_SOCK=~/.gnupg/S.gpg-agent.ssh
 export GPG_TTY=$(tty)
 
+source ~/.gpg-agent-info
+export GPG_AGENT_INFO
+
 #export EDITOR='subl -w'
 export EDITOR=vim
 export VISUAL=vim
@@ -133,6 +136,7 @@ function git {
         fi
       done
       git -C "$DIR" config commit.gpgSign true
+      git -C "$DIR" submodule foreach --recursive config commit.gpgSign true
     fi
   else
     command git "$@"
@@ -157,7 +161,8 @@ function proml {
   local       WHITE="\[\033[1;37m\]"
   local  LIGHT_GRAY="\[\033[0;37m\]"
   local     DEFAULT="\[\033[0m\]"
-  PS1="$LIGHT_GREEN\h:\u:$RED\W$BLUE\$(git_branch) $DEFAULT\$ "
+  # PS1="$LIGHT_GREEN\h:\u:$RED\W$BLUE\$(git_branch) $DEFAULT\$ "
+  PS1="$LIGHT_GREEN\u$DEFAULT:$RED\W$BLUE\$(git_branch) $DEFAULT\$ "
 }
 proml
 

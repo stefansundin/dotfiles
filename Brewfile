@@ -1,6 +1,7 @@
 # brew bundle
 # brew link --force readline curl
 # pip install -U awscli awsebcli pgcli
+# brew cask install vagrant
 
 tap 'homebrew/bundle'
 tap 'homebrew/core'
@@ -9,7 +10,7 @@ tap 'homebrew/gui'
 tap 'homebrew/services'
 tap 'homebrew/versions'
 tap 'caskroom/cask'
-tap 'fullscreen/tap'
+tap 'stefansundin/tap'
 
 # basic tools
 brew 'bash'
@@ -26,6 +27,7 @@ brew 'xz'
 # linux tools
 brew 'gnupg2'
 brew 'gpg-agent'
+brew 'pinentry-mac'
 brew 'htop'
 brew 'imagemagick', args: ['with-libtiff', 'with-ghostscript']
 brew 'jq'
@@ -47,21 +49,21 @@ brew 'redis'
 brew 'sqlite'
 
 # newer version of ssh
-brew 'homebrew/dupes/openssh'
+brew 'openssh'
 
-# node 4.6 (AWS Lambda is running 4.3)
-brew 'node@4'
-
-# IRC
-brew 'homebrew/gui/hexchat'
+# node 6 (AWS Lambda is running 6.10)
+brew 'node@6'
 
 # AWS
 brew 'packer'
-brew 'fullscreen/tap/aws-rotate-key'
+brew 'aws-rotate-key'
 
 # docker
-brew 'docker'
-brew 'docker-compose'
+# brew 'docker'
+# brew 'docker-compose'
 
 # casks
 cask 'webpquicklook'
+
+# misc
+cask 'vlc-protocol'
