@@ -1,10 +1,6 @@
 #!/bin/bash
-# https://gist.github.com/stefansundin/2d91d45580763cda29af
 # Easily open a repo in a browser, just run `git open`
 # Linux users need to change "open" to "xdg-open".
-# Example installation instructions:
-# curl -fL -o /usr/local/bin/git-open https://gist.githubusercontent.com/stefansundin/2d91d45580763cda29af/raw/git-open
-# chmod +x /usr/local/bin/git-open
 
 ORIGIN=`git config --get remote.origin.url | sed -e 's/\.git$//'`
 
