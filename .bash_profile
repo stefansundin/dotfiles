@@ -19,9 +19,10 @@ export GOPATH=$HOME/go
 export PATH="$GOPATH/bin:$PATH"
 
 function go-get {
-  NAME=$(basename $1)
-  go get -u github.com/$1
-  ln -s $GOPATH/src/github.com/$1 $NAME
+  DIR=$(echo $1 | sed -e 's/.*@//' -e 's/:/\//' -e 's/\.git$//')
+  NAME=$(basename $DIR)
+  command git clone --recursive $1 $GOPATH/src/$DIR || return
+  ln -s $GOPATH/src/$DIR $NAME
   cd $NAME
 }
 
@@ -120,27 +121,44 @@ alias pbpaste='xsel --clipboard --output'
 # Git
 
 function git {
-  if [[ "$1" == "clone" ]]; then
+  if [[ "$1" == "clone" && "$@" != *"--help"* ]]; then
     shift 1
     command git cl "$@" || return
 
     if [[ "$@" == *"stefansundin/"* ]]; then
-      echo "Setting up additional git config..."
       for ((i=1; i<=$#; i++)); do
-        if [[ ${!i:0:1} != "-" ]]; then
+        if [[ ${!i} == "--bare" || ${!i} == "--mirror" ]]; then
+          return
+        elif [[ ${!i:0:1} != "-" ]]; then
           if [ -d "${!i}" ]; then
             DIR="${!i}"
           else
+            REPO="${!i}"
             DIR=$(echo "${!i}" | sed -e 's/.*[\/|:]//' -e 's/\.git$//')
           fi
         fi
       done
-      git -C "$DIR" config commit.gpgSign true
-      git -C "$DIR" submodule foreach --recursive config commit.gpgSign true
+      echo "Setting up additional git config..."
+      builtin cd "$DIR"
+      git config commit.gpgSign true
+      git submodule foreach --recursive config commit.gpgSign true
+      if [[ "$@" == *":stefansundin/"* ]]; then
+        git remote add upstream "${REPO/stefansundin/upstream}"
+      fi
+      builtin cd - > /dev/null
     fi
   else
     command git "$@"
   fi
+}
+
+function git-root {
+  GITROOT=`git rev-parse --show-toplevel 2> /dev/null`
+  if [ "$GITROOT" == "" ]; then
+    echo "You are not in a git repo."
+    return 1
+  fi
+  cd "$GITROOT"
 }
 
 function cd {
