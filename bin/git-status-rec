@@ -1,0 +1,14 @@
+#!/bin/bash
+# Executes `git status` in any git subdirectories you may have in your working directory.
+
+for F in *; do
+  [[ ! -d "$F" ]] && continue
+
+  STATUS=`git -C "$F" status -s $* 2> /dev/null`
+
+  if [[ -n "$STATUS" ]]; then
+    echo "$F "$'\e[34m'"[`git -C "$F" rev-parse --abbrev-ref HEAD`]"
+    git -C "$F" status -s $*
+    echo
+  fi
+done
