@@ -7,7 +7,8 @@ for F in *; do
   STATUS=`git -C "$F" status -s $* 2> /dev/null`
 
   if [[ -n "$STATUS" ]]; then
-    echo "$F "$'\e[34m'"[`git -C "$F" rev-parse --abbrev-ref HEAD`]"
+    BRANCH=`git -C "$F" rev-parse --abbrev-ref HEAD 2> /dev/null`
+    echo "$F "$'\e[34m'"[$BRANCH]"
     git -C "$F" status -s $*
     echo
   fi

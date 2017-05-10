@@ -68,7 +68,6 @@ vim ~/Library/KeyBindings/DefaultKeyBinding.dict
 # $    Shift            SHIFT
 # ^    Control          CTRL
 
-
 # enable "Anywhere" option for Gatekeeper ("Allow apps downloaded from" in "Security & Privacy" settings)
 sudo spctl --master-disable
 # prevent Gatekeeper from re-enabling itself after 30 days ("Allow apps downloaded from" in "Security & Privacy")
@@ -117,12 +116,16 @@ sudo plutil -convert binary1 InfoPlist.strings
 ## backspace to go up, delete key to move files to trash
 defaults write com.apple.finder NSUserKeyEquivalents -dict-add 'Back' '\U232B'
 defaults write com.apple.finder NSUserKeyEquivalents -dict-add 'Move to Trash' '\U007F'
+## WARNING: DELETE KEY WILL NOW DELETE FILES AND FOLDERS IF YOU ARE ATTEMPTING TO RENAME THEM!! USE BACKSPACE!
 defaults read com.apple.finder NSUserKeyEquivalents
 killall Finder
-## WARNING: DELETE KEY WILL NOW DELETE FILE WHEN ATTEMPTING TO RENAME THEM!! USE BACKSPACE!
-# 'Open with Sublime Text' in right click menu
-http://charles.lescampeurs.org/2012/06/18/right-click-open-with-sublime-text-2
-# FinderPath: http://bahoom.com/finderpath/
+# add 'Open with VLC' to Finder right-click list
+# - Open Automator
+# - Create new Service
+# - Service receives selected: [files or folders] in [Finder.app]
+# - Action: Open Finder Items
+#   - Open with: [VLC.app]
+# - Save service as: Open with VLC
 
 # disable fullscreen swoosh
 defaults write -g NSWindowResizeTime -float 0.01
@@ -224,6 +227,7 @@ rm -rf var-9.3
 
 
 # additional apps
+# FinderPath: http://bahoom.com/finderpath/
 # MagicPrefs to customize Apple mice
 # USB Overdrive
 #  Button 4/5:

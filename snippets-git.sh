@@ -5,6 +5,7 @@ git config --global commit.gpgSign true
 git config --global core.autocrlf false
 git config --global push.default simple
 git config --global fetch.recurseSubmodules true
+git config --global submodule.secrets.update checkout
 git config --global diff.compactionHeuristic true
 git config --global log.showSignature true
 git config --global tag.sort version:refname
@@ -85,6 +86,10 @@ git rm -rf *
 git revert <hashish>
 # revert merge commit
 git revert -m 1 <hashish>
+
+# checkout GitHub Pull Request
+git fetch origin refs/pull/*/head:refs/remotes/pr/*
+git checkout pr/15
 
 # change tag date
 git co v0.1

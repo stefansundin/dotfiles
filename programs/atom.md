@@ -1,5 +1,5 @@
 ```
-apm install atom-beautify auto-reveal-in-sidebar autocomplete-paths \
+apm install atom-beautify autocomplete-paths \
  blame color-picker cursor-blink-interval file-icons fonts git-time-machine highlight-nbsp highlight-selected \
  markdown-pdf merge-conflicts minimap minimap-find-and-replace minimap-git-diff minimap-highlight-selected \
  minimap-selection pretty-json regex-railroad-diagram show-origin todo-show trailing-spaces \
