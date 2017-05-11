@@ -2,20 +2,21 @@
 # Easily open a repo in a browser, just run `git open`
 # Linux users need to change "open" to "xdg-open".
 
-ORIGIN=`git config --get remote.origin.url | sed -e 's/\.git$//'`
+REMOTE="${1:-origin}"
+URI=`git config --get remote.$REMOTE.url | sed -e 's/\.git$//'`
 
-if [ -z "$ORIGIN" ]; then
-  echo "This repository doesn't seem to have an origin remote configured."
+if [ -z "$URI" ]; then
+  echo "This repository doesn't seem to have an $REMOTE remote configured."
   exit 1
 fi
 
-if [[ "$ORIGIN" == "http"* ]]; then
-  # http origin
-  echo "$ORIGIN"
-  open "$ORIGIN"
+if [[ "$URI" == "http"* ]]; then
+  # already http
+  URL="$URI"
 else
-  # ssh origin
-  URL=`echo "$ORIGIN" | sed -e 's/:/\//' -e 's/[^@]*@/https:\/\//'`
-  echo "$URL"
-  open "$URL"
+  # ssh
+  URL=`echo "$URI" | sed -e 's/:/\//' -e 's/[^@]*@/https:\/\//'`
 fi
+
+echo "$URL"
+open "$URL"
