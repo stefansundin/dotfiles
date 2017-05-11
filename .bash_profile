@@ -31,11 +31,9 @@ function go-get {
 # to restart:
 # killall gpg-agent scdaemon shutdown-gpg-agent
 # eval $(gpg-agent --daemon)
-export SSH_AUTH_SOCK=~/.gnupg/S.gpg-agent.ssh
 export GPG_TTY=$(tty)
-
-source ~/.gpg-agent-info
-export GPG_AGENT_INFO
+export SSH_AUTH_SOCK=~/.gnupg/S.gpg-agent.ssh
+gpgconf --launch gpg-agent
 
 #export EDITOR='subl -w'
 export EDITOR=vim
