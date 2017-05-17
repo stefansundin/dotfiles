@@ -43,6 +43,9 @@ sudo -u man find / -writable 2>/dev/null
 # handy directories
 /var/spool/cron/crontabs
 
+# drop caches
+echo 3 | sudo tee /proc/sys/vm/drop_caches
+
 # streams
 # use less on stderr
 ~/verify-sigs.sh 2>&1 | less
