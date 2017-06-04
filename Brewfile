@@ -36,6 +36,7 @@ brew 'pngcrush'
 brew 'ssh-copy-id'
 brew 'tmux'
 brew 'watch'
+brew 'rsync'
 brew 'youtube-dl'
 
 # development
