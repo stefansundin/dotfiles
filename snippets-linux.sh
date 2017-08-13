@@ -88,6 +88,12 @@ sudo iptables -F
 # bash ping loop
 while true; do date; time curl -s -I http://example.com/ | grep real; echo; sleep 1; done
 
+# mount Bitlocker encrypted drive
+sudo apt-get install dislocker
+sudo mkdir /media/{dislocker,bitlocker}
+sudo dislocker -V /dev/sdc1 -u"password" -- /media/dislocker
+sudo mount -o loop /media/dislocker/dislocker-file /media/bitlocker
+
 # mount VirtualBox shared folder (create vboxshare on host and configure in settings)
 mkdir share
 sudo mount -t vboxsf -o uid=$UID vboxshare share
