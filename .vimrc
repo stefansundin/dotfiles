@@ -7,6 +7,9 @@
 " export EDITOR=vim
 " export VISUAL=vim
 
+" Remove Ubuntu 17.04+ behavior of remembering file positions
+" See /usr/share/vim/vim80/defaults.vim
+:augroup vimStartup | au! | augroup END
 
 " Use ':set paste' to disable indenting when pasting blocks of code
 " Use ':set nopaste' when done
