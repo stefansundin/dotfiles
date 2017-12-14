@@ -1,3 +1,7 @@
+Other good resources:
+- https://gist.github.com/alirobe/7f3b34ad89a159e6daa1
+- https://github.com/rossffs/Windows10CrapRemover
+
 Save list of all files on drive:
 > `dir /S /B /OGN > C:\files-S.txt`
 
@@ -75,6 +79,16 @@ After install:
    reg delete HKLM\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\NameSpace\{0DB7E03F-FC29-4DC6-9020-FF41B59E513A} /f
    ```
 
+   Remove "Edit with Paint 3D" on right click:
+   
+   ```
+   reg delete "HKLM\SOFTWARE\Classes\SystemFileAssociations\.jpg\Shell\3D Edit" /f
+   reg delete "HKLM\SOFTWARE\Classes\SystemFileAssociations\.jpeg\Shell\3D Edit" /f
+   reg delete "HKLM\SOFTWARE\Classes\SystemFileAssociations\.png\Shell\3D Edit" /f
+   reg delete "HKLM\SOFTWARE\Classes\SystemFileAssociations\.gif\Shell\3D Edit" /f
+   reg delete "HKLM\SOFTWARE\Classes\SystemFileAssociations\.bmp\Shell\3D Edit" /f
+   ```
+
 1. Uninstall shit apps. Open PowerShell and run:
 
    ```
@@ -101,21 +115,20 @@ After install:
    get-appxpackage *solitairecollection* | remove-appxpackage
    get-appxpackage *windowscalculator* | remove-appxpackage
    get-appxpackage *windowsstore* | remove-appxpackage
+   get-appxpackage *Microsoft.XboxIdentityProvider* | remove-appxpackage
+   get-appxpackage *Microsoft.XboxSpeechToTextOverlay* | remove-appxpackage
+   get-appxpackage *Microsoft.Xbox* | remove-appxpackage
+   get-appxpackage *Microsoft.MicrosoftStickyNotes* | remove-appxpackage
+   get-appxpackage *Microsoft.Microsoft3DViewer* | remove-appxpackage
+   get-appxpackage *Microsoft.GetHelp* | remove-appxpackage
+   get-appxpackage *Microsoft.Messaging* | remove-appxpackage
+   get-appxpackage *Microsoft.MSPaint* | remove-appxpackage
    ```
    
    List apps:
    
    ```
-   $installedapps = Get-AppxPackage
-   $aumidList = @()
-   foreach ($app in $installedapps)
-   {
-       foreach ($id in (Get-AppxPackageManifest $app).package.applications.application.id)
-       {
-           $aumidList += $app.packagefamilyname + "!" + $id
-       }
-   }
-   $aumidList
+   Get-AppxPackage | Select Name,PackageFullName | Sort Name
    ```
 
 1. Uninstall OneDrive and remove it from explorer sidebar in Windows 10:
