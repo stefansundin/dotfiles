@@ -1,6 +1,7 @@
 Other good resources:
 - https://gist.github.com/alirobe/7f3b34ad89a159e6daa1
 - https://github.com/rossffs/Windows10CrapRemover
+- https://answers.microsoft.com/en-us/windows/forum/windows_10-networking/how-to-set-an-ethernet-connection-as-metered-to/ecdaca08-d413-4a6a-9e33-b4afb337fc18
 
 Save list of all files on drive:
 > `dir /S /B /OGN > C:\files-S.txt`
