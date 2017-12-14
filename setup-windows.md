@@ -68,10 +68,54 @@ After install:
 
    > Win+R → `gpedit.msc` → Computer Configuration → Administrative Templates → Windows Components → Windows Defender → Turn off Windows Defender → `(x) Enabled`
 
-1. Uninstall OneNote in Windows 10. Open PowerShell prompt and run:
+1. Remove "3D Objects" from explorer sidebar:
 
    ```
-   Get-AppxPackage *OneNote* | Remove-AppxPackage
+   reg delete HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\NameSpace\{0DB7E03F-FC29-4DC6-9020-FF41B59E513A} /f
+   reg delete HKLM\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\NameSpace\{0DB7E03F-FC29-4DC6-9020-FF41B59E513A} /f
+   ```
+
+1. Uninstall shit apps. Open PowerShell and run:
+
+   ```
+   get-appxpackage *onenote* | remove-appxpackage
+   get-appxpackage *3dbuilder* | remove-appxpackage
+   get-appxpackage *officehub* | remove-appxpackage
+   get-appxpackage *skypeapp* | remove-appxpackage
+   get-appxpackage *getstarted* | remove-appxpackage
+   get-appxpackage *bingnews* | remove-appxpackage
+   get-appxpackage *bingfinance* | remove-appxpackage
+   get-appxpackage *bingsports* | remove-appxpackage
+   get-appxpackage *bingweather* | remove-appxpackage
+   get-appxpackage *windowscamera* | remove-appxpackage
+   get-appxpackage *windowsmaps* | remove-appxpackage
+   get-appxpackage *windowsphone* | remove-appxpackage
+   get-appxpackage *windowsalarms* | remove-appxpackage
+   get-appxpackage *windowscommunicationsapps* | remove-appxpackage
+   get-appxpackage *zunemusic* | remove-appxpackage
+   get-appxpackage *zunevideo* | remove-appxpackage
+   get-appxpackage *xboxapp* | remove-appxpackage
+   get-appxpackage *people* | remove-appxpackage
+   get-appxpackage *photos* | remove-appxpackage
+   get-appxpackage *soundrecorder* | remove-appxpackage
+   get-appxpackage *solitairecollection* | remove-appxpackage
+   get-appxpackage *windowscalculator* | remove-appxpackage
+   get-appxpackage *windowsstore* | remove-appxpackage
+   ```
+   
+   List apps:
+   
+   ```
+   $installedapps = Get-AppxPackage
+   $aumidList = @()
+   foreach ($app in $installedapps)
+   {
+       foreach ($id in (Get-AppxPackageManifest $app).package.applications.application.id)
+       {
+           $aumidList += $app.packagefamilyname + "!" + $id
+       }
+   }
+   $aumidList
    ```
 
 1. Uninstall OneDrive and remove it from explorer sidebar in Windows 10:
