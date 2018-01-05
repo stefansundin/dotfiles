@@ -55,10 +55,15 @@ defaults write -g ApplePressAndHoldEnabled -bool false
 mkdir ~/Library/KeyBindings/
 vim ~/Library/KeyBindings/DefaultKeyBinding.dict
 {
-"\UF729"  = "moveToBeginningOfLine:";                   /* Home */
-"\UF72B"  = "moveToEndOfLine:";                         /* End  */
-"$\UF729" = "moveToBeginningOfLineAndModifySelection:"; /* Shift + Home */
-"$\UF72B" = "moveToEndOfLineAndModifySelection:";       /* Shift + End  */
+    "\UF729"  = "moveToBeginningOfLine:";                   /* Home */
+    "\UF72B"  = "moveToEndOfLine:";                         /* End  */
+    "$\UF729" = "moveToBeginningOfLineAndModifySelection:"; /* Shift + Home */
+    "$\UF72B" = "moveToEndOfLineAndModifySelection:";       /* Shift + End  */
+    /* Stop Mac from beeping when pressing Ctrl+Cmd+Down */
+    /* https://github.com/atom/atom/issues/1669#issuecomment-135503562 */
+    "^@\UF701" = "noop:";
+    "^@\UF702" = "noop:";
+    "^@\UF703" = "noop:";
 }
 
 
