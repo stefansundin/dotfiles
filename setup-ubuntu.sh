@@ -90,6 +90,9 @@ sudo add-apt-repository ppa:git-core/ppa
 sudo apt-get update
 sudo apt-get install git
 
+# Resilio Sync
+https://medium.com/@justlaputa/run-resiliosync-btsync-as-normal-user-under-ubuntu-1498f7701a28
+
 # Yubikey
 sudo add-apt-repository ppa:yubico/stable
 sudo apt-get update
