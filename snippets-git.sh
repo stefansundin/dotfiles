@@ -17,6 +17,7 @@ git config --global core.editor 'vim -c "set mouse="'
 
 # windows
 git config --global core.fileMode false
+git update-index --chmod=+x script.sh
 
 # git config --global alias.yolo '!git commit -am "DEAL WITH IT!" && git push -f origin master'
 git config --global alias.aliases '!git config --list | grep -v alias.aliases | grep alias. | sed -e "s/alias\.//" | cut -c 1-50 | column -s= -t | sort'
