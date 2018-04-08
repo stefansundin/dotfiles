@@ -37,3 +37,11 @@ echo -e "${BOLD_RED}Hello ${BOLD_GREEN}World${RESET}!"
 
 # serve static website, NOW!
 python -m SimpleHTTPServer
+
+# loop urls in file, and download each one with wget, setting the output filename to the basename of the url
+cat s3.txt | while read -r url; do
+  fn=${url%%\?*}
+  fn=${fn##*/}
+  [[ -f "$fn" ]] && continue
+  wget -O "$fn" "$url"
+done
