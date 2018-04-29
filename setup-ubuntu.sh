@@ -3,6 +3,7 @@
 
 sudo apt-get install vim ssh curl synaptic vlc git filezilla rar gimp gparted uptimed pngcrush exfat-fuse exfat-utils gnome-font-viewer
 sudo apt-get install indicator-cpufreq ghex flac lm-sensors rtmpdump deluge xchat mplayer ubuntu-restricted-extras
+sudo apt-get install *wallpapers
 
 # rbenv dependencies
 sudo apt-get install libreadline-dev libxml2-dev libxslt1-dev libpq-dev libsqlite3-dev libssl-dev
