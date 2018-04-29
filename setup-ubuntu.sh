@@ -86,6 +86,12 @@ gsettings set com.canonical.Unity.Lenses disabled-scopes \
 # disable Firefox Web Apps ("Would you like to install X?")
 # go to General tab in Preferences, uncheck "Prompt integration options from any website".
 
+# Atom
+wget -O- https://packagecloud.io/AtomEditor/atom/gpgkey | sudo apt-key add -
+echo 'deb [arch=amd64] https://packagecloud.io/AtomEditor/atom/any/ any main' | sudo tee /etc/apt/sources.list.d/atom.list
+sudo apt-get update
+sudo apt-get install atom
+
 # Git
 sudo add-apt-repository ppa:git-core/ppa
 sudo apt-get update
