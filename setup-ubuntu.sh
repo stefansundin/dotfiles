@@ -53,7 +53,9 @@ sudo vim /etc/default/grub
 sudo update-grub
 
 # increase max number of inotify watchers
-echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
+$ sysctl fs.inotify.max_user_watches
+fs.inotify.max_user_watches = 8192
+$ echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
 
 # disable system error popups
 sudo vim /etc/default/apport
