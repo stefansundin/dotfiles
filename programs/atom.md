@@ -1,8 +1,9 @@
 ```
-apm install atom-beautify autocomplete-paths \
- blame color-picker cursor-blink-interval file-icons fonts git-time-machine highlight-nbsp highlight-selected \
- markdown-pdf merge-conflicts minimap minimap-find-and-replace minimap-git-diff minimap-highlight-selected \
- minimap-selection pretty-json regex-railroad-diagram show-origin todo-show trailing-spaces \
+apm install stop-cursor-blinking gz-opener \
+ atom-beautify autocomplete-paths blame color-picker file-icons fonts \
+ git-time-machine highlight-nbsp highlight-selected markdown-pdf merge-conflicts \
+ minimap minimap-find-and-replace minimap-git-diff minimap-highlight-selected minimap-selection \
+ pretty-json regex-railroad-diagram show-origin todo-show trailing-spaces \
  travis-ci-status url-encode api-docs sort-lines
 ```
 
@@ -38,12 +39,12 @@ apm install latex language-latex
 ```
 
 Settings:
-- Core → Ignored Names: `.git, .hg, .svn, .pc, .DS_Store, ._*, Thumbs.db, *.1, *.pyc, log, node_modules, coverage, .sass-cache, _site, public/assets, tmp/cache, venv`
+
+- Core → Ignored Names: `.git, .hg, .svn, .DS_Store, ._*, Thumbs.db, desktop.ini, .pc, *.1, *.pyc, log, node_modules, coverage, .sass-cache, _site, public/assets, tmp/cache, venv`
 - Editor → [x] Scroll Past End
 - tree-view: [x] Hide Ignored Names
 - autocomplete-plus: Set _Keymap For Confirming A Suggestion_ to _tab always, enter when suggestion explicitly selected_.
 - line-ending-selector: Set _Default line ending_ to _LF_.
-- cursor-blink-interval: 0.
 - Disable packages: background-tips, bracket-matcher
 
 Fix for "TypeError: Unable to watch path" in Ubuntu ([#2082](https://github.com/atom/atom/issues/2082)):
@@ -51,6 +52,7 @@ Fix for "TypeError: Unable to watch path" in Ubuntu ([#2082](https://github.com/
 sudo sysctl fs.inotify.max_user_watches=32768
 echo 32768 | sudo tee -a /proc/sys/fs/inotify/max_user_watches
 ```
+
 Xubuntu File Manager (Thunar) right click entry on directories:
 - Edit → Configure custom actions... → Add
 - Name: Open Atom Here
