@@ -1,0 +1,14 @@
+# \\vboxsvr\vagrant
+# https://aka.ms/ie11.win7.vagrant
+# https://developer.microsoft.com/en-us/microsoft-edge/tools/vms/
+# https://github.com/hugsy/modern.ie-vagrant
+
+Vagrant.configure("2") do |config|
+  config.vm.hostname = "win7"
+  config.vm.box = "win7"
+  config.vm.box_url = "IE11 - Win7.box"
+  config.vm.guest = :windows
+  config.vm.provider "virtualbox" do |v|
+    v.gui = true
+  end
+end
