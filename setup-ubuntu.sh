@@ -67,6 +67,9 @@ sudo vim /etc/default/whoopsie
   report_crashes=false
 sudo service whoopsie stop
 
+# use Alt key to drag windows
+gsettings set org.gnome.desktop.wm.preferences mouse-button-modifier '<Alt>'
+
 # disable lightdm sound
 gsettings set com.canonical.unity-greeter play-ready-sound "false"
 # old: sudo mv /usr/share/sounds/ubuntu/stereo/dialog-question.ogg{,-disabled}
