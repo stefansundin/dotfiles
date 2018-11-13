@@ -1,0 +1,12 @@
+{
+  "description": "Let windows steal focus. Removes the annoying 'Window is ready' notification and focus window immediately.",
+  "name": "Steal My Focus",
+  "original-authors": [
+  ],
+  "shell-version": [
+    "3.30.*"
+  ],
+  "url": "https://github.com/tak0kada/gnome-shell-extension-stealmyfocus",
+  "uuid": "steal-my-focus",
+  "version": 1
+}
