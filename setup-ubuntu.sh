@@ -70,6 +70,9 @@ sudo service whoopsie stop
 # use Alt key to drag windows
 gsettings set org.gnome.desktop.wm.preferences mouse-button-modifier '<Alt>'
 
+# minimize when clicking open dash icons
+gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'minimize'
+
 # disable lightdm sound
 gsettings set com.canonical.unity-greeter play-ready-sound "false"
 # old: sudo mv /usr/share/sounds/ubuntu/stereo/dialog-question.ogg{,-disabled}
@@ -91,11 +94,18 @@ gsettings set com.canonical.Unity.Lenses disabled-scopes \
 # disable Firefox Web Apps ("Would you like to install X?")
 # go to General tab in Preferences, uncheck "Prompt integration options from any website".
 
-# Atom
+# Atom - https://flight-manual.atom.io/getting-started/sections/installing-atom/#debian-and-ubuntu-debapt
 wget -O- https://packagecloud.io/AtomEditor/atom/gpgkey | sudo apt-key add -
 echo 'deb [arch=amd64] https://packagecloud.io/AtomEditor/atom/any/ any main' | sudo tee /etc/apt/sources.list.d/atom.list
 sudo apt-get update
 sudo apt-get install atom
+
+# Sublime Text - https://www.sublimetext.com/docs/3/linux_repositories.html
+sudo apt-get install apt-transport-https
+wget -O- https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add -
+echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sources.list.d/sublime-text.list
+sudo apt-get update
+sudo apt-get install sublime-text
 
 # Git
 sudo add-apt-repository ppa:git-core/ppa
@@ -103,7 +113,7 @@ sudo apt-get update
 sudo apt-get install git
 
 # Resilio Sync - https://help.resilio.com/hc/en-us/articles/206178924
-wget -qO - https://linux-packages.resilio.com/resilio-sync/key.asc | sudo apt-key add -
+wget -O- https://linux-packages.resilio.com/resilio-sync/key.asc | sudo apt-key add -
 echo "deb http://linux-packages.resilio.com/resilio-sync/deb resilio-sync non-free" | sudo tee /etc/apt/sources.list.d/resilio-sync.list
 sudo apt-get update
 sudo apt-get install resilio-sync
