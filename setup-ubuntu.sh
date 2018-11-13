@@ -102,8 +102,12 @@ sudo add-apt-repository ppa:git-core/ppa
 sudo apt-get update
 sudo apt-get install git
 
-# Resilio Sync
-https://medium.com/@justlaputa/run-resiliosync-btsync-as-normal-user-under-ubuntu-1498f7701a28
+# Resilio Sync - https://help.resilio.com/hc/en-us/articles/206178924
+wget -qO - https://linux-packages.resilio.com/resilio-sync/key.asc | sudo apt-key add -
+echo "deb http://linux-packages.resilio.com/resilio-sync/deb resilio-sync non-free" | sudo tee /etc/apt/sources.list.d/resilio-sync.list
+sudo apt-get update
+sudo apt-get install resilio-sync
+sudo usermod -a -G rslsync stefan
 
 # Yubikey
 sudo add-apt-repository ppa:yubico/stable
@@ -234,7 +238,7 @@ PATH=/usr/local/texlive/2016/bin/x86_64-linux:$PATH
 sudo apt-get install wireshark
 sudo dpkg-reconfigure wireshark-common
 # select <Yes>
-sudo usermod -a -G wireshark recover
+sudo usermod -a -G wireshark stefan
 # log out and in
 
 # mount LVM volumes
@@ -261,7 +265,7 @@ sudo vim /etc/pm/sleep.d/80-synaptics-three-finger
 case "$1" in
     resume|thaw)
         sleep 5;
-        /bin/su recover -c "/usr/bin/synclient TapButton3=2"
+        /bin/su stefan -c "/usr/bin/synclient TapButton3=2"
         ;;
 esac
 sudo chmod +x /etc/pm/sleep.d/80-synaptics-three-finger
