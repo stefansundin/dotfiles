@@ -12,3 +12,8 @@ function toObject(arr) {
   return obj;
 }
 var args = toObject(window.location.search.substr(1).split("&").map(function(arg){ return arg.split("="); }));
+
+// pad(2) = "02"
+function pad(n) {
+  return ("0"+n).slice(-2);
+}

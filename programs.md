@@ -75,6 +75,10 @@ Docker:
 > docker rmi $(docker images | grep -v 'ubuntu\|redis' | awk {'print $3'})
 > ```
 
+Docker for Mac:
+- https://download.docker.com/mac/stable/Docker.dmg
+- https://download.docker.com/mac/edge/Docker.dmg
+
 NPM (comes with [Node.js](http://nodejs.org/download/)):
 > ```
 > npm install -g keybase-installer
@@ -120,7 +124,7 @@ uTorrent ads:
 > gui.show_notorrents_node = false
 > bt.enable_pulse = false
 > ```
-> 
+>
 > Options →
 > - [ ] `Show Sidebar [F7]`
 > - [ ] `Show Bundles [F8]`

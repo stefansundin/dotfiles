@@ -4,6 +4,11 @@
 
 ffmpeg -i video.flv -acodec copy audio.mp3
 
+# remove right audio channel
+# https://trac.ffmpeg.org/wiki/AudioChannelManipulation
+youtube-dl https://www.youtube.com/watch?v=xrIjfIjssLE
+ffmpeg -i "Erlang - The Movie-xrIjfIjssLE.mp4" -map_channel 0.1.0 -c:v copy "Erlang - The Movie.mp4"
+
 # concat files and trim start
 ffmpeg -ss 1:38 -i MVI_0605.MOV -i MVI_0652.MOV -i MVI_0653.MOV -i MVI_0686.MOV -i MVI_0734.MOV -i MVI_0848.MOV -filter_complex "[0:0] [0:1] [1:0] [1:1] [2:0] [2:1] [3:0] [3:1] [4:0] [4:1] [5:0] [5:1] concat=n=6:v=1:a=1 [v] [a]" -map "[v]" -map "[a]" concat.mkv
 # n=6 specifies the number of files. -filter_complex list must be modified when changing number of files.

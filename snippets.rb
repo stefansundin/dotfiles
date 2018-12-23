@@ -16,6 +16,9 @@ ActiveRecord::Migration.remove_column :posts, :view_count
 $redis.keys.select { |k| $redis.del k } # clear redis the poor mans way
 before_filter :auth, unless: -> { Rails.env.development? }
 
+require "fileutils"
+FileUtils.mkdir_p("files")
+
 case type
 when "json", "yml" then 10
 when "text" then 30
@@ -44,6 +47,14 @@ export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 # add to ~/.gemrc
 gem: --no-document
+
+# run specific version of gem
+gem list '^rails$'
+gem install rails -v 4.2.10
+rails _4.2.10_ --version
+
+bundle config --global ignore_messages.httparty true
+bundle config --global disable_version_check true
 
 # Gems
 group :development do

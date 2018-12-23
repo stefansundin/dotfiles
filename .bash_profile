@@ -13,6 +13,10 @@ export PGDATA="$HOME/Library/Application Support/Postgres/var-9.4"
 # Mac
 export HOMEBREW_NO_AUTO_UPDATE=1
 alias flushdns='dscacheutil -flushcache && sudo killall -HUP mDNSResponder'
+alias ls="/usr/local/opt/coreutils/libexec/gnubin/ls -G -N --color=auto --quoting-style=escape"
+alias cal='gcal --starting-day=1'
+eval "$(/usr/local/opt/coreutils/libexec/gnubin/dircolors ~/.dircolors)"
+alias dircolors="/usr/local/opt/coreutils/libexec/gnubin/dircolors"
 
 # Go
 export GOPATH=$HOME/go
@@ -204,6 +208,6 @@ function use_bundler {
   fi
 }
 
-for cmd in rake rspec cucumber cap unicorn puma thin rackup guard compass thor sidekiq jekyll airbrake honeybadger; do
+for cmd in rake rspec cucumber cap unicorn puma thin rackup guard compass thor sidekiq jekyll middleman airbrake honeybadger; do
   alias $cmd="use_bundler $cmd"
 done

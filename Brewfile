@@ -14,18 +14,20 @@ tap 'stefansundin/tap'
 
 # basic tools
 brew 'bash'
-brew 'bash-completion'
+brew 'bash-completion@2'
+brew 'coreutils'
 brew 'curl'
 brew 'duti'
 brew 'git'
 brew 'gnu-tar'
+brew 'gcal'
 brew 'openssl'
 brew 'readline'
 brew 'wget'
 brew 'xz'
 
 # linux tools
-brew 'gnupg2'
+brew 'gnupg'
 brew 'gpg-agent'
 brew 'pinentry-mac'
 brew 'htop'
@@ -64,7 +66,15 @@ brew 'aws-rotate-key'
 # brew 'docker-compose'
 
 # casks
+cask 'brewservicesmenubar'
+cask 'vagrant'
+cask 'mpv'
+cask 'kdiff3'
 cask 'webpquicklook'
+cask 'qlmarkdown'
+cask 'google-cloud-sdk'
+# cask 'inkscape'
+# cask 'google-earth-pro'
 
 # misc
 cask 'vlc-protocol'

@@ -14,7 +14,9 @@ apm install auto-update-packages
 
 Syntax highlighting:
 ```
-apm install atom-jinja2 language-docker language-haskell language-lisp language-nginx language-rust language-terraform
+apm install atom-jinja2 language-docker language-haskell language-lisp language-nginx \
+ language-rust language-terraform language-elixir language-jsonnet language-dotenv \
+ language-gnuplot-5 language-lua language-regexp language-caddyfile
 ```
 
 NSIS:
@@ -46,6 +48,7 @@ Settings:
 - autocomplete-plus: Set _Keymap For Confirming A Suggestion_ to _tab always, enter when suggestion explicitly selected_.
 - line-ending-selector: Set _Default line ending_ to _LF_.
 - Disable packages: background-tips, bracket-matcher
+  - This requires a restart of Atom to take full effect.
 
 Fix for "TypeError: Unable to watch path" in Ubuntu ([#2082](https://github.com/atom/atom/issues/2082)):
 ```
@@ -58,3 +61,15 @@ Xubuntu File Manager (Thunar) right click entry on directories:
 - Name: Open Atom Here
 - Command: atom %f
 - Appearance Conditions: [x] Directories
+
+Make Atom automatically use YAML syntax highlighting for `*.config` files:
+- Unfortunately it doesn't look possible to restrict it to specific subdirectories, e.g. `.ebextensions/*.config`. :(
+- Open `config.cson` using Atom → Config... menu item
+  ```
+  "*":
+    core:
+      customFileTypes:
+        "source.yaml": [
+          "config"
+        ]
+  ```

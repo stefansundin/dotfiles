@@ -5,4 +5,4 @@ shutdown /a
 
 # for some reason the GUI doesn't always show exFAT as an alternative when formatting
 # use command line to format volumes as exFAT
-format M: /FS:exFAT
+format M: /FS:exFAT /Q

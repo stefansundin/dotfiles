@@ -327,6 +327,11 @@ cat /var/log/auth.log | grep 'sshd.*Invalid'
 cat /var/log/auth.log | grep 'sshd.*opened'
 
 
+# inspect ssl cert and csr
+openssl x509 -in cert.crt -text -noout
+openssl req -in cert.csr -text -noout
+
+
 # create secure boot MOK key and sign kernel modules:
 openssl req -new -x509 -newkey rsa:2048 -keyout MySecureBoot.priv -outform DER -out MySecureBoot.der -nodes -days 36500 -subj "/CN=MySecureBoot/"
 sudo mokutil --import MySecureBoot.der

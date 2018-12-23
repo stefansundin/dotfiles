@@ -11,6 +11,10 @@ SELECT t.relname,l.locktype,page,virtualtransaction,pid,mode,granted FROM pg_loc
 SELECT pg_cancel_backend(pid);
 
 
+-- login path
+mysql_config_editor set --login-path=root --user=root --skip-warn --password
+mysql --login-path=root -e "SHOW DATABASES"
+
 -- mysql initialize
 mysqld --initialize
 
@@ -22,3 +26,25 @@ SET PASSWORD FOR root@localhost=PASSWORD('');
 -- mysqld_safe --skip-grant-tables
 -- mysql -u root mysql
 UPDATE user SET authentication_string=PASSWORD('') WHERE user='root';
+
+
+-- mysqldump \
+--   --protocol=tcp --host=localhost --port=3366 \
+--   --user=root --password=asd \
+--   --all-databases \
+--   --single-transaction \
+--   --routines \
+--   --triggers \
+--   --compress \
+--   --compact > mysql-$(date +%F-%T).dump
+
+
+
+-- https://upload.wikimedia.org/wikipedia/commons/e/e2/MySQL.pdf
+-- https://en.wikibooks.org/wiki/MySQL/Language/Definitions:_what_are_DDL,_DML_and_DQL%3F
+--
+-- DDL (Data Definition Language) refers to the CREATE, ALTER and DROP statements: DDL allows to add / modify / delete the logical structures which contain the data or which allow users to access / maintain the data (databases, tables, keys, views...). DDL is about "metadata".
+-- DML (Data Manipulation Language) refers to the INSERT, UPDATE and DELETE statements: DML allows to add / modify / delete data itself.
+-- DQL (Data Query Language) refers to the SELECT, SHOW and HELP statements (queries): SELECT is the main DQL instruction. It retrieves data you need. SHOW retrieves infos about the metadata. HELP is for people who need help.
+-- DCL (Data Control Language) refers to the GRANT and REVOKE statements: DCL is used to grant / revoke permissions on databases and their contents. DCL is simple, but MySQL's permissions are rather complex. DCL is about security.
+-- DTL (Data Transaction Language) refers to the START TRANSACTION, SAVEPOINT, COMMIT and ROLLBACK [TO SAVEPOINT] statements: DTL is used to manage transactions (operations which include more instructions none of which can be executed if one of them fails).

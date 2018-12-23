@@ -2,6 +2,7 @@ git config --global user.name "Stefan Sundin"
 git config --global user.email stefansundin@users.noreply.github.com
 git config --global user.signingKey 27642822
 git config --global commit.gpgSign true
+git config --local format.signoff true
 git config --global core.autocrlf false
 git config --global push.default simple
 git config --global fetch.recurseSubmodules true
@@ -21,16 +22,18 @@ git update-index --chmod=+x script.sh
 
 # git config --global alias.yolo '!git commit -am "DEAL WITH IT!" && git push -f origin master'
 git config --global alias.aliases '!git config --list | grep -v alias.aliases | grep alias. | sed -e "s/alias\.//" | cut -c 1-50 | column -s= -t | sort'
+git config --global alias.amend 'commit --amend --date="$(date -R)"'
 git config --global alias.b 'checkout -b'
 git config --global alias.br branch
 git config --global alias.ci commit
 git config --global alias.cim 'commit --allow-empty-message -m ""'
 git config --global alias.cl 'clone --recursive -j8'
-git config --global alias.co checkout
-git config --global alias.con 'branch -a --contains'
+git config --global alias.co 'checkout --ignore-other-worktrees'
+git config --global alias.contains 'branch -a --contains'
 git config --global alias.d '!git diff HEAD~${1:-1} HEAD~$((${1:-1}-1)) ${*:2} #'
 # git config --global alias.d 'diff HEAD^..HEAD'
 git config --global alias.da "!git add -N . && git diff"
+git config --global alias.dw "git diff --color-words"
 git config --global alias.df 'diff-tree --no-commit-id --name-only -r'
 git config --global alias.di '!git diff $1^..$1 ${*:2} #'
 git config --global alias.gist '!gist=$(echo $1 | sed -e "s/.*\///" -e "s/\.git$//" -e "s/#.*$//"); git clone git@gist.github.com:$gist.git "${2:-$gist}" #'
@@ -45,6 +48,7 @@ git config --global alias.rollback '!git reset --hard HEAD^ && git clean -fd'
 git config --global alias.st status
 git config --global alias.incoming '!git remote update origin; git log ..@{u}'
 git config --global alias.outgoing 'log @{u}..'
+git config --global alias.up "pull --rebase upstream master"
 
 git commit --allow-empty -m 'root commit'
 git submodule update --recursive --remote
@@ -61,6 +65,7 @@ git log --pretty=fuller
 git add -p stage_file_partially.rb
 git ci --amend --author "Stefan Sundin <stefansundin@users.noreply.github.com>"
 git ci --date '2013-12-26 14:30:12'
+git rebase --committer-date-is-author-date <commitish>
 git ls-files --stage
 
 # apply the reverse of last commit to the working tree
@@ -272,6 +277,8 @@ git gc --aggressive
 du -hs .
 git count-objects -vH
 
+# delete ignored files
+git clean -ndX
 
 # repo
 curl https://storage.googleapis.com/git-repo-downloads/repo > ~/bin/repo
@@ -282,6 +289,8 @@ repo sync
 
 
 # Hooks
+# install post-checkout hook in the top level directory (also works inside a git worktree)
+ln -s $(git rev-parse --show-toplevel)/post-checkout $(git rev-parse --git-common-dir)/hooks/post-checkout
 
 # client hooks: pre-commit, prepare-commit-msg, commit-msg, post-commit, applypatch-msg, pre-applypatch, post-applypatch, pre-rebase, post-checkout, post-merge, pre-push, pre-auto-gc, post-rewrite
 # server hooks: pre-receive, post-receive, update, post-update push-to-checkout

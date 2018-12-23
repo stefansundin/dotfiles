@@ -10,4 +10,7 @@ GRUB_GFXMODE="1024x768"
 # increase scrollback buffer
 GRUB_CMDLINE_LINUX="fbcon=scrollback:1024k"
 
+# use legacy eth0 and wlan0 names for network interfaces
+GRUB_CMDLINE_LINUX="net.ifnames=0 biosdevname=0"
+
 # don't forget "sudo update-grub"

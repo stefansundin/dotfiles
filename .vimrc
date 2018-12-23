@@ -25,6 +25,7 @@
 
 
 set smartindent
+set copyindent
 "set nowritebackup
 "set mousehide
 
@@ -54,6 +55,9 @@ map ^[b <S-Left>
 imap ^[b <S-Left>
 map ^[f <S-Right>
 imap ^[f <S-Right>
+
+" Mac Alt+Backspace
+imap <Esc><BS> <C-w>
 
 " Ctrl+S to save
 " You must edit .bashrc too, and add this:

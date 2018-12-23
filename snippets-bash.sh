@@ -1,3 +1,6 @@
+# echo to stderr
+>&2 echo "error"
+
 export RESET="\033[0m"
 export BLACK="\033[30m"
 export RED="\033[31m"
