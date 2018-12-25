@@ -8,3 +8,4 @@ none /mnt/ramdisk/ ramfs nofail,defaults,users,mode=777 0 0
 
 # useful mount options:
 # dmask=027,fmask=137
+# dmask=022,fmask=133
