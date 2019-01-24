@@ -94,6 +94,9 @@ gsettings set com.canonical.Unity.Lenses disabled-scopes \
 # disable Firefox Web Apps ("Would you like to install X?")
 # go to General tab in Preferences, uncheck "Prompt integration options from any website".
 
+# remove snap packages from Ubuntu Software (can still install with `snap install ...`)
+sudo apt-get remove gnome-software-plugin-snap
+
 # Atom - https://flight-manual.atom.io/getting-started/sections/installing-atom/#debian-and-ubuntu-debapt
 wget -O- https://packagecloud.io/AtomEditor/atom/gpgkey | sudo apt-key add -
 echo 'deb [arch=amd64] https://packagecloud.io/AtomEditor/atom/any/ any main' | sudo tee /etc/apt/sources.list.d/atom.list
