@@ -24,7 +24,6 @@ Chrome SOCKS:
 > ```
 
 Chrome free up disk space after downloading from Mega:
-
 1. Go to chrome://settings/cookies
 2. Search for "mega".
 3. Click on the mega.nz line, then choose _File System_.
@@ -67,6 +66,11 @@ YouTube channel playlist:
 > ```
 > https://www.youtube.com/watch?v=_xLnsbUviuk&feature=mfu_in_order&list=UL
 > ```
+
+Microsoft Edge SOCKS:
+> Settings → View advanced settings → [Open proxy settings]:
+> - Address: `socks=127.0.0.1`
+> - Port: `4001`
 
 Docker:
 > ```
@@ -115,6 +119,13 @@ PuTTY:
 >
 > SOCKS:
 >> Connection → SSH → Tunnels → Source port: `4000` → `(x) Dynamic` → `Add`
+>
+> ProxyJump (requires `plink.exe`):
+>> Connection → Proxy:
+>> - Proxy type: `Local`
+>> - Proxy hostname: `bastion.example.com`
+>> - Username: `my_username`
+>> - Telnet command, or local proxy command: `plink -i C:\my_key.ppk -P %proxyport %user@%proxyhost -nc %host:%port`
 
 uTorrent ads:
 > ```
