@@ -24,10 +24,9 @@ Chrome SOCKS:
 > ```
 
 Chrome free up disk space after downloading from Mega:
-1. Go to chrome://settings/cookies
-2. Search for "mega".
-3. Click on the mega.nz line, then choose _File System_.
-4. Click _Remove_.
+1. Go to chrome://settings/cookies/detail?site=mega.nz
+1. Click on _File system_ to see how much space it is using.
+1. Click the _X_ on the right to delete.
 
 Firefox multiple profiles:
 > ```
