@@ -122,6 +122,12 @@ sudo apt-get update
 sudo apt-get install resilio-sync
 sudo usermod -a -G rslsync stefan
 
+# MKVToolNix - https://mkvtoolnix.download/downloads.html#ubuntu
+wget -q -O- https://mkvtoolnix.download/gpg-pub-moritzbunkus.txt | sudo apt-key add -
+echo -e "deb https://mkvtoolnix.download/ubuntu/ bionic main\ndeb-src https://mkvtoolnix.download/ubuntu/ bionic main" | sudo tee /etc/apt/sources.list.d/mkvtoolnix.download.list
+sudo apt-get update
+sudo apt-get install mkvtoolnix-gui
+
 # Yubikey
 sudo add-apt-repository ppa:yubico/stable
 sudo apt-get update
