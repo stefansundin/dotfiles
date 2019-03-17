@@ -43,6 +43,10 @@ After install:
    cmd /C reg add HKLM\SYSTEM\Setup\UpgradeNotification /v UpgradeAvailable /t REG_DWORD /d 0 /f & pause
    ```
 
+1. Stop Windows 10 from randomly reopen apps when restarting computer.
+
+   > Open "Sign-in options", scroll down to "Privacy" and toggle off "Use my sign-in info to automatically finish setting up my device and reopen my apps after an update or restart".
+
 1. Disable Windows 10 full screen "Updates are available" notification
 
    ```
@@ -81,7 +85,7 @@ After install:
    ```
 
    Remove "Edit with Paint 3D" on right click:
-   
+
    ```
    reg delete "HKLM\SOFTWARE\Classes\SystemFileAssociations\.jpg\Shell\3D Edit" /f
    reg delete "HKLM\SOFTWARE\Classes\SystemFileAssociations\.jpeg\Shell\3D Edit" /f
@@ -125,9 +129,9 @@ After install:
    get-appxpackage *Microsoft.Messaging* | remove-appxpackage
    get-appxpackage *Microsoft.MSPaint* | remove-appxpackage
    ```
-   
+
    List apps:
-   
+
    ```
    Get-AppxPackage | Select Name,PackageFullName | Sort Name
    ```
@@ -324,7 +328,7 @@ Setup Bash on Linux:
 > sudo -S apt-mark hold procps
 > sudo -S apt-mark hold strace
 > sudo apt-get update
-> sudo apt-get dist-upgrade 
+> sudo apt-get dist-upgrade
 > sudo do-release-upgrade -f DistUpgradeViewNonInteractive -d
 > # ctrl+c when it asks you about rcS
 > sudo -S dpkg --configure -a
