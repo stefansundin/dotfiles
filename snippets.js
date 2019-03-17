@@ -1,3 +1,7 @@
+// get object keys
+Object.keys(this.props);
+Object.keys(this.props).map(key => [key, this.props[key]])
+
 // timezone data redirect
 var d = new Date();
 var dst = d.getTimezoneOffset() < Math.max(new Date(d.getFullYear(),0,1).getTimezoneOffset(),new Date(d.getFullYear(),6,1).getTimezoneOffset());

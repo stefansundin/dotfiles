@@ -235,6 +235,21 @@ for cmd in rake rspec cucumber cap unicorn puma thin rackup guard compass thor s
 done
 
 
+# JavaScript
+# screw yarn - it sets GIT_SSH_COMMAND internally and thus doesn't respect sshCommand from git config (e.g. ssh keys)
+# https://github.com/yarnpkg/yarn/blob/v1.12.3/src/util/git/git-spawn.js
+function yarn {
+  # run in a subshell to avoid setting GIT_SSH_COMMAND outside of this function
+  (
+    export GIT_SSH_COMMAND='ssh -i ~/.ssh/id_ed25519 -F /dev/null'
+    command yarn "$@"
+  )
+}
+function prettier-diff {
+  prettier "$1" | diff "$1" -
+}
+
+
 # Kubernetes
 alias k=kubectl
 complete -F _complete_alias k
