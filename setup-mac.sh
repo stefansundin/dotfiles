@@ -7,6 +7,8 @@ ln -s "/Applications/Sublime Merge.app/Contents/SharedSupport/bin/smerge" /usr/l
 ln -s /Applications/TrueCrypt.app/Contents/MacOS/TrueCrypt /usr/local/bin/truecrypt
 ln -s /Applications/Gimp.app/Contents/MacOS/gimp-2.8 /usr/local/bin/gimp
 ln -s /Applications/VLC.app/Contents/MacOS/VLC /usr/local/bin/vlc
+# ln -s /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome /usr/local/bin/google-chrome
+# alias google-chrome='/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'
 
 sudo xattr -d -r com.apple.quarantine /Applications
 grep -nr paginator .

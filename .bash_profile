@@ -10,8 +10,28 @@ export PGHOST=localhost
 export PGDATA="$HOME/Library/Application Support/Postgres/var-9.4"
 #export PS0='Command started: \t\n'
 
+# xterm-256color removes the color over ssh on some machines
+alias ssh='TERM=xterm-color ssh'
+alias gpg="gpg2"
+alias ls="ls -G"
+alias pc="pngcrush -rem gAMA -rem cHRM -rem iCCP -rem sRGB -brute"
+alias reload_profile=". ~/.profile"
+#alias npm-exec='PATH=$(npm bin):$PATH'
+source /usr/local/etc/bash_completion
+
+# unset HISTFILE
+function nohist {
+  unset HISTFILE
+}
+
 # Mac
 export HOMEBREW_NO_AUTO_UPDATE=1
+export HOMEBREW_NO_INSTALL_CLEANUP=1
+export HOMEBREW_NO_EMOJI=1
+export HOMEBREW_NO_ANALYTICS=1
+export HOMEBREW_NO_BOTTLE_SOURCE_FALLBACK=1
+export HOMEBREW_DEVELOPER=1 # enables "unknown" status in "brew services"
+alias brew-clean='brew cleanup --prune=0'
 alias flushdns='dscacheutil -flushcache && sudo killall -HUP mDNSResponder'
 alias ls="/usr/local/opt/coreutils/libexec/gnubin/ls -G -N --color=auto --quoting-style=escape"
 alias cal='gcal --starting-day=1'
@@ -53,15 +73,6 @@ export SSL_CERT_FILE="$HOME/ca-bundle.crt"
 export DEBFULLNAME="Stefan Sundin"
 export DEBEMAIL=stefan@example.com
 
-# xterm-256color removes the color over ssh on some machines
-alias ssh='TERM=xterm-color ssh'
-alias gpg="gpg2"
-alias ls="ls -G"
-alias pc="pngcrush -rem gAMA -rem cHRM -rem iCCP -rem sRGB -brute"
-alias reload_profile=". ~/.profile"
-#alias npm-exec='PATH=$(npm bin):$PATH'
-
-source /usr/local/etc/bash_completion
 #complete -C /usr/local/bin/aws_completer aws
 complete -C $HOME/Library/Python/2.7/bin/aws_completer aws
 
@@ -188,8 +199,7 @@ proml
 
 
 # Ruby
-
-eval "$(rbenv init -)"
+eval "$(rbenv init -)" # this slows down bash startup a bit, so you may want to run it and copy and paste the output right here
 # export RAILS_ENV=development
 # export RACK_ENV=development
 
