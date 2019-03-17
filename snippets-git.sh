@@ -50,6 +50,9 @@ git config --global alias.incoming '!git remote update origin; git log ..@{u}'
 git config --global alias.outgoing 'log @{u}..'
 git config --global alias.up "pull --rebase upstream master"
 
+git config --global alias.add-fork '!git remote add $1 git@github.com:$1/$(git remote get-url origin | sed -e "s/.*\///"); git fetch $1 #'
+git add-fork bivanov
+
 git commit --allow-empty -m 'root commit'
 git submodule update --recursive --remote
 git rev-list HEAD --count
