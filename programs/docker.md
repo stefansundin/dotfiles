@@ -19,4 +19,5 @@ Enable experimental features:
 ```
 $ sudo vim /etc/docker/daemon.json
 {"experimental": true}
+$ sudo systemctl restart docker
 ```

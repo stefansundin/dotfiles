@@ -131,9 +131,10 @@ Profiler__.print_profile(File.open("profile-#{Time.now.to_i}.log","wb"))
 include Rails::ConsoleMethods if defined? Rails
 
 # check what readline is in use
+# $ ruby -rreadline -e "puts Readline::VERSION"
 # this is good:
 Readline::VERSION
-=> "6.3"
+=> "8.0"
 # this is bad:
 Readline::VERSION
 => "EditLine wrapper"
