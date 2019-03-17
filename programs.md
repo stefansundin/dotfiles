@@ -71,17 +71,6 @@ Microsoft Edge SOCKS:
 > - Address: `socks=127.0.0.1`
 > - Port: `4001`
 
-Docker:
-> ```
-> docker kill $(docker ps -aq)
-> docker rm $(docker ps -aq)
-> docker rmi $(docker images | grep -v 'ubuntu\|redis' | awk {'print $3'})
-> ```
-
-Docker for Mac:
-- https://download.docker.com/mac/stable/Docker.dmg
-- https://download.docker.com/mac/edge/Docker.dmg
-
 NPM (comes with [Node.js](http://nodejs.org/download/)):
 > ```
 > npm install -g keybase-installer

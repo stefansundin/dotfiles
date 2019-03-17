@@ -37,6 +37,10 @@ alias ls="/usr/local/opt/coreutils/libexec/gnubin/ls -G -N --color=auto --quotin
 alias cal='gcal --starting-day=1'
 eval "$(/usr/local/opt/coreutils/libexec/gnubin/dircolors ~/.dircolors)"
 alias dircolors="/usr/local/opt/coreutils/libexec/gnubin/dircolors"
+# Docker
+source /Applications/Docker.app/Contents/Resources/etc/docker.bash-completion
+source /Applications/Docker.app/Contents/Resources/etc/docker-compose.bash-completion
+source /Applications/Docker.app/Contents/Resources/etc/docker-machine.bash-completion
 
 # Go
 export GOPATH=$HOME/go
