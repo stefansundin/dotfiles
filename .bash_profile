@@ -19,6 +19,9 @@ alias reload_profile=". ~/.profile"
 #alias npm-exec='PATH=$(npm bin):$PATH'
 source /usr/local/etc/bash_completion
 
+# _complete_alias support:
+# wget -O ~/.bash_completion https://raw.githubusercontent.com/cykerway/complete-alias/master/completions/bash_completion.sh
+
 # unset HISTFILE
 function nohist {
   unset HISTFILE
@@ -78,11 +81,16 @@ export DEBFULLNAME="Stefan Sundin"
 export DEBEMAIL=stefan@example.com
 
 #complete -C /usr/local/bin/aws_completer aws
-complete -C $HOME/Library/Python/2.7/bin/aws_completer aws
+complete -C $HOME/Library/Python/3.7/bin/aws_completer aws
+complete -C /usr/local/var/homebrew/linked/terraform/bin/terraform terraform
+
+export AWS_EB_PROFILE=personal
 
 function aws {
   if [[ "$@" == *"--help"* ]]; then
     command aws "${@/--help/help}"
+  elif [[ "$1" == "elasticbeanstalk" || "$1" == "cloudformation" ]] && [[ "$@" != *"--profile"* ]]; then
+    AWS_DEFAULT_PROFILE=$AWS_EB_PROFILE command aws "$@"
   else
     command aws "$@"
   fi
@@ -225,3 +233,8 @@ function use_bundler {
 for cmd in rake rspec cucumber cap unicorn puma thin rackup guard compass thor sidekiq jekyll middleman airbrake honeybadger; do
   alias $cmd="use_bundler $cmd"
 done
+
+
+# Kubernetes
+alias k=kubectl
+complete -F _complete_alias k
