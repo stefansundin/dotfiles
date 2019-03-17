@@ -47,3 +47,17 @@ sudo vim /lib/udev/hwclock-set
 sudo hwclock -r
 # write system time to hwlock
 sudo hwclock -w
+
+
+
+# Ubuntu
+# https://blog.ubuntu.com/2019/02/27/single-node-kubernetes-on-raspberry-pi-microk8s-ubuntu
+# http://cdimage.ubuntu.com/releases/18.04.2/release/
+# ubuntu-18.04.2-preinstalled-server-arm64+raspi3.img.xz
+# initial user/pass: ubuntu/ubuntu
+
+# fix systemd-modules-load error on startup
+sudo apt remove open-iscsi
+
+# get rid of cloud-init junk output during boot
+sudo apt remove cloud-init
