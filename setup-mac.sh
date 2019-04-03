@@ -141,6 +141,8 @@ defaults read -g NSWindowResizeTime
 
 # disable two-finger back/forward navigation in Chrome only
 defaults write com.google.Chrome AppleEnableSwipeNavigateWithScrolls -bool false
+# disable dark mode in Chrome only
+defaults write com.google.Chrome NSRequiresAquaSystemAppearance -bool true
 
 # disable bonjour advertising
 sudo defaults write /Library/Preferences/com.apple.mDNSResponder.plist NoMulticastAdvertisements -bool true
