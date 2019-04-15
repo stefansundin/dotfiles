@@ -128,6 +128,10 @@ echo -e "deb https://mkvtoolnix.download/ubuntu/ bionic main\ndeb-src https://mk
 sudo apt-get update
 sudo apt-get install mkvtoolnix-gui
 
+# https://mpv.io/installation/
+sudo add-apt-repository ppa:mc3man/mpv-tests
+sudo apt-get install mpv
+
 # Slack - After installing deb from https://slack.com/downloads/linux, it creates /etc/cron.daily/slack which will set up this apt repository
 wget -O- https://packagecloud.io/slacktechnologies/slack/gpgkey | sudo apt-key add -
 echo "deb https://packagecloud.io/slacktechnologies/slack/debian/ jessie main" | sudo tee /etc/apt/sources.list.d/slack.list
