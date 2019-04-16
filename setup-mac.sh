@@ -1,4 +1,4 @@
-brew install openssl readline
+brew install readline openssl@1.1 jemalloc
 brew install rbenv ruby-build rbenv-gem-rehash rbenv-binstubs
 rbenv install 2.6.0
 rbenv global 2.6.0
