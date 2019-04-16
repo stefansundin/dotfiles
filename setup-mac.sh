@@ -1,6 +1,7 @@
+brew install openssl readline
 brew install rbenv ruby-build rbenv-gem-rehash rbenv-binstubs
-rbenv install 2.2.0
-rbenv global 2.2.0
+rbenv install 2.6.0
+rbenv global 2.6.0
 
 ln -s "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" /usr/local/bin/subl
 ln -s "/Applications/Sublime Merge.app/Contents/SharedSupport/bin/smerge" /usr/local/bin/smerge
@@ -233,10 +234,10 @@ rm -rf var-9.3
 # Parameter: https://www.pivotaltracker.com/story/show/\1
 
 # use `read` to get keyboard input sequences. Press C-v to bypass terminal parsing (verbatim mode).
-# https://code.google.com/p/iterm2/wiki/Keybindings#Escape_sequence_exploration
 
 
 # additional apps
+# SteerMouse: http://plentycom.jp/en/steermouse/
 # FinderPath: http://bahoom.com/finderpath/
 # MagicPrefs to customize Apple mice
 # USB Overdrive
