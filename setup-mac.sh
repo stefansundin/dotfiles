@@ -218,12 +218,9 @@ rm -rf var-9.3
 # ⌥←              | Send Escape Sequence | Esc+ b
 # ⌥→              | Send Escape Sequence | Esc+ f
 # ⌥Del→           | Send Escape Sequence | Esc+ d
-# ⌥←Delete        | Send Hex Code        | 0x17
+# ⌥←Delete        | Send Hex Code        | 0x1b 0x08
 # ⌘←Delete        | Send Hex Code        | 0x15
 # Del→            | Send Hex Code        | 0x04
-
-# make Alt+Backspace properly stop at delimiters
-# iTerm preferences → Profiles → Keys → Left option (⌥) key acts as: (x) +Esc
 
 # iTerm 2 Smart Selection
 # Regular expression: story #(\d+)
