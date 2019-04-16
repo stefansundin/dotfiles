@@ -41,17 +41,13 @@ sudo chown -R stefansundin /usr/local /Library/Caches/Homebrew
 sudo chmod -R g+w /usr/local /Library/Caches/Homebrew
 cp /usr/local/Library/LinkedKegs/redis/homebrew.mxcl.redis.plist ~/Library/LaunchAgents/homebrew.mxcl.redis.plist
 
-# install brew cask (precompiled binaries)
-brew tap phinze/cask
-brew install brew-cask
-brew cask install gmvault
-
 # change shells
+brew install bash
 # add to /etc/shells:
 /usr/local/bin/bash
 /usr/local/bin/zsh
 # then use:
-chsh -s /usr/local/bin/zsh
+chsh -s /usr/local/bin/bash
 
 # keyboard key-repeat
 defaults write -g ApplePressAndHoldEnabled -bool false
