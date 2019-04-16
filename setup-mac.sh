@@ -213,14 +213,14 @@ rm -rf var-9.3
 # iTerm 2 key bindings
 # add Profile shortcuts since they have highest priority
 
-# Key Combination | Action
-# --------------- | ------
-# ⌥←              | Send ESC + b
-# ⌥→              | Send ESC + f
-# ⌥Del→           | Send ESC + d
-# ⌥←Delete        | Send Hex Code: 0x17
-# ⌘←Delete        | Send Hex Code: 0x15
-# Del→            | Send Hex Code: 0x04
+# Key Combination | Action               | Key
+# --------------- | -------------------- | ------
+# ⌥←              | Send Escape Sequence | Esc+ b
+# ⌥→              | Send Escape Sequence | Esc+ f
+# ⌥Del→           | Send Escape Sequence | Esc+ d
+# ⌥←Delete        | Send Hex Code        | 0x17
+# ⌘←Delete        | Send Hex Code        | 0x15
+# Del→            | Send Hex Code        | 0x04
 
 # make Alt+Backspace properly stop at delimiters
 # iTerm preferences → Profiles → Keys → Left option (⌥) key acts as: (x) +Esc
