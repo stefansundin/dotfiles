@@ -1,0 +1,2 @@
+#!/bin/bash -ex
+sudo sh -c "ulimit -n 8192 && /snap/caddy/current/bin/caddy"
