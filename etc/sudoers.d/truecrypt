@@ -1,1 +1,4 @@
 %sudo ALL=(ALL) NOPASSWD:/usr/bin/truecrypt
+
+# For macOS:
+# %admin ALL=(ALL) NOPASSWD:/Applications/TrueCrypt.app/Contents/MacOS/TrueCrypt
