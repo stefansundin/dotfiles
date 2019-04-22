@@ -85,10 +85,11 @@ u.method(:statements).source_location
 # ~/.powconfig
 export POW_TIMEOUT=3600
 
-# rails 4 console automatic database connection
+# rails 4/5 console automatic database connection
+# skips the "=> User (call 'User.connection' to establish a connection)" message
 module App
   class Application < Rails::Application
-    # Automatically establish database connection in the rails console
+    # Automatically establish a database connection in the rails console
     console do
       ActiveRecord::Base.connection rescue nil
     end
