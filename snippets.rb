@@ -37,6 +37,7 @@ redis-cli FLUSHALL
 
 # rbenv
 # sudo apt-get install -y git build-essential libreadline-dev libxml2-dev libxslt1-dev libpq-dev libsqlite3-dev libmysqlclient-dev libssl-dev
+# brew install git jemalloc readline mysql-client libpq
 # See https://github.com/garnieretienne/rvm-download for precompiled binaries
 git clone https://github.com/rbenv/rbenv.git ~/.rbenv
 git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
