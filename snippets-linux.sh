@@ -102,7 +102,10 @@ sudo mount -t vboxsf -o uid=$UID vboxshare share
 sudo smartctl -A /dev/sdb
 
 # format partition as FAT32 with 64k cluster size (128*512)
-sudo mkdosfs /dev/sdXX -s 128 -F 32 -n label
+sudo mkfs.fat /dev/sdXX -s 128 -F 32 -n "label"
+# exFAT:
+sudo mkfs.exfat /dev/sdXX -n "label"
+sudo fsck.exfat /dev/sdXX
 
 # create user wordpress
 useradd wordpress
