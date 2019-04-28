@@ -28,6 +28,16 @@ Chrome free up disk space after downloading from Mega:
 1. Click on _File system_ to see how much space it is using.
 1. Click the _X_ on the right to delete.
 
+Firefox about:config tweaks:
+- Disable Pocket:
+  ```
+  extensions.pocket.enabled = false
+  ```
+- Tor Browser open magnet links:
+  ```
+  network.protocol-handler.external-default = true
+  ```
+
 Firefox multiple profiles:
 > ```
 > firefox -P default -no-remote
@@ -48,18 +58,6 @@ Firefox Adblock remove Ctrl+Shift+V shortcut:
 > 1. Remove ~~`Accel Shift V,`~~
 > 1. Restart Firefox
 
-Firefox allow mixed content by default:
-> `security.mixed_content.block_active_content = false`
-
-Firefox corrupted text (old AMD cards only?):
-> `gfx.content.azure.enabled = false`
-
-Firefox black background (maybe hardware acceleration):
-> Options → Advanced → General → `[ ] Use hardware acceleration when available`
-
-Tor Browser open magnet links:
-> `network.protocol-handler.external-default = true`
-
 YouTube channel playlist:
 > Add `&feature=mfu_in_order&list=UL`, e.g.
 > ```
@@ -71,7 +69,7 @@ Microsoft Edge SOCKS:
 > - Address: `socks=127.0.0.1`
 > - Port: `4001`
 
-NPM (comes with [Node.js](http://nodejs.org/download/)):
+NPM (comes with [Node.js](https://nodejs.org/download/)):
 > ```
 > npm install -g keybase-installer
 > ```
