@@ -23,6 +23,14 @@ find . -not -user root
 find . -type f | wc -l
 find . -type f -size +10000k -exec ls -lh {} \; | awk '{ print $9 ": " $5 }'
 
+# search and delete
+find . -type f -name '._*' -delete
+find . -type f -name 'Thumbs.db' -delete
+find . -type f -name '.DS_Store' -delete
+
+# find git repositories that need to run 'git gc'
+find . -type f | grep .git/objects | grep -v pack
+
 # grep log without phrase
 cat /var/log/nginx/error.log | grep -v FastCGI | less
 zcat /var/log/nginx/error.log.2.gz | grep -v FastCGI | less
