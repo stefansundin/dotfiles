@@ -125,10 +125,20 @@ defaults write com.apple.finder NSUserKeyEquivalents -dict-add 'Move to Trash' '
 ## WARNING: DELETE KEY WILL NOW DELETE FILES AND FOLDERS IF YOU ARE ATTEMPTING TO RENAME THEM!! USE BACKSPACE!
 defaults read com.apple.finder NSUserKeyEquivalents
 killall Finder
+
 # add 'Open with VLC' to Finder right-click list
 # - Open Automator
 # - Create new Service
 # - Service receives selected: [files or folders] in [Finder.app]
+# - Action: Open Finder Items
+#   - Open with: [VLC.app]
+# - Save service as: Open with VLC
+
+# alternative method
+# - Open Automator
+# - Create new Quick Action
+# - Workflow receives selected: [files or folders] in [Finder.app]
+# - Image: Play
 # - Action: Open Finder Items
 #   - Open with: [VLC.app]
 # - Save service as: Open with VLC
