@@ -10,6 +10,12 @@ SELECT t.relname,l.locktype,page,virtualtransaction,pid,mode,granted FROM pg_loc
 -- kill a lock
 SELECT pg_cancel_backend(pid);
 
+-- one-off max execution time
+SELECT /*+ MAX_EXECUTION_TIME(1000) */ * FROM posts;
+
+-- output results vertically with \G
+SELECT * FROM posts\G
+
 
 -- login path
 mysql_config_editor set --login-path=root --user=root --skip-warn --password
