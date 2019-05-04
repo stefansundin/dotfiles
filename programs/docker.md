@@ -10,9 +10,10 @@ docker rmi $(docker images | grep -v 'ubuntu\|redis' | awk {'print $3'})
 docker rmi $(docker images -aq)
 ```
 
-Allow ubuntu user to user docker:
+Allow ubuntu user to use docker:
 ```
 sudo usermod -aG docker ubuntu
+# then log out and back in
 ```
 
 Enable experimental features:
