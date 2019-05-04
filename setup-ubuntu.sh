@@ -67,6 +67,9 @@ sudo vim /etc/default/whoopsie
   report_crashes=false
 sudo service whoopsie stop
 
+# remove annoying volume change popping sound
+find /usr/share/sounds/ -type f -name audio-volume-change.oga | sudo xargs rm
+
 # use Alt key to drag windows
 gsettings set org.gnome.desktop.wm.preferences mouse-button-modifier '<Alt>'
 
