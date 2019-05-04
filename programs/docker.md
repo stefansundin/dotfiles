@@ -13,7 +13,7 @@ docker rmi $(docker images -aq)
 Allow ubuntu user to use docker:
 ```
 sudo usermod -aG docker ubuntu
-# then log out and back in
+# then reboot
 ```
 
 Enable experimental features:
