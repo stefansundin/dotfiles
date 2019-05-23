@@ -106,8 +106,19 @@ sudo mount -o loop /media/dislocker/dislocker-file /media/bitlocker
 mkdir share
 sudo mount -t vboxsf -o uid=$UID vboxshare share
 
-# read hdd Load_Cycle_Count (LCC)
-sudo smartctl -A /dev/sdb
+# smartctl
+sudo apt install smartmontools
+sudo smartctl -i /dev/sdb > sdb-info.txt
+sudo smartctl -a /dev/sdb > sdb-smart.txt
+sudo smartctl -c /dev/sdb > sdb-capabilities.txt
+# read attributes, including Load_Cycle_Count (LCC)
+sudo smartctl -A /dev/sdb > sdb-attributes.txt
+# short test:
+sudo smartctl -t short /dev/sdb
+# check if test is done with: sudo smartctl -a /dev/sdb
+sudo smartctl -a /dev/sdb > sdb-short-test.txt
+# long test:
+#sudo smartctl -t long /dev/sdb > sdb-long-test.txt # this will take a very long time (check sdb-capabilities.txt)!
 
 # format partition as FAT32 with 64k cluster size (128*512)
 sudo mkfs.fat /dev/sdXX -s 128 -F 32 -n "label"
