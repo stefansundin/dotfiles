@@ -2,6 +2,8 @@
 [1, 2, nil, 4].compact
 [true,false].sample
 File.open("file.log","a+") { |f| f.write "#{var.inspect}\n" }
+require "csv"; CSV.foreach("thing.csv", headers: true) { |row| puts row["id"] }
+
 u = User.first(order:"RANDOM()")
 puts User.all.to_yaml
 User.find(27).touch # clear IdentityCache
