@@ -69,6 +69,8 @@ scp file.png server:
 scp user@example.com:file.png .
 scp -o ProxyJump=bastion.example.com file.zip 10.10.1.5:
 rsync -av -e 'ssh -o ProxyJump=bastion.example.com' file.zip 10.10.1.5:
+scp -r server:files/directory .
+rsync -avt --size-only --append-verify --progress --bwlimit=4000 server:files/directory .
 
 # print /proc/<pid>/environ with nice newlines
 sudo cat /proc/7072/environ | xargs -n 1 -0
