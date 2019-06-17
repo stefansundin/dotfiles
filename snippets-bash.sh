@@ -40,7 +40,7 @@ echo -e "${BOLD_RED}Hello ${BOLD_GREEN}World${RESET}!"
 
 # serve static website, NOW!
 python -m SimpleHTTPServer  # Python 2
-python -m http.server       # Python 3
+python3 -m http.server      # Python 3
 
 # loop urls in file, and download each one with wget, setting the output filename to the basename of the url
 cat s3.txt | while read -r url; do
