@@ -74,6 +74,13 @@ vim ~/Library/KeyBindings/DefaultKeyBinding.dict
 # $    Shift            SHIFT
 # ^    Control          CTRL
 
+# this will print an error if there's a problem with Xcode
+xcodebuild -version
+# install Xcode command line tools
+xcode-select --install
+# accept Xcode EULA
+sudo xcodebuild -license
+
 # enable "Anywhere" option for Gatekeeper ("Allow apps downloaded from" in "Security & Privacy" settings)
 sudo spctl --master-disable
 # prevent Gatekeeper from re-enabling itself after 30 days ("Allow apps downloaded from" in "Security & Privacy")
@@ -82,10 +89,6 @@ sudo defaults write /Library/Preferences/com.apple.security GKAutoRearm -bool fa
 sudo defaults delete com.apple.LaunchServices LSQuarantine
 defaults write com.apple.LaunchServices LSQuarantine -bool false
 sudo xattr -d -r com.apple.quarantine /Applications
-# install Xcode command line tools
-xcode-select --install
-# accept Xcode EULA
-sudo xcodebuild -license
 # set hostname
 sudo scutil --set HostName sundin
 # disable Adobe Creative Cloud from starting on startup
