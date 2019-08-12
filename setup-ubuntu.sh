@@ -67,6 +67,16 @@ sudo vim /etc/default/whoopsie
   report_crashes=false
 sudo service whoopsie stop
 
+# fix sound crackling after not playing any sound for a while
+echo 0 | sudo tee /sys/module/snd_hda_intel/parameters/power_save
+# permanently
+cat << 'EOF' | sudo tee /etc/rc.local
+#!/bin/bash
+echo 0 > /sys/module/snd_hda_intel/parameters/power_save
+exit 0
+EOF
+sudo chmod +x /etc/rc.local
+
 # remove annoying volume change popping sound
 find /usr/share/sounds/ -type f -name audio-volume-change.oga | sudo xargs rm
 
