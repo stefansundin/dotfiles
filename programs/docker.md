@@ -2,6 +2,11 @@ Docker for Mac:
 - https://download.docker.com/mac/stable/Docker.dmg
 - https://download.docker.com/mac/edge/Docker.dmg
 
+Clean up stuff:
+```
+docker system prune
+```
+
 Clean up orphaned volumes:
 ```
 docker volume rm $(docker volume ls -qf dangling=true)
