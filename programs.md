@@ -23,6 +23,9 @@ Chrome SOCKS:
 > google-chrome --proxy-server="socks5://localhost:4045"
 > ```
 
+Chrome flags:
+- Disable huge volume box in Windows: chrome://flags/#enable-media-session-service
+
 Chrome free up disk space after downloading from Mega:
 1. Go to chrome://settings/cookies/detail?site=mega.nz
 1. Click on _File system_ to see how much space it is using.
