@@ -8,6 +8,9 @@ sudo -K
 # see available versions of package
 apt-cache policy nginx
 
+# see progress of unattended-upgrades
+tail -f /var/log/unattended-upgrades/unattended-upgrades-dpkg.log
+
 # mount encrypted home directory on another disk
 # get mount passphrase (this is what it tells you to save after you encrypt your home directory):
 ecryptfs-unwrap-passphrase /media/ubuntu/long-uuid/home/.ecryptfs/username/.ecryptfs/wrapped-passphrase
