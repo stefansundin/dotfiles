@@ -5,8 +5,29 @@ sleep 5 && scrot screenshot.png
 # sudo forget password
 sudo -K
 
+# search for a package
+apt-cache search vim
+
+# show package information
+apt-cache show vim
+dpkg -s vim
+
+# list files in a package
+dpkg -L nginx
+
+# show package containing path
+dpkg -S /usr/lib/evolution/
+
 # see available versions of package
 apt-cache policy nginx
+
+# clean up dpkg stuff
+sudo apt-get autoremove
+sudo apt-get clean
+sudo apt-get autoclean
+
+# get list of installed and uninstalled packages
+dpkg --get-selections
 
 # see progress of unattended-upgrades
 tail -f /var/log/unattended-upgrades/unattended-upgrades-dpkg.log
