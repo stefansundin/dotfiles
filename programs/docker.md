@@ -47,4 +47,8 @@ Enable experimental features:
 $ sudo vim /etc/docker/daemon.json
 {"experimental": true}
 $ sudo systemctl restart docker
+
+# using snap:
+$ sudo vim /var/snap/docker/current/config/daemon.json
+$ sudo snap restart docker
 ```
