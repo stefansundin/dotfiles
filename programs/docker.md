@@ -22,8 +22,24 @@ docker rmi $(docker images -aq)
 
 Allow ubuntu user to use docker:
 ```
+# if the group does not exist, create it: (this is the case for snap)
+sudo groupadd docker
+
+# add user to group:
 sudo usermod -aG docker ubuntu
-# then reboot
+
+# discover the new group:
+newgrp docker
+
+# restart daemon:
+sudo systemctl restart docker
+sudo snap restart docker
+
+# try without sudo:
+docker ps
+
+# if things still don't work, log out and back in.
+# as a last resort, try rebooting
 ```
 
 Enable experimental features:
