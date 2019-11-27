@@ -16,8 +16,6 @@ sudo xattr -d -r com.apple.quarantine /Applications
 grep -nr paginator .
 find . -name "*.css" | xargs -l10 grep ".ir"
 
-# press ⌘⇧. (Cmd+Shift+.) to show dotfiles in Open/Save dialogs
-
 # flush DNS
 dscacheutil -flushcache && sudo killall -HUP mDNSResponder
 
@@ -48,6 +46,9 @@ brew install bash
 /usr/local/bin/zsh
 # then use:
 chsh -s /usr/local/bin/bash
+
+# turn off notification bubble for System Preferences
+defaults write com.apple.systempreferences AttentionPrefBundleIDs 0
 
 # keyboard key-repeat
 defaults write -g ApplePressAndHoldEnabled -bool false
