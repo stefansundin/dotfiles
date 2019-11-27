@@ -1,3 +1,6 @@
+# press ⌘⇧. (Cmd+Shift+.) to show dotfiles in Open/Save dialogs
+# press ⌘^Space (Cmd+Ctrl+Space) to show the emoji keyboard
+
 # remove quarantine flag from executables
 sudo xattr -d -r com.apple.quarantine /Applications
 
