@@ -1,3 +1,7 @@
+# find out what go version was used to build a binary
+$ gdb --batch -iex "set auto-load no" -ex "p 'runtime.buildVersion'" aws-rotate-key
+$1 = 0x83e866 "go1.12.10"
+
 # go get and link
 go get -u github.com/stefansundin/aws-rotate-key
 ln -s $GOPATH/src/github.com/stefansundin/aws-rotate-key code/aws-rotate-key
