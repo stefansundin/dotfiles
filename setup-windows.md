@@ -252,6 +252,15 @@ After install:
    reg add HKCU\Software\Microsoft\Multimedia\Audio\DeviceCpl /v ShowHiddenDevices /t REG_DWORD /d 1 /f & reg add HKCU\Software\Microsoft\Multimedia\Audio\DeviceCpl /v ShowDisconnectedDevices /t REG_DWORD /d 1 /f & pause
    ```
 
+1. Block Chrome Chrome Software Reporter Tool (`software_reporter_tool.exe`):
+
+   Right-click the start button and open _Windows PowerShell (Admin)_. Then run:
+
+   ```
+   reg add HKLM\SOFTWARE\Policies\Google\Chrome /v ChromeCleanupEnabled /t REG_DWORD /d 0 /f
+   reg add HKLM\SOFTWARE\Policies\Google\Chrome /v ChromeCleanupReportingEnabled /t REG_DWORD /d 0 /f
+   ```
+
 1. TrueCrypt auto-mount:
 
    ```
