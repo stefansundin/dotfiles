@@ -8,3 +8,11 @@ echo 'deb https://apt.kubernetes.io/ kubernetes-xenial main' | sudo tee /etc/apt
 sudo apt-get update
 sudo apt-get install kubectl
 ```
+
+## microk8s
+
+```
+sudo snap install microk8s --classic
+sudo snap alias microk8s.kubectl kubectl
+sudo usermod -a -G microk8s your_username
+```
