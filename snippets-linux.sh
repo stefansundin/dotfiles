@@ -129,9 +129,9 @@ sudo mkfs.exfat /dev/sdXX -n "label"
 sudo fsck.exfat /dev/sdXX
 
 # create user wordpress
-useradd wordpress
+sudo useradd wordpress
 # add user wordpress to group www-data
-usermod -a -G www-data wordpress
+sudo usermod -a -G www-data wordpress
 # list groups a user is in
 groups wordpress
 # list users in a group
