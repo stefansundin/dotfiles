@@ -117,11 +117,12 @@ sudo apt-get update
 sudo apt-get install atom
 
 # Sublime Text - https://www.sublimetext.com/docs/3/linux_repositories.html
+# Sublime Merge - https://www.sublimemerge.com/docs/linux_repositories
 sudo apt-get install apt-transport-https
 wget -O- https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add -
 echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sources.list.d/sublime-text.list
 sudo apt-get update
-sudo apt-get install sublime-text
+sudo apt-get install sublime-text sublime-merge
 
 # Git
 sudo add-apt-repository ppa:git-core/ppa
@@ -160,6 +161,12 @@ wget -O- https://packagecloud.io/slacktechnologies/slack/gpgkey | sudo apt-key a
 echo "deb https://packagecloud.io/slacktechnologies/slack/debian/ jessie main" | sudo tee /etc/apt/sources.list.d/slack.list
 sudo apt-get update
 sudo apt-get install slack-desktop
+
+# Flirc - https://flirc.tv/ubuntu-software-installation-guide
+sudo apt-get install -y apt-transport-https
+echo "deb [trusted=yes] https://apt.fury.io/flirc/ /" | sudo tee /etc/apt/sources.list.d/flirc_fury.list
+sudo apt-get update
+sudo apt-get install flirc
 
 # Yubikey
 sudo add-apt-repository ppa:yubico/stable
