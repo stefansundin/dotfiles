@@ -1,3 +1,6 @@
+# clean up caches:
+go clean -cache -testcache -modcache
+
 # find out what go version was used to build a binary
 $ gdb --batch -iex "set auto-load no" -ex "p 'runtime.buildVersion'" aws-rotate-key
 $1 = 0x83e866 "go1.12.10"
