@@ -20,15 +20,17 @@ git config --global core.editor 'vim -c "set mouse="'
 git config --global core.fileMode false
 git update-index --chmod=+x script.sh
 
+git config --global alias.co 'checkout --ignore-other-worktrees'
+git config --global alias.ci commit
+git config --global alias.cim 'commit --allow-empty-message -m ""'
+git config --global alias.st status
+
 # git config --global alias.yolo '!git commit -am "DEAL WITH IT!" && git push -f origin master'
 git config --global alias.aliases '!git config --list | grep -v alias.aliases | grep alias. | sed -e "s/alias\.//" | cut -c 1-50 | column -s= -t | sort'
 git config --global alias.amend 'commit --amend --date="$(date -R)"'
 git config --global alias.b 'checkout -b'
 git config --global alias.br branch
-git config --global alias.ci commit
-git config --global alias.cim 'commit --allow-empty-message -m ""'
 git config --global alias.cl 'clone --recursive -j8'
-git config --global alias.co 'checkout --ignore-other-worktrees'
 git config --global alias.contains 'branch -a --contains'
 git config --global alias.d '!git diff HEAD~${1:-1} HEAD~$((${1:-1}-1)) ${*:2} #'
 # git config --global alias.d 'diff HEAD^..HEAD'
@@ -45,7 +47,6 @@ git config --global alias.lo "log --pretty=format:'%C(yellow)%h%Creset %ci %<|(5
 git config --global alias.lom '!git remote update origin; echo; git log ..@{u} --merges --pretty=format:"%C(yellow)%h%Creset %ci %<|(50)%Cred%cr%Creset %<|(70)%cn%d%n%s%n"'
 git config --global alias.recent '!git for-each-ref --sort=-committerdate refs/heads/ | head -${*-10} #'
 git config --global alias.rollback '!git reset --hard HEAD^ && git clean -fd'
-git config --global alias.st status
 git config --global alias.incoming '!git remote update origin; git log ..@{u}'
 git config --global alias.outgoing 'log @{u}..'
 git config --global alias.up "pull --rebase upstream master"

@@ -1,7 +1,9 @@
 # Terminal emulators: gnome-terminal, terminator, yakuake, guake, tilda, mrxvt
 # http://askubuntu.com/questions/30334/what-application-indicators-are-available/
 
-sudo apt-get install vim ssh curl synaptic vlc git filezilla rar gimp gparted uptimed pngcrush exfat-fuse exfat-utils gnome-font-viewer
+sudo apt-get install vim curl synaptic apt-transport-https
+
+sudo apt-get install ssh vlc git filezilla rar gimp gparted uptimed pngcrush exfat-fuse exfat-utils gnome-font-viewer
 sudo apt-get install indicator-cpufreq ghex flac lm-sensors rtmpdump deluge xchat mplayer ubuntu-restricted-extras
 sudo apt-get install *wallpapers
 
@@ -93,9 +95,6 @@ gsettings set com.canonical.unity-greeter play-ready-sound "false"
 # move launcher to bottom
 gsettings set com.canonical.Unity.Launcher launcher-position Bottom
 
-# enable workspaces
-# Appearance → "Behavior" tab → Check "Enable workspaces".
-
 # disable remote search lenses
 # start "Privacy" and disable "Include online search results" in "Search" tab.
 gsettings set com.canonical.Unity.Lenses disabled-scopes \
@@ -104,11 +103,18 @@ gsettings set com.canonical.Unity.Lenses disabled-scopes \
   'more_suggestions-ebay.scope', 'more_suggestions-ubuntushop.scope',
   'more_suggestions-skimlinks.scope']"
 
-# disable Firefox Web Apps ("Would you like to install X?")
-# go to General tab in Preferences, uncheck "Prompt integration options from any website".
-
+# install apt version of Software Store
+sudo snap remove snap-store
+sudo apt-get install --no-install-recommends gnome-software
 # remove snap packages from Ubuntu Software (can still install with `snap install ...`)
 sudo apt-get remove gnome-software-plugin-snap
+
+# vscode
+sudo apt-get install apt-transport-https
+wget -O- https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
+echo 'deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main' | sudo tee /etc/apt/sources.list.d/vscode.list
+sudo apt-get update
+sudo apt-get install code
 
 # Atom - https://flight-manual.atom.io/getting-started/sections/installing-atom/#debian-and-ubuntu-debapt
 wget -O- https://packagecloud.io/AtomEditor/atom/gpgkey | sudo apt-key add -
@@ -141,8 +147,8 @@ sudo systemctl stop resilio-sync.service
 sudo systemctl disable resilio-sync.service
 sudo sed -i 's/WantedBy=multi-user.target/WantedBy=default.target/g' /usr/lib/systemd/user/resilio-sync.service
 sudo systemctl daemon-reload
-sudo systemctl --user enable resilio-sync
-sudo systemctl --user start resilio-sync
+systemctl --user enable resilio-sync
+systemctl --user start resilio-sync
 # system install:
 sudo usermod -a -G rslsync stefan
 
@@ -163,7 +169,7 @@ sudo apt-get update
 sudo apt-get install slack-desktop
 
 # Flirc - https://flirc.tv/ubuntu-software-installation-guide
-sudo apt-get install -y apt-transport-https
+sudo apt-get install apt-transport-https
 echo "deb [trusted=yes] https://apt.fury.io/flirc/ /" | sudo tee /etc/apt/sources.list.d/flirc_fury.list
 sudo apt-get update
 sudo apt-get install flirc
@@ -251,12 +257,7 @@ sudo apt-get remove linux-headers-generic
 sudo apt-mark manual linux-image-generic
 
 # update to mainline kernel
-https://wiki.ubuntu.com/Kernel/MainlineBuilds
-http://kernel.ubuntu.com/~kernel-ppa/mainline/v3.9.6-saucy/
-# download linux-headers … _all.deb and the packages for the correct architecture into a separate directory
-sudo dpkg -i *.deb
-sudo update-grub
-sudo apt-get remove linux-generic linux-image-generic linux-headers-generic
+# https://wiki.ubuntu.com/Kernel/MainlineBuilds
 
 # brightness control in systray
 sudo add-apt-repository ppa:indicator-brightness/ppa
