@@ -1,0 +1,4 @@
+/* flip video horizontally */
+video {
+  transform: scaleX(-1);
+}
