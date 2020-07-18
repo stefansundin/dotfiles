@@ -1,4 +1,6 @@
 # http://pinout.xyz/
+# increase GPU RAM to 256 MB for less lag in some programs, such as Kodi
+
 sudo raspi-config
 # enable ssh on boot with Interfacing options -> ssh -> Enable
 
@@ -14,6 +16,9 @@ sudo vim /etc/systemd/system/network-online.targets.wants/networking.service
 sudo vim /etc/network/interfaces
 iface wlan0 inet manual
     wireless-power off
+
+# start kodi on startup (this just puts the line "@kodi" at the top of the file)
+sudo sed -i "1i @kodi" /etc/xdg/lxsession/LXDE-pi/autostart
 
 # 7 inch display GPIO: https://www.modmypi.com/image/data/tutorials/raspberry-pi-7-touch-screen-assembly-guide/16.jpg
 # Red    – 5V  - Pin 2
