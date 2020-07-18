@@ -2,6 +2,10 @@
 sudo raspi-config
 # enable ssh on boot with Interfacing options -> ssh -> Enable
 
+# other ways to enable ssh:
+sudo systemctl enable ssh
+touch /boot/ssh
+
 # do not wait forever for the network on boot
 sudo vim /etc/systemd/system/network-online.targets.wants/networking.service
 # lower TimeoutStartSec
