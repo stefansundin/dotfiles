@@ -219,13 +219,8 @@ After install:
 
 1. Disable error reporting:
 
-   > Control Panel → Troubleshooting → Change settings → `(x) Off` and `[ ] Allow troubleshooting to begin immediately when started`
-
-1. Uninstall Skype app:
-
    ```
-   dism /online /Remove-ProvisionedAppxPackage /PackageName:Microsoft.WindowsAlarms_2013.1204.852.3011_neutral_~_8wekyb3d8bbwe
-   dism /online /Get-ProvisionedAppxPackages
+   reg add "HKLM\SOFTWARE\Microsoft\Windows\Windows Error Reporting" /v Disabled /t REG_DWORD /d 1 /f & pause
    ```
 
 1. Remove most ads from Skype:
@@ -252,7 +247,7 @@ After install:
    reg add HKCU\Software\Microsoft\Multimedia\Audio\DeviceCpl /v ShowHiddenDevices /t REG_DWORD /d 1 /f & reg add HKCU\Software\Microsoft\Multimedia\Audio\DeviceCpl /v ShowDisconnectedDevices /t REG_DWORD /d 1 /f & pause
    ```
 
-1. Block Chrome Chrome Software Reporter Tool (`software_reporter_tool.exe`):
+1. Block Chrome Software Reporter Tool (`software_reporter_tool.exe`):
 
    Right-click the start button and open _Windows PowerShell (Admin)_. Then run:
 
