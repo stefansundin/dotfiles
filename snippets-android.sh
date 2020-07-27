@@ -11,6 +11,8 @@ adb shell ls /sys/class/net
 ~/android-studio/sdk/build-tools/android-4.2.2/aapt dump badging apk-compass-sample.apk | grep package
 # get current activity name
 adb shell dumpsys window windows | grep -E 'mCurrentFocus|mFocusedApp'
+# send keyboard input (beware with special characters)
+adb shell input text 'abc'
 
 .nomedia file prevents indexing media files in directory
 
