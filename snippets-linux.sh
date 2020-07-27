@@ -54,6 +54,9 @@ sudo -u man find / -writable 2>/dev/null
 # drop caches
 echo 3 | sudo tee /proc/sys/vm/drop_caches
 
+# reboot to BIOS
+systemctl reboot --firmware-setup
+
 # streams
 # use less on stderr
 ~/verify-sigs.sh 2>&1 | less
