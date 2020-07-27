@@ -77,6 +77,14 @@ After install:
 
    > Win+R → `gpedit.msc` → Computer Configuration → Administrative Templates → Windows Components → Windows Defender → Turn off Windows Defender → `(x) Enabled`
 
+1. Turn off web search from start menu:
+
+   ```
+   reg add HKCU\SOFTWARE\Policies\Microsoft\Windows\Explorer /v DisableSearchBoxSuggestions /t REG_DWORD /d 1 /f
+   ```
+
+   Also available through `gpedit.msc` → User Configuration → Administrative Templates → Windows Components → File Explorer → Turn off display of recent search entries in the File Explorer search box → (x) Enabled.
+
 1. Remove "3D Objects" from explorer sidebar:
 
    ```
