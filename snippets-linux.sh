@@ -54,7 +54,7 @@ sudo -u man find / -writable 2>/dev/null
 # drop caches
 echo 3 | sudo tee /proc/sys/vm/drop_caches
 
-# reboot to BIOS
+# reboot to EFI
 systemctl reboot --firmware-setup
 
 # streams
