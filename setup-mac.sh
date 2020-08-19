@@ -52,6 +52,7 @@ defaults write com.apple.systempreferences AttentionPrefBundleIDs 0
 
 # keyboard key-repeat
 defaults write -g ApplePressAndHoldEnabled -bool false
+defaults read -g ApplePressAndHoldEnabled
 
 # fix Home/End on full-size keyboards
 mkdir ~/Library/KeyBindings/
@@ -283,6 +284,7 @@ open ~/Library/Preferences/com.apple.LaunchServices.plist
 for type in public.mpeg-4 public.avi public.mp3 public.mp2 com.apple.quicktime-movie com.microsoft.waveform-audio com.apple.m4a-audio; do duti -s org.videolan.vlc $type all; done
 for type in conf ini public.plain-text public.m3u-playlist public.php-script public.shell-script public.ruby-script public.xml com.apple.log public.comma-separated-values-text com.netscape.javascript-source net.daringfireball.markdown com.barebones.bbedit.ini-configuration; do duti -s com.sublimetext.3 $type all; done
 duti -s com.adobe.reader com.adobe.pdf all
+duti -s com.googlecode.iTerm2 com.apple.terminal.shell-script shell
 
 
 # uninstall heroku toolbelt

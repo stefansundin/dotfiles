@@ -1,15 +1,12 @@
 # brew bundle
 # brew link --force readline curl
-# pip install -U awscli awsebcli pgcli
+# pip install -U awscli awsebcli pgcli youtube-dl
 # brew cask install vagrant
 
 tap 'homebrew/bundle'
 tap 'homebrew/core'
-tap 'homebrew/dupes'
-tap 'homebrew/gui'
 tap 'homebrew/services'
-tap 'homebrew/versions'
-tap 'caskroom/cask'
+tap 'homebrew/cask'
 tap 'stefansundin/tap'
 
 # basic tools
@@ -19,6 +16,7 @@ brew 'coreutils'
 brew 'curl'
 brew 'duti'
 brew 'git'
+brew 'tig'
 brew 'gnu-tar'
 brew 'gcal'
 brew 'openssl'
@@ -28,10 +26,9 @@ brew 'xz'
 
 # linux tools
 brew 'gnupg'
-brew 'gpg-agent'
 brew 'pinentry-mac'
 brew 'htop'
-brew 'imagemagick', args: ['with-libtiff', 'with-ghostscript']
+brew 'imagemagick'
 brew 'jq'
 brew 'p7zip'
 brew 'pngcrush'
@@ -39,7 +36,6 @@ brew 'ssh-copy-id'
 brew 'tmux'
 brew 'watch'
 brew 'rsync'
-brew 'youtube-dl'
 
 # development
 brew 'certbot'
@@ -47,18 +43,19 @@ brew 'colordiff'
 brew 'go'
 brew 'jsonpp'
 brew 'python'
-brew 'python3'
 brew 'redis'
 brew 'sqlite'
 
 # newer version of ssh
 brew 'openssh'
 
-# node 6 (AWS Lambda is running 6.10)
-brew 'node@6'
+# old version of node (AWS Lambda@Edge supports v12)
+brew 'node@12'
 
-# AWS
+# HashiCorp
 brew 'packer'
+
+# my stuff:
 brew 'aws-rotate-key'
 
 # docker
@@ -67,9 +64,12 @@ brew 'aws-rotate-key'
 
 # casks
 cask 'brewservicesmenubar'
+cask 'menubar-countdown'
+cask 'disk-inventory-x'
 cask 'vagrant'
 cask 'mpv'
-cask 'kdiff3'
+cask 'sublime-text'
+cask 'sublime-merge'
 cask 'webpquicklook'
 cask 'qlmarkdown'
 cask 'google-cloud-sdk'
@@ -78,3 +78,4 @@ cask 'google-cloud-sdk'
 
 # misc
 cask 'vlc-protocol'
+cask 'keepingyouawake'
