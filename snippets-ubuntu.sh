@@ -1,3 +1,7 @@
+multipass launch --name primary focal
+# make multipass use iTerm2 on macOS:
+duti -s com.googlecode.iTerm2 com.apple.terminal.shell-script shell
+
 # screenshot from terminal
 sudo apt-get install scrot
 sleep 5 && scrot screenshot.png

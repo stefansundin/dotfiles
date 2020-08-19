@@ -39,7 +39,7 @@ redis-cli FLUSHALL
 
 # rbenv
 # sudo apt-get install -y git build-essential libreadline-dev libxml2-dev libxslt1-dev libpq-dev libsqlite3-dev libmysqlclient-dev libssl-dev
-# brew install git jemalloc readline mysql-client libpq
+# brew install git jemalloc readline libpq mysql-client
 # See https://github.com/garnieretienne/rvm-download for precompiled binaries
 git clone https://github.com/rbenv/rbenv.git ~/.rbenv
 git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
@@ -58,6 +58,20 @@ rails _4.2.10_ --version
 
 bundle config --global ignore_messages.httparty true
 bundle config --global disable_version_check true
+
+# gem building with specific homebrew packages:
+# mysql2:
+bundle config --global build.mysql2 --with-opt-dir="$(brew --prefix openssl@1.1)"
+bundle config --global build.mysql2 "--with-ldflags='-L/usr/local/opt/openssl@1.1/lib -L/usr/local/opt/mysql-client/lib' --with-cppflags='-I/usr/local/opt/openssl@1.1/include -I/usr/local/opt/mysql-client/include'"
+bundle config --global build.mysql2 '--with-opt-dir="$(brew --prefix openssl@1.1)" --with-opt-dir="$(brew --prefix mysql-client)"'
+bundle config --global build.mysql2 --with-opt-dir="$(brew --prefix openssl@1.1)" --with-opt-dir="$(brew --prefix mysql-client)"
+bundle config --global build.mysql2 "--with-ldflags='-L/usr/local/opt/mysql-client/lib' --with-cppflags='-I/usr/local/opt/mysql-client/include'"
+# libpq:
+bundle config --global build.pg --with-pg-config=/usr/local/opt/libpq/bin/pg_config
+# libv8 and therubyracer:
+brew install v8@3.15
+bundle config set --global build.libv8 --with-system-v8
+bundle config set --global build.therubyracer --with-v8-dir=/usr/local/opt/v8@3.15
 
 # Gems
 group :development do

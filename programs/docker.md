@@ -2,6 +2,17 @@ Docker for Mac:
 - https://download.docker.com/mac/stable/Docker.dmg
 - https://download.docker.com/mac/edge/Docker.dmg
 
+credHelpers:
+- https://github.com/awslabs/amazon-ecr-credential-helper
+
+```
+{
+	"credHelpers": {
+		"aws_account_id.dkr.ecr.region.amazonaws.com": "ecr-login"
+	}
+}
+```
+
 Clean up stuff:
 ```
 docker system prune
@@ -16,8 +27,9 @@ Clean up images:
 ```
 docker kill $(docker ps -aq)
 docker rm $(docker ps -aq)
-docker rmi $(docker images | grep -v 'ubuntu\|redis' | awk {'print $3'})
-docker rmi $(docker images -aq)
+docker rmi $(docker images | tail -n +2 | grep -v 'ubuntu\|redis' | awk {'print $3'} | uniq)
+docker rmi -f $(docker images -aq)
+docker volume prune
 ```
 
 Allow ubuntu user to use docker:

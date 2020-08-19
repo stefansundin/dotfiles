@@ -16,10 +16,21 @@ SELECT /*+ MAX_EXECUTION_TIME(1000) */ * FROM posts;
 -- output results vertically with \G
 SELECT * FROM posts\G
 
+CREATE TABLE posts (
+  `id` bigint(20) PRIMARY KEY AUTO_INCREMENT,
+  `user_id` bigint(20) NOT NULL,
+  `title` text NOT NULL,
+  `body` text NOT NULL
+);
+INSERT INTO posts (user_id,title,body) VALUES (1, 'first post', 'first!');
+INSERT INTO other_database.dummy (user_id,title,body) VALUES (1, 'first post', 'first!');
 
 -- login path
 mysql_config_editor set --login-path=root --user=root --skip-warn --password
 mysql --login-path=root -e "SHOW DATABASES"
+-- get plain text password:
+my_print_defaults -s root
+
 
 -- mysql initialize
 mysqld --initialize

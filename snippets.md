@@ -1,5 +1,7 @@
 # Markdown
 
+Keyboard button styling: <kbd>Enter</kbd>. <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>Delete</kbd>.
+
 <details><summary>Shrug emoji: ¯\_(ツ)_/¯</summary>
 
 ¯\\\_(ツ)\_/¯
@@ -53,4 +55,3 @@ This is a h5.
 ###### H6
 This is a h6.
 </details>
-

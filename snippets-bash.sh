@@ -1,6 +1,29 @@
 # echo to stderr
 >&2 echo "error"
 
+# trap errors in script
+# if using -e, then also use -E
+# available codes (see "help trap"): EXIT, DEBUG, RETURN, ERR.
+function cleanup {
+  echo 'clean up things'
+}
+trap cleanup ERR
+
+# serve static website, NOW!
+python -m SimpleHTTPServer  # Python 2
+python3 -m http.server      # Python 3
+
+# loop urls in file, and download each one with wget, setting the output filename to the basename of the url
+cat s3.txt | while read -r url; do
+  fn=${url%%\?*}
+  fn=${fn##*/}
+  [[ -f "$fn" ]] && continue
+  wget -O "$fn" "$url"
+done
+
+
+
+# colors
 export RESET="\033[0m"
 export BLACK="\033[30m"
 export RED="\033[31m"
@@ -37,15 +60,3 @@ export BACKGROUND_LIGHT_CYAN="\033[106m"
 export BACKGROUND_WHITE="\033[107m"
 
 echo -e "${BOLD_RED}Hello ${BOLD_GREEN}World${RESET}!"
-
-# serve static website, NOW!
-python -m SimpleHTTPServer  # Python 2
-python3 -m http.server      # Python 3
-
-# loop urls in file, and download each one with wget, setting the output filename to the basename of the url
-cat s3.txt | while read -r url; do
-  fn=${url%%\?*}
-  fn=${fn##*/}
-  [[ -f "$fn" ]] && continue
-  wget -O "$fn" "$url"
-done

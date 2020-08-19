@@ -12,9 +12,19 @@ git config --global log.showSignature true
 git config --global tag.sort version:refname
 git config --global core.excludesFile ~/.gitignore
 git config --global core.editor 'vim -c "set mouse="'
+git config --global protocol.version 1
+git config --global init.defaultBranch main
 # git config --global core.editor vim
 # git config --global core.editor "subl -w"
 # git config --global core.editor "sublime_text.exe -w"
+
+git config --global pull.ff only
+git config --global pull.rebase false
+
+# mergetool
+git config --global mergetool.smerge.cmd 'smerge mergetool "$BASE" "$LOCAL" "$REMOTE" -o "$MERGED"'
+git config --global mergetool.smerge.trustExitCode true
+git config --global merge.tool smerge
 
 # windows
 git config --global core.fileMode false
@@ -24,6 +34,7 @@ git config --global alias.co 'checkout --ignore-other-worktrees'
 git config --global alias.ci commit
 git config --global alias.cim 'commit --allow-empty-message -m ""'
 git config --global alias.st status
+git config --global alias.sparse-clone 'clone --filter=blob:none --recursive -j8'
 
 # git config --global alias.yolo '!git commit -am "DEAL WITH IT!" && git push -f origin master'
 git config --global alias.aliases '!git config --list | grep -v alias.aliases | grep alias. | sed -e "s/alias\.//" | cut -c 1-50 | column -s= -t | sort'
@@ -49,14 +60,19 @@ git config --global alias.recent '!git for-each-ref --sort=-committerdate refs/h
 git config --global alias.rollback '!git reset --hard HEAD^ && git clean -fd'
 git config --global alias.incoming '!git remote update origin; git log ..@{u}'
 git config --global alias.outgoing 'log @{u}..'
-git config --global alias.up "pull --rebase upstream master"
+git config --global alias.up "pull --rebase origin master"
+git config --global alias.pu "pull origin master --ff-only"
+git config --global alias.pum "pull origin master --no-ff --no-edit"
 
+git config --global alias.pr '!git remote add $1 git@github.com:$1/$(git remote get-url origin | sed -e "s/.*\///") #'
+git pr bivanov
 git config --global alias.add-fork '!git remote add $1 git@github.com:$1/$(git remote get-url origin | sed -e "s/.*\///"); git fetch $1 #'
 git add-fork bivanov
 
 git commit --allow-empty -m 'root commit'
 git submodule update --recursive --remote
 git rev-list HEAD --count
+git shortlog -sn --no-merges
 git remote add upstream git@github.com:DrWhax/truecrypt-archive.git
 git pull upstream master
 git pull --rebase origin master
@@ -126,6 +142,9 @@ git archive master | bzip2 > ../files.tar.bz2
 wget -O ~/bin/git-archive-all https://raw.githubusercontent.com/meitar/git-archive-all.sh/master/git-archive-all.sh
 chmod +x ~/bin/git-archive-all
 git archive-all -- - | bzip2 > ../files.tar.bz2
+
+# git filter-repo
+curl -s -o ~/bin/git-filter-repo https://raw.githubusercontent.com/newren/git-filter-repo/master/git-filter-repo && chmod +x ~/bin/git-filter-repo
 
 # gists
 https://gist.github.com/stefansundin/9059706#install-pre-commit.sh

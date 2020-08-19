@@ -17,6 +17,9 @@ sudo strace -s 1024 -e stat -p 2876
 lsb_release -a
 cat /etc/issue
 
+# cat and follow
+tail +1f file.txt
+
 # search
 find . -not -readable
 find . -not -user root
@@ -31,6 +34,9 @@ find . -type f -name '.DS_Store' -delete
 # find git repositories that need to run 'git gc'
 find . -type f | grep .git/objects | grep -v pack
 
+# grep log files, compressed and uncompressed
+zcat -f -- /var/log/nginx/error.log* | grep FastCGI | less
+
 # grep log without phrase
 cat /var/log/nginx/error.log | grep -v FastCGI | less
 zcat /var/log/nginx/error.log.2.gz | grep -v FastCGI | less
@@ -38,6 +44,9 @@ zless /var/log/nginx/error.log.2.gz
 
 # trigger logrotate
 sudo logrotate --force /etc/logrotate.d/nginx
+
+# truncate file (without breaking file handles)
+truncate --size=0 general.log
 
 # find string inside directory
 grep -nr Link* .
@@ -47,6 +56,10 @@ find / -iname '*truecrypt*'
 
 # find files writable by user
 sudo -u man find / -writable 2>/dev/null
+
+# curl with switches appropriate for scripts
+# -f = fail with non-zero exit code, -s = silent, -S = show errors, -L = follow redirects
+curl -fsSL
 
 # handy directories
 /var/spool/cron/crontabs
