@@ -1,0 +1,21 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: my-job
+spec:
+  template:
+    metadata:
+      name: my-job
+    spec:
+      restartPolicy: Never
+      containers:
+      - name: job
+        command: [""]
+        image: ruby
+        imagePullPolicy: Always
+        resources:
+          limits:
+            memory: 1Gi
+          requests:
+            cpu: 500m
+            memory: 1Gi
