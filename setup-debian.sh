@@ -1,3 +1,8 @@
+# get apt-get suggestions when attempting to run missing binaries (like Ubuntu)
+sudo apt install command-not-found
+sudo apt update
+sudo update-command-not-found
+
 # ppas
 sudo apt-get install software-properties-common
 sudo add-apt-repository ppa:git-core/ppa
