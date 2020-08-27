@@ -1,7 +1,6 @@
 # brew bundle
 # brew link --force readline curl
-# pip install -U awscli awsebcli pgcli youtube-dl
-# brew cask install vagrant
+# pip install -U awsebcli pgcli youtube-dl
 
 tap 'homebrew/bundle'
 tap 'homebrew/core'
@@ -49,20 +48,15 @@ brew 'sqlite'
 # newer version of ssh
 brew 'openssh'
 
-# old version of node (AWS Lambda@Edge supports v12)
-brew 'node@12'
-
-# HashiCorp
-brew 'packer'
-
 # my stuff:
-brew 'aws-rotate-key'
+cask 'vlc-protocol'
 
 # docker
 # brew 'docker'
 # brew 'docker-compose'
 
 # casks
+cask 'keepingyouawake'
 cask 'brewservicesmenubar'
 cask 'menubar-countdown'
 cask 'disk-inventory-x'
@@ -75,7 +69,3 @@ cask 'qlmarkdown'
 cask 'google-cloud-sdk'
 # cask 'inkscape'
 # cask 'google-earth-pro'
-
-# misc
-cask 'vlc-protocol'
-cask 'keepingyouawake'
