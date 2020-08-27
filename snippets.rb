@@ -86,6 +86,7 @@ end
 require "erb"
 f = "config/database.yml"
 puts ERB.new(File.open(f).read).result
+puts ERB.new(File.open("config/database.yml").read).result
 puts ERB.new(File.open("config/newrelic.yml").read).result
 
 # config/environments/development.rb

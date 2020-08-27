@@ -1,3 +1,5 @@
+go mod edit -go=1.15
+
 # clean up caches:
 go clean -cache -testcache -modcache
 

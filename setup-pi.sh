@@ -20,6 +20,12 @@ iface wlan0 inet manual
 # start kodi on startup (this just puts the line "@kodi" at the top of the file)
 sudo sed -i "1i @kodi" /etc/xdg/lxsession/LXDE-pi/autostart
 
+# hide the mouse cursor when idle
+echo "@unclutter -root" | sudo tee -a /etc/xdg/lxsession/LXDE-pi/autostart
+
+# remove prompt when double-clicking executable file (e.g. .desktop files)
+# open a folder, then Edit -> Preferences -> [x] Don't ask options on launch executable file
+
 # 7 inch display GPIO: https://www.modmypi.com/image/data/tutorials/raspberry-pi-7-touch-screen-assembly-guide/16.jpg
 # Red    – 5V  - Pin 2
 # Black  – GND - Pin 6
