@@ -1,3 +1,5 @@
+SELECT SLEEP(5);
+
 -- get number of active database connections in postgres
 SELECT COUNT(*) FROM pg_stat_activity;
 
