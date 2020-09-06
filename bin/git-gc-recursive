@@ -5,9 +5,10 @@
 # git gc-recursive --aggressive
 
 find . -type d -name .git | sort | while read -r path; do
-  echo "$path"
-  du -hs "$path"
-  git -C "$path" gc "$@"
-  du -hs "$path"
-  echo
+  printf "%-60.60s" "$path"
+  pre_size=$(du -hs "$path" | cut -f1)
+  printf "\r%-60.60s %-5s -> " "$path" "$pre_size"
+  git -C "$path" gc --quiet "$@"
+  post_size=$(du -hs "$path" | cut -f1)
+  printf "\r%-60.60s %-5s -> %-5s\n" "$path" "$pre_size" "$post_size"
 done
