@@ -21,6 +21,13 @@ cat s3.txt | while read -r url; do
   wget -O "$fn" "$url"
 done
 
+# process files with a certain extension
+for f in *.mp4; do
+  echo "$f"
+  ffmpeg -i "$f" -acodec copy "${f%.*}.aac"
+  echo
+done
+
 
 
 # colors
