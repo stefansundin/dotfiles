@@ -1,0 +1,13 @@
+#!/bin/bash -e
+# Executes `git gc` in any .git subdirectories you may have in your working directory.
+#
+# git gc-recursive
+# git gc-recursive --aggressive
+
+find . -type d -name .git | sort | while read -r path; do
+  echo "$path"
+  du -hs "$path"
+  git -C "$path" gc "$@"
+  du -hs "$path"
+  echo
+done
