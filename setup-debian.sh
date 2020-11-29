@@ -1,3 +1,12 @@
+# prevent audio crackle/pop when not playing audio for a while
+sudo sed -i.bak 's/^load-module module-suspend-on-idle/#&/' /etc/pulse/default.pa
+pulseaudio -k
+
+# enable backports
+echo "deb http://deb.debian.org/debian buster-backports main" | sudo tee /etc/apt/sources.list.d/backports.list
+sudo apt update
+sudo apt-get -t buster-backports install keepassxc
+
 # get apt-get suggestions when attempting to run missing binaries (like Ubuntu)
 sudo apt install command-not-found
 sudo apt update

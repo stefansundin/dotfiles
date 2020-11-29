@@ -153,6 +153,9 @@ groups wordpress
 # list users in a group
 getent group www-data
 
+# allow regular user to read systemd journal
+sudo usermod -aG systemd-journal my_user
+
 # debug daemons
 strace -ff -ewrite -s200 lighttpd
 -s determines how much to get.

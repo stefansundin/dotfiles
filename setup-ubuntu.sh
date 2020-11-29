@@ -109,6 +109,12 @@ sudo apt-get install --no-install-recommends gnome-software
 # remove snap packages from Ubuntu Software (can still install with `snap install ...`)
 sudo apt-get remove gnome-software-plugin-snap
 
+# vscodium
+wget -O- https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/raw/master/pub.gpg | sudo apt-key add -
+echo 'deb https://paulcarroty.gitlab.io/vscodium-deb-rpm-repo/debs/ vscodium main' | sudo tee /etc/apt/sources.list.d/vscodium.list
+sudo apt-get update
+sudo apt-get install codium
+
 # vscode
 sudo apt-get install apt-transport-https
 wget -O- https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
@@ -151,6 +157,11 @@ systemctl --user enable resilio-sync
 systemctl --user start resilio-sync
 # system install:
 sudo usermod -a -G rslsync stefan
+
+# KeePassXC
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 61922AB60068FCD6
+sudo add-apt-repository ppa:phoerious/keepassxc
+sudo apt-get update
 
 # MKVToolNix - https://mkvtoolnix.download/downloads.html#ubuntu
 wget -q -O- https://mkvtoolnix.download/gpg-pub-moritzbunkus.txt | sudo apt-key add -
