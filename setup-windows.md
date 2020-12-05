@@ -157,6 +157,10 @@ After install:
    cmd /C reg add HKCU\System\GameConfigStore /v GameDVR_Enabled /t REG_DWORD /d 0 /f & cmd /C reg add HKLM\SOFTWARE\Policies\Microsoft\Windows\GameDVR /v AllowGameDVR /t REG_DWORD /d 0 /f & pause
    ```
 
+1. Remove "Meet Now" from Windows 10 tray icons:
+
+   > Win+R → `gpedit.msc` → User Configuration → Administrative Templates → Start Menu and Taskbar → Remove the Meet Now icon → `(x) Enabled`
+
 1. Disable beep:
 
    ```
