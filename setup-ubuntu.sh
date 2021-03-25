@@ -297,13 +297,20 @@ sudo ap-hotspot configure
 sudo vim /etc/rc.local
 (sleep 10 && ap-hotspot start)&
 
-# LaTeX: install native TeXLive with installer from website. Takes ~1h30m.
+# LaTeX: install native TeXLive with installer from website
 wget http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz
 tar xzf install-tl-unx.tar.gz
-cd install-tl-*
-./install-tl
-# add to /etc/profile:
-PATH=/usr/local/texlive/2016/bin/x86_64-linux:$PATH
+cd install-tl-20210323
+# install small: (~500 MB, takes 5 minutes)
+sudo ./install-tl -scheme scheme-small
+# install full: (~6 GB, takes ~1h30m)
+sudo ./install-tl -scheme scheme-small
+# add to /etc/profile (and log out and back in):
+PATH=/usr/local/texlive/2020/bin/x86_64-linux:$PATH
+# install packages:
+sudo tlmgr install moderncv
+# compile tex:
+xelatex cv.tex
 
 # setup wireshark for normal users
 sudo apt-get install wireshark
