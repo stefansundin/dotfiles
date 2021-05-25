@@ -46,26 +46,6 @@ Firefox block new requests asking to allow notifications:
 2. Scroll down to Permissions. For Notifications, click `Settings...`.
 3. Check _Block new requests asking to allow notifications_
 
-Firefox multiple profiles:
-> ```
-> firefox -P default -no-remote
-> firefox -P infected -no-remote
-> sudo vim /usr/share/applications/firefox.desktop
-> ```
-> ```
-> Exec=firefox -P default -no-remote %u
-> Actions=NewWindow;NewPrivateWindow;Infected
->
-> [Desktop Action Infected]
-> Name=Open infected session
-> Exec=firefox -P infected -no-remote
-> ```
-
-Firefox Adblock remove Ctrl+Shift+V shortcut:
-> 1. `about:config` → `extensions.adblockplus.sidebar_key`
-> 1. Remove ~~`Accel Shift V,`~~
-> 1. Restart Firefox
-
 YouTube channel playlist:
 > Add `&feature=mfu_in_order&list=UL`, e.g.
 > ```
