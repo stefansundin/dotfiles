@@ -31,21 +31,6 @@ Chrome free up disk space after downloading from Mega:
 1. Click on _File system_ to see how much space it is using.
 1. Click the _X_ on the right to delete.
 
-Firefox about:config tweaks:
-- Disable Pocket:
-  ```
-  extensions.pocket.enabled = false
-  ```
-- Tor Browser open magnet links:
-  ```
-  network.protocol-handler.external-default = true
-  ```
-
-Firefox block new requests asking to allow notifications:
-1. about:preferences#privacy
-2. Scroll down to Permissions. For Notifications, click `Settings...`.
-3. Check _Block new requests asking to allow notifications_
-
 YouTube channel playlist:
 > Add `&feature=mfu_in_order&list=UL`, e.g.
 > ```
