@@ -7,6 +7,10 @@
   ```
   network.protocol-handler.external-default = true
   ```
+- Disable Ctrl+Q / Command+Q shortcut: (requires restart)
+  ```
+  browser.quitShortcut.disabled = true
+  ```
 
 Block websites from asking to allow notifications:
 1. `about:preferences#privacy`
