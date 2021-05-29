@@ -226,9 +226,8 @@ wget -O- https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
 echo 'deb http://apt.postgresql.org/pub/repos/apt/ xenial-pgdg main' | sudo tee /etc/apt/sources.list.d/pgdg.list
 sudo apt-get update
 sudo apt-get install postgresql-9.6
-sudo -u postgres createuser ubuntu
-sudo -u postgres createdb ubuntu
-sudo -u postgres psql -d template1 -c 'ALTER ROLE ubuntu WITH CREATEDB;'
+sudo -u postgres createuser -d -e -r -s ubuntu
+createdb ubuntu
 
 # Heroku Toolbelt
 wget -O- https://toolbelt.heroku.com/apt/release.key | sudo apt-key add -
