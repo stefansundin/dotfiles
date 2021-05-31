@@ -103,6 +103,19 @@ gsettings set com.canonical.Unity.Lenses disabled-scopes \
   'more_suggestions-ebay.scope', 'more_suggestions-ubuntushop.scope',
   'more_suggestions-skimlinks.scope']"
 
+# use DSLR as webcam
+sudo apt-get install gphoto2 v4l2loopback-utils v4l2loopback-dkms ffmpeg
+gphoto2 --auto-detect --summary --abilities
+sudo modprobe v4l2loopback exclusive_caps=1 max_buffers=2
+# start webcam (it should appear automatically in applications -- use VLC to test, Media -> Open Capture Device -> /dev/video0)
+gphoto2 --stdout --capture-movie | ffmpeg -c:v mjpeg -i - -vcodec rawvideo -pix_fmt yuv420p -threads 0 -f v4l2 /dev/video0
+# automate modprobe
+cat << EOF | sudo tee /etc/modprobe.d/dslr-webcam.conf
+alias dslr-webcam v4l2loopback
+options v4l2loopback exclusive_caps=1 max_buffers=2
+EOF
+echo dslr-webcam | sudo tee -a /etc/modules
+
 # install apt version of Software Store
 sudo snap remove snap-store
 sudo apt-get install --no-install-recommends gnome-software
