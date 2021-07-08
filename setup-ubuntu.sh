@@ -218,19 +218,6 @@ sudo add-apt-repository ppa:dolphin-emu/ppa
 sudo apt-get update
 sudo apt-get install dolphin-emu-master
 
-# Node - https://nodejs.org/en/download/package-manager/#debian-and-ubuntu-based-linux-distributions
-curl -sL https://deb.nodesource.com/gpgkey/nodesource.gpg.key | sudo apt-key add -
-echo 'deb https://deb.nodesource.com/node_8.x bionic main' | sudo tee /etc/apt/sources.list.d/nodesource.list
-echo 'deb-src https://deb.nodesource.com/node_8.x bionic main' | sudo tee -a /etc/apt/sources.list.d/nodesource.list
-sudo apt-get update
-sudo apt-get install nodejs
-
-# Yarn
-curl -sL https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
-echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
-sudo apt-get update
-sudo apt-get install yarn
-
 # nginx
 sudo add-apt-repository ppa:nginx/stable
 

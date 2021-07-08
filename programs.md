@@ -42,21 +42,6 @@ Microsoft Edge SOCKS:
 > - Address: `socks=127.0.0.1`
 > - Port: `4001`
 
-NPM (comes with [Node.js](https://nodejs.org/download/)):
-> ```
-> npm install -g keybase-installer
-> ```
-> Uninstall global packages:
-> ```
-> npm list -g --depth=0
-> npm uninstall -g ask-cli
-> npm uninstall -g @aws-amplify/cli
-> ```
-> Upgrade npm:
-> ```
-> npm install -g npm
-> ```
-
 Clipboard:
 > - Mac: `pbcopy` / `pbpaste`
 > - Windows: `clip` / [`clop`](https://gist.github.com/stefansundin/9d95826a712096b24ae2/raw/clop.exe) [[1](https://gist.github.com/stefansundin/9d95826a712096b24ae2)]
