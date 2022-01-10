@@ -1,3 +1,10 @@
+# add user to sudo group and add group to sudoers
+su
+/sbin/usermod -aG sudo stefan
+/sbin/visudo -f /etc/sudoers.d/sudo
+%sudo   ALL=(ALL:ALL) ALL
+# then reboot (logging out and in does not work!)
+
 # prevent audio crackle/pop when not playing audio for a while
 sudo sed -i.bak 's/^load-module module-suspend-on-idle/#&/' /etc/pulse/default.pa
 pulseaudio -k
