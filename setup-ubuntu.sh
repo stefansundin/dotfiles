@@ -154,6 +154,15 @@ sudo add-apt-repository ppa:git-core/ppa
 sudo apt-get update
 sudo apt-get install git
 
+# syncthing - https://apt.syncthing.net/
+sudo curl -s -o /usr/share/keyrings/syncthing-archive-keyring.gpg https://syncthing.net/release-key.gpg
+echo "deb [signed-by=/usr/share/keyrings/syncthing-archive-keyring.gpg] https://apt.syncthing.net/ syncthing stable" | sudo tee /etc/apt/sources.list.d/syncthing.list
+sudo apt-get update
+sudo apt-get install syncthing
+systemctl --user enable syncthing.service
+systemctl --user start syncthing.service
+# WebUI: http://127.0.0.1:8384/
+
 # Resilio Sync - https://help.resilio.com/hc/en-us/articles/206178924
 wget -O- https://linux-packages.resilio.com/resilio-sync/key.asc | sudo apt-key add -
 echo "deb http://linux-packages.resilio.com/resilio-sync/deb resilio-sync non-free" | sudo tee /etc/apt/sources.list.d/resilio-sync.list
