@@ -54,6 +54,7 @@ cask 'vlc-protocol'
 # docker
 # brew 'docker'
 # brew 'docker-compose'
+brew 'docker-credential-helper-ecr'
 
 # casks
 cask 'keepingyouawake'
