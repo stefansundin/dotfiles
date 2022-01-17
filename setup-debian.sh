@@ -5,6 +5,9 @@ su
 %sudo   ALL=(ALL:ALL) ALL
 # then reboot (logging out and in does not work!)
 
+# downgrade openssl SECLEVEL to allow connecting to servers with bad security
+sudo sed -i.orig 's/DEFAULT@SECLEVEL=2/DEFAULT@SECLEVEL=1/' /etc/ssl/openssl.cnf
+
 # prevent audio crackle/pop when not playing audio for a while
 sudo sed -i.bak 's/^load-module module-suspend-on-idle/#&/' /etc/pulse/default.pa
 pulseaudio -k
