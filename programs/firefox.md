@@ -7,6 +7,10 @@
   ```
   network.protocol-handler.external-default = true
   ```
+- Always show `http://` in browser URL field:
+  ```
+  browser.urlbar.trimURLs = false
+  ```
 - Disable Ctrl+Q / Command+Q shortcut: (requires restart)
   ```
   browser.quitShortcut.disabled = true
