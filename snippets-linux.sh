@@ -144,6 +144,10 @@ sudo mkfs.fat /dev/sdXX -s 128 -F 32 -n "label"
 sudo mkfs.exfat /dev/sdXX -n "label"
 sudo fsck.exfat /dev/sdXX
 
+# change label on FAT partition
+sudo apt install dosfstools
+sudo fatlabel /dev/sdXX "new label"
+
 # create user wordpress
 sudo useradd wordpress
 # add user wordpress to group www-data
