@@ -117,13 +117,6 @@ brew cask install qlstephen qlmarkdown qlprettypatch qlimagesize qlcolorcode qui
 qlmanage -r
 https://github.com/whomwah/qlstephen
 ## Note: Don't enable text selection in QuickLook as that will cause blank images to be shown in quicklook when going back and forth between images!
-# sort Folders on top
-cd /System/Library/CoreServices/Finder.app/Contents/Resources/English.lproj/
-sudo plutil -convert xml1 InfoPlist.strings
-sudo vim InfoPlist.strings
- <key>Folder</key>
- <string> Folder</string>
-sudo plutil -convert binary1 InfoPlist.strings
 ## backspace to go up, delete key to move files to trash
 defaults write com.apple.finder NSUserKeyEquivalents -dict-add 'Back' '\U232B'
 defaults write com.apple.finder NSUserKeyEquivalents -dict-add 'Move to Trash' '\U007F'
@@ -208,23 +201,6 @@ cupsctl WebInterface=yes
 # (/System)/Library/Launch{Agents,Daemons}
 # /Library/StartupItems
 
-# upgrade Postgres.app
-# first stop the postgres server and kill all connections
-powder stop
-# then rename the old Postgres.app, copy over the new one, and copy the old binaries which are needed for the upgrade
-cd /Applications
-mv Postgres.app Postgres-9.3.app
-# move over new Postgres.app
-cp -r Postgres-9.3.app/Contents/Versions/9.3 Postgres.app/Contents/Versions/
-# now update your PATH to use 9.4 and restart terminal
-cd "$HOME/Library/Application Support/Postgres"
-mkdir var-9.4
-# if var-9.4 already exists, rename it (you may delete it later)
-initdb var-9.4 -E utf8
-pg_upgrade -d var-9.3 -D var-9.4 -b /Applications/Postgres.app/Contents/Versions/9.3/bin/ -B /Applications/Postgres.app/Contents/Versions/9.4/bin/ -v
-# delete old files after verifying new database works
-rm -rf var-9.3
-
 # iTerm 2 key bindings
 # add Profile shortcuts since they have highest priority
 
@@ -285,10 +261,3 @@ for type in public.mpeg-4 public.avi public.mp3 public.mp2 com.apple.quicktime-m
 for type in conf ini public.plain-text public.m3u-playlist public.php-script public.shell-script public.ruby-script public.xml com.apple.log public.comma-separated-values-text com.netscape.javascript-source net.daringfireball.markdown com.barebones.bbedit.ini-configuration; do duti -s com.sublimetext.3 $type all; done
 duti -s com.adobe.reader com.adobe.pdf all
 duti -s com.googlecode.iTerm2 com.apple.terminal.shell-script shell
-
-
-# uninstall heroku toolbelt
-gem uninstall heroku -a -x --force
-brew uninstall heroku
-sudo rm -rf /usr/local/heroku /usr/bin/heroku
-# remove heroku from PATH in .profile, .bashrc or .bash_profile
