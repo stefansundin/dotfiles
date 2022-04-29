@@ -9,6 +9,7 @@ ln -s "/Applications/Visual Studio Code.app/Contents/Resources/app/bin/code" /us
 ln -s /Applications/TrueCrypt.app/Contents/MacOS/TrueCrypt /usr/local/bin/truecrypt
 ln -s /Applications/Gimp.app/Contents/MacOS/gimp-2.8 /usr/local/bin/gimp
 ln -s /Applications/VLC.app/Contents/MacOS/VLC /usr/local/bin/vlc
+ln -s /Applications/mpv.app/Contents/MacOS/mpv /usr/local/bin/mpv
 # ln -s /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome /usr/local/bin/google-chrome
 # alias google-chrome='/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'
 
@@ -50,13 +51,15 @@ chsh -s /usr/local/bin/bash
 # turn off notification bubble for System Preferences
 defaults write com.apple.systempreferences AttentionPrefBundleIDs 0
 
+# disable Spotlight in System Preferences by deselecting everything and then adding the whole hard drive in the Privacy tab
+
 # keyboard key-repeat
 defaults write -g ApplePressAndHoldEnabled -bool false
 defaults read -g ApplePressAndHoldEnabled
 
 # fix Home/End on full-size keyboards
 mkdir ~/Library/KeyBindings/
-vim ~/Library/KeyBindings/DefaultKeyBinding.dict
+subl ~/Library/KeyBindings/DefaultKeyBinding.dict
 {
     "\UF729"  = "moveToBeginningOfLine:";                   /* Home */
     "\UF72B"  = "moveToEndOfLine:";                         /* End  */
@@ -117,10 +120,10 @@ brew cask install qlstephen qlmarkdown qlprettypatch qlimagesize qlcolorcode qui
 qlmanage -r
 https://github.com/whomwah/qlstephen
 ## Note: Don't enable text selection in QuickLook as that will cause blank images to be shown in quicklook when going back and forth between images!
-## backspace to go up, delete key to move files to trash
+## backspace to go up, delete key to move files to trash (log out and back in for change to take effect)
+## WARNING: THE DELETE KEY WILL DELETE FILES AND FOLDERS IF YOU ARE ATTEMPTING TO RENAME THEM!! USE BACKSPACE!
 defaults write com.apple.finder NSUserKeyEquivalents -dict-add 'Back' '\U232B'
 defaults write com.apple.finder NSUserKeyEquivalents -dict-add 'Move to Trash' '\U007F'
-## WARNING: DELETE KEY WILL NOW DELETE FILES AND FOLDERS IF YOU ARE ATTEMPTING TO RENAME THEM!! USE BACKSPACE!
 defaults read com.apple.finder NSUserKeyEquivalents
 killall Finder
 
@@ -145,10 +148,16 @@ killall Finder
 defaults write -g NSWindowResizeTime -float 0.01
 defaults read -g NSWindowResizeTime
 
+# stop the nag notifications "Try The New Safari"
+# defaults write com.apple.coreservices.uiagent CSUIHasSafariBeenLaunched -bool true
+defaults write com.apple.coreservices.uiagent CSUIRecommendSafariNextNotificationDate -date 2100-01-01T00:00:00Z
+defaults write com.apple.coreservices.uiagent CSUILastOSVersionWhereSafariRecommendationWasMade -float 11.99
+
 # disable two-finger back/forward navigation in Chrome only
 defaults write com.google.Chrome AppleEnableSwipeNavigateWithScrolls -bool false
 # disable dark mode in Chrome only
 defaults write com.google.Chrome NSRequiresAquaSystemAppearance -bool true
+defaults delete com.google.Chrome NSRequiresAquaSystemAppearance
 
 # disable bonjour advertising
 sudo defaults write /Library/Preferences/com.apple.mDNSResponder.plist NoMulticastAdvertisements -bool true
@@ -202,10 +211,13 @@ cupsctl WebInterface=yes
 # /Library/StartupItems
 
 # iTerm 2 key bindings
-# add Profile shortcuts since they have highest priority
+# add to Profile settings that have highest priority
+# Preferences -> Profiles -> Keys
 
 # Key Combination | Action               | Key
 # --------------- | -------------------- | ------
+# Home            | Send Hex Code.       | 0x01
+# End             | Send Hex Code.       | 0x05
 # ⌥←              | Send Escape Sequence | Esc+ b
 # ⌥→              | Send Escape Sequence | Esc+ f
 # ⌥Del→           | Send Escape Sequence | Esc+ d
