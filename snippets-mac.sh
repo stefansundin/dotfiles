@@ -15,3 +15,16 @@ screen ~/Library/Containers/com.docker.docker/Data/com.docker.driver.amd64-linux
 
 # launch screensaver from AppleScript
 do shell script "/System/Library/CoreServices/ScreenSaverEngine.app/Contents/MacOS/ScreenSaverEngine"
+
+# convert plist to XML
+plutil -convert xml1 -o - org.TrueCryptFoundation.TrueCrypt.plist
+
+# see what architectures a binary works with:
+lipo -archs /Applications/VLC.app/Contents/MacOS/VLC
+
+# see the minimum macOS version a binary was compiled for:
+otool -l /Applications/TrueCrypt.app/Contents/MacOS/TrueCrypt
+# look for LC_VERSION_MIN_MACOSX:
+otool -arch x86_64 -l /Applications/VLC-protocol.app/Contents/MacOS/vlc-protocol
+# look for LC_BUILD_VERSION:
+otool -arch arm64 -l /Applications/VLC-protocol.app/Contents/MacOS/vlc-protocol
