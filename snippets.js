@@ -21,3 +21,7 @@ var args = toObject(window.location.search.substr(1).split("&").map(function(arg
 function pad(n) {
   return ("0"+n).slice(-2);
 }
+
+// delete all amazon watch history on https://www.amazon.com/gp/video/settings/watch-history/
+// open the page and then run this in the developer tools to click all of the buttons:
+document.querySelectorAll('button').forEach(b => b.click())
