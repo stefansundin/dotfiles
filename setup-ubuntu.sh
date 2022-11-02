@@ -306,17 +306,20 @@ sudo vim /etc/rc.local
 (sleep 10 && ap-hotspot start)&
 
 # LaTeX: install native TeXLive with installer from website
-wget http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz
+wget https://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz
 tar xzf install-tl-unx.tar.gz
-cd install-tl-20210323
-# install small: (~500 MB, takes 5 minutes)
-sudo ./install-tl -scheme scheme-small
-# install full: (~6 GB, takes ~1h30m)
-sudo ./install-tl -scheme scheme-small
-# add to /etc/profile (and log out and back in):
-PATH=/usr/local/texlive/2020/bin/x86_64-linux:$PATH
+cd install-tl-20221101
+sudo mkdir -p /usr/local/texlive
+sudo chown $USER:$USER /usr/local/texlive
+# launch installer: (change scheme to "small scheme" for much faster install)
+./install-tl
+# add to /etc/profile or ~/.bashrc: (update year first)
+PATH="/usr/local/texlive/2022/bin/x86_64-linux:$PATH"
+MANPATH="/usr/local/texlive/2022/texmf-dist/doc/man"
+INFOPATH="/usr/local/texlive/2022/texmf-dist/doc/info"
+# log out and back in
 # install packages:
-sudo tlmgr install moderncv
+tlmgr install moderncv
 # compile tex:
 xelatex cv.tex
 
