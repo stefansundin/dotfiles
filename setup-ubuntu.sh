@@ -121,31 +121,26 @@ sudo snap remove snap-store
 sudo apt-get install --no-install-recommends gnome-software
 # remove snap packages from Ubuntu Software (can still install with `snap install ...`)
 sudo apt-get remove gnome-software-plugin-snap
-
+f
 # vscodium
-wget -O- https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/raw/master/pub.gpg | sudo apt-key add -
-echo 'deb https://paulcarroty.gitlab.io/vscodium-deb-rpm-repo/debs/ vscodium main' | sudo tee /etc/apt/sources.list.d/vscodium.list
+sudo apt-get install apt-transport-https curl gpg
+curl -s https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/raw/master/pub.gpg | gpg --dearmor | sudo tee /usr/share/keyrings/vscodium-archive-keyring.gpg > /dev/null
+echo 'deb [signed-by=/usr/share/keyrings/vscodium-archive-keyring.gpg] https://download.vscodium.com/debs vscodium main' | sudo tee /etc/apt/sources.list.d/vscodium.list
 sudo apt-get update
 sudo apt-get install codium
 
 # vscode
-sudo apt-get install apt-transport-https
-wget -O- https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
-echo 'deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main' | sudo tee /etc/apt/sources.list.d/vscode.list
+sudo apt-get install apt-transport-https curl gpg
+curl -s https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor | sudo tee /usr/share/keyrings/packages.microsoft.gpg > /dev/null
+echo "deb [arch=amd64,arm64,armhf signed-by=/usr/share/keyrings/packages.microsoft.gpg] https://packages.microsoft.com/repos/code stable main" | sudo tee /etc/apt/sources.list.d/vscode.list
 sudo apt-get update
 sudo apt-get install code
 
-# Atom - https://flight-manual.atom.io/getting-started/sections/installing-atom/#debian-and-ubuntu-debapt
-wget -O- https://packagecloud.io/AtomEditor/atom/gpgkey | sudo apt-key add -
-echo 'deb [arch=amd64] https://packagecloud.io/AtomEditor/atom/any/ any main' | sudo tee /etc/apt/sources.list.d/atom.list
-sudo apt-get update
-sudo apt-get install atom
-
 # Sublime Text - https://www.sublimetext.com/docs/3/linux_repositories.html
 # Sublime Merge - https://www.sublimemerge.com/docs/linux_repositories
-sudo apt-get install apt-transport-https
-wget -O- https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add -
-echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sources.list.d/sublime-text.list
+sudo apt-get install apt-transport-https curl gpg
+curl -s https://download.sublimetext.com/sublimehq-pub.gpg | gpg --dearmor | sudo tee /usr/share/keyrings/sublimehq-archive.gpg > /dev/null
+echo "deb [signed-by=/usr/share/keyrings/sublimehq-archive.gpg] https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sources.list.d/sublime-text.list
 sudo apt-get update
 sudo apt-get install sublime-text sublime-merge
 
@@ -179,11 +174,6 @@ systemctl --user enable resilio-sync
 systemctl --user start resilio-sync
 # system install:
 sudo usermod -a -G rslsync stefan
-
-# KeePassXC
-sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 61922AB60068FCD6
-sudo add-apt-repository ppa:phoerious/keepassxc
-sudo apt-get update
 
 # MKVToolNix - https://mkvtoolnix.download/downloads.html#ubuntu
 wget -q -O- https://mkvtoolnix.download/gpg-pub-moritzbunkus.txt | sudo apt-key add -
@@ -237,12 +227,6 @@ sudo apt-get update
 sudo apt-get install postgresql-9.6
 sudo -u postgres createuser -d -e -r -s ubuntu
 createdb ubuntu
-
-# Heroku Toolbelt
-wget -O- https://toolbelt.heroku.com/apt/release.key | sudo apt-key add -
-echo 'deb http://toolbelt.heroku.com/ubuntu ./' | sudo tee /etc/apt/sources.list.d/heroku.list
-sudo apt-get update
-sudo apt-get install heroku-toolbelt
 
 # Amazon Prime Video
 sudo add-apt-repository ppa:mjblenner/ppa-hal
