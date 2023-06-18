@@ -5,6 +5,7 @@ git config --global commit.gpgSign true
 git config --local format.signoff true
 git config --global core.autocrlf false
 git config --global push.default simple
+git config --global push.autoSetupRemote true
 git config --global fetch.recurseSubmodules true
 git config --global submodule.secrets.update checkout
 git config --global diff.compactionHeuristic true
