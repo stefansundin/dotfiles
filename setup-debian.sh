@@ -1,9 +1,33 @@
+sudo apt install vim curl git apt-transport-https
+
 # add user to sudo group and add group to sudoers
 su
 /sbin/usermod -aG sudo stefan
 /sbin/visudo -f /etc/sudoers.d/sudo
 %sudo   ALL=(ALL:ALL) ALL
 # then reboot (logging out and in does not work!)
+
+# make vim the default editor (select vim.basic)
+sudo update-alternatives --set editor /usr/bin/vim.basic
+# some tools use select-editor (saves to ~/.selected_editor)
+select-editor
+sudo -H select-editor
+
+# install flatpak
+sudo apt install flatpak gnome-software-plugin-flatpak
+flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+flatpak remote-add --user --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+
+# KeePassXC
+flatpak install --user flathub org.keepassxc.KeePassXC
+
+# syncthing - https://apt.syncthing.net/
+sudo apt install syncthing
+systemctl --user enable syncthing.service
+systemctl --user start syncthing.service
+systemctl --user status syncthing.service
+# WebUI: http://127.0.0.1:8384/
+
 
 # downgrade openssl SECLEVEL to allow connecting to servers with bad security
 sudo sed -i.orig 's/DEFAULT@SECLEVEL=2/DEFAULT@SECLEVEL=1/' /etc/ssl/openssl.cnf
@@ -13,23 +37,13 @@ sudo sed -i.bak 's/^load-module module-suspend-on-idle/#&/' /etc/pulse/default.p
 pulseaudio -k
 
 # enable backports
-echo "deb http://deb.debian.org/debian buster-backports main" | sudo tee /etc/apt/sources.list.d/backports.list
+echo "deb http://deb.debian.org/debian bookworm-backports main" | sudo tee /etc/apt/sources.list.d/backports.list
 sudo apt update
-sudo apt-get -t buster-backports install keepassxc
 
 # get apt-get suggestions when attempting to run missing binaries (like Ubuntu)
 sudo apt install command-not-found
 sudo apt update
 sudo update-command-not-found
-
-# ppas
-sudo apt-get install software-properties-common
-sudo add-apt-repository ppa:git-core/ppa
-sudo add-apt-repository ppa:stefansundin/truecrypt
-sudo add-apt-repository ppa:nginx/stable
-sudo add-apt-repository ppa:ondrej/php5-5.6
-# sudo add-apt-repository ppa:langemeijer/php5-ssh2
-sudo apt-add-repository --remove ppa:langemeijer/php5-ssh2
 
 # put package on hold (prevent automatic upgrade)
 sudo apt-mark hold cassandra dsc21
@@ -53,3 +67,22 @@ debuild -nc -i -us -uc -b
 debuild -S
 cd ..
 dput ppa:stefansundin/truecrypt truecrypt_7.1a-4_source.changes
+
+# java
+sudo apt install default-jre
+# add ability to double click on jar files
+cat <<EOF > java.desktop
+[Desktop Entry]
+Name=Java
+Comment=Java
+GenericName=Java
+Keywords=java
+Exec=java -jar %f
+Terminal=false
+X-MultipleArgs=false
+Type=Application
+MimeType=application/x-java-archive
+StartupNotify=true
+EOF
+xdg-desktop-menu install --novendor java.desktop
+rm java.desktop
