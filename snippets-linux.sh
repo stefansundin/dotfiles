@@ -215,9 +215,11 @@ wget -r -l1 -H -t1 -nd -N -np -erobots=off -A 7z https://code.google.com/p/altdr
 wget --delete-after --keep-session-cookies --save-cookies cookies.txt --post-data 'user[email]=stefan@example.com&user[password]=test' http://legacy-app.dev/users/sign_in
 wget -erobots=off --load-cookies cookies.txt -mk http://legacy-app.dev/
 
-# to remove the x flag on every file recursive but not touching the directories
+# remove the executable flag on files recursively but not touching directories
 find -type f -exec chmod -x {} \;
 # useful when trading files with an NTFS partition (so GNOME won't bug you every time you try to open a file)
+# add the executable flag on every directory recursively
+find -type d -exec chmod +x {} \;
 # chmod rwx 421: 4+2+1=7
 
 # remount filesystem as read-write

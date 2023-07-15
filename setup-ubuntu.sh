@@ -85,6 +85,9 @@ find /usr/share/sounds/ -type f -name audio-volume-change.oga | sudo xargs rm
 # use Alt key to drag windows
 gsettings set org.gnome.desktop.wm.preferences mouse-button-modifier '<Alt>'
 
+# add back minimize and maximize buttons to window controls
+gsettings set org.gnome.desktop.wm.preferences button-layout 'appmenu:minimize,maximize,close'
+
 # minimize when clicking open dash icons
 gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'minimize'
 
@@ -268,7 +271,7 @@ sudo apt-get update
 sudo apt-get install indicator-brightness
 # then start "Brightness Indicator"
 
-# install caffeine to disable screensaver during Flash
+# install caffeine to disable screensaver
 sudo add-apt-repository ppa:caffeine-developers/ppa
 sudo apt-get update
 sudo apt-get install caffeine
