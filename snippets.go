@@ -1,4 +1,6 @@
-go mod edit -go=1.15
+go mod edit -go=1.21
+go mod tidy -go=1.21
+go mod tidy -compat=1.21
 
 # clean up caches:
 go clean -cache -testcache -modcache
@@ -15,5 +17,18 @@ cd code/aws-rotate-key
 # compile smaller binaries - https://golang.org/cmd/link/
 go build -ldflags="-s -w"
 
+# remove local paths from binary
+go build -trimpath
+
 # cross-compile - https://golang.org/doc/install/source#environment
 CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build
+
+# download a specific go version
+go install golang.org/dl/go1.17@latest
+go1.17 download
+alias go=go1.17
+
+# download the bleeding edge build
+go install golang.org/dl/gotip@latest
+gotip download
+gotip version

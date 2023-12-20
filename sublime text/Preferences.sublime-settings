@@ -1,6 +1,7 @@
 {
+  // "update_check": false,
   "dpi_scale": 1,
-  "font_size": 10, //pixel: 15
+  "font_size": 12,
   "auto_match_enabled": false,
   "auto_close_tags": false,
   "scroll_past_end": true,
@@ -14,6 +15,7 @@
   "trim_automatic_white_space": false,
   "trim_trailing_white_space_on_save": true,
   "default_line_ending": "unix",
+  "drag_text": false,
 
   "highlight_line": false,
   "detect_indentation": false,
@@ -30,23 +32,24 @@
   "show_encoding": true,
   "always_show_minimap_viewport": true,
   "tree_animation_enabled": false,
-  "folder_exclude_patterns":
-  [
+  "folder_exclude_patterns": [
     ".svn",
     ".git",
     ".repo",
+    ".terraform",
     ".Private",
+    ".cache",
+    ".sass-cache",
+    ".yarn",
     "tmp",
     "vendor",
-    ".sass-cache",
     "node_modules",
     "public/assets",
     "assets/fonts",
     "log",
     "env"
   ],
-  "file_exclude_patterns":
-  [
+  "file_exclude_patterns": [
     "*.exe",
     "desktop.ini",
     ".DS_Store",
@@ -74,8 +77,7 @@
     "*.synctex.gz",
     "*.synctex.gz(busy)"
   ],
-  "ignored_packages":
-  [
+  "ignored_packages": [
     "Vintage"
   ]
 }

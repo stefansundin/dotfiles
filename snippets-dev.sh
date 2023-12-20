@@ -21,3 +21,7 @@ wget https://www.startssl.com/certs/sub.class1.server.ca.pem
 cat domain.com.crt sub.class1.server.ca.pem > domain.com-unified.crt
 # Print cert information
 openssl x509 -in domain.com.crt -noout -text
+
+# Inspect domain certificate:
+echo Q | openssl s_client -connect example.com:443
+echo Q | openssl s_client -connect example.com:443 2> /dev/null | openssl x509 -noout -dates

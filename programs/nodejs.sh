@@ -12,5 +12,10 @@ npm config set prefix '~/.npm-global'
 # Add to .bashrc:
 export PATH=~/.npm-global/bin:$PATH
 
+# Upgrade versions in package.json
+npm install -g npm-check-updates
+ncu
+ncu -u
+
 # Yarn
 npm install -g yarn

@@ -16,7 +16,7 @@ alias gpg="gpg2"
 alias ls="ls -G"
 alias pc="pngcrush -rem gAMA -rem cHRM -rem iCCP -rem sRGB -brute"
 alias truecrypt='truecrypt -t'
-alias y=youtube-dl
+alias yt=yt-dlp
 alias reload_profile=". ~/.profile"
 #alias npm-exec='PATH=$(npm bin):$PATH'
 source /usr/local/etc/bash_completion

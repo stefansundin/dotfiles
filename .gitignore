@@ -1,7 +1,13 @@
 Thumbs.db
 *.DS_Store
 *.swp
-*.ucf-dist
 .~lock.*
 
+*.ucf-dist
+
 .irb_history
+
+dist
+node_modules
+yarn-error.log
+Brewfile.lock.json

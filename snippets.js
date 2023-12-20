@@ -22,6 +22,22 @@ function pad(n) {
   return ("0"+n).slice(-2);
 }
 
+// addCommas(2056776401.50) = "2,056,776,401.50"
+function addCommas(n) {
+  return n.toString().replace(/(\d)(?=(\d{3})+($|,|\.))/g, '$1,');
+}
+
+function base64UrlSafeDecode(s) {
+  return atob(s.replace(/_/g, '/').replace(/-/g, '+'));
+}
+
+// monitor messages received in iframe
+// first focus the iframe in the Elements panel, then run this in Console
+$0.addEventListener('message', () => console.log('message', arguments));
+
+// Run eslint with a single rule:
+// eslint --no-eslintrc --ignore-pattern '**/*.min.js' --env es2020 --rule "{semi: error}" src
+
 // delete all amazon watch history on https://www.amazon.com/gp/video/settings/watch-history/
 // open the page and then run this in the developer tools to click all of the buttons:
 document.querySelectorAll('button').forEach(b => b.click())

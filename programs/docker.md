@@ -5,26 +5,34 @@ Docker for Mac:
 credHelpers:
 - https://github.com/awslabs/amazon-ecr-credential-helper
 
+Disable cli ad:
+```shell
+export DOCKER_CLI_HINTS=false
 ```
+
+```json
+# ~/.docker/config.json
+
 {
 	"credHelpers": {
+		"public.ecr.aws": "ecr-login",
 		"aws_account_id.dkr.ecr.region.amazonaws.com": "ecr-login"
 	}
 }
 ```
 
 Clean up stuff:
-```
+```shell
 docker system prune
 ```
 
 Clean up orphaned volumes:
-```
+```shell
 docker volume rm $(docker volume ls -qf dangling=true)
 ```
 
 Clean up images:
-```
+```shell
 docker kill $(docker ps -aq)
 docker rm $(docker ps -aq)
 docker rmi $(docker images | tail -n +2 | grep -v 'ubuntu\|redis' | awk {'print $3'} | uniq)
@@ -33,7 +41,7 @@ docker volume prune
 ```
 
 Allow ubuntu user to use docker:
-```
+```shell
 # if the group does not exist, create it: (this is the case for snap)
 sudo groupadd docker
 
@@ -63,4 +71,15 @@ $ sudo systemctl restart docker
 # using snap:
 $ sudo vim /var/snap/docker/current/config/daemon.json
 $ sudo snap restart docker
+```
+
+Inspect docker image:
+```shell
+dive mysql:5.7
+```
+
+Check pgvector version:
+```shell
+docker pull ankane/pgvector
+docker run ankane/pgvector --version
 ```

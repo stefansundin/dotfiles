@@ -1,14 +1,24 @@
-git config --global user.name "Stefan Sundin"
-git config --global user.email stefansundin@users.noreply.github.com
-git config --global user.signingKey 27642822
-git config --global commit.gpgSign true
+git push --force-with-lease
+git diff --color-words
+git diff --word-diff-regex=.
+
+
+git config --global user.useConfigOnly true
+git config -f .gitconfig user.name "Stefan Sundin"
+git config -f .gitconfig user.email stefansundin@users.noreply.github.com
+git config -f .gitconfig user.signingKey 27642822
+git config -f .gitconfig commit.gpgSign true
 git config --local format.signoff true
 git config --global core.autocrlf false
 git config --global push.default simple
 git config --global push.autoSetupRemote true
+git config --global checkout.defaultRemote origin
 git config --global fetch.recurseSubmodules true
 git config --global submodule.secrets.update checkout
+git config --global merge.directoryRenames true
 git config --global diff.compactionHeuristic true
+git config --global diff.colorMoved zebra
+git config --global diff.noprefix true
 git config --global log.showSignature true
 git config --global tag.sort version:refname
 git config --global core.excludesFile ~/.gitignore
@@ -44,7 +54,8 @@ git config --global alias.b 'checkout -b'
 git config --global alias.br branch
 git config --global alias.cl 'clone --recursive -j8'
 git config --global alias.contains 'branch -a --contains'
-git config --global alias.d '!git diff HEAD~${1:-1} HEAD~$((${1:-1}-1)) ${*:2} #'
+git config --global alias.d 'diff --no-prefix -U100'
+# git config --global alias.d '!git diff HEAD~${1:-1} HEAD~$((${1:-1}-1)) ${*:2} #'
 # git config --global alias.d 'diff HEAD^..HEAD'
 git config --global alias.da "!git add -N . && git diff"
 git config --global alias.dw "git diff --color-words"
@@ -64,6 +75,7 @@ git config --global alias.outgoing 'log @{u}..'
 git config --global alias.up "pull --rebase origin master"
 git config --global alias.pu "pull origin master --ff-only"
 git config --global alias.pum "pull origin master --no-ff --no-edit"
+git config --global alias.track-upstream '!git branch --set-upstream-to=upstream/"$(git rev-parse --abbrev-ref HEAD)"'
 
 git config --global alias.pr '!git remote add $1 git@github.com:$1/$(git remote get-url origin | sed -e "s/.*\///") #'
 git pr bivanov
@@ -88,6 +100,9 @@ git ci --amend --author "Stefan Sundin <stefansundin@users.noreply.github.com>"
 git ci --date '2013-12-26 14:30:12'
 git rebase --committer-date-is-author-date <commitish>
 git ls-files --stage
+
+# set branch to track a different remote
+git branch --set-upstream-to=upstream/main
 
 # apply the reverse of last commit to the working tree
 git diff HEAD..HEAD^ | git apply
@@ -154,6 +169,11 @@ https://gist.github.com/stefansundin/82051ad2c8565999b914#git-bundle-hook
 https://gist.github.com/stefansundin/f386d3d2a0e1aa6e5c5a#git-nuke
 git config --global core.hooksPath $HOME/.githooks
 
+# github
+wget https://github.com/web-flow.gpg
+gpg --import web-flow.gpg
+gpg --edit-key 5DE3E0509C47EA3CF04A42D34AEE18F83AFDEB23 trust quit
+
 # vim ~/.ssh/config
 # Host github
 #   HostName github.com
@@ -187,10 +207,16 @@ cdiff -s
 # *.ini set diff
 
 git diff --check --cached
+# detect bad whitespace
+git config --local core.whitespace trailing-space,space-before-tab,cr-at-eol,blank-at-eol,blank-at-eof
+git config --local core.whitespace trailing-space,-space-before-tab,cr-at-eol,blank-at-eol,blank-at-eof
 # tabs as indent
 git config --local core.whitespace trailing-space,space-before-tab
 # spaces as indent
 git config --global core.whitespace trailing-space,space-before-tab,tab-in-indent
+
+# detect missing newline at EOF
+git ls-tree -r -z --name-only HEAD | xargs -0 file | grep text | cut -d: -f1 | xargs -I {} bash -c 'if [ -n "`tail -c 1 "{}"`" ]; then echo {}; fi'
 
 # check if remote contains commit
 git fetch -p
@@ -226,19 +252,20 @@ git clone -b glass-omap-xrr02 https://android.googlesource.com/kernel/omap.git
 git clone -b gh-pages git@github.com:stefansundin/altdrag.git altdrag-pages
 
 # show file from another branch
-git show master:lib/tasks/deploy.rake
+git show main:lib/tasks/deploy.rake
 
 # show file on remote
 git fetch upstream
-git show upstream/master:README.md
+git show upstream/main:README.md
 
 # checkout single file from another branch
+git checkout main -- README.md
 git co origin/release/v2.1.1 README.md
 
 # list branches on remote
 git ls-remote --heads production
 
-# your branch and 'origin/feature/tooltips' have diverged,
+# your branch and 'origin/feature/tooltips' have diverged
 git reset --hard origin/feature/tooltips
 
 # working on detached branch and can't get away
@@ -257,8 +284,8 @@ git co develop
 git br -d feature/fix
 git push origin :feature/fix
 
-# delete all local branches except master
-for b in `git branch | cut -b3-`; do [ "$b" == "master" ] && continue; git branch -D "$b"; done
+# delete all local branches except main
+for b in `git branch | cut -b3-`; do [ "$b" == "main" ] && continue; git branch -D "$b"; done
 
 # fetch all branches
 for remote in `git branch -r`; do git branch --track $remote; done
@@ -282,6 +309,9 @@ for t in `git tag`; do git tag -d "$t"; done
 
 
 # Rewrite history
+
+# set all CommitDate to AuthorDate
+git filter-branch --env-filter 'export GIT_COMMITTER_DATE="$GIT_AUTHOR_DATE"'
 
 # update all authors
 NAME="Stefan Sundin" EMAIL="stefan@.com" git filter-branch --env-filter 'GIT_AUTHOR_NAME="$NAME" GIT_COMMITTER_NAME="$NAME" GIT_AUTHOR_EMAIL="$EMAIL" GIT_COMMITTER_EMAIL="$EMAIL"'
@@ -403,46 +433,3 @@ done
 # fix 'error: branch 'origin/HEAD' does not point at a commit'
 # git remote set-head origin master
 # Reason: this error occurs if the remote main branch is changed and the old branch is deleted (e.g. develop -> master)
-
-
-# Heroku
-git remote add heroku git@heroku.com:app.git
-heroku run rails console
-
-# push current branch to heroku
-git push heroku HEAD:master
-
-
-# SVN color diff
-svn diff | view -
-
-
-# convert Google Code to GitHub
-# https://github.com/nirvdrum/svn2git
-# list authors
-svn log --quiet http://altdrag.googlecode.com/svn/ | grep -E "r[0-9]+ \| .+ \|" | cut -d'|' -f2 | sed 's/^ *//' | sort | uniq
-vim ~/.svn2git/authors
-
-mkdir altdrag
-cd altdrag
-svn2git -v http://altdrag.googlecode.com/svn/
-cd ..
-git svn clone http://altdrag.googlecode.com/svn/wiki altdrag.wiki --authors-file=$HOME/.svn2git/authors --no-metadata
-
-# add wiki directory to master
-cd altdrag
-git subtree add --prefix=wiki file:///path/to/altdrag.wiki master
-
-# setup git-subtree if you don't have it (tested on Ubuntu)
-sudo chmod +x /usr/share/doc/git/contrib/subtree/git-subtree.sh
-sudo ln -s /usr/share/doc/git/contrib/subtree/git-subtree.sh /usr/lib/git-core/git-subtree
-
-# rename tags
-git tag v0.1 altdrag-0.1
-git tag v0.2 altdrag-0.2
-git tag -d altdrag-0.1 altdrag-0.2
-
-# push
-git remote add origin git@github.com:stefansundin/altdrag.git
-git push -u origin --all
-git push --tags

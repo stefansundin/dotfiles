@@ -28,3 +28,13 @@ otool -l /Applications/TrueCrypt.app/Contents/MacOS/TrueCrypt
 otool -arch x86_64 -l /Applications/VLC-protocol.app/Contents/MacOS/vlc-protocol
 # look for LC_BUILD_VERSION:
 otool -arch arm64 -l /Applications/VLC-protocol.app/Contents/MacOS/vlc-protocol
+
+# check who signed an application bundle:
+codesign -dv --verbose=4 /Applications/VLC.app
+
+# hide desktop icons:
+defaults write com.apple.finder CreateDesktop false
+killall Finder
+# restore:
+defaults write com.apple.finder CreateDesktop true
+killall Finder

@@ -17,8 +17,15 @@ sudo strace -s 1024 -e stat -p 2876
 lsb_release -a
 cat /etc/issue
 
+# purge journal logs
+sudo journalctl --vacuum-time=1d
+
 # cat and follow
 tail +1f file.txt
+
+# compress .tar.xz with multithreading
+export XZ_DEFAULTS='-T0 -9' # put this in .bashrc
+XZ_OPT='-T0 -9' tar cJf backup.tar.xz backup
 
 # search
 find . -not -readable

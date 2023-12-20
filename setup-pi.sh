@@ -63,6 +63,16 @@ sudo hwclock -r
 # write system time to hwlock
 sudo hwclock -w
 
+# 24 hour clock with "date" command (requires log out and log in to take effect)
+localectl set-locale LC_TIME="en_GB.UTF-8"
+
+# put swap on exfat USB drive
+sudo systemctl disable dphys-swapfile
+sudo dd if=/dev/zero of=/media/usb/swap count=1024 bs=1MiB
+sudo mkswap /media/usb/swap
+sudo swapon /media/usb/swap
+# add to /etc/fstab:
+/media/usb/swap    none    swap    sw    0   0
 
 
 # Ubuntu

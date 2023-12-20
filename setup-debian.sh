@@ -2,6 +2,9 @@ sudo apt install vim curl git apt-transport-https
 
 sudo apt install dconf-editor
 
+# fix "TSC_DEADLINE disabled due to Errata"
+sudo apt install intel-microcode
+
 # add user to sudo group and add group to sudoers
 su
 /sbin/usermod -aG sudo stefan

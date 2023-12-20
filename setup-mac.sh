@@ -1,17 +1,11 @@
-brew install readline openssl@1.1 jemalloc
-brew install rbenv ruby-build rbenv-gem-rehash rbenv-binstubs
-rbenv install 2.6.0
-rbenv global 2.6.0
-
-ln -s "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" /usr/local/bin/subl
-ln -s "/Applications/Sublime Merge.app/Contents/SharedSupport/bin/smerge" /usr/local/bin/smerge
-ln -s "/Applications/Visual Studio Code.app/Contents/Resources/app/bin/code" /usr/local/bin/code
-ln -s /Applications/TrueCrypt.app/Contents/MacOS/TrueCrypt /usr/local/bin/truecrypt
-ln -s /Applications/Gimp.app/Contents/MacOS/gimp-2.8 /usr/local/bin/gimp
-ln -s /Applications/VLC.app/Contents/MacOS/VLC /usr/local/bin/vlc
-ln -s /Applications/mpv.app/Contents/MacOS/mpv /usr/local/bin/mpv
-# ln -s /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome /usr/local/bin/google-chrome
-# alias google-chrome='/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'
+sudo ln -s "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" /usr/local/bin/subl
+sudo ln -s "/Applications/Sublime Merge.app/Contents/SharedSupport/bin/smerge" /usr/local/bin/smerge
+sudo ln -s "/Applications/Visual Studio Code.app/Contents/Resources/app/bin/code" /usr/local/bin/code
+sudo ln -s /Applications/TrueCrypt.app/Contents/MacOS/TrueCrypt /usr/local/bin/truecrypt
+sudo ln -s /Applications/Gimp.app/Contents/MacOS/gimp-2.8 /usr/local/bin/gimp
+sudo ln -s /Applications/VLC.app/Contents/MacOS/VLC /usr/local/bin/vlc
+sudo ln -s /Applications/mpv.app/Contents/MacOS/mpv /usr/local/bin/mpv
+sudo ln -s /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome /usr/local/bin/google-chrome
 
 sudo xattr -d -r com.apple.quarantine /Applications
 grep -nr paginator .
@@ -126,6 +120,11 @@ defaults write com.apple.finder NSUserKeyEquivalents -dict-add 'Back' '\U232B'
 defaults write com.apple.finder NSUserKeyEquivalents -dict-add 'Move to Trash' '\U007F'
 defaults read com.apple.finder NSUserKeyEquivalents
 killall Finder
+# Dock
+defaults write com.apple.dock position-immutable -bool true
+defaults write com.apple.dock size-immutable -bool true
+killall Dock
+
 
 # add 'Open with VLC' to Finder right-click list
 # - Open Automator
@@ -143,6 +142,11 @@ killall Finder
 # - Action: Open Finder Items
 #   - Open with: [VLC.app]
 # - Save service as: Open with VLC
+
+# Remove floating thumbnail after capturing screenshot or recording:
+# 1. Press Cmd+Shift+5
+# 2. Open "Options" menu
+# 3. Uncheck "Show Floating Thumbnail"
 
 # disable fullscreen swoosh
 defaults write -g NSWindowResizeTime -float 0.01

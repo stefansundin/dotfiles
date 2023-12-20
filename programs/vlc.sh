@@ -3,6 +3,8 @@ mkdir -p ~/.local/share/vlc/lua/extensions/
 
 # update youtube.lua
 curl -L -o ~/.local/share/vlc/lua/playlist/youtube.lua https://github.com/videolan/vlc/raw/master/share/lua/playlist/youtube.lua
+# update youtube.lua on macOS
+curl -L -o "$HOME/Library/Application Support/org.videolan.vlc/lua/playlist/youtube.lua" https://github.com/videolan/vlc/raw/master/share/lua/playlist/youtube.lua
 
 # install twitch.lua - https://addons.videolan.org/p/1167220/
 curl -o ~/.local/share/vlc/lua/playlist/twitch.lua https://gist.githubusercontent.com/stefansundin/c200324149bb00001fef5a252a120fc2/raw/twitch.lua

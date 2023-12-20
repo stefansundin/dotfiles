@@ -11,8 +11,11 @@ Wireshark + Chrome/Firefox SSL:
 > export SSLKEYLOGFILE=$HOME/sslkeylogfile
 > # Start Firefox/Chrome from that terminal
 > ```
-> Start Wireshark, then put the same path in Preferences → Protocols → SSL → (Pre)-Master-Secret log filename.
-> In Firefox, disable spdy and gzip in about:config because they are not supported in Wireshark (`network.http.spdy.enabled=false` and `network.http.accept-encoding=""`)
+> Start Wireshark, then put the same path in Preferences → Protocols → TLS → (Pre)-Master-Secret log filename.
+> In Firefox, disable spdy and gzip because they are not supported in Wireshark (`network.http.spdy.enabled=false` and `network.http.accept-encoding=""` in `about:config`)
+
+Chrome bypass self signed security warning:
+- Just type `thisisunsafe`. Source: https://cybercafe.dev/thisisunsafe-bypassing-chrome-security-warnings/
 
 Chrome `--disable-web-security`:
 - `"C:\Program Files (x86)\Google\Chrome\Application\chrome.exe" --disable-web-security`
