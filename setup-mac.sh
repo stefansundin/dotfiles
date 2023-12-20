@@ -34,14 +34,6 @@ sudo chown -R stefansundin /usr/local /Library/Caches/Homebrew
 sudo chmod -R g+w /usr/local /Library/Caches/Homebrew
 cp /usr/local/Library/LinkedKegs/redis/homebrew.mxcl.redis.plist ~/Library/LaunchAgents/homebrew.mxcl.redis.plist
 
-# change shells
-brew install bash
-# add to /etc/shells:
-/usr/local/bin/bash
-/usr/local/bin/zsh
-# then use:
-chsh -s /usr/local/bin/bash
-
 # turn off notification bubble for System Preferences
 defaults write com.apple.systempreferences AttentionPrefBundleIDs 0
 
@@ -213,6 +205,12 @@ cupsctl WebInterface=yes
 # hidden startup items
 # (/System)/Library/Launch{Agents,Daemons}
 # /Library/StartupItems
+
+# iTerm 2 custom shell
+brew install bash
+# Preferences -> Profiles -> Command
+# Change from "Login Shell" to "Custom Shell" and set it to /opt/homebrew/bin/bash
+# Do NOT use "chsh" since it will mess up other unexpected things!
 
 # iTerm 2 key bindings
 # add to Profile settings that have highest priority
