@@ -32,6 +32,18 @@ echo "@unclutter -root" | sudo tee -a /etc/xdg/lxsession/LXDE-pi/autostart
 # Green  – SDA - Pin 3
 # Yellow – SCL - Pin 5
 
+# lower power consumption when turned off
+sudo rpi-eeprom-config -e
+# set POWER_OFF_ON_HALT=1 and save
+
+# turn off power/activity LEDs (add to bottom of file)
+sudo vim /boot/config.txt
+# Raspberry Pi 5:
+dtparam=pwr_led_trigger=default-on
+dtparam=pwr_led_activelow=off
+dtparam=act_led_trigger=default-on
+dtparam=act_led_activelow=off
+
 # rotate display output
 sudo vim /boot/config.txt
 lcd_rotate=2
