@@ -1,4 +1,4 @@
-sudo apt install vim curl git apt-transport-https
+sudo apt install vim curl git apt-transport-https tuptime
 
 sudo apt install dconf-editor
 
