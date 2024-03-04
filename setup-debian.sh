@@ -26,6 +26,9 @@ flatpak remote-add --user --if-not-exists flathub https://flathub.org/repo/flath
 # KeePassXC
 flatpak install --user flathub org.keepassxc.KeePassXC
 
+# MKVToolNix
+flatpak install --user flathub org.bunkus.mkvtoolnix-gui
+
 # syncthing - https://apt.syncthing.net/
 sudo apt install syncthing
 systemctl --user enable syncthing.service
@@ -91,3 +94,13 @@ StartupNotify=true
 EOF
 xdg-desktop-menu install --novendor java.desktop
 rm java.desktop
+
+# PostgreSQL - https://wiki.postgresql.org/wiki/Apt
+sudo apt-get install apt-transport-https curl
+sudo curl -s -o /usr/share/keyrings/pgdg.asc https://www.postgresql.org/media/keys/ACCC4CF8.asc
+echo "deb [signed-by=/usr/share/keyrings/pgdg.asc] https://apt.postgresql.org/pub/repos/apt bookworm-pgdg main" | sudo tee /etc/apt/sources.list.d/pgdg.list
+sudo apt-get update
+sudo apt-get install postgresql-16
+sudo -u postgres createuser -d -e -r -s user
+createdb user
+sudo systemctl disable --now postgresql

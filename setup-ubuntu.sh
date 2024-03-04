@@ -178,12 +178,6 @@ systemctl --user start resilio-sync
 # system install:
 sudo usermod -a -G rslsync stefan
 
-# MKVToolNix - https://mkvtoolnix.download/downloads.html#ubuntu
-wget -q -O- https://mkvtoolnix.download/gpg-pub-moritzbunkus.txt | sudo apt-key add -
-echo -e "deb https://mkvtoolnix.download/ubuntu/ bionic main\ndeb-src https://mkvtoolnix.download/ubuntu/ bionic main" | sudo tee /etc/apt/sources.list.d/mkvtoolnix.download.list
-sudo apt-get update
-sudo apt-get install mkvtoolnix-gui
-
 # https://mpv.io/installation/
 sudo add-apt-repository ppa:mc3man/mpv-tests
 sudo apt-get install mpv
@@ -222,14 +216,6 @@ sudo apt-get install dolphin-emu-master
 
 # nginx
 sudo add-apt-repository ppa:nginx/stable
-
-# Postgresql - https://wiki.postgresql.org/wiki/Apt
-wget -O- https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
-echo 'deb http://apt.postgresql.org/pub/repos/apt/ xenial-pgdg main' | sudo tee /etc/apt/sources.list.d/pgdg.list
-sudo apt-get update
-sudo apt-get install postgresql-9.6
-sudo -u postgres createuser -d -e -r -s ubuntu
-createdb ubuntu
 
 # Amazon Prime Video
 sudo add-apt-repository ppa:mjblenner/ppa-hal

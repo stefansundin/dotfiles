@@ -1,7 +1,7 @@
 # Node - https://github.com/nodesource/distributions/blob/master/README.md
-curl -sL https://deb.nodesource.com/gpgkey/nodesource.gpg.key | sudo apt-key add -
-echo 'deb https://deb.nodesource.com/node_16.x buster main' | sudo tee /etc/apt/sources.list.d/nodesource.list
-echo 'deb-src https://deb.nodesource.com/node_16.x buster main' | sudo tee -a /etc/apt/sources.list.d/nodesource.list
+sudo apt-get install apt-transport-https curl gpg
+curl -s https://deb.nodesource.com/gpgkey/nodesource.gpg.key | sudo gpg --dearmor -o /usr/share/keyrings/nodesource.gpg
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/nodesource.gpg] https://deb.nodesource.com/node_20.x bookworm main" | sudo tee /etc/apt/sources.list.d/nodesource.list
 sudo apt-get update
 sudo apt-get install nodejs
 
