@@ -82,6 +82,10 @@ git pr bivanov
 git config --global alias.add-fork '!git remote add $1 git@github.com:$1/$(git remote get-url origin | sed -e "s/.*\///"); git fetch $1 #'
 git add-fork bivanov
 
+# pull using https, push using ssh:
+git remote set-url origin https://github.com/stefansundin/dotfiles.git
+git config url."git@github.com:".insteadOf https://github.com/
+
 git commit --allow-empty -m 'root commit'
 git submodule update --recursive --remote
 git rev-list HEAD --count
