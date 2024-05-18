@@ -17,6 +17,7 @@ alias ls="ls -G"
 alias pc="pngcrush -rem gAMA -rem cHRM -rem iCCP -rem sRGB -brute"
 alias truecrypt='truecrypt -t'
 alias yt=yt-dlp
+alias upgrade-yt='pip3 install --upgrade yt-dlp'
 alias reload_profile=". ~/.profile"
 #alias npm-exec='PATH=$(npm bin):$PATH'
 source /usr/local/etc/bash_completion
@@ -46,6 +47,12 @@ alias dircolors="/usr/local/opt/coreutils/libexec/gnubin/dircolors"
 source /Applications/Docker.app/Contents/Resources/etc/docker.bash-completion
 source /Applications/Docker.app/Contents/Resources/etc/docker-compose.bash-completion
 source /Applications/Docker.app/Contents/Resources/etc/docker-machine.bash-completion
+
+
+# Setup pip venv by running:
+# python3 -m venv ~/.pip --system-site-packages
+export PATH="$HOME/.pip/bin:$PATH"
+
 
 # Go
 export GOPATH=$HOME/go
