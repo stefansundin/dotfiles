@@ -57,9 +57,9 @@
   services.xserver.desktopManager.gnome.enable = true;
 
   # Configure keymap in X11
-  services.xserver = {
+  services.xserver.xkb = {
     layout = "us";
-    xkbVariant = "";
+    variant = "";
   };
 
   # Enable CUPS to print documents.
@@ -127,6 +127,7 @@
       aws-rotate-key
       vlc
       discord
+      neofetch
 
       # Games
       devilutionx
@@ -151,8 +152,8 @@
   hardware.opengl.driSupport32Bit = true; # Enables support for 32bit libs that steam uses
 
   # Enable automatic login for the user.
-  services.xserver.displayManager.autoLogin.enable = true;
-  services.xserver.displayManager.autoLogin.user = "admin";
+  services.displayManager.autoLogin.enable = true;
+  services.displayManager.autoLogin.user = "admin";
 
   # Workaround for GNOME autologin: https://github.com/NixOS/nixpkgs/issues/103746#issuecomment-945091229
   systemd.services."getty@tty1".enable = false;
@@ -216,7 +217,7 @@
 
       [org.gnome.settings-daemon.plugins.media-keys.custom-keybindings.open-terminal]
       binding='<Ctrl><Alt>t'
-      command='kgx'
+      command='gnome-terminal'
       name='Open terminal'
     '';
   };
