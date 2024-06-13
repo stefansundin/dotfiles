@@ -15,6 +15,18 @@
   ```
   browser.quitShortcut.disabled = true
   ```
+- Disable internal media player:
+  ```
+  media.play-stand-alone = false
+  ```
+- Do not open the downloads popup when a download starts:
+  ```
+  browser.download.alwaysOpenPanel = false
+  ```
+- Open `target="_blank"` tabs in the background:
+  ```
+  browser.tabs.loadDivertedInBackground = true
+  ```
 
 Block websites from asking to allow notifications:
 1. `about:preferences#privacy`
