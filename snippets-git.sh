@@ -12,15 +12,22 @@ git config --local format.signoff true
 git config --global core.autocrlf false
 git config --global push.default simple
 git config --global push.autoSetupRemote true
+git config --global rebase.autosquash true
+git config --global help.autocorrect prompt
 git config --global checkout.defaultRemote origin
 git config --global fetch.recurseSubmodules true
 git config --global submodule.secrets.update checkout
 git config --global merge.directoryRenames true
+git config --global merge.conflictstyle zdiff3
+git config --global diff.algorithm histogram
 git config --global diff.compactionHeuristic true
 git config --global diff.colorMoved zebra
 git config --global diff.noprefix true
 git config --global log.showSignature true
+git config --global log.date iso
 git config --global tag.sort version:refname
+git config --global tag.sort taggerdate
+git config --global branch.sort -committerdate
 git config --global core.excludesFile ~/.gitignore
 git config --global core.editor 'vim -c "set mouse="'
 git config --global protocol.version 1
