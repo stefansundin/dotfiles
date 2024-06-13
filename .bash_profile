@@ -49,6 +49,12 @@ source /Applications/Docker.app/Contents/Resources/etc/docker-compose.bash-compl
 source /Applications/Docker.app/Contents/Resources/etc/docker-machine.bash-completion
 
 
+# PostgreSQL
+# https://www.postgresql.org/docs/current/libpq-envars.html
+export PGTZ=PST8PDT
+export PGSERVICE=localhost
+
+
 # Setup pip venv by running:
 # python3 -m venv ~/.pip --system-site-packages
 export PATH="$HOME/.pip/bin:$PATH"
