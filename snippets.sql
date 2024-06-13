@@ -1,3 +1,41 @@
+-- psql:
+-- show tables: \dt
+-- list table: \d tablename
+-- list installed extensions: \dx
+
+-- list available extensions:
+-- SELECT * FROM pg_available_extensions ORDER BY name ASC;
+-- SELECT * FROM pg_available_extension_versions ORDER BY name ASC;
+-- upgrade extension:
+-- ALTER EXTENSION vector UPDATE TO '0.7.0';
+
+-- pgAdmin disable update check:
+-- echo 'UPGRADE_CHECK_ENABLED=False' >> '/Applications/pgAdmin 4.app/Contents/Resources/web/config_local.py'
+
+-- Create postgres read-only user:
+CREATE ROLE readonly WITH LOGIN PASSWORD 'readonly' NOSUPERUSER INHERIT NOCREATEDB NOCREATEROLE NOREPLICATION VALID UNTIL 'infinity';
+GRANT CONNECT ON DATABASE YourDatabaseName TO readonly;
+GRANT USAGE ON SCHEMA public TO readonly;
+GRANT SELECT ON ALL TABLES IN SCHEMA public TO readonly;
+GRANT SELECT ON ALL SEQUENCES IN SCHEMA public TO readonly;
+ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT SELECT ON TABLES TO readonly;
+
+create table "users" (
+  "id" uuid not null default gen_random_uuid(),
+  "created_at" timestamptz not null default now(),
+  "updated_at" timestamptz not null default now(),
+  "name" varchar(255) not null,
+  "email" varchar(255) unique not null,
+  constraint "users_pkey" primary key ("id")
+);
+
+insert into "users" ("name", "email")
+select
+  'User ' || i::text,
+  'user-' || i::text || '@example.com'
+from generate_series(1, 100) s(i);
+
+
 SELECT SLEEP(5);
 
 -- get number of active database connections in postgres
