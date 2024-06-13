@@ -39,12 +39,15 @@ defaults write com.apple.systempreferences AttentionPrefBundleIDs 0
 
 # disable Spotlight in System Preferences by deselecting everything and then adding the whole hard drive in the Privacy tab
 
+# Hide floating language switcher appearing in input fields on macOS >= 14:
+defaults write kCFPreferencesAnyApplication TSMLanguageIndicatorEnabled 0
+
 # keyboard key-repeat
 defaults write -g ApplePressAndHoldEnabled -bool false
 defaults read -g ApplePressAndHoldEnabled
 
 # fix Home/End on full-size keyboards
-mkdir ~/Library/KeyBindings/
+mkdir -p ~/Library/KeyBindings/
 subl ~/Library/KeyBindings/DefaultKeyBinding.dict
 {
     "\UF729"  = "moveToBeginningOfLine:";                   /* Home */
@@ -58,12 +61,49 @@ subl ~/Library/KeyBindings/DefaultKeyBinding.dict
     "^@\UF703" = "noop:";
 }
 
-
 # NSUserKeyEquivalents
 # @    Command (Apple)  CMD
 # ~    Option           OPT
 # $    Shift            SHIFT
 # ^    Control          CTRL
+
+
+# Remap Spotlight key (F4) on newer keyboards to the Launchpad key:
+hidutil property --set '{"UserKeyMapping":[{"HIDKeyboardModifierMappingSrc":0xC00000221,"HIDKeyboardModifierMappingDst":0xC000002A2}]}'
+hidutil property --get UserKeyMapping
+# Apply it on boot:
+cat << 'EOF' > ~/Library/LaunchAgents/local.hidutilKeyMapping.plist
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>local.hidutilKeyMapping</string>
+    <key>RunAtLoad</key>
+    <true/>
+    <key>ProgramArguments</key>
+    <array>
+        <string>/usr/bin/hidutil</string>
+        <string>property</string>
+        <string>--set</string>
+        <string>{
+            "UserKeyMapping": [
+                {
+                    "HIDKeyboardModifierMappingSrc":0xC00000221,
+                    "HIDKeyboardModifierMappingDst":0xC000002A2
+                }
+            ]
+        }</string>
+    </array>
+</dict>
+</plist>
+EOF
+launchctl load ~/Library/LaunchAgents/local.hidutilKeyMapping.plist
+# hidutil information:
+# https://github.com/amarsyla/hidutil-key-remapping-generator/issues/33
+# https://hidutil-generator.netlify.app/
+# https://developer.apple.com/library/archive/technotes/tn2450/_index.html
+
 
 # this will print an error if there's a problem with Xcode
 xcodebuild -version
@@ -81,14 +121,14 @@ sudo defaults delete com.apple.LaunchServices LSQuarantine
 defaults write com.apple.LaunchServices LSQuarantine -bool false
 sudo xattr -d -r com.apple.quarantine /Applications
 # set hostname
-sudo scutil --set HostName sundin
+sudo scutil --set HostName computer
 # disable Adobe Creative Cloud from starting on startup
 launchctl unload -w /Library/LaunchAgents/com.adobe.AdobeCreativeCloud.plist
 # put note on login/lock screen
 sudo defaults write /Library/Preferences/com.apple.loginwindow LoginwindowText "If lost, please call XXX-XXX-XXXX."
 # Finder.app
 # preferences (⌘,)
-#  General → New Finder windows show: stefansundin
+#  General → New Finder windows show: stefan
 #  Advanced → [x] Show all filename extensions
 # show the ~/Library directory
 chflags nohidden ~/Library
@@ -166,9 +206,6 @@ sudo defaults write /Library/Preferences/com.apple.mDNSResponder.plist NoMultica
 # [+] → Key: [↖ Home] → Modifier: [None] → Action: [Send Text:] <Ctrl-a>
 # [+] → Key: [↘ End]  → Modifier: [None] → Action: [Send Text:] <Ctrl-e>
 
-# disable iTunes automatically copying files to iTunes directory
-# iTunes → Preferences → Advanced → [ ] Copy files to iTunes Music folder when adding to library
-
 # system shortcuts
 # Mission Control: F3
 # Application windows: ⇧F3
@@ -188,16 +225,6 @@ sudo defaults write /Library/Preferences/com.apple.mDNSResponder.plist NoMultica
 # System Settings → Sharing → [x] File Sharing → Options
 # [x] Share files and folders using SMB (Windows)
 
-# mute startup chime (does not work every time)
-sudo nvram SystemAudioVolume=%80
-sudo vim /etc/rc.common
- # mute startup chime
- nvram SystemAudioVolume=%80
-# re-enable
-sudo nvram -d SystemAudioVolume
-# print setting
-nvram -p | grep SystemAudioVolume
-
 # show advanced printer settings
 cupsctl WebInterface=yes
 # http://localhost:631/
@@ -214,7 +241,7 @@ brew install bash
 
 # iTerm 2 key bindings
 # add to Profile settings that have highest priority
-# Preferences -> Profiles -> Keys
+# Preferences -> Profiles -> Keys -> Key Mappings
 
 # Key Combination | Action               | Key
 # --------------- | -------------------- | ------
@@ -236,6 +263,8 @@ brew install bash
 
 
 # additional apps
+# KeepingYouAwake: https://keepingyouawake.app/
+# UnnaturalScrollWheels: https://github.com/ther0n/UnnaturalScrollWheels/releases
 # SteerMouse: http://plentycom.jp/en/steermouse/
 # FinderPath: http://bahoom.com/finderpath/
 # MagicPrefs to customize Apple mice
@@ -269,9 +298,12 @@ sudo dseditgroup -o edit -a home -t user access_bpf
 # http://duti.org/
 brew install duti
 # get current associations
-open ~/Library/Preferences/com.apple.LaunchServices/com.apple.launchservices.secure.plist
+plutil -p ~/Library/Preferences/com.apple.LaunchServices/com.apple.launchservices.secure.plist
 # only LSHandlerContentType can be used
-for type in public.mpeg-4 public.avi public.mp3 public.mp2 com.apple.quicktime-movie com.microsoft.waveform-audio com.apple.m4a-audio org.webmproject.webm org.videolan.webm org.xiph.opus org.videolan.ogg-audio public.aac-audio; do duti -s io.mpv $type all; done
+# if you have XCode
+open ~/Library/Preferences/com.apple.LaunchServices/com.apple.launchservices.secure.plist
+# set file associations
+for type in public.mpeg-4 public.avi public.mp3 public.mp2 com.apple.quicktime-movie com.microsoft.waveform-audio com.apple.m4a-audio org.webmproject.webm org.videolan.webm org.xiph.opus org.videolan.ogg-audio public.aac-audio; do duti -s org.videolan.vlc $type all; done
 for type in conf ini public.plain-text public.json public.m3u-playlist public.mpeg-2-transport-stream public.php-script public.shell-script public.ruby-script public.xml com.apple.log public.comma-separated-values-text com.netscape.javascript-source net.daringfireball.markdown com.barebones.bbedit.ini-configuration public.yaml io.mpv.subrip; do duti -s com.sublimetext.4 $type all; done
 duti -s com.adobe.reader com.adobe.pdf all
 duti -s com.googlecode.iTerm2 com.apple.terminal.shell-script shell
