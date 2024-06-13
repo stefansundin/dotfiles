@@ -80,6 +80,9 @@ dive mysql:5.7
 
 Check pgvector version:
 ```shell
-docker pull ankane/pgvector
-docker run ankane/pgvector --version
+docker pull pgvector/pgvector:pg16
+docker run --rm pgvector/pgvector:pg16 --version
+docker run --rm -it -e POSTGRES_HOST_AUTH_METHOD=trust -p 5432:5432 pgvector/pgvector:pg16
+psql --user=postgres postgres -c 'create extension if not exists vector' -c '\dx'
+docker run --rm -it pgvector/pgvector:pg16 -c '\dx'
 ```
