@@ -134,6 +134,8 @@
       dosbox
       scummvm
       wine
+      fallout-ce
+      fallout2-ce
     ];
   };
 
