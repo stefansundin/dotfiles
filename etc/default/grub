@@ -1,4 +1,8 @@
-# comment out GRUB_HIDDEN_TIMEOUT to make grub menu visible
+# comment this out to show the grub menu
+#GRUB_TIMEOUT_STYLE=hidden
+
+# wait 5 seconds before automatically continuing
+GRUB_TIMEOUT=5
 
 # skip graphical logo
 GRUB_CMDLINE_LINUX_DEFAULT="text"
