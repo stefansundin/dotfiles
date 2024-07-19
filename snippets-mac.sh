@@ -38,3 +38,11 @@ killall Finder
 # restore:
 defaults write com.apple.finder CreateDesktop true
 killall Finder
+
+# self-sign an app to make it runnable without disabling Gatekeeper:
+# 1. Open Keychain Access.
+# 2. In the application menu: Keychain Access -> Certificate Assistant -> Create Certificate ...
+# 3. Enter Name: MyCodeSigningCertificate
+# 4. Change Certificate Type to: Code Signing
+# Run in terminal:
+codesign -fs MyCodeSigningCertificate --deep /Applications/VLC4.app
