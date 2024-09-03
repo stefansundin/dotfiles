@@ -1,0 +1,9 @@
+# Run after modifications:
+# sudo brew services restart dnscrypt-proxy
+
+lan 192.168.1.1
+local 192.168.1.1
+
+internal.example.com 10.1.0.2
+es.amazonaws.com 10.1.0.2
+rds.amazonaws.com 10.1.0.2

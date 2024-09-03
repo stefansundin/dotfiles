@@ -1,0 +1,11 @@
+# Run after modifications:
+# sudo brew services restart dnscrypt-proxy
+
+t.co
+click.redditmail.com
+datadoghq.com
+airbrake.io
+logo.clearbit.com
+blog.logrocket.com
+customer.io
+awstrack.me

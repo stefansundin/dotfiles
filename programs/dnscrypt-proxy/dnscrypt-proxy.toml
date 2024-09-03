@@ -1,0 +1,27 @@
+# Generate cert for DNS over HTTPS:
+# mkcert localhost 127.0.0.1 ::1
+
+# Download blocklist:
+# wget -O dnscrypt-mybase.txt https://download.dnscrypt.info/blacklists/domains/mybase.txt
+
+
+forwarding_rules = 'dnscrypt-forwarding-rules.txt'
+
+
+[local_doh]
+listen_addresses = ['127.0.0.1:3210']
+path = '/dns-query'
+cert_file = 'localhost+2.pem'
+cert_key_file = 'localhost+2-key.pem'
+
+
+[blocked_ips]
+blocked_ips_file = 'dnscrypt-blocked-ips.txt'
+
+
+[allowed_names]
+allowed_names_file = 'dnscrypt-allowed-names.txt'
+
+
+[blocked_names]
+blocked_names_file = 'dnscrypt-blocklist-mybase.txt'
