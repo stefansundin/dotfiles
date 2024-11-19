@@ -1,14 +1,22 @@
+start=`gdate +%s.%N`
+
 # Put custom stuff on top
 
 
 # https://github.com/stefansundin/dotfiles/blob/master/.bash_profile
-export PATH="$PATH:$HOME/bin:/usr/local/bin:/Applications/Firefox.app/Contents/MacOS:/Applications/Postgres.app/Contents/Versions/9.4/bin:$HOME/.rbenv/bin:$HOME/.rbenv/shims:node_modules/.bin:$HOME/Library/Android/sdk/platform-tools:$HOME/Library/Android/sdk/tools/templates/gradle/wrapper:$HOME/Library/Android/sdk/tools/proguard/bin:$HOME/Library/Android/sdk/tools"
+ulimit -Sn 4096
+export PATH="/usr/local/bin:/Applications/Firefox.app/Contents/MacOS:$HOME/.rbenv/bin:$HOME/.rbenv/shims:node_modules/.bin:$HOME/Library/Android/sdk/platform-tools:$HOME/Library/Android/sdk/tools:$PATH"
 export IGNOREEOF=5
 export LESSHISTFILE=-
+HISTCONTROL=ignoredups
 export TERM=xterm-256color
-export PGHOST=localhost
-export PGDATA="$HOME/Library/Application Support/Postgres/var-9.4"
-#export PS0='Command started: \t\n'
+# export PS0='Command started: \t\n'
+
+# https://www.postgresql.org/docs/current/libpq-envars.html
+export PGTZ=PST8PDT
+export PGSERVICE=default
+# export PGHOST=localhost
+# export PGDATA="$HOME/Library/Application Support/Postgres/var-9.4"
 
 # xterm-256color removes the color over ssh on some machines
 alias ssh='TERM=xterm-color ssh'
@@ -20,7 +28,20 @@ alias yt=yt-dlp
 alias upgrade-yt='pip3 install --upgrade yt-dlp'
 alias reload_profile=". ~/.profile"
 #alias npm-exec='PATH=$(npm bin):$PATH'
-source /usr/local/etc/bash_completion
+
+function rs {
+  # --bwlimit=10000
+  rsync -avrt \
+    --size-only \
+    --progress \
+    --partial \
+    --exclude Thumbs.db --exclude .DS_Store --exclude Sample \
+    --exclude '._*' --exclude '*.part' --exclude '*.meta' \
+    "$@"
+}
+
+[[ -r "/opt/homebrew/etc/profile.d/bash_completion.sh" ]] && . "/opt/homebrew/etc/profile.d/bash_completion.sh"
+# source /usr/local/etc/bash_completion
 
 # _complete_alias support:
 # wget -O ~/.bash_completion https://raw.githubusercontent.com/cykerway/complete-alias/master/completions/bash_completion.sh
@@ -31,6 +52,14 @@ function nohist {
 }
 
 # Mac
+# eval "$(/opt/homebrew/bin/brew shellenv)"
+export HOMEBREW_PREFIX="/opt/homebrew";
+export HOMEBREW_CELLAR="/opt/homebrew/Cellar";
+export HOMEBREW_REPOSITORY="/opt/homebrew";
+export PATH="/opt/homebrew/bin:/opt/homebrew/sbin${PATH+:$PATH}";
+export MANPATH="/opt/homebrew/share/man${MANPATH+:$MANPATH}:";
+export INFOPATH="/opt/homebrew/share/info:${INFOPATH:-}";
+
 export HOMEBREW_NO_AUTO_UPDATE=1
 export HOMEBREW_NO_INSTALL_CLEANUP=1
 export HOMEBREW_NO_EMOJI=1
@@ -46,7 +75,7 @@ alias dircolors="/usr/local/opt/coreutils/libexec/gnubin/dircolors"
 # Docker
 source /Applications/Docker.app/Contents/Resources/etc/docker.bash-completion
 source /Applications/Docker.app/Contents/Resources/etc/docker-compose.bash-completion
-source /Applications/Docker.app/Contents/Resources/etc/docker-machine.bash-completion
+export DOCKER_CLI_HINTS=false
 
 
 # PostgreSQL
@@ -84,6 +113,8 @@ gpgconf --launch gpg-agent
 #export EDITOR='subl -w'
 export EDITOR=vim
 export VISUAL=vim
+export BUNDLER_EDITOR=subl
+export HOMEBREW_EDITOR=subl
 # Ubuntu:
 # sudo update-alternatives --config editor
 # Select vim.basic (which is normal vim)
@@ -100,6 +131,7 @@ complete -C $HOME/Library/Python/3.7/bin/aws_completer aws
 complete -C /usr/local/var/homebrew/linked/terraform/bin/terraform terraform
 
 export AWS_EB_PROFILE=personal
+export SAM_CLI_TELEMETRY=0
 
 function aws {
   if [[ "$@" == *"--help"* ]]; then
@@ -226,15 +258,9 @@ proml
 
 
 # Ruby
-eval "$(rbenv init -)" # this slows down bash startup a bit, so you may want to run it and copy and paste the output right here
+# eval "$(rbenv init -)" # this slows down bash startup a bit, so you may want to run it and copy and paste the output right here
 # export RAILS_ENV=development
 # export RACK_ENV=development
-
-alias rsetup="RAILS_ENV=test bundle && RAILS_ENV=test bundle exec rake db:migrate"
-alias rtest="RAILS_ENV=test bundle exec rspec"
-alias resquework="bundle exec rake resque:work QUEUE=*"
-alias log="tail -f -n2500 log/development.log"
-alias schemadump="bundle exec rake db:schema:dump db:structure:dump"
 
 # auto bundle exec
 function use_bundler {
@@ -251,6 +277,9 @@ done
 
 
 # JavaScript
+export NODE_OPTIONS="--trace-deprecation --trace-warnings"
+export BROWSERSLIST_IGNORE_OLD_DATA=1
+export STORYBOOK_DISABLE_TELEMETRY=1
 # screw yarn - it sets GIT_SSH_COMMAND internally and thus doesn't respect sshCommand from git config (e.g. ssh keys)
 # https://github.com/yarnpkg/yarn/blob/v1.12.3/src/util/git/git-spawn.js
 function yarn {
@@ -268,3 +297,14 @@ function prettier-diff {
 # Kubernetes
 alias k=kubectl
 complete -F _complete_alias k
+
+
+# Rust
+. "$HOME/.cargo/env"
+
+
+export PATH="$HOME/bin:$PATH"
+
+end=`gdate +%s.%N`
+printf 'Shell initialization time: %1.4f seconds.\n' $(bc <<< "$end-$start")
+# Initialization time should be around 0.0025 seconds.
