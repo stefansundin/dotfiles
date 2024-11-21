@@ -1,0 +1,2 @@
+- https://open-vsx.org/extension/mikestead/dotenv
+- https://open-vsx.org/extension/esbenp/prettier-vscode

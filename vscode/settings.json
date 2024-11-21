@@ -1,0 +1,116 @@
+{
+  "editor.acceptSuggestionOnCommitCharacter": false,
+  "editor.acceptSuggestionOnEnter": "off",
+  "editor.autoClosingBrackets": "never",
+  "editor.autoClosingOvertype": "never",
+  "editor.autoClosingQuotes": "never",
+  "editor.autoSurround": "never",
+  "editor.cursorBlinking": "solid",
+  "editor.detectIndentation": false,
+  "editor.dragAndDrop": false,
+  "editor.formatOnSave": true,
+  "editor.hover.enabled": false,
+  "editor.multiCursorModifier": "ctrlCmd",
+  "editor.renderWhitespace": "boundary",
+  "editor.stablePeek": true,
+  "editor.tabSize": 2,
+  "editor.wordWrap": "on",
+  "explorer.confirmDragAndDrop": false,
+  "extensions.ignoreRecommendations": true,
+  "files.insertFinalNewline": true,
+  "files.trimFinalNewlines": true,
+  "files.trimTrailingWhitespace": true,
+  "html.autoClosingTags": false,
+  "html.autoCreateQuotes": false,
+  "npm.fetchOnlinePackageInfo": false,
+  "window.title": "${activeEditorMedium}${separator}${rootName}",
+  "telemetry.enableCrashReporter": false,
+  "telemetry.enableTelemetry": false,
+  "update.showReleaseNotes": false,
+  "workbench.editor.focusRecentEditorAfterClose": false,
+  "workbench.enableExperiments": false,
+  "workbench.layoutControl.enabled": false,
+  "workbench.settings.enableNaturalLanguageSearch": false,
+  "workbench.startupEditor": "readme",
+
+  // "files.watcherExclude": {
+  //   "**": true
+  // },
+  "search.exclude": {
+    "**/.git": true,
+    "**/.terraform": true,
+    "**/target": true,
+    "**/Cargo.lock": true,
+    "**/node_modules": true,
+    "**/tsconfig.tsbuildinfo": true,
+    "**/.yarn": true,
+    "**/.*history": true,
+    "**/log": true,
+    "**/vendor": true,
+    "**/dist": true,
+    "**/tmp": true,
+    "**/replica-data": true,
+    "**/*.min.js": true,
+    "**/*.min.css": true,
+    "**/*.svg": true,
+    "**/*.crt": true,
+    "**/*.pem": true
+  },
+
+  "diffEditor.ignoreTrimWhitespace": true,
+  "git.openRepositoryInParentFolders": "never",
+  "prettier.requireConfig": true,
+  "typescript.autoClosingTags": false,
+  "typescript.preferences.importModuleSpecifier": "shortest",
+  "javascript.preferences.importModuleSpecifier": "shortest",
+  "tsImportSorter.configuration.nodeProtocol": "always",
+
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[ejs]": {
+    "editor.formatOnSave": false
+  },
+  "[scss]": {
+    "editor.formatOnSave": false
+  },
+  "[json]": {
+    "editor.formatOnSave": false,
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "[jsonc]": {
+    "editor.formatOnSave": false,
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "[css]": {
+    "editor.formatOnSave": false
+  },
+  "[yaml]": {
+    "editor.formatOnSave": false
+  },
+  "[markdown]": {
+    "editor.formatOnSave": false
+  },
+  "[dockercompose]": {
+    "editor.formatOnSave": false
+  },
+  "[terraform]": {
+    "editor.defaultFormatter": "hashicorp.terraform",
+    "editor.formatOnSave": false
+  },
+  "[diff]": {
+    "editor.formatOnSave": false
+  },
+  "[toml]": {
+    "editor.formatOnSave": false
+  },
+  "[python]": {
+    "editor.formatOnSave": false
+  }
+}
