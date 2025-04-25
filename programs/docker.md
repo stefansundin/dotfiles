@@ -46,7 +46,7 @@ Allow ubuntu user to use docker:
 sudo groupadd docker
 
 # add user to group:
-sudo usermod -aG docker ubuntu
+sudo usermod -aG docker user
 
 # discover the new group:
 newgrp docker

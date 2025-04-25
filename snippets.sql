@@ -1,3 +1,10 @@
+-- sqlite:
+-- show table structure:
+PRAGMA table_info(table_name);
+select quote(flags) from users;
+select quote(x'01');
+
+
 -- psql:
 -- show tables: \dt
 -- list table: \d tablename

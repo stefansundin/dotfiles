@@ -5,6 +5,9 @@ echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/nodes
 sudo apt-get update
 sudo apt-get install nodejs
 
+# Add package to devDependencies:
+npm add --save-dev html-validate
+
 # Install global packages without root (i.e. local to the user)
 # https://docs.npmjs.com/resolving-eacces-permissions-errors-when-installing-packages-globally
 mkdir ~/.npm-global

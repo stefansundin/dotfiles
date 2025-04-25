@@ -1,11 +1,13 @@
-sudo ln -s "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" /usr/local/bin/subl
-sudo ln -s "/Applications/Sublime Merge.app/Contents/SharedSupport/bin/smerge" /usr/local/bin/smerge
-sudo ln -s "/Applications/Visual Studio Code.app/Contents/Resources/app/bin/code" /usr/local/bin/code
-sudo ln -s /Applications/TrueCrypt.app/Contents/MacOS/TrueCrypt /usr/local/bin/truecrypt
-sudo ln -s /Applications/Gimp.app/Contents/MacOS/gimp-2.8 /usr/local/bin/gimp
-sudo ln -s /Applications/VLC.app/Contents/MacOS/VLC /usr/local/bin/vlc
-sudo ln -s /Applications/mpv.app/Contents/MacOS/mpv /usr/local/bin/mpv
-sudo ln -s /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome /usr/local/bin/google-chrome
+mkdir $HOME/bin
+ln -s "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" $HOME/bin/subl
+ln -s "/Applications/Sublime Merge.app/Contents/SharedSupport/bin/smerge" $HOME/bin/smerge
+ln -s "/Applications/Visual Studio Code.app/Contents/Resources/app/bin/code" $HOME/bin/code
+ln -s /Applications/TrueCrypt.app/Contents/MacOS/TrueCrypt $HOME/bin/truecrypt
+ln -s /Applications/GIMP.app/Contents/MacOS/gimp $HOME/bin/gimp
+ln -s /Applications/VLC.app/Contents/MacOS/VLC $HOME/bin/vlc
+ln -s /Applications/mpv.app/Contents/MacOS/mpv $HOME/bin/mpv
+ln -s /Applications/Firefox.app/Contents/MacOS/firefox $HOME/bin/firefox
+ln -s /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome $HOME/bin/google-chrome
 
 sudo xattr -d -r com.apple.quarantine /Applications
 grep -nr paginator .
@@ -72,6 +74,7 @@ subl ~/Library/KeyBindings/DefaultKeyBinding.dict
 hidutil property --set '{"UserKeyMapping":[{"HIDKeyboardModifierMappingSrc":0xC00000221,"HIDKeyboardModifierMappingDst":0xC000002A2}]}'
 hidutil property --get UserKeyMapping
 # Apply it on boot:
+mkdir -p ~/Library/LaunchAgents/
 cat << 'EOF' > ~/Library/LaunchAgents/local.hidutilKeyMapping.plist
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">

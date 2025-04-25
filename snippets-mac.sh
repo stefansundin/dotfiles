@@ -7,6 +7,9 @@ sudo xattr -d -r com.apple.quarantine /Applications
 # delete ._* files from sd card
 dot_clean -m /Volumes/noname/
 
+# clean up system logs (e.g. /var/db/diagnostics)
+sudo log erase --all
+
 # Docker For Mac
 screen ~/Library/Containers/com.docker.docker/Data/com.docker.driver.amd64-linux/tty
 
