@@ -159,6 +159,11 @@
   systemd.services."getty@tty1".enable = false;
   systemd.services."autovt@tty1".enable = false;
 
+  # Disable flushing systemd logs to disk:
+  systemd.services.systemd-journal-flush.enable = false;
+  # Manually vacuum:
+  # sudo journalctl --vacuum-size=10M
+
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
