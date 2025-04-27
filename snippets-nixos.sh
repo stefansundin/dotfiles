@@ -12,7 +12,7 @@ sudo nixos-rebuild switch --upgrade
 
 # upgrade nix channel:
 sudo nix-channel --list
-sudo nix-channel --add https://nixos.org/channels/nixos-24.05 nixos
+sudo nix-channel --add https://nixos.org/channels/nixos-24.11 nixos
 sudo nix-channel --update
 sudo nixos-rebuild boot --upgrade
 sudo reboot

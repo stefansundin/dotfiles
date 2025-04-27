@@ -66,7 +66,6 @@
   services.printing.enable = true;
 
   # Enable sound with pipewire.
-  sound.enable = true;
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
@@ -119,8 +118,8 @@
       vscode
 
       # Tools
-      pkgs.gnome3.gnome-tweaks
-      gnome.dconf-editor
+      gnome-tweaks
+      dconf-editor
       baobab                         # Disk Usage Analyzer
       gparted
       rpi-imager
@@ -149,7 +148,7 @@
     #remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
     #dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
   };
-  hardware.opengl.driSupport32Bit = true; # Enables support for 32bit libs that steam uses
+  hardware.graphics.enable32Bit = true; # Enables support for 32bit libs that steam uses
 
   # Enable automatic login for the user.
   services.displayManager.autoLogin.enable = true;
@@ -214,7 +213,7 @@
   # GNOME
   services.xserver.desktopManager.gnome = {
     extraGSettingsOverridePackages = with pkgs; [
-      gnome3.gnome-settings-daemon
+      gnome-settings-daemon
     ];
     extraGSettingsOverrides = ''
       [org.gnome.settings-daemon.plugins.media-keys]
