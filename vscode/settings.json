@@ -34,7 +34,7 @@
   "workbench.startupEditor": "readme",
 
   // "files.watcherExclude": {
-  //   "**": true
+  //   "**": true,
   // },
   "search.exclude": {
     "**/.git": true,
@@ -54,7 +54,7 @@
     "**/*.min.css": true,
     "**/*.svg": true,
     "**/*.crt": true,
-    "**/*.pem": true
+    "**/*.pem": true,
   },
 
   "diffEditor.ignoreTrimWhitespace": true,
@@ -65,52 +65,82 @@
   "javascript.preferences.importModuleSpecifier": "shortest",
   "tsImportSorter.configuration.nodeProtocol": "always",
 
-  "[typescript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[typescriptreact]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[javascript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
+  // "[typescript]": {
+  //   "editor.defaultFormatter": "esbenp.prettier-vscode",
+  // },
+  // "[typescriptreact]": {
+  //   "editor.defaultFormatter": "esbenp.prettier-vscode",
+  // },
+  // "[javascript]": {
+  //   "editor.defaultFormatter": "esbenp.prettier-vscode",
+  // },
   "[ejs]": {
-    "editor.formatOnSave": false
+    "editor.formatOnSave": false,
   },
   "[scss]": {
-    "editor.formatOnSave": false
+    "editor.formatOnSave": false,
   },
   "[json]": {
     "editor.formatOnSave": false,
-    "editor.defaultFormatter": "vscode.json-language-features"
+    "editor.defaultFormatter": "vscode.json-language-features",
   },
   "[jsonc]": {
     "editor.formatOnSave": false,
-    "editor.defaultFormatter": "vscode.json-language-features"
+    "editor.defaultFormatter": "vscode.json-language-features",
   },
   "[css]": {
-    "editor.formatOnSave": false
+    "editor.formatOnSave": false,
   },
   "[yaml]": {
-    "editor.formatOnSave": false
+    "editor.formatOnSave": false,
   },
   "[markdown]": {
-    "editor.formatOnSave": false
+    "editor.formatOnSave": false,
   },
   "[dockercompose]": {
-    "editor.formatOnSave": false
+    "editor.formatOnSave": false,
   },
   "[terraform]": {
+    "editor.formatOnSave": false,
     "editor.defaultFormatter": "hashicorp.terraform",
-    "editor.formatOnSave": false
   },
   "[diff]": {
-    "editor.formatOnSave": false
+    "editor.formatOnSave": false,
   },
   "[toml]": {
-    "editor.formatOnSave": false
+    "editor.formatOnSave": false,
   },
   "[python]": {
-    "editor.formatOnSave": false
-  }
+    "editor.formatOnSave": false,
+  },
+
+  "workbench.colorCustomizations": {
+    // "editor.selectionBackground": "#08321b",
+    // "editor.selectionHighlightBackground": "#ff0000",
+    // "editor.selectionHighlightBorder": "#ff0000",
+    // "editor.findMatchHighlightBackground": "#ff0000",
+    // "editor.wordHighlightBackground": "#ff00004f",
+    // "editor.wordHighlightTextBorder": "#ff0000",
+
+    "editor.wordHighlightBackground": "#00000000",
+    "editor.wordHighlightBorder": "#00ddffaa",
+    "editor.selectionBackground": "#0b471e",
+    // "editor.selectionBackground": "#198e3e",
+
+    "editorIndentGuide.activeBackground1": "#198e3e",
+
+    // Make scm.diffDecorations transparent in scrollbar: https://github.com/microsoft/vscode/issues/144843
+    "editorOverviewRuler.addedForeground": "#0000",
+    "editorOverviewRuler.modifiedForeground": "#0000",
+    "editorOverviewRuler.deletedForeground": "#0000",
+  },
+
+  // Tolerate trailing comma warning in jsonc: https://github.com/microsoft/vscode/issues/102061
+  "json.schemas": [{
+    "fileMatch": ["*.json", "*.jsonc"],
+    "schema": {
+      "allowTrailingCommas": true,
+    },
+  }],
+
 }
