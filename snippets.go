@@ -1,9 +1,13 @@
-go mod edit -go=1.21
-go mod tidy -go=1.21
-go mod tidy -compat=1.21
+go mod edit -go=1.24
+go mod tidy -go=1.24.4
+go mod tidy -compat=1.24.4
 
 # clean up caches:
 go clean -cache -testcache -modcache
+
+# check for vulnerable packages:
+go install golang.org/x/vuln/cmd/govulncheck@latest
+govulncheck -show=verbose .
 
 # find out what go version was used to build a binary
 $ gdb --batch -iex "set auto-load no" -ex "p 'runtime.buildVersion'" aws-rotate-key
