@@ -4,28 +4,52 @@
 services:
   postgres:
     image: postgres:16
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
     ports:
       - 5432:5432
     environment:
       POSTGRES_DB: app
       POSTGRES_USER: admin
       POSTGRES_PASSWORD: admin
+
+  mariadb:
+    image: mariadb:11
     volumes:
-      - postgresdata:/var/lib/postgresql/data
+      - mariadb_data:/var/lib/mysql
+    ports:
+      - 3306:3306
+    environment:
+      MARIADB_ALLOW_EMPTY_ROOT_PASSWORD: '1'
+    healthcheck:
+      test: ["CMD", "healthcheck.sh", "--connect"]
+
+  mysql:
+    image: mysql:9
+    volumes:
+      - mysql_data:/var/lib/mysql
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: '1'
 
   # Default minio credentials: minioadmin/minioadmin
   # Console: http://localhost:9001/
   minio:
     image: minio/minio
+    volumes:
+      - minio_data:/data
     ports:
       - 9000:9000
       - 9001:9001
     command: server /data --console-address :9001
-    volumes:
-      - miniodata:/data
 
 volumes:
-  postgresdata:
+  postgres_data:
     driver: local
-  miniodata:
+  mariadb_data:
+    driver: local
+  mysql_data:
+    driver: local
+  minio_data:
     driver: local
