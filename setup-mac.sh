@@ -194,6 +194,7 @@ defaults write com.apple.coreservices.uiagent CSUILastOSVersionWhereSafariRecomm
 
 # disable two-finger back/forward navigation in Chrome only
 defaults write com.google.Chrome AppleEnableSwipeNavigateWithScrolls -bool false
+defaults write io.ungoogled-software.ungoogled-chromium AppleEnableSwipeNavigateWithScrolls -bool false
 # disable dark mode in Chrome only
 defaults write com.google.Chrome NSRequiresAquaSystemAppearance -bool true
 defaults delete com.google.Chrome NSRequiresAquaSystemAppearance
@@ -244,18 +245,21 @@ brew install bash
 
 # iTerm 2 key bindings
 # add to Profile settings that have highest priority
-# Preferences -> Profiles -> Keys -> Key Mappings
+# Preferences -> Profiles -> Keys -> Key Bindings
 
 # Key Combination | Action               | Key
 # --------------- | -------------------- | ------
-# Home            | Send Hex Code.       | 0x01
-# End             | Send Hex Code.       | 0x05
+# Home            | Send Hex Code        | 0x01
+# End             | Send Hex Code        | 0x05
 # ⌥←              | Send Escape Sequence | Esc+ b
 # ⌥→              | Send Escape Sequence | Esc+ f
 # ⌥Del→           | Send Escape Sequence | Esc+ d
 # ⌥←Delete        | Send Hex Code        | 0x1b 0x08
 # ⌘←Delete        | Send Hex Code        | 0x15
 # Del→            | Send Hex Code        | 0x04
+
+# Remove "Last login:" line in new iTerm tabs
+touch ~/.hushlogin
 
 # iTerm 2 Smart Selection
 # Regular expression: story #(\d+)
