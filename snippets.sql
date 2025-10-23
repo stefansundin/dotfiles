@@ -6,8 +6,9 @@ select quote(x'01');
 
 
 -- psql:
--- show tables: \dt
--- list table: \d tablename
+-- list schemas: \dn
+-- list tables: \dt
+-- show table definition: \d tablename
 -- list installed extensions: \dx
 
 -- list available extensions:
