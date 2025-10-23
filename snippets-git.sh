@@ -1,6 +1,7 @@
 git push --force-with-lease
 git diff --color-words
 git diff --word-diff-regex=.
+git diff --word-diff-regex=[^[:space:],]+
 
 
 git config --global user.useConfigOnly true
@@ -48,6 +49,9 @@ git config --global merge.tool smerge
 git config --global core.fileMode false
 git update-index --chmod=+x script.sh
 
+# windows and macos:
+git config --global core.ignorecase false
+
 git config --global alias.co 'checkout --ignore-other-worktrees'
 git config --global alias.ci commit
 git config --global alias.cim 'commit --allow-empty-message -m ""'
@@ -62,10 +66,12 @@ git config --global alias.br branch
 git config --global alias.cl 'clone --recursive -j8'
 git config --global alias.contains 'branch -a --contains'
 git config --global alias.d 'diff --no-prefix -U100'
+git config --global alias.d 'diff --cached'
 # git config --global alias.d '!git diff HEAD~${1:-1} HEAD~$((${1:-1}-1)) ${*:2} #'
 # git config --global alias.d 'diff HEAD^..HEAD'
 git config --global alias.da "!git add -N . && git diff"
-git config --global alias.dw "git diff --color-words"
+git config --global alias.dw 'diff --color-words'
+git config --global alias.dw 'diff --word-diff-regex=.'
 git config --global alias.df 'diff-tree --no-commit-id --name-only -r'
 git config --global alias.di '!git diff $1^..$1 ${*:2} #'
 git config --global alias.gist '!gist=$(echo $1 | sed -e "s/.*\///" -e "s/\.git$//" -e "s/#.*$//"); git clone git@gist.github.com:$gist.git "${2:-$gist}" #'
