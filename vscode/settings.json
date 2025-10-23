@@ -8,7 +8,7 @@
   "editor.cursorBlinking": "solid",
   "editor.detectIndentation": false,
   "editor.dragAndDrop": false,
-  "editor.formatOnSave": true,
+  "editor.formatOnSave": false,
   "editor.hover.enabled": false,
   "editor.multiCursorModifier": "ctrlCmd",
   "editor.renderWhitespace": "boundary",
@@ -24,14 +24,23 @@
   "html.autoCreateQuotes": false,
   "npm.fetchOnlinePackageInfo": false,
   "window.title": "${activeEditorMedium}${separator}${rootName}",
-  "telemetry.enableCrashReporter": false,
-  "telemetry.enableTelemetry": false,
+  "telemetry.telemetryLevel": "off",
+  "telemetry.feedback.enabled": false,
   "update.showReleaseNotes": false,
   "workbench.editor.focusRecentEditorAfterClose": false,
+  "workbench.editorLargeFileConfirmation": 20, // MB
   "workbench.enableExperiments": false,
   "workbench.layoutControl.enabled": false,
   "workbench.settings.enableNaturalLanguageSearch": false,
-  "workbench.startupEditor": "readme",
+  "workbench.startupEditor": "none",
+
+  "diffEditor.ignoreTrimWhitespace": true,
+  "git.openRepositoryInParentFolders": "never",
+  "prettier.requireConfig": true,
+  "typescript.autoClosingTags": false,
+  "typescript.preferences.importModuleSpecifier": "shortest",
+  "javascript.preferences.importModuleSpecifier": "shortest",
+  "tsImportSorter.configuration.nodeProtocol": "always",
 
   // "files.watcherExclude": {
   //   "**": true,
@@ -57,13 +66,9 @@
     "**/*.pem": true,
   },
 
-  "diffEditor.ignoreTrimWhitespace": true,
-  "git.openRepositoryInParentFolders": "never",
-  "prettier.requireConfig": true,
-  "typescript.autoClosingTags": false,
-  "typescript.preferences.importModuleSpecifier": "shortest",
-  "javascript.preferences.importModuleSpecifier": "shortest",
-  "tsImportSorter.configuration.nodeProtocol": "always",
+  "files.associations": {
+    ".irbrc": "ruby",
+  },
 
   // "[typescript]": {
   //   "editor.defaultFormatter": "esbenp.prettier-vscode",
