@@ -7,6 +7,8 @@ yt -f bestvideo+bestaudio "$URL"
 yt --remux-video mkv --embed-info-json --embed-subs https://www.youtube.com/watch?v=
 # extract audio and embed subtitles
 yt -x --remux-video mka --embed-info-json --embed-subs https://www.youtube.com/watch?v=
+# download playlist with playlist index in filename:
+yt -o '%(playlist_index)s - %(title)s.%(ext)s' -x 'https://www.youtube.com/playlist?list=OLAK5uy_kVza8S47sMvFiM7ESXWvcP7OlTHYsexAs'
 
 # https://streamlink.github.io/cli.html
 streamlink --hls-live-restart -o video.mp4 https://www.youtube.com/watch?v=abc best
