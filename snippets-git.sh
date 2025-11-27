@@ -1,7 +1,15 @@
+# https://git-scm.com/docs/git
+
 git push --force-with-lease
 git diff --color-words
 git diff --word-diff-regex=.
 git diff --word-diff-regex=[^[:space:],]+
+
+
+# Ignore user global gitconfig ($HOME/.gitconfig):
+export GIT_CONFIG_GLOBAL=/dev/null
+# Ignore system global gitconfig (/etc/gitconfig):
+export GIT_CONFIG_SYSTEM=/dev/null
 
 
 git config --global user.useConfigOnly true
