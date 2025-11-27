@@ -1,4 +1,5 @@
 {
+  "chat.disableAIFeatures": true,
   "editor.acceptSuggestionOnCommitCharacter": false,
   "editor.acceptSuggestionOnEnter": "off",
   "editor.autoClosingBrackets": "never",
@@ -9,6 +10,7 @@
   "editor.detectIndentation": false,
   "editor.dragAndDrop": false,
   "editor.formatOnSave": false,
+  "editor.formatOnPaste": true,
   "editor.hover.enabled": false,
   "editor.multiCursorModifier": "ctrlCmd",
   "editor.renderWhitespace": "boundary",
@@ -20,6 +22,7 @@
   "files.insertFinalNewline": true,
   "files.trimFinalNewlines": true,
   "files.trimTrailingWhitespace": true,
+  "files.simpleDialog.enable": true,
   "html.autoClosingTags": false,
   "html.autoCreateQuotes": false,
   "npm.fetchOnlinePackageInfo": false,
@@ -33,6 +36,7 @@
   "workbench.layoutControl.enabled": false,
   "workbench.settings.enableNaturalLanguageSearch": false,
   "workbench.startupEditor": "none",
+  "workbench.secondarySideBar.defaultVisibility": "hidden", // Hide right sidebar by default (AI chat)
 
   "diffEditor.ignoreTrimWhitespace": true,
   "git.openRepositoryInParentFolders": "never",
